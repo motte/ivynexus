@@ -1,0 +1,101 @@
+﻿a#rfc {
+	color: #E9E9E9;
+	text-decoration: underline;
+}
+
+a#rfc:hover {
+	color: #991122;
+}
+
+a#rfcWindowX2 {
+	cursor: pointer;
+	text-decoration:none;
+}
+
+span#i {
+	font-family: Calluna;
+	font-weight: 500;
+	padding-right: 0px;
+	font-size: 30px;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #196543;
+}
+
+span#divide {
+	border-top:1px dotted #D3D3D3;
+	padding-top: 10px;
+}
+
+span#n {
+	font-style: italic;
+	font-family: Calluna;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #196543;
+}
+
+#backdrop {
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	border:1px solid #CECECE;
+	z-index:1;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#rfcWindow2 {
+	display:none;
+	position:fixed;
+	position:absolute; /* hack for internet explorer 6*/
+	height:550px;
+	width:640px;
+	background:#FFFFFF;
+	border:2px solid #CECECE;
+	z-index:2;
+	/* this adjusts the whitespace from the text to the border */
+	padding-top: 25px;
+	padding-bottom: 20px;
+	padding-left:7px;
+	padding-right: 7px;
+	font-size:13px;
+	overflow-y: scroll;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#rfcWindow2 h1 {
+	text-align:left;
+	color:#196543;
+	font-size:22px;
+	font-weight:700;
+	border-bottom:1px dotted #D3D3D3;
+	padding-bottom:2px;
+	margin-bottom:20px;
+}
+
+#rfcWindowX2 {
+	font-size:14px;
+	line-height:14px;
+	right:6px;
+	top:4px;
+	position:absolute;
+	color:#196543;
+	font-weight:700;
+	display:block;
+
+}
+
+#rfcbutton2 {
+	text-align:center;
+	margin-top:10px;
+}

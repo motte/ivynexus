@@ -1,0 +1,85 @@
+.active {font-weight:bold}
+
+#exhibition {
+  display:inline-block;
+  list-style-type:none;
+  position:relative;
+  margin: 0px auto;
+  padding: 0;
+}
+#exhibition li {
+  position: relative;
+  float: left;
+  display: block;
+  margin: 10px;   
+}
+#exhibition li:nth-child(3n+1) {clear: left}
+
+#exhibition li:focus {
+  outline:0;
+}
+#exhibition li img {
+  width: 200px;
+  display: block;
+  cursor: pointer;
+  padding: 5px;
+  background: #fff; 
+  position: relative;                              
+  -webkit-box-shadow: #000 0px 0px 20px;
+  -webkit-transition-property: width;
+  -webkit-transition-duration:0.5s;
+  -moz-box-shadow: #000 0px 0px 20px;
+  -moz-transition-property: width;
+  -moz-transition-duration:0.5s;  
+  -o-transition-property: width;
+  -o-transition-duration:0.5s;
+  box-shadow: #000 0px 0px 20px; 
+}
+#exhibition li:hover img {
+  -webkit-box-shadow: #fff 0px 0px 3px;
+  -moz-box-shadow: #fff 0px 0px 3px;
+  box-shadow: #fff 0px 0px 3px;
+}
+#exhibition li:focus img {
+  width: 430px;
+  z-index: 5;
+  -webkit-box-shadow: #000 0px 0px 20px;
+  -moz-box-shadow: #000 0px 0px 20px;
+  box-shadow: #000 0px 0px 20px;
+}
+#exhibition li:focus div:before {
+  content:attr(title);
+  display:block;
+  position: absolute;
+  bottom:5px;
+  right:5px;
+  padding: 5px 15px;
+  background: rgba(0,0,0,.8);
+  color:#fff;
+  z-index: 9;
+}
+
+.absolute #exhibition li {width: 210px; height: 160px;}
+.absolute #exhibition div  {
+  -webkit-transition-property: width;
+  -webkit-transition-duration:0.5s;
+  -moz-transition-property: width;
+  -moz-transition-duration:0.5s;
+  -o-transition-property: width;
+  -o-transition-duration:0.5s;
+}
+.absolute #exhibition li:focus div {
+  position:absolute;
+  z-index:3;
+  -moz-box-shadow: rgba(0,0,0,.7) 0px 0px 20px 2000px;
+  -webkit-box-shadow: rgba(0,0,0,.7) 0px 0px 20px 2000px;
+  box-shadow: rgba(0,0,0,.7) 0px 0px 20px 2000px;
+} 
+
+.absolute.center #exhibition li:focus div {
+  position:fixed;
+  top: 30%;
+  left: 50%;                
+  margin-left: -215px;
+  box-shadow: none;
+}

@@ -1,0 +1,83 @@
+/* This stylesheet is for all the pages that contain the header.tpl.php file like all the pages after logging in 
+Currently used for academic profile for printing*/
+
+div#notify {
+	color: #CA2F2F;
+	font-size: 15px;
+	margin-top: -10px;
+}
+            
+body div#wrapper{
+	background-image: url('../../views/default/images/logo.png'); 
+	background-repeat: no-repeat;
+	/* logo height */
+	background-position: center 150px;
+	position: relative;
+	/* field height */
+	padding-top: 270px;
+	min-height: 0px;
+	
+}
+
+input.email {
+	margin-top:12px;
+	font-size: 15px;
+}
+
+span#nudge {
+	padding-left: 280px;
+}
+
+input.passwd {
+	font-size: 15px;
+}
+
+span.inputlabel {
+	color:#ffffff;
+	font-size: 20px;
+}    
+
+input.btn {
+	border: solid 1px #eee;
+	font-weight: bold;
+
+	font-size: 12px;
+	width: 90px;
+	height: 28px;
+	cursor: pointer;
+	background-color: #eeeeee;
+	
+	/* Rounded corner stuff starts here */
+	-webkit-border-radius: 5px;    /* for Safari */
+	-moz-border-radius: 5px;       /* for Firefox */
+}
+
+div.space {
+	padding-top: 5px;
+}
+                
+#main {
+                    
+}
+
+a:link {
+	color: #196543;
+}
+                
+a:visited {
+	color: #196543;
+}
+                
+a:hover {
+	color: #991122;
+}
+
+span#userbar {
+	text-align: right;	
+	top: -10px;
+	padding-right: 20px;
+	right: 0px;
+	left: 0px;
+	position: absolute;
+}
+

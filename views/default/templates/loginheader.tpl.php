@@ -1,0 +1,4 @@
+<title>IvyNexus - The Social Network For Students By Students</title>
+<meta name="description" content="A social network exclusively for students that provides students with privacy and security of personal information.  The primary goal of IvyNexus is to reduce the stress of current students in school.  IvyNexus provides students with a space for collaboration, sharing, creating relationships and connections, and more.  Ivy Nexus provides many other benefits, only accessible as a member.  IvyNexus wants to show that education should not be stressful but enjoyable, while displaying the importance and benefits of college.">
+<meta name="keywords" content="social network, college, students, education, benefits, collaboration, sharing, IvyNexus, ivy nexus">
+<link rel="Shortcut Icon" href="/favicon.ico">

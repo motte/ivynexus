@@ -1,0 +1,73 @@
+a.btn {
+	border: solid 1px #196543;
+	font-size: 18px;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	background-color: #f7f7f7;
+	padding: 7px 10px 7px 10px;
+	
+	/* Rounded corner stuff starts here */
+	-webkit-border-radius: 5px;    /* for Safari */
+	-moz-border-radius: 5px;       /* for Firefox */
+}
+
+span#bigletter {
+	font: 250px Edwardian Script ITC;
+	color: #36B91B;
+
+}
+
+span#big {
+	font: 100px century gothic;
+	padding-right: 30px;
+}
+
+span#smallletter {
+	font: italic 30px century gothic;
+	color: #36B91B;
+}
+
+span#smallletter2 {
+	font: italic 30px century gothic;
+	padding-left: 15px;
+	padding-right: 70px;
+	color: #36B91B;
+}
+
+span#ivy {
+	font: 80px calluna;
+	color: #196543;
+}
+
+span#nexus {
+	font: italic 80px calluna;
+
+}
+
+body {
+	background-image: url('../../../images/ivynexus.gif');
+	background-position: center 280px;
+	background-repeat: no-repeat;
+	background-size: 50%;
+}
+
+div#loginlink {
+	margin-top: 190px;
+}
+               
+a:link {
+	color: #30A718;
+	text-decoration: none;
+}
+                
+a:visited {
+	color: #30A718;
+}
+            
+a:hover {
+	color: #30A718;
+	text-decoration: none;
+	padding: 8px 9px 6px 11px;
+
+}

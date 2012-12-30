@@ -1,0 +1,93 @@
+a.btn {
+	border: solid 1px #196543;
+	font-size: 12px;
+	font-weight: bold;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	background-color: #eeeeee;
+	padding: 7px 15px 7px 15px;
+	color: #000;
+	text-decoration: none;
+	font-family: Lucida Grande;
+	
+	/* Rounded corner stuff starts here */
+	-webkit-border-radius: 5px;    /* for Safari */
+	-moz-border-radius: 5px;       /* for Firefox */
+}
+
+a.btn:hover {
+	background-color: #DFFFDE;
+	border: 1px solid #C2F0CB;
+	color: #329950;
+	
+	/* Rounded corner stuff starts here */
+	-webkit-border-radius: 5px;    /* for Safari */
+	-moz-border-radius: 5px;       /* for Firefox */
+}
+
+span#bigletter {
+	font: 250px Edwardian Script ITC;
+	/*color: #36B91B;*/
+	color: #1A6636;
+}
+
+span#big {
+	font: 100px century gothic;
+	padding-right: 30px;
+	color: #ffffff;
+}
+
+span#smallletter {
+	font: italic 30px century gothic;
+	/*color: #36B91B;*/
+	color: #fff;
+}
+
+span#smallletter2 {
+	font: italic 30px century gothic;
+	padding-left: 15px;
+	padding-right: 70px;
+	/*color: #36B91B;*/
+	color: #fff;
+}
+
+span#ivy {
+	font: 80px calluna;
+	color: #196543;
+}
+
+span#nexus {
+	font: italic 80px calluna;
+
+}
+
+body {
+	background-image: url('../../views/default/images/ivynexusfull.gif');
+	background-position: center 280px;
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-color: #000000;
+}
+body#login:before {
+
+	/* IE10 */ 
+	background-image: -ms-radial-gradient(center, circle cover, #333333 0%, #000000 100%); 
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-radial-gradient(center, circle cover, #333333 0%, #000000 100%); 
+
+	/* Opera */ 
+	background-image: -o-radial-gradient(center, circle cover, #333333 0%, #000000 100%); 
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(radial, center center, 0, center center, 451, color-stop(0, #333333), color-stop(1, #000000)); 
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-radial-gradient(center, circle cover, #333333 0%, #000000 100%); 
+}
+
+div#loginlink {
+	margin-top: 190px;
+}
+  
