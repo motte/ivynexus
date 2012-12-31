@@ -1,39 +1,38 @@
 <center>
 <div id="main">
-	<div class="engraved">
-		<span>This page is NOT visible to other IvyNexus members but helps you match with jobs, internships, and interviews!</span>
-	</div>
+	
+		<div>This page is NOT visible to other IvyNexus members but helps you match with jobs, internships, and interviews!</div>
+	
 		<span style="color: #bbb; font-size: 13px;">The objective is to match you with a profession you will enjoy, so be yourself.</span>
-	<hr id="bar" />
+	<div style="width: 70%; border-top: 1px solid #fff; margin-top: 10px; margin-bottom: 12px;"></div>
 	
     <!--<table class="text">-->
 <table align="center">
-    	<tr height="20px"></tr>
+    	
     	<!--<tr width="100%" valign="top" align="left">-->
     	<tr valign="top" align="center">
     		<td colspan="3">
     			<div>
     			<div id="content"><a href="profile/view/{p_user_id}" id="profilename">{p_name}</a>
-    			&nbsp | &nbsp<a href="academics/edit">Edit</a>&nbsp | &nbsp<a href="academics/print">Print</a>&nbsp | &nbsp</div>
+    			<span style="font-size: 12px;">&nbsp<a href="academics/edit">Edit</a> <!--&nbsp<a href="academics/print">Print</a>&nbsp | &nbsp</div>--></span>
     		</td>
     	</tr>
     	<tr align="center">
 		<td>
- 			<div id="schoolclass">
+ 			<div style="font-size: 13px;">
     				<h4>| <a href="ivies/{p_school}">{p_school}</a> | Class of {p_class} |</h4>
     			</div>
-</div>
+
 
     		</td>
 	</tr>
-    	<tr height="12px"></tr>
+    	
 </table>
 
 	<table class="text">
 
 		<tr>
-		
-	
+
 			<th rowspan="13"></th>
 			<th rowspan="13"></th>
 			
@@ -114,9 +113,9 @@
  		<table>
  		<tr height="5px"></tr>
  		<tr>
- 			<td width="600"><strong>Personal Statement</strong><br />
-<div style="color: #bbb; font-size: 12px; margin-bottom: 5px;">Suggestions: What makes you unique?  What can you contribute?  What are your talents?  Who are you?</div>
- 				<p>{a_autobio}</p>
+ 			<td class="biolines" width="560" style="line-height: 150%;"><div id="lines">Personal Statement</div>
+<div style="color: #bbb; font-size: 12px; margin-top: -5px; margin-bottom: 5px;">Suggestions: What makes you unique?  What can you contribute?  Who are you?</div>
+ 				<span>{a_autobio}</span>
  			</td>
  		</tr>
     </table>

@@ -83,94 +83,49 @@
 
 <center>
 <div id="main">
-
-	<div class="engraved">
-
 		| &nbsp<h4>Friends</h4>
 		
 	        <ul>
 	        	<!-- START profile_friends_sample -->
 	        	&bullet; <li><img id="thumb" class="content" src="uploads/profile/thumb{photo}" href="URL" target="TARGET"  onerror="this.src='views/default/images/icons/user.png';" /> <a href="profile/view/{ID}" id="sample">{users_name}</a></li>&nbsp
 	        	<!-- END profile_friends_sample -->
-	        	&nbsp|<li><a href="relationships/all/{profile_user_id}" id="sample">More</a></li>
-	        	|<li><a href="relationships/pending" id="sample">Pending</a></li>&nbsp|
+	        	&nbsp|<li><a href="relationships/all/{profile_user_id}" id="sample">All Friends</a></li>
+	        	|
 	        </ul>
 	        <!--<h4>Rest of Profile</h4>
 	        <ul>
 	        	<li><a href="profile/statuses/{profile_user_id}">Status Journal</a></li>
 	        </ul>&nbsp |-->
-        </div>
-        <hr id="bar" />
 
-    <!--<table class="text" align="left">-->
-    <table align="center">
-    	<tr height="20px"></tr>
-    	<tr valign="top" align="left">
-    		<td colspan="3">
-    			<div>
-    			<div id="content"><a href="profile/view/{profile_user_id}" id="profilename">{profile_name}</a>
-    			<a></a>
-    			</div>
-    		</td>
-    	</tr>
-<br />
-    	<tr align="center">
-		<td>
- 			<div>
-    				<h4> <a href="ivies/{p_school}">{p_school}</a> &bull; {p_class} </h4>
-    			</div>
-
-    			</div>
-    		</td>
-	</tr>
-    	<tr height="12px"></tr>
-    </table>
+	<div style="width: 70%; border-top: 1px solid #fff; margin-top: 10px; margin-bottom: 12px;"></div>
+        
 
 	<table class="text" min-width="680px">
-	<!--<table class="text">-->
 		<tr height="1px">
-			<th align="left" width="90px" rowspan="9" valign="top">
+			<th align="left"  rowspan="10" valign="top">
 				<br />
-				<form action="controllers/chat/controller.php" method="post">
-					<input name="1" type="hidden" value="{pID}"></input>
-					<input name="2" type="hidden" value="{p_id}"></input>
-					<input name="3" type="hidden" value="{profile_name}"></input>
-					<input name="4" type="hidden" value="{firstname} {lastname}"></input>
-					<input id="chat" name="Message" onclick="clickchat" type="submit" value=""></input>
-				</form>
-				<!--<br /><br /><br /><br /><br /><br />
 				
-					<input id="bigprofilechili" title="Hotness Factor: {p_chili} Chilis" type="button" onclick="getChili({pID}, {p_id})" /> 
-				
-				<br /><br /><br /><br /><br />
-				
-					<input id="bigprofilecrush" title="{p_totalcrushes} Crushes" type="button" onclick="getCrush({pID}, {p_id})" /> -->		
 				
 			</th>
-			<th rowspan="9" valign="top"><div id="frame"></div><img class="shadow" src="uploads/profile/{profile_photo}"></img></th>
-			<th width="5px" rowspan="9"></th>
-			<th rowspan="9" align="left" width="1px" bgcolor="#fff"></th>
-		</tr>
-		
-		<tr>
-			<th width="5px"></th>
-			<th id="clines" class="engraved" align="left" title="Hotness Factor: {p_chili} Chilis">
-           			<center><strong id="chilirefresh">{p_chili}</strong>
+			<th rowspan="9" valign="top"><div id="frame"></div><img class="shadow" src="uploads/profile/{profile_photo}"></img><div style="padding-top: 10px"></div><strong id="chilirefresh">{p_chili}</strong>
            			<form id="profilechili" name="form" method="post">
 					<input id="profilechili" title="Hotness Factor: {p_chili} Chilis" type="button" onclick="getChili({pID}, {p_id})" style="opacity:1;" /> 
-				</form></center>
-					
-				
-					
-           		</th> 
-           		
-           		<th id="clines" class="engraved" align="left">
+				</form><span style="padding-left: 40px;"></span>
 				<strong id="crushrefresh">{p_totalcrushes}</strong>
            			<form id="profilecrush" name="form" method="post">
 					<input id="profilecrush" title="{p_totalcrushes} Crushes" type="button" onclick="getCrush({pID}, {p_id})" /> 
 				</form>
 			</th>
+			<th width="5px" rowspan="9"></th>
+			<th rowspan="9" align="left" width="1px" bgcolor="#fff"></th>
+
 		</tr>
+                <tr>
+			<th width="5px"></th>
+			<th id="clines" align="left"><a href="profile/view/{profile_user_id}" id="profilename">{profile_name}</a><div style="font-size: 13px;"> <a href="ivies/{p_school}">{p_school}</a> <span style="font-size: 12px;">&bull;</span> {p_class} </div></th>
+                        <td id="clines"></td>
+		</tr>
+		
 		
 		<tr>
 			<th width="5px"></th>
@@ -205,7 +160,7 @@
                 <tr>
                 	<th width="5px"></th>
                         <th id="lines" align="left">Born On</th>
-                        <td id="lines">{p_birth_month} {p_birth_day}</td>
+                        <td id="lines">{birth_month} {birth_day}</td>
                 </tr>
                         
                 <tr>
@@ -213,6 +168,7 @@
                         <th id="lines" align="left">Residence Hall</th>
                         <td id="lines">{p_hall}</td>
 		</tr>
+		
 	</table>
 	
     	

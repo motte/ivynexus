@@ -57,7 +57,7 @@ class Authenticate {
 				$this->registry->getObject('template')->getPage()->addTag('error', '');
 			}
 			else {
-				$this->registry->getObject('template')->getPage()->addTag('error', '<strong>Error: Your email or password was not correct, please try again</strong>');
+				$this->registry->getObject('template')->getPage()->addTag('error', '<strong>Error: Your email/password was not correct or your account is inactive, please try again.</strong>');
 			}
 		}
 		elseif(isset($_POST['login'])) {

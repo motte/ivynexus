@@ -134,11 +134,11 @@ background-image: url('../../views/default/images/noise2.png');
 }
 
 #barnumber {
-	background: #338ED4;
-	padding: 3px 7px 3px 7px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	//background: #338ED4;
+	//padding: 3px 7px 3px 7px;
+	//-webkit-border-radius: 10px;
+	//-moz-border-radius: 10px;
+	//border-radius: 10px;
 }
 
 .subtle {
@@ -607,6 +607,16 @@ div.fieldheight {
 	-moz-box-shadow: 0px -5px 5px -3px #777;*/
 	//-moz-box-shadow: 0px 0px 20px 1px #000;
 	
+/* The green gradient on userbar */
+/* IE10 */ 
+	background-image: -ms-linear-gradient(-45deg, rgba(147,218,144,.65) 0%, rgba(187,218,184,.65) 30%, rgba(167, 218, 164, .7) 30%, rgba(173, 218, 170, .7) 100%);
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(-45deg, rgba(147,218,144,.65) 0%, rgba(187,218,184,.65) 30%, rgba(167, 218, 164, .7) 30%, rgba(173, 218, 170, .7) 100%);
+	/* Opera */ 
+	background-image: -o-linear-gradient(-45deg, rgba(147,218,144,.65) 0%, rgba(187,218,184,.65) 30%, rgba(167, 218, 164, .7) 30%, rgba(173, 218, 170, .7) 100%);	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #fff), color-stop(1, #aaa));
+	/* Webkit (Chrome 11+) */ 
 background-image: -webkit-linear-gradient(-45deg, rgba(147,218,144,.65) 0%, rgba(187,218,184,.65) 30%, rgba(167, 218, 164, .7) 30%, rgba(173, 218, 170, .7) 100%);
 
 	/*Divider line color  url('../../views/default/images/announcements/noise.png'),*/
@@ -1800,7 +1810,7 @@ z-index: -1;
 width: 100%;
 height: 100%;
 left: 0px; /* very, very important for all browser compliance */
-margin-top: -15px;
+margin-top: -20px;
 position: absolute;
 opacity: .15;
 background: url('../../views/default/images/announcements/noise.png') repeat center center;
@@ -2500,7 +2510,15 @@ div.alignment {
 
 .helvfourteen, .helvfourteen a {
 	font: 14px Helvetica;
-	color: #ccc; !important
+	color: #ccc;
+}
+
+a#helvfourteen {
+color: #777;
+}
+
+a#helvfourteen:hover {
+color: #999;
 }
 
 .engravedbig {
@@ -2677,8 +2695,7 @@ li#slide a{
 a img.thumb{
 	border:none;
 	margin-top: -21px;
-	//margin-left: -5px;
-margin-left: 0;
+	margin-left: -5px;
 	height: 45px;
 	width: 60px;
 }

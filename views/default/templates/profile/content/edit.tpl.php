@@ -1,23 +1,8 @@
 <center>
 <div id="main">
 
-	<!--<div class="engraved">
-	| &nbsp<h4>Friends</h4>
-        <ul>
-        	<!-- START profile_friends_sample -->
-        	&bullet; <li><a href="profile/view/{ID}">{users_name}</a></li>
-        	<!-- END profile_friends_sample -->
-        	&nbsp|<li><a href="relationships/all/{profile_user_id}">More</a></li>
-        	|<li><a href="relationships/pending">Pending</a></li>&nbsp|
-        </ul>-->
-        <!--<h4>Rest of Profile</h4>
-        <ul>
-        	<li><a href="profile/statuses/{profile_user_id}">Status Journal</a></li>
-        </ul>&nbsp |-->
-        <!--</div>
-        <hr id="bar" />-->
    	<table>
-   		<td valign="top" width="auto" height="100px" style="padding-right: 20px; padding-top: 25px;">
+   		<td valign="top" width="auto" height="100px" style="padding-right: 20px; padding-top: 15px;">
 			<center><div id="content"><a href="profile/view/{profile_user_id}" id="profilename">{profile_name}</a><br /><br />
 		    <img class="shadow" src="uploads/profile/{profile_photo}" /></center>
 		</td>

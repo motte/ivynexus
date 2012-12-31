@@ -75,13 +75,35 @@
                 }
 
                 function hoverdropdown(a) {
+                // this resets the userbar
  	                $('.shadebg').css({'background':'none', 'opacity':'1'});
  	                $('#parent').css({'opacity':'0','display':'none'});
+ 	                document.getElementById('parent').innerHTML = '';
+ 	                $('.fieldheight').css({'box-shadow':'1px 0px 5px 1px #777', '-webkit-box-shadow':'1px 0px 5px 1px #777', '-moz-box-shadow':'1px 0px 5px 1px #777', 'border-bottom':'1px solid #A9ACAB'}); 
+ 	                
+ 	                // conditionals for the various dropdowns so different links
+ 	                if(a == '3'){
+ 	                	var three = '<a href="authenticate/reset-password/{pID}" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/locked.png"></img> Password</a>&nbsp&bull;&nbsp<a href="authenticate/logout" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/lastpage.png"></img> Logout</a><span class="fifteen"></span>';
+	 	                document.getElementById('parent').innerHTML = three;
+	 	                $('#parent').css({'opacity':'.9','display':'block'});
+	 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
+ 	                }
+ 	                else if(a == '2'){
+	 	            	var two = '<a href="/courses"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspCourses</a> &nbsp&bullet;&nbsp<a href="calendar" class="calendar" title="School Events Calendar"><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/calendargreen.png"></img>&nbspCalendar</a> &nbsp&bullet;&nbsp<a href="/ideas"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspIdeas</a> &nbsp&bullet;&nbsp<a href="members/{p_id}" class="members" title="All Members"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/membersgreen.png"></img>&nbspMembers</a> &nbsp&bullet;&nbsp<a href="ivies/list" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/ivyblack.png"></img> Schools</a><span class="fifteen"></span>';
+	 	                document.getElementById('parent').innerHTML = two;
+	 	                $('#parent').css({'opacity':'.9','display':'block'});
+	 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
+ 	                }
+ 	             	else if(a=='1') {
+	 	             	var one = '<a href="/crush"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/heart.png"></img>&nbspCrushes</a> &nbsp&bullet;&nbsp<a href="profile/edit" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/write.png"></img> Edit</a> &nbsp&bullet;&nbsp<a href="/academics"><img class="opaquethumb" style="height: 15px; vertical-align: -3px;" src="views/default/images/icons/archive.png"></img>&nbspPortfolio</a><span class="fifteen"></span>';
+	 	                document.getElementById('parent').innerHTML = one;
+	 	                $('#parent').css({'opacity':'.9','display':'block'});
+	 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
+ 	             	}  
 
+ 	                // modify on hover and make sure selected one stays shaded
  	                var specific = '#this'.concat(a);
- 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
  	                $(specific).css({'background':'#4AAF43', 'opacity':'.75'});               	
-	                $('#parent').css({'opacity':'.9','display':'block'});
                 	
                 }
  	        function hoverdropup() {
@@ -114,53 +136,29 @@
 	<div class="ubar">
 <table top="50px" align="right">
 <tr valign="top">
-<td class="shadebg" id="this1" onclick="location.href='http://www.ivynexus.com/profile/personal'" onmouseover="hoverdropdown(1)">&nbsp
-		<a href="profile/personal" title="Your Profile" class="profile"><img id="thumb" src="uploads/profile/thumb{pPhoto}" onerror="this.src='views/default/images/icons/user.png';"></img><span style="padding-left: 1px;"></span> {firstname} {lastname}</a>&nbsp
-</td>
-<td style="border-right: 1px solid #ddd; height: 30px;"></td>
 <td class="shadebg" id="this2" onclick="location.href='http://www.ivynexus.com/ivies/{p_school}'" onmouseover="hoverdropdown(2)">&nbsp
 		<a href="ivies/{p_school}" title="School Vent"><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/ivygreen.png"></img>&nbsp{p_school}</a>&nbsp
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
-<td class="shadebg" id="this3" onclick="location.href='http://www.ivynexus.com/calendar'" onmouseover="hoverdropdown(3)">&nbsp
-		<a href="calendar" class="calendar" title="School Events Calendar"><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/calendargreen.png"></img>&nbspCalendar</a>&nbsp
+<td class="shadebg" id="this1" onclick="location.href='http://www.ivynexus.com/profile/personal'" onmouseover="hoverdropdown(1)">&nbsp
+		<a href="profile/personal" title="Your Profile" class="profile"><img id="thumb" src="uploads/profile/thumb{pPhoto}" onerror="this.src='views/default/images/icons/user.png';"></img><span style="padding-left: 1px;"></span> {firstname} {lastname}</a>&nbsp
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
-<td class="shadebg" id="this4" onclick="location.href='http://www.ivynexus.com/members/{p_id}'" onmouseover="hoverdropdown(4)">&nbsp
-		<a href="members/{p_id}" class="members" title="All Members"><img class="opaquethumb" style="height: 13px;" src="views/default/images/icons/membersgreen.png"></img>&nbspMembers</a>&nbsp
+<td class="shadebg" id="this4" onclick="location.href='http://www.ivynexus.com/messages'" onmouseover="hoverdropdown(4)">&nbsp
+	<a href="/messages"><span id="barnumber"><img height="12px" src="views/default/images/load.gif"></img></span>&nbsp<img class="opaquethumb" style="height: 12px; vertical-align: -2px;" src="views/default/images/icons/email.png"></img>&nbsp&nbsp</a>
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
-<td class="shadebg" id="this5" onmouseover="hoverdropdown(5)">&nbsp
+<td class="shadebg" id="this3" onmouseover="hoverdropdown(3)">&nbsp
 		<a class="Logout" title="Extra" style="cursor: pointer;">&nabla;</a>&nbsp&nbsp
 </td>
 </tr>
 </table>
-
-		<!--<div id="profiledrop" style="display:none; opacity: 0; margin-right: 359px;">
-			 &bull;&nbsp<a href="authenticate/reset-password/{pID}" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/write.png"></img> Edit</a>&nbsp&bull;
-		</div>-->
-
-		<!--<div style="display:block;">
-			 <span id="profiledrop" style="opacity:0; margin-right: 29px;">
-			 <a href="profile/edit" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/write.png"></img> Edit</a>&nbsp&bull;
-		         </span>
-			 <span id="ivydrop" style="opacity:0; margin-right: 74px;">
-			 <a href="ivies/list" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/ivyblack.png"></img> Schools</a>&nbsp&bull;
-		         </span>
-			 <span id="dropped" style="opacity:0">&nbsp<a href="authenticate/reset-password/{pID}" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/locked.png"></img> Password</a>&nbsp&bull;&nbsp<a href="authenticate/logout" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/lastpage.png"></img> Logout</a>
-			 </span>
-		</div>-->
 		
-		<!--| <a href="calendar" class="calendar" title="Calendar">Calendar</a> | </span><a href="ivies/{p_school}" class="ivy" title="College Shout Out">{p_school}</a> | <a href="members/{p_id}" class="members" title="All Members">Members</a> |</span>
-		<form id="searchfield" action="members/search" method="post">
-				<input type="text" id="name" name="name" value="Search Classmates" onFocus="if(this.value=='Search Classmates') {this.value=''}; this.style.color='#000000';" onBlur="if(this.value=='') {this.value='Search Classmates'; this.style.color='#c0d5c0';}" />
-				<button type="submit" id="search" name="search" value="Search" title="Search for Classmates"></button>
-		</form>
-		<p id="ubarlinks"><span style="padding-left: 26px;"> | </span> <a href="academics" class="apple" title="Academic Information"></a>  <span style="padding-left: 26px;">|</span> <a href="profile" title="Your Profile"><img id="thumb" src="uploads/profile/{pPhoto}" onerror="this.src='views/default/images/icons/user.png';"></img><span style="padding-left: 1px;"></span> {firstname} {lastname}</a> | <a href="profile/edit" title="Edit Your Profile">Edit Account</a> | <a href="authenticate/logout">Logout</a> | </p>-->
+		
 	</div>
 </div>
 <div id="noise"><div class="greenbar" id="parent">
-	<a href=""><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/home.png"></img>&nbspHome</a> &nbsp&bullet;&nbsp <a href="/ideas"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspIdeas</a> &nbsp&bullet;&nbsp <a href="/academics"><img class="opaquethumb" style="height: 15px; vertical-align: -3px;" src="views/default/images/icons/archive.png"></img>&nbspPortfolio</a> &nbsp&bullet;&nbsp <a href="/crush"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/heart.png"></img>&nbspCrushes</a> &nbsp&bullet;&nbsp <a href="/messages"><img class="opaquethumb" style="height: 12px; vertical-align: -2px;" src="views/default/images/icons/email.png"></img>&nbsp<strong id="barnumber"> </strong>Colloquies</a><span class="fifteen"></span>
+	
 </div></div>
 
 </body>

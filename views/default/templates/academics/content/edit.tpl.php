@@ -1,9 +1,9 @@
 <center>
 <div id="main">
-	<div class="engraved"><span>This page is NOT accessible to other IvyNexus members.</span></div>
-    <hr id="bar" />	
+	<span>This page is NOT accessible to other IvyNexus members.</span>
+	<div style="width: 70%; border-top: 1px solid #fff; margin-top: 10px; margin-bottom: 12px;"></div>	
    	<table>
-   		<td valign="top" width="auto" height="100px" style="padding-right: 20px; padding-top: 25px;">
+   		<td valign="top" width="auto" height="100px" style="padding-right: 20px; ">
 			<center><div id="content"><a href="profile/view/{p_user_id}" id="profilename">{p_name}</a><br /><br /></center>
    		
 		    <center><img class="shadow" src="uploads/academicportraits/{a_portrait}" /></center></center>

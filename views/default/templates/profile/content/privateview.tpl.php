@@ -84,39 +84,31 @@
 <center>
 <div id="main">
 
+        | &nbsp<h4>Friends</h4>
+		
+	        <ul>
+	        	<!-- START profile_friends_sample -->
+	        	&bullet; <li><img id="thumb" class="content" src="uploads/profile/thumb{photo}" href="URL" target="TARGET"  onerror="this.src='views/default/images/icons/user.png';" /> <a href="profile/view/{ID}" id="sample">{users_name}</a></li>&nbsp
+	        	<!-- END profile_friends_sample -->
+	        	&nbsp|<li><a href="relationships/all/{profile_user_id}" id="sample">More</a></li>
+	        	|<li><a href="relationships/pending" id="sample">Pending</a></li>&nbsp|
+	        </ul>
+	        <!--<h4>Rest of Profile</h4>
+	        <ul>
+	        	<li><a href="profile/statuses/{profile_user_id}">Status Journal</a></li>
+	        </ul>&nbsp |-->
 
-    <!--<table class="text" align="left">-->
-    <!--<table align="left" width="70%" style="padding-left: 10%;">
-    	
-    	<tr valign="top" align="left">
-    		<td colspan="3">
-    			
-    			<div id="content"><a href="profile/view/{profile_user_id}" id="profilename">{profile_name}</a></div>
-    			<a></a>
-    			
-    		</td>
-    	</tr>
-    	<tr align="left">
-		<td>
- 			<div>
-    				<div style="font-size: 13px;"> <a href="ivies/{p_school}">{p_school}</a> <span style="font-size: 12px;">&bull;</span> {p_class} </div>
-    			</div>
+	<div style="width: 70%; border-top: 1px solid #fff; margin-top: 10px; margin-bottom: 12px;"></div>
 
-    			</div>
-    		</td>
-	</tr>
-    	
-    </table>-->
-
+       
 	<table class="text" min-width="680px">
-	<!--<table class="text">-->
 		<tr height="1px">
 			<th align="left"  rowspan="10" valign="top">
 				<br />
 				
 				
 			</th>
-			<th rowspan="9" valign="top"><div id="frame"></div><img class="shadow" src="uploads/profile/{profile_photo}"></img><div style="padding-top: 5px"></div><strong id="chilirefresh">{p_chili}</strong>
+			<th rowspan="9" valign="top"><div id="frame"></div><img class="shadow" src="uploads/profile/{profile_photo}"></img><div style="padding-top: 10px"></div><strong id="chilirefresh">{p_chili}</strong>
            			<form id="profilechili" name="form" method="post">
 					<input id="profilechili" title="Hotness Factor: {p_chili} Chilis" type="button" onclick="getChili({pID}, {p_id})" style="opacity:1;" /> 
 				</form><span style="padding-left: 40px;"></span>

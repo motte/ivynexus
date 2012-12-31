@@ -22,18 +22,21 @@
 
 </div>
 
+	<div style="width: 70%; border-top: 1px solid #fff; margin-bottom: 12px;"></div>
+
 <div class="helvfourteen">
-	&nbsp &bull; &nbsp<a href="ivies/Harvard">Harvard University</a>&nbsp &bull;&nbsp
-	<a href="ivies/Yale">Yale University</a>&nbsp &bull;&nbsp
-	<a href="ivies/Princeton">Princeton University</a>&nbsp &bull;&nbsp
-	<a href="ivies/Columbia">Columbia University</a>&nbsp &bull;&nbsp
-	<a href="ivies/Stanford">Stanford University</a>&nbsp &bull;
+	&nbsp &bull; &nbsp<a href="ivies/Harvard" id="helvfourteen">Harvard University</a>&nbsp &bull;&nbsp
+	<a href="ivies/Yale" id="helvfourteen">Yale University</a>&nbsp &bull;&nbsp
+	<a href="ivies/Princeton" id="helvfourteen">Princeton University</a>&nbsp &bull;&nbsp
+	<a href="ivies/Columbia" id="helvfourteen">Columbia University</a>&nbsp &bull;&nbsp
+	<a href="ivies/Stanford" id="helvfourteen">Stanford University</a>&nbsp &bull;
 	<div style="margin-bottom:8px;"></div>
-	&nbsp &bull; &nbsp<a href="ivies/Cornell">Cornell University</a>&nbsp &bull;&nbsp
-	<a href="ivies/Dartmouth">Dartmouth College</a>&nbsp &bull;&nbsp
-	<a href="ivies/Penn">University of Pennsylvania</a>&nbsp &bull;&nbsp
-	<a href="ivies/MIT">MIT</a>&nbsp &bull;&nbsp
-	<a href="ivies/Brown">Brown University</a>&nbsp &bull; &nbsp
-</div>
+	&nbsp &bull; &nbsp<a href="ivies/Cornell" id="helvfourteen">Cornell University</a>&nbsp &bull;&nbsp
+	<a href="ivies/Dartmouth" id="helvfourteen">Dartmouth College</a>&nbsp &bull;&nbsp
+	<a href="ivies/Penn" id="helvfourteen">University of Pennsylvania</a>&nbsp &bull;&nbsp
+	<a href="ivies/MIT" id="helvfourteen">MIT</a>&nbsp &bull;&nbsp
+	<a href="ivies/Brown" id="helvfourteen">Brown University</a>&nbsp &bull; &nbsp
+</div><br />
+
 
 </center>
