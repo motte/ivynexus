@@ -2,11 +2,11 @@
 
 include_once('../../dbconnect.php');
 session_start();
-$user_id=mysql_real_escape_string($_POST["a"]); // User session id
-$post = mysql_real_escape_string($_POST["b"]);
-$anonymous = mysql_real_escape_string($_POST["c"]);
-$poster = mysql_real_escape_string($_POST["d"]);
-$thread_id = mysql_real_escape_string($_GET["e"]);
+$user_id=mysqli_real_escape_string($_POST["a"]); // User session id
+$post = mysqli_real_escape_string($_POST["b"]);
+$anonymous = mysqli_real_escape_string($_POST["c"]);
+$poster = mysqli_real_escape_string($_POST["d"]);
+$thread_id = mysqli_real_escape_string($_GET["e"]);
 $path = "/home/ivynex5/public_html/uploads/messages/photos/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
@@ -34,18 +34,18 @@ $im->resizeScaleHeight(230);
 $im->save($path.$actual_image_name);
 
 //$post = $post.'<br /><center><img src="uploads/photos/'.$actual_image_name.'" class="preview"style="box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;"></center>';
-//mysql_query("UPDATE dartmouth SET profile_image='$actual_image_name' WHERE id='$user_id'");
+//mysqli_query("UPDATE dartmouth SET profile_image='$actual_image_name' WHERE id='$user_id'");
 $blurb = '<h2 class="blurb" align="center">'.$post.'</h2>';
 $post = '<center><h2 class="blurb" align="center">'.$post.'</h2><img src="uploads/messages/photos/'.$actual_image_name.'" class="preview" style="box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;" /></center>';
 if($anonymous == 1) {
 $post = '<br /><center><h2 class="blurb" align="center">'.$post.'</h2><img src="uploads/messages/photos/'.$actual_image_name.'" class="preview" style="box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;" /></center>';
-mysql_query("INSERT INTO thread_messages (messageThreadId, senderId, post, type, anonymous, senderName) VALUES('$thread_id', '$user_id', '$post', '4', '1', '')");
-mysql_query("UPDATE thread_participants read_status as '0' WHERE threadId='$thread_id'");
+mysqli_query("INSERT INTO thread_messages (messageThreadId, senderId, post, type, anonymous, senderName) VALUES('$thread_id', '$user_id', '$post', '4', '1', '')");
+mysqli_query("UPDATE thread_participants read_status as '0' WHERE threadId='$thread_id'");
 echo '<p>'.$post.'</p><hr color="#fff" size="1" />';
 }
 else {
-mysql_query("INSERT INTO thread_messages (messageThreadId, senderId, body, type, anonymous, senderName) VALUES('$thread_id', '$user_id', '$post', '4', '0', '$poster')");
-mysql_query("UPDATE thread_participants read_status as '0' WHERE threadId='$thread_id'");
+mysqli_query("INSERT INTO thread_messages (messageThreadId, senderId, body, type, anonymous, senderName) VALUES('$thread_id', '$user_id', '$post', '4', '0', '$poster')");
+mysqli_query("UPDATE thread_participants read_status as '0' WHERE threadId='$thread_id'");
 echo '<p><strong><a class="name" href="profile/view/'.$user_id.'">'.$poster.'</a></strong>: '.$post.'</p><hr color="#fff" size="1" />';
 }
 

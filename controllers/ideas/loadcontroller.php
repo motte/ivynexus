@@ -29,7 +29,7 @@
 		
 		$min = array();
 		
-		while($row = mysql_fetch_array($query)){
+		while($row = mysqli_fetch_array($query)){
 			$redirect = "'ideas/view/".$row["id"]."'";
 			// if no name = anonymous
 		    	if($row['poster_name'] == '') {

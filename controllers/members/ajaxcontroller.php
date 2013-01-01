@@ -4,22 +4,22 @@
 	include_once('../../dbconnect.php');
 	/* this hides all php errors that occur from mysql queries that happen to fail for one reason or another */
 	ini_set( "display_errors", 0);
-	$a = mysql_real_escape_string($_GET["a"]);
-        $b = mysql_real_escape_string($_GET["b"]);
-        $row = mysql_real_escape_string($_GET["c"]);
+	$a = mysqli_real_escape_string($_GET["a"]);
+        $b = mysqli_real_escape_string($_GET["b"]);
+        $row = mysqli_real_escape_string($_GET["c"]);
 
 	/* for some reason the selecting of max user_id would not work reliably so need to add number to $manualmax*/
 	$query = "SELECT MAX(user_id) FROM profile";
-	$moo = mysql_query($query);
-	$max = mysql_result($moo,0);
+	$moo = mysqli_query($query);
+	$max = mysqli_result($moo,0);
 	$random = mt_rand(1000, $max);
 	$foo = "SELECT photo FROM profile WHERE user_id=$random";
-	$coo = mysql_query($foo);
-	$randomphoto = mysql_result($coo,0);
+	$coo = mysqli_query($foo);
+	$randomphoto = mysqli_result($coo,0);
 
 	$chiliquery = "SELECT chili FROM profile WHERE user_id=$random";
-	$chiliquerydo = mysql_query($chiliquery);
-	$randomchili = mysql_result($chiliquerydo,0);
+	$chiliquerydo = mysqli_query($chiliquery);
+	$randomchili = mysqli_result($chiliquerydo,0);
 
 	if($randomphoto != ''){
 		if($a == 1) {

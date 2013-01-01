@@ -2,17 +2,17 @@
 
 <?php
 	include_once('../../dbconnect.php');
-	$school = mysql_real_escape_string($_GET["a"]);
-	$counter = mysql_real_escape_string($_GET["b"]); //initial load has counter =0
-	$first = mysql_real_escape_string($_GET["c"]); //starts from 0, first time loading a set of posts, then adds minimum row value
-	$user_id = mysql_real_escape_string($_GET["d"]);
+	$school = mysqli_real_escape_string($_GET["a"]);
+	$counter = mysqli_real_escape_string($_GET["b"]); //initial load has counter =0
+	$first = mysqli_real_escape_string($_GET["c"]); //starts from 0, first time loading a set of posts, then adds minimum row value
+	$user_id = mysqli_real_escape_string($_GET["d"]);
 
 //If not the first post
 	if($first != '0') {
-		$query = mysql_query("SELECT * FROM $school WHERE id BETWEEN $counter-26 AND $counter-1 ORDER BY id DESC LIMIT 25");
-		//$query = mysql_query("SELECT $school.*, profile.school, profile.photo FROM $school, profile WHERE $school.id BETWEEN $counter-26 AND $counter-1 ORDER BY $school.id DESC LIMIT 25 AND $school.id=profile.user_id");
+		$query = mysqli_query("SELECT * FROM $school WHERE id BETWEEN $counter-26 AND $counter-1 ORDER BY id DESC LIMIT 25");
+		//$query = mysqli_query("SELECT $school.*, profile.school, profile.photo FROM $school, profile WHERE $school.id BETWEEN $counter-26 AND $counter-1 ORDER BY $school.id DESC LIMIT 25 AND $school.id=profile.user_id");
 		$min = array();
-		while($row = mysql_fetch_array($query)){
+		while($row = mysqli_fetch_array($query)){
 		    	if($row['name'] == '') {
 		    		echo nl2br("<p>".$row['post']."</p>");
 		    		//echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form></center>";
@@ -33,12 +33,12 @@
 	}
 // if the first set of posts - mark it
 	else {
-		$query = mysql_query("SELECT * FROM $school ORDER BY id DESC LIMIT 25");
-		//$query = mysql_query("SELECT $school.*, profile.school, profile.photo FROM $school, profile WHERE $school.id DESC LIMIT 25 AND profile.user_id=$school.id");
+		$query = mysqli_query("SELECT * FROM $school ORDER BY id DESC LIMIT 25");
+		//$query = mysqli_query("SELECT $school.*, profile.school, profile.photo FROM $school, profile WHERE $school.id DESC LIMIT 25 AND profile.user_id=$school.id");
 		
 		$min = array();
 		
-		while($row = mysql_fetch_array($query)){
+		while($row = mysqli_fetch_array($query)){
 			// if no name = anonymous
 		    	if($row['name'] == '') {
 		    		echo nl2br("<p>".$row['post']."</p>");

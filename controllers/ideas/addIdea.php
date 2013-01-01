@@ -1,9 +1,9 @@
 <?php
 	include_once('../../dbconnect.php');
-	$id = mysql_real_escape_string($_GET["a"]);
-	$poster_name = mysql_real_escape_string($_GET["b"]);
-	$idea_name = mysql_real_escape_string($_GET["c"]);
-	$idea_details = mysql_real_escape_string($_GET["d"]);
+	$id = mysqli_real_escape_string($_GET["a"]);
+	$poster_name = mysqli_real_escape_string($_GET["b"]);
+	$idea_name = mysqli_real_escape_string($_GET["c"]);
+	$idea_details = mysqli_real_escape_string($_GET["d"]);
 
 	mysqli_query("INSERT INTO ideas (poster_id, poster_name, idea_name, description) VALUES('$id', '$poster_name', '$idea_name', '$idea_details')");
 	echo $id.$poster_name.$idea_name.$idea_details;

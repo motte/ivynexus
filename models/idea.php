@@ -44,12 +44,12 @@ class Idea {
 			//$sql = "SELECT * FROM ideas AS i, chili_ideas AS c WHERE i.id='$this->ideaId' AND c.id=i.id LIMIT 1";
 			//$sql = "SELECT * FROM ideas INNER JOIN chili_ideas ON chili_ideas.c_receiver=ideas.id AND ideas.id='$ideaId'";
 			$sql = "SELECT * FROM ideas WHERE id='$ideaId'";
-			//$result = mysql_query($sql) or die(mysql_error());
+			//$result = mysqli_query($sql) or die(mysqli_error());
 			$query = $this->registry->getObject('db')->executeQuery($sql);
-			//$rows = mysql_num_rows($result);
+			//$rows = mysqli_num_rows($result);
 			if($this->registry->getObject('db')->numRows() > 0) {
 				$data = $this->registry->getObject('db')->getRows();
-				//$data = mysql_fetch_array($result) or die(mysql_error());
+				//$data = mysqli_fetch_array($result) or die(mysqli_error());
 				$this->registry->getObject('template')->getPage()->addTag('idea_id', $data['id']);
 				$this->registry->getObject('template')->getPage()->addTag('idea_name', $data['idea_name']);
 				$this->registry->getObject('template')->getPage()->addTag('idea_description', $data['description']);
