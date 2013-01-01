@@ -33,6 +33,7 @@ include(FRAMEWORK_PATH . 'config.php');
 // create a database connection (connect to database)
 $registry->getObject('db')->newConnection($configs['db_host'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
 $controller = $registry->getObject('url')->getURLBit(0);
+// 
 $registercontroller = $registry->getObject('url')->getURLBit(1);
 
 if($controller != 'api') {
@@ -106,6 +107,7 @@ if(in_array($controller, $controllers)) {
 	require_once(FRAMEWORK_PATH . 'controllers/' . $controller . '/controller.php');
 	$controllerInc = $controller.'controller';
 	$controller = new $controllerInc($registry, true);
+
 }
 else {
 	// default controller or pass control to CMS type system?
