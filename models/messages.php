@@ -24,12 +24,12 @@ class Messages {
 		$query = "SELECT * FROM thread_participants WHERE viewerId='$user' ORDER BY read_status ASC, whenRead DESC LIMIT 25";
 		//$query = "SELECT * FROM $participantsTable WHERE viewerId='$user' ORDER BY whenRead DESC LIMIT 7";
 		
-		//$user_result = mysqli_fetch_array(mysqli_query($query));
+		//$user_result = mysql_fetch_array(mysql_query($query));
 		//$cache = implode(",", $user_result);
-		$check = mysqli_query($query);
+		$check = mysql_query($query);
 		//$cache = '<div style="margin-top: 300px;">'.implode(",", $user_result).'</div>';
 		$counter = "1";
-		while($user_result = mysqli_fetch_array($check)) {
+		while($user_result = mysql_fetch_array($check)) {
 		
 			if($user_result['read_status'] == 1) {
 				$user_result['read_status'] = '';
@@ -62,7 +62,7 @@ class Messages {
 		
         	
         	
-		//if(mysqli_num_rows($result) > 0) {
+		//if(mysql_num_rows($result) > 0) {
 		//	$sql = "SELECT IF(read=0, 'unread', 'read') as read_status
 		// the 'as' keyword is optional
 		//$sql = "SELECT IF(m.read=0, 'unread', 'read') as read_style, m.subject, m.ID, m.sender, m.recipient, DATE_FORMAT(m.sent, '%D %M %Y') as sent_relative, psender.name as sender_name FROM messages m, profile psender WHERE psender.user_id=m.sender AND m.recipient=" . $user . " ORDER BY m.ID DESC";

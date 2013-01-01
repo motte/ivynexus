@@ -36,16 +36,16 @@ class Crush {
 			//$result = $this->registry->getObject('db')->executeQuery($sql);
 			require_once('dbconnect.php');
 			$sql = "SELECT crush FROM crushes WHERE c_id='$ID'";
-			$query = mysqli_query("SELECT crush FROM crushes WHERE c_id='$ID'");
-			//$a= mysqli_num_rows($query);
+			$query = mysql_query("SELECT crush FROM crushes WHERE c_id='$ID'");
+			//$a= mysql_num_rows($query);
 			//if($a > 0) {
 				$counter='1';
 				
-				while($data = mysqli_fetch_array($query)){
+				while($data = mysql_fetch_array($query)){
 					$crid = $data['crush'];
 					$sqlcrushes = "SELECT name FROM profile WHERE user_id='$crid'";
-					$result = mysqli_query($sqlcrushes);
-					$temp = mysqli_result($result, 0);
+					$result = mysql_query($sqlcrushes);
+					$temp = mysql_result($result, 0);
 					$temp = '<a href="profile/view/'.$crid.'" id="event">'.$temp.'</a>';
 					$this->registry->getObject('template')->getPage()->addTag('crush'.$counter, $temp);
 					

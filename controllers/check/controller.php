@@ -1,11 +1,11 @@
 <?php
 	include_once('../../dbconnect.php');
-	$user = mysqli_real_escape_string($_GET["a"]);
+	$user = mysql_real_escape_string($_GET["a"]);
 
 	$query = "SELECT crush_counter, job_counter, first_time FROM users WHERE ID='$user'";
 	//$query = "SELECT crush_counter, job_counter FROM users WHERE ID='$user'";
-	$result = mysqli_query($query);
-	$row = mysqli_fetch_array($result);
+	$result = mysql_query($query);
+	$row = mysql_fetch_array($result);
 	
 	/*){
 			echo "<p><strong>".$row['name']."</strong>: ". $row['post']."</p>";
@@ -118,7 +118,7 @@ if ($row['first_time'] == 0) {
 
 else {
 	$update = "UPDATE users SET first_time=0 where ID='$user'";
-	mysqli_query($update);
+	mysql_query($update);
 	echo '<li id="firsttime" value="1" style="display:none;"></li>';
 	//echo '<li id="firsttime" value="1" style="display:none;"></li><div class="announcement"><font size="4">Want exclusive jobs offers?</font><br /><br /><div style="margin-left: 100px; line-height: 30px;">Have employers contact <u>you</u> with offers - Just fill out and update your academic profile, and our matching algorithm will directly connect you with employers.</div></div><br />';
 }

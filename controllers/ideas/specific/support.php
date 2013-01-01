@@ -7,7 +7,7 @@
 	$query = "SELECT * FROM support_ideas WHERE idea_id='$idea_id' AND supporter_id='$supporter_id'";
         $result = mysqli_query($query);
         
-        if(mysqli_num_rows($result) > 0) {
+        if(mysql_num_rows($result) > 0) {
         	mysqli_query("UPDATE ideas SET support = support-1
 WHERE id = '$idea_id'");
 		mysqli_query("DELETE FROM support_ideas WHERE idea_id = '$idea_id' AND supporter_id = '$supporter_id'");

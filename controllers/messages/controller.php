@@ -91,7 +91,7 @@ VALUES
   (threadId='LAST_INSERT_ID()', viewerId='participant 2', viewerName='participant 2', read_status='0', participantIds='all participant ids separated by commas', participantNames='all participants'),
   (threadId='LAST_INSERT_ID()', viewerId='participant 3', viewerName='participant 3', read_status='0', participantIds='all participant ids separated by commas', participantNames='all participants'),
   (threadId='LAST_INSERT_ID()', viewerId='participant 4', viewerName='participant 4', read_status='0', participantIds='all participant ids separated by commas', participantNames='all participants');
-  $threadId = mysqli_query("SELECT LAS_INSERT_ID()");
+  $threadId = mysql_query("SELECT LAS_INSERT_ID()");
   and thread_messages
   while ($array of participants) { 
   	$values = $values."(messageThreadId='$threadId = LAST_INSERT_ID from thread_participants()', senderId='{pID}', senderName='{pName}', body='body', expirationFuse='timestamp about 2 hours')";

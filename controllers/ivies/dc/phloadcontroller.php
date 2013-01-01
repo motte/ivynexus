@@ -2,17 +2,17 @@
 	include_once('../../../dbconnect.php');
 	/* this hides all php errors that occur from mysql queries that happen to fail for one reason or another */
 	ini_set( "display_errors", 0);
-	$a = mysqli_real_escape_string($_GET["a"]);
-        $b = mysqli_real_escape_string($_GET["b"]);
-        $row = mysqli_real_escape_string($_GET["c"]);
+	$a = mysql_real_escape_string($_GET["a"]);
+        $b = mysql_real_escape_string($_GET["b"]);
+        $row = mysql_real_escape_string($_GET["c"]);
 
 	/* for some reason the selecting of max user_id would not work reliably so need to add number to $manualmax*/
 	$query = "SELECT MAX(id) FROM photos";
-	$moo = mysqli_query($query);
-	$max = mysqli_result($moo,0);
+	$moo = mysql_query($query);
+	$max = mysql_result($moo,0);
 	$random = mt_rand(1, $max);
 	$foo = "SELECT * FROM photos WHERE id=$random";
-	$event_row = mysqli_fetch_array(mysqli_query($foo));
+	$event_row = mysql_fetch_array(mysql_query($foo));
 	$randomphoto = $event_row['photo'];
 	$randomchili = $event_row['chili'];
 	$randomblurb = '<div class="info3" style="opacity: 0; display:inline-block; position: absolute;"><center>'.$event_row['blurb'].'</center></div>';

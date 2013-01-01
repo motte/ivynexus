@@ -2,11 +2,11 @@
 
 include_once('../../../dbconnect.php');
 session_start();
-$user_id=mysqli_real_escape_string($_POST["a"]); // User session id
-$post = mysqli_real_escape_string($_POST["b"]);
-$anonymous = mysqli_real_escape_string($_POST["c"]);
-$poster = mysqli_real_escape_string($_POST["d"]);
-$school = mysqli_real_escape_string($_POST["e"]);
+$user_id=mysql_real_escape_string($_POST["a"]); // User session id
+$post = mysql_real_escape_string($_POST["b"]);
+$anonymous = mysql_real_escape_string($_POST["c"]);
+$poster = mysql_real_escape_string($_POST["d"]);
+$school = mysql_real_escape_string($_POST["e"]);
 $path = "/home/ivynex5/public_html/uploads/photos/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
@@ -38,22 +38,22 @@ $im->resize(200,200);
 $im->save($path.'sqr'.$actual_image_name);
 
 //$post = $post.'<br /><center><img src="uploads/photos/'.$actual_image_name.'" class="preview"style="box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;"></center>';
-//mysqli_query("UPDATE dartmouth SET profile_image='$actual_image_name' WHERE id='$user_id'");
+//mysql_query("UPDATE dartmouth SET profile_image='$actual_image_name' WHERE id='$user_id'");
 
 $blurb = '<h2 class="blurb" align="center">'.$post.'</h2>';
 $post = '<center><ul id="exhibition"><li tabindex="0"><div title="'.$all.'"><h2 class="blurb" align="center">'.$post.'</h2><img src="uploads/photos/'.$actual_image_name.'" /></li></ul><br /></center>';
 
 if($anonymous == 1) {
 $post = '<br /><p>'.$post.'</p>';
-mysqli_query("INSERT INTO $school (poster_id, post, type, anonymous, name) VALUES('$user_id', '$post', '4', '1', '')");
+mysql_query("INSERT INTO $school (poster_id, post, type, anonymous, name) VALUES('$user_id', '$post', '4', '1', '')");
 echo '<p>'.$post.'</p><hr color="#fff" size="1" />';
 }
 else {
-mysqli_query("INSERT INTO $school (poster_id, post, type, anonymous, name) VALUES('$user_id', '$post', '4', '0', '$poster')");
+mysql_query("INSERT INTO $school (poster_id, post, type, anonymous, name) VALUES('$user_id', '$post', '4', '0', '$poster')");
 echo '<p><strong><a class="name" href="profile/view/'.$user_id.'">'.$poster.'</a></strong>: '.$post.'</p><hr color="#fff" size="1" />';
 }
 //$phototable = $school.'_photos';
-mysqli_query("INSERT INTO photos (poster_id, photo, blurb) VALUES ('$user_id', '$actual_image_name', '$blurb')");
+mysql_query("INSERT INTO photos (poster_id, photo, blurb) VALUES ('$user_id', '$actual_image_name', '$blurb')");
 }
 else
 echo "failed";

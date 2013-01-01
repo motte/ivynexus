@@ -2,30 +2,30 @@
 	include_once('../../../dbconnect.php');
 	/* this hides all php errors that occur from mysql queries that happen to fail for one reason or another */
 	ini_set( "display_errors", 0);
-	$side = mysqli_real_escape_string($_GET["a"]);
-        $id = mysqli_real_escape_string($_GET["b"]);
-        $row = mysqli_real_escape_string($_GET["c"]);
-        $table = mysqli_real_escape_string($_GET["d"]);
+	$side = mysql_real_escape_string($_GET["a"]);
+        $id = mysql_real_escape_string($_GET["b"]);
+        $row = mysql_real_escape_string($_GET["c"]);
+        $table = mysql_real_escape_string($_GET["d"]);
         $table = $table."_events";
 
 	/* for some reason the selecting of max user_id would not work reliably so need to add number to $manualmax*/
 	$query = "SELECT MAX(id) FROM $table";
-	$moo = mysqli_query($query);
-	$max = mysqli_result($moo,0);
+	$moo = mysql_query($query);
+	$max = mysql_result($moo,0);
 	$random = mt_rand(1, $max);
 	$event_query = "SELECT * FROM $table WHERE id=$random";
-	$event_row = mysqli_fetch_array(mysqli_query($event_query));
+	$event_row = mysql_fetch_array(mysql_query($event_query));
 	//$foo = "SELECT photo FROM $table WHERE id=$random";
-	//$coo = mysqli_query($foo);
-	//$randomphoto = mysqli_result($coo,0);
+	//$coo = mysql_query($foo);
+	//$randomphoto = mysql_result($coo,0);
 	$randomphoto = $event_row['photo'];
 	$randomchili = $event_row['chili'];
 	$info = '<div style="background: #000; opacity: 0.5; color: #fff; font-size: 14px; font-family: helvetica neue; overflow: wrap; line-height: 20px;"><strong>'.$event_row['event_name'].'</strong><br />From '.$event_row['event_start'].' '.$event_row['event_starttime'].'<br />To '.$event_row['event_end'].' '.$event_row['event_endtime'].'<br /><em>'.$event_row['event_description'].'</em></div>';
 
 $info2 = $event_row['event_name'].': From '.$event_row['event_start'].' '.$event_row['event_starttime'].' to '.$event_row['event_end'].' '.$event_row['event_endtime'].' - '.$event_row['event_description'];
 	//$chiliquery = "SELECT chili FROM $table WHERE id=$random";
-	//$chiliquerydo = mysqli_query($chiliquery);
-	//$randomchili = mysqli_result($chiliquerydo,0);
+	//$chiliquerydo = mysql_query($chiliquery);
+	//$randomchili = mysql_result($chiliquerydo,0);
 
 	if($randomphoto != ''){
 		if($side == 1) {

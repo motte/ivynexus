@@ -74,8 +74,8 @@ class Members {
      */
     public function addChili($giverid) {
         $query = "SELECT * FROM chili WHERE cgiver = '$giverid'";
-        $result = mysqli_query($query);
-        if(mysqli_query($result) > 0) {
+        $result = mysql_query($query);
+        if(mysql_query($result) > 0) {
         	return;
         }
         
