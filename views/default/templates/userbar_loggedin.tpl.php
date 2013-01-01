@@ -89,7 +89,7 @@
 	 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
  	                }
  	                else if(a == '2'){
-	 	            	var two = '<a href="courses"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspCourses</a> &nbsp&bullet;&nbsp<a href="calendar" class="calendar" title="School Events Calendar"><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/calendargreen.png"></img>&nbspCalendar</a> &nbsp&bullet;&nbsp<a href="/ideas"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspIdeas</a> &nbsp&bullet;&nbsp<a href="members/{p_id}" class="members" title="All Members"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/membersgreen.png"></img>&nbspMembers</a> &nbsp&bullet;&nbsp<a href="ivies/list" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/ivyblack.png"></img> Schools</a><span class="fifteen"></span>';
+	 	            	var two = '<a href="courses"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspCourses</a> &nbsp&bullet;&nbsp<a href="calendar" class="calendar" title="School Events Calendar"><img class="opaquethumb" style="height: 14px; vertical-align: -2px;" src="views/default/images/icons/calendargreen.png"></img>&nbspCalendar</a> &nbsp&bullet;&nbsp<a href="ideas"><img class="opaquethumb" style="height: 15px; vertical-align: -2px;" src="views/default/images/icons/lightbulb.png"></img>&nbspIdeas</a> &nbsp&bullet;&nbsp<a href="members/{p_id}" class="members" title="All Members"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/icons/membersgreen.png"></img>&nbspMembers</a> &nbsp&bullet;&nbsp<a href="ivies/list" class="logout"><img class="opaquethumb" style="height: 13px; vertical-align: -2px;" src="views/default/images/ivyblack.png"></img> Schools</a><span class="fifteen"></span>';
 	 	                document.getElementById('parent').innerHTML = two;
 	 	                $('#parent').css({'opacity':'.9','display':'block'});
 	 	                $('.fieldheight').css({'box-shadow':'none', '-webkit-box-shadow':'none', '-moz-box-shadow':'none', 'border-bottom':'none'});
@@ -145,7 +145,7 @@
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
 <td class="shadebg" id="this4" onclick="location.href='http://www.ivynexus.com/messages'" onmouseover="hoverdropdown(4)">&nbsp
-	<a href="/messages"><span id="barnumber"><img height="12px" src="views/default/images/load.gif"></img></span>&nbsp<img class="opaquethumb" style="height: 12px; vertical-align: -2px;" src="views/default/images/icons/email.png"></img>&nbsp&nbsp</a>
+	<a href="messages"><span id="barnumber"><img height="12px" src="views/default/images/load.gif"></img></span>&nbsp<img class="opaquethumb" style="height: 12px; vertical-align: -2px;" src="views/default/images/icons/email.png"></img>&nbsp&nbsp</a>
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
 <td class="shadebg" id="this3" onmouseover="hoverdropdown(3)">&nbsp

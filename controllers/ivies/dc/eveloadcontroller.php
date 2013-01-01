@@ -29,20 +29,20 @@ $info2 = $event_row['event_name'].': From '.$event_row['event_start'].' '.$event
 
 	if($randomphoto != ''){
 		if($side == 1) {
-			echo "<ul id='zoomleftevent'><li tabindex='0'><div title='".$info2."'><img id='eveleft".$row."' onmouseover='flipEvent(1)' onmouseout='revert(1)' width='99%' height='auto' border='1px' src='uploads/events/".$randomphoto."' /></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliLeft(".$id.", ".$random.")' /></form></center>";
+			echo "<ul id='zoomleftevent'><li tabindex='0'><div title='".$info2."'><img id='eveleft".$row."' onmouseover='flipEvent(1)' onmouseout='revert(1)' width='99%' height='auto' src='uploads/events/".$randomphoto."' /></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliLeft(".$id.", ".$random.")' /></form></center>";
 	
 /* this allows hover
 echo "<ul id='zoomleftevent'><li tabindex='0'><div title='".$info2."'><img id='eveleft".$row."' onmouseover='flipEvent(1)' onmouseout='revert(1)' width='99%' height='auto' border='1px' src='uploads/events/".$randomphoto."'><div class='info1' style='opacity: 0; display:inline-block; margin-top: -100%; '>".$info."</div></img></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliLeft(".$id.", ".$random.")' /></form></center>";*/
 		}
 		else {
-			echo "<ul id='zoomrightevent'><li tabindex='0'><div title='".$info2."'><img id='everight".$row."' onmouseover='flipEvent(2)' onmouseout='revert(2)' width='99%' height='auto' border='1px' src='uploads/events/".$randomphoto."' /></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliRight(".$id.", ".$random.")' /></form></center>";
+			echo "<ul id='zoomrightevent'><li tabindex='0'><div title='".$info2."'><img id='everight".$row."' onmouseover='flipEvent(2)' onmouseout='revert(2)' width='99%' height='auto' src='uploads/events/".$randomphoto."' /></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliRight(".$id.", ".$random.")' /></form></center>";
 
 /* this allows hover
 echo "<ul id='zoomrightevent'><li tabindex='0'><div title='".$info2."'><img id='everight".$row."' onmouseover='flipEvent(2)' onmouseout='revert(2)' width='99%' height='auto' border='1px' src='uploads/events/".$randomphoto."'><div class='info2' style='opacity: 0; display: inline-block; margin-top: -100%;'>".$info."</div></img></div></li></ul><div style='height:10px;'></div><center><strong id='chilieventright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getEventChiliRight(".$id.", ".$random.")' /></form></center>";*/
 		}
 	}
 	else {
-		echo "<img style='display:none;' id='phleft' width='99%' height='auto' border='1px' src='uploads/profile/132660203345453_427650983348_578388348_4860289_7538459_n.jpg'></img>";
+		echo "<img style='display:none;' id='phleft' width='99%' height='auto' src='uploads/profile/132660203345453_427650983348_578388348_4860289_7538459_n.jpg'></img>";
 	}
 
 ?>

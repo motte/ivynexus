@@ -72,19 +72,19 @@
 <center>
 <div id="main">
 	<div align="left" style="color:#196543; font-size:25px; margin-top: 20px;">{idea_name}
-		<span style="color: #444; margin-left:15px; font-size:17px;"><span id="chilirefresh{idea_id}">{chilis}</span>&nbsp<form id="ivychili" name="form" method="post"><input id="ivychili" title="Hotness Factor: {chilis} Chilis" type="button" onclick="addChili({idea_id})" /></form></span>
+		<span style="color: #444; margin-left:15px; font-size:17px;"><span id="chilirefresh{idea_id}">{chilis}</span>&nbsp<form id="ivychili" name="form" method="post"><input id="ivychili" title="Hotness Factor: {chilis} Chilis" type="button" onclick="addChili({idea_id})" ></form></span>
 		<span style="margin-left: 50px;" class="engraved">&bullet;</span>
 		<span style="font-size: 16px; color:#444;"><span id="supportCount">{supporters}</span> Supporters</span>
 		<span class="engraved">&bullet;</span>
 		<span id="share" class="support"  onclick="shareToSchool()"><span style="vertical-align:3px;">Share with {p_school}</span></span>
-		<span id="alertmessage">Shared</alert>
+		<span id="alertmessage">Shared</span>
 	</div>
 	<div align="left" style="margin-left: 5px; margin-bottom:20px;">Added on {when_added}</div>
 	<hr style="height: 1px; width: 80%; margin-top:20px; background: #fff; border: none; margin-bottom:20px;" />
 	<div align="left" style="font-size:25px;">Description</div>
 	<div align="left" style="margin-left: 10px; margin-top:5px;">{idea_description}</div>
 	<hr style="height: 1px; width: 80%; margin-top:20px; background: #fff; border: none; margin-bottom:20px;" />
-	<div id="plus_sign" class="support" style="text-align:center;padding-left: 15px;" onclick="addSupport({idea_id})">Support</div>
+	<div id="plus_sign" class="support" style="text-align:center;padding-left: 15px;" onclick="addSupport()">Support</div>
 </div>
 
 </center>

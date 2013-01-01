@@ -32,9 +32,9 @@ class Coursescontroller {
 		}
 	}
 
-	private function toSpecificCourse($courseid) {
+	private function toSpecificCourse($courseId) {
 		require_once(FRAMEWORK_PATH . 'models/courses.php');
-		$idea = new Courses($this->registry, $courseid);
+		$course = new Courses($this->registry, $courseId);
 		$this->registry->getObject('template')->buildFromTemplates('header.tpl.php', 'courses/specificCourse.tpl.php', 'footer.tpl.php');
 	}
 

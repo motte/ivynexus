@@ -83,14 +83,12 @@
 
 <center>
 <div id="main">
-		| &nbsp<h4>Friends</h4>
 		
 	        <ul>
 	        	<!-- START profile_friends_sample -->
 	        	&bullet; <li><img id="thumb" class="content" src="uploads/profile/thumb{photo}" href="URL" target="TARGET"  onerror="this.src='views/default/images/icons/user.png';" /> <a href="profile/view/{ID}" id="sample">{users_name}</a></li>&nbsp
 	        	<!-- END profile_friends_sample -->
-	        	&nbsp|<li><a href="relationships/all/{profile_user_id}" id="sample">All Friends</a></li>
-	        	|
+	        	
 	        </ul>
 	        <!--<h4>Rest of Profile</h4>
 	        <ul>

@@ -10,12 +10,12 @@ class Courses {
 	public $registry;
 	
 	/**
-	 * id of the idea
+	 * id of the course
 	 */
 	public $courseId;
 	
 	/**
-	 * id of the idea sharer
+	 * id of the course sharer
 	 */
 	public $senderId;
 	
@@ -25,25 +25,23 @@ class Courses {
 	public $senderName;
 
 	/**
-	 * The idea description
+	 * The course description
 	 */
 	public $courseDescription;
 	
 	/**
-	 * Idea constructor
+	 * Course constructor
 	 * @param Registry $registry the registry object
-	 * @param int $id the ID of the idea
+	 * @param int $id the ID of the course
 	 * @return void
 	 */
 	public function __construct(Registry $registry, $courseId) {
 		$this->registry = $registry;
 		include_once('../dbconnect.php');
-		$this->ideaId = $ideaId; /* this is the ideaId that is passed to this model from the controller */
-		if($this->ideaId > 0) {
-			//$this->registry->getObject('template')->getPage()->addTag("tId", $this->ideaId);
-			//$sql = "SELECT * FROM ideas AS i, chili_ideas AS c WHERE i.id='$this->ideaId' AND c.id=i.id LIMIT 1";
-			//$sql = "SELECT * FROM ideas INNER JOIN chili_ideas ON chili_ideas.c_receiver=ideas.id AND ideas.id='$ideaId'";
-			$sql = "SELECT * FROM ideas WHERE id='$courseId'";
+		$this->courseId = $courseId; /* this is the courseId that is passed to this model from the controller */
+		if($this->courseId > 0) {
+		
+			$sql = "SELECT * FROM courses WHERE id='$courseId'";
 			//$result = mysql_query($sql) or die(mysql_error());
 			$query = $this->registry->getObject('db')->executeQuery($sql);
 			//$rows = mysql_num_rows($result);
@@ -52,12 +50,14 @@ class Courses {
 				//$data = mysql_fetch_array($result) or die(mysql_error());
 				$this->registry->getObject('template')->getPage()->addTag('course_id', $data['id']);
 				$this->registry->getObject('template')->getPage()->addTag('course_name', $data['course_name']);
+				$this->registry->getObject('template')->getPage()->addTag('course_number', $data['course_number']);
+				$this->registry->getObject('template')->getPage()->addTag('poster_name', $data['poster_name']);
 				$this->registry->getObject('template')->getPage()->addTag('course_description', $data['description']);
 				$this->registry->getObject('template')->getPage()->addTag('chilis', $data['chilis']);
 				$this->registry->getObject('template')->getPage()->addTag('supporters', $data['support']);
 				$this->registry->getObject('template')->getPage()->addTag('when_added', $data['when_added']);
 				//$p_id = $this->registry->getObject('authenticate')->getUser()->getUserID();
-				//$this->registry->getObject('db')->updateRecords('thread_participants', $update, 'threadId='.$this->ideaId.' AND viewerId='.$p_id);
+				//$this->registry->getObject('db')->updateRecords('thread_participants', $update, 'threadId='.$this->courseId.' AND viewerId='.$p_id);
 			}
 			else {
 				$this->registry->getObject('template')->getPage()->addTag('course_name', '');
@@ -101,7 +101,7 @@ class Courses {
 	
 	/**
 	 * Set the message itself
-	 * @param String $ideaDescription
+	 * @param String $courseDescription
 	 * @return void
 	 */
 	public function setMessage($courseDescription) {

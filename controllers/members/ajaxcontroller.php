@@ -23,15 +23,15 @@
 
 	if($randomphoto != ''){
 		if($a == 1) {
-			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pleft".$row."' width='99%' height='auto' border='1px' src='uploads/profile/".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliLeft(".$b.", ".$random.")' /></form></center>";
+			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pleft".$row."' width='99%' height='auto' src='uploads/profile/".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliLeft(".$b.", ".$random.")' /></form></center>";
 	
 		}
 		else {
-			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pright".$row."' width='99%' height='auto' border='1px' src='uploads/profile/".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliRight(".$b.", ".$random.")' /></form></center>";
+			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pright".$row."' width='99%' height='auto' src='uploads/profile/".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliRight(".$b.", ".$random.")' /></form></center>";
 		}
 	}
 	else {
-		echo "<img style='display:none;' id='pleft' width='99%' height='auto' border='1px' src='uploads/profile/132660203345453_427650983348_578388348_4860289_7538459_n.jpg'></img>";
+		echo "<img style='display:none;' id='pleft' width='99%' height='auto' src='uploads/profile/132660203345453_427650983348_578388348_4860289_7538459_n.jpg'></img>";
 	}
 
 ?>

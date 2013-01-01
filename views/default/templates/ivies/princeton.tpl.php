@@ -34,7 +34,7 @@
 			//Get the data from all the fields
         		var a = document.getElementById('keepID').value;
         		var b = document.getElementById('postbox').value;
-b=b.replace(/\n/g, "<br />");
+b=b.replace(/\r\n|\r|\n/g, "<br />");
         		var c = 1;
  			var d = document.getElementById('user').value;
  			var e = document.getElementById('school').value.toLowerCase();
@@ -66,7 +66,7 @@ b=b.replace(/\n/g, "<br />");
 			//Get the data from all the fields
         		var a = document.getElementById('keepID').value;
         		var b = document.getElementById('postbox').value;
-b=b.replace(/\n/g, "<br />");
+b=b.replace(/\r\n|\r|\n/g, "<br />");
         		var c = 1;
  			var d = document.getElementById('user').value;
  			var e = document.getElementById('school').value.toLowerCase();
@@ -346,7 +346,7 @@ b=b.replace(/\n/g, "<br />");
 	
 	function shareThis(a) {
 		var b = document.getElementById('postbox').value;
-b=b.replace(/\n/g, "<br />");
+b=b.replace(/\r\n|\r|\n/g, "<br />");
  		var c = 1;
  		var d = document.getElementById('user').value;
  		var e = document.getElementById('school').value.toLowerCase();

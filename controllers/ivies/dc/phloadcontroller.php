@@ -20,15 +20,16 @@
 
 	if($randomphoto != ''){
 		if($a == 1) {
-			echo $randomblurb."<ul id='zoomleftevent'><li tabindex='0' style='margin-top: -15px;'><img onmouseover='flipEvent(3)' onmouseout='revert(3)' id='phleft".$row."' width='99%' src='uploads/photos/".$randomphoto."'></img></div></li></ul><div style='height:10px;'><center><strong id='chiliphotorefreshleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getPhotoChiliLeft(".$b.", ".$random.")' /></form></center>";
+			echo $randomblurb."<ul id='zoomleftevent'><li tabindex='0' style='margin-top: -15px;'><img onmouseover='flipEvent(3)' onmouseout='revert(3)' id='phleft".$row."' width='99%' height='auto' src='uploads/photos/".$randomphoto."'></img></div></li></ul><div style='height:10px;'></div><center><strong id='chiliphotorefreshleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getPhotoChiliLeft(".$b.", ".$random.")' /></form></center>";
 	
 		}
 		else {
-			echo $randomblurb2."<ul id='zoomrightevent'><li tabindex='0' style='margin-top: -15px;'><img onmouseover='flipEvent(6)' onmouseout='revert(6)' id='phright".$row."' width='99%' src='uploads/photos/".$randomphoto."'></img></div></li></ul><div style='height:10px;'><center><strong id='chiliphotorefreshright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getPhotoChiliRight(".$b.", ".$random.")' /></form></center>";
+			echo $randomblurb2."<ul id='zoomrightevent'><li tabindex='0' style='margin-top: -15px;'><img onmouseover='flipEvent(6)' onmouseout='revert(6)' id='phright".$row."' width='99%' height='auto' src='uploads/photos/".$randomphoto."'></img></div></li></ul><div style='height:10px;'></div><center><strong id='chiliphotorefreshright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getPhotoChiliRight(".$b.", ".$random.")' /></form></center>";
+			
 		}
 	}
 	else {
-		echo $randomblurb."<img style='display:none;' id='phleft' width='99%' height='200px' src='uploads/profile/132660203345453_427650983348_578388348_4860289_7538459_n.jpg'></img>";
+		echo $randomblurb."<img style='display:none;' id='phleft' width='99%' height='200px' src='uploads/photos/1356565120crop380w_copy_of_party.jpg.jpg'></img>";
 	}
 
 ?>

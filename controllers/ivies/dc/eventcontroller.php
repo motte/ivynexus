@@ -39,6 +39,8 @@ $im->loadFromFile($path.$actual_image_name);
 $im->exifrotation($path.$actual_image_name);
 $im->resizeScaleHeight(230);
 $im->save($path.$actual_image_name);
+$im->resize(200,200);
+$im->save($path.'sqr'.$actual_image_name);
 
 $all = $event_name.': '.$event_description.' From '.$event_start.' at '.$event_starttime.' to '.$event_end.' at '.$event_endtime;
 
