@@ -5,10 +5,12 @@
 	include_once('../../dbconnect.php');
 	$counter = mysql_real_escape_string($_GET["c"]); //initial load has counter =0
 	$first = mysql_real_escape_string($_GET["d"]); //starts from 0, first time loading a set of posts, then adds minimum row value
+	$school = strtolower(mysql_real_escape_string($_GET["e"]));
+	$table = $school."_courses";
 	
 //If not the first post
 	if($first != '0') {
-		$query = mysql_query("SELECT * FROM courses WHERE id BETWEEN $counter-26 AND $counter-1 ORDER BY id DESC LIMIT 25");
+		$query = mysql_query("SELECT * FROM $table WHERE id BETWEEN $counter-26 AND $counter-1 ORDER BY id DESC LIMIT 25");
 
 		$min = array();
 		while($row = mysql_fetch_array($query)){
@@ -25,7 +27,7 @@
 	}
 // if the first set of posts - mark it
 	else {
-		$query = mysql_query("SELECT * FROM courses ORDER BY id DESC LIMIT 25");
+		$query = mysql_query("SELECT * FROM $table ORDER BY id DESC LIMIT 25");
 		
 		$min = array();
 		

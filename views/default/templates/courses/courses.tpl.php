@@ -6,6 +6,7 @@
 
 	function loadCourses(c,d) {
 		$('<img src="views/default/images/tiny_loader.gif" id="temp" alt="Loading..."/>').replaceAll('button#coursecount');
+		var e = '{p_school}';
 
 			if (window.XMLHttpRequest) {
 				// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -21,7 +22,7 @@
 			 	$('img#temp').remove();
 				}
 			}
-			xmlhttp.open("GET","controllers/courses/loadcontroller.php?c="+c+"&d="+d,true);
+			xmlhttp.open("GET","controllers/courses/loadcontroller.php?c="+c+"&d="+d+"&e="+e,true);
 			xmlhttp.send();
 	
 	}
