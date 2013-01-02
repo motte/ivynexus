@@ -90,6 +90,7 @@ class Message {
 				else {
 					//$selfdestruct = strtotime($data['selfdestruct']);
 					//$whenSent = strtotime($data['created']);
+					// This takes the difference in seconds from a unix timestamp for both when created and the selfdestruct timer to determine expiration
 					$difference = strtotime($data['created'])-strtotime($data['selfdestruct']);
 					
 					if($difference < 0){

@@ -821,7 +821,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<label class="event_end">End Date</label>
 					<input type="date" id="event_end" class="extra" name="event_end" size="23%" style="padding-right: 5%;" placeholder="e.g. 2012-05-29   Y-M-D" />
 					<label for="event_endtime">Time</label>
-					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="10%" style="padding-right: 11%;" placeholder="e.g. 12 AM" /><br /><br />
+					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="10%" style="padding-right: 11%;" placeholder="e.g. 12:00 AM" /><br /><br />
 					<label for="event_description">Description</label>
 					<input type="text" class="extra" id="event_description" name="event_description" size="60%" /><br /><br />
 					<label class="event_file">Upload Image</label>

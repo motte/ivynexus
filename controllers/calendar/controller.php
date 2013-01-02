@@ -186,7 +186,7 @@ class Calendarcontroller {
 				$dates[] = $row['start_day'];
 				$when = $row['event_start'].' '.$row['event_starttime'].' to '.$row['event_end'].' '.$row['event_endtime'];
 //$when = $row['event_start'].'&nbsp '.$row['event_starttime'].'<br />To &nbsp'.$row['event_end'].'&nbsp '.$row['event_endtime'].'<br />';
-				$data[intval($row['start_day'])] = $data[intval($row['start_day'])]."<ul id='zoomevent'><li tabindex='0'><div title='From ".$when.' - '.$row['event_description']."'><img src='../../uploads/events/".$row['photo']."' width='15px' height='auto' style='margin-top: 7px;' /> <span title='From ".$when.' - '.$row['event_description']."' id='event'>".$row['name']."</span></div></li></ul><br />";
+				$data[intval($row['start_day'])] = $data[intval($row['start_day'])]."<ul id='zoomevent'><li tabindex='0'><div title='From ".$when.' - '.$row['event_description']."'><img src='uploads/events/".$row['photo']."' width='15px' height='auto' style='margin-top: 7px;' /> <span title='From ".$when.' - '.$row['event_description']."' id='event'>".$row['name']."</span></div></li></ul><br />";
 
 //$data[intval($row['start_day'])] = $data[intval($row['start_day'])]."<img src='../../views/default/images/calendar.png' width='15px' height='auto' style='margin-top: 7px;' /> <a href='uploads/events/".$row['photo']."' rel='lightbox' title='From &nbsp".$when.'<br />'.$row['event_description']."' id='event'>".$row['name']."</a><br />";
 				//$data[intval($row['start_day'])] = "<br />".$row['name']." (". $row['event_description'] . ")<br />";

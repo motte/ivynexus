@@ -14,7 +14,8 @@ $event_starttime = mysql_real_escape_string($_POST["i"]);
 $event_end = mysql_real_escape_string($_POST["j"]);
 $event_endtime = mysql_real_escape_string($_POST["k"]);
 
-$path = "/home/ivynex5/public_html/uploads/events/";
+//$path = "/home/ivynex5/public_html/uploads/events/";
+$path = "/Applications/XAMPP/xamppfiles/events/uploads/events/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
