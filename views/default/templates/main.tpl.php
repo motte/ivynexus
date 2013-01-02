@@ -68,16 +68,23 @@ function viewed() {
 <div id="slidemain">
 	<div id="gallery">
 		<div id="slides">
-			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/crushslide.png" width="820" height="400" alt="side" /></a></div>
-			<div class="slide"><a href="/academics/edit"><img src="views/default/images/announcements/jobslide4.png" width="820" height="400" alt="side" /></a></div>
-			<div class="slide"><a href="/security_terms.php"><img src="views/default/images/announcements/securityslide2.png" width="820" height="400" alt="side" /></a></div>
-			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/eventslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/current/crushslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/connectionslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/academics/edit"><img src="views/default/images/announcements/current/jobslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/security_terms.php"><img src="views/default/images/announcements/current/securityslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/eventslide.png" width="820" height="400" alt="side" /></a></div>
 			
 		</div>
     
     		<div id="slidemenu">
 			<ul id="thumbs">
-				<li class="fbar">&nbsp;</li><li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/crushthumb.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/ivythumb.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/securitythumb.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/eventsthumb.png" alt="thumbnail" /></a></li>
+				<li class="fbar">&nbsp;</li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/crushthumb.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/missthumb.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/ivythumb.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/securitythumb.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/eventsthumb.png" alt="thumbnail" /></a></li>
+				
 				<!--<li class="fbar">&nbsp;</li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_macbook.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_iphone.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_imac.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_about.png" alt="thumbnail" /></a></li>-->
 			</ul>
     		</div>
