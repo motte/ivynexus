@@ -149,6 +149,48 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	function newMessage(a, b) {
 		
 	}
+
+	function infiniteset() {
+		$('#setselects').css({'display':'none'});
+	    $('#setselects').animate({'opacity':'0'}, 300);
+	    $('#setstyle').css({'text-decoration':'none'});
+	    $('#setstyle').css({'color':'#dddddd'});
+	    $('#infinitesymbol').css({'color':'#444444'});
+	    $('#settime').prop('checked', false);	
+	}
+	
+	function showset() {
+		$('#setselects').css({'display':'inline-block'});
+		$('#setselects').animate({'opacity':'1'}, 300);
+		$('#setstyle').css({'text-decoration':'underline'});
+		$('#setstyle').css({'color':'#444444'});
+		$('#infinitesymbol').css({'color':'#dddddd'});	
+		$('#settime').prop('checked', true);	
+	}
+	
+	function infhover() {
+		var check = $("#setselects").css("opacity");
+		switch(check){
+			case "0":
+				$('#infinitesymbol').css({'color':'#333333'});
+				break;
+			case "1":
+				$('#infinitesymbol').css({'color':'#dddddd'});
+				break;
+		}
+	}
+	
+	function sethover() {
+		var check = $("#setselects").css("opacity");
+		switch(check){
+			case "1":
+				$('#setstyle').css({'color':'#333333'});
+				break;
+			case "0":
+				$('#setstyle').css({'color':'#dddddd'});
+				break;
+		}
+	}
 </script>
 <center>
 <div id="main">
@@ -156,7 +198,11 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	<div id="adjustpostbox">
                         <hr color="#eee" size="1" style="margin-top: -1px;" />
 			<!-- This is where you adjust the textarea shout out area width:98%; -->
-				<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard"></textarea>
+				<div align="left">
+					<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard"></textarea>		
+				</div>
+				
+				
 				
 				<input type="hidden" name="user" id="user" value="{firstname} {lastname}" />
 				<!-- this is to load more posts -->
@@ -211,7 +257,114 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<label class="event_file">Upload Image</label>
 					<input type="file" class="extra" id="event_file" name="event_file" /><br />
 				</form>
+				
 					<div id='eventpreview'></div>
+				</div>
+				
+				<div class="styledselect">
+					<img src="views/default/images/icons/leaf.png" style="opacity: .3;vertical-align: -4px; margin-top: 10px;" /><span>&nbspMessage Decays in 
+					<span id="setselects" style="opacity: 0; display:none;">
+						&nbsp<select id="styledselect">
+							<option value="infinite">-</option>
+							<option value="0">0</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+						</select>
+						<label>Minutes</label>
+						&nbsp<select id="styledselect">
+							<option value="infinite">-</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3" selected>3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select>
+						<label>Hours<option value="0">0</option></label>
+						&nbsp<select id="styledselect">
+							<option value="infinite">-</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+						</select>
+						<label>Days</label>
+						&nbsp<select id="styledselect">
+							<option value="infinite">-</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+						</select>
+						<label>Months</label>
+						&nbsp<select id="styledselect">
+							<option value="infinite">-</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						<label>Years</label>&nbsp&bull;&nbsp
+					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#333333'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#333333'});" onmouseout="sethover()" id="setstyle">Set</span></span>
+					<input type="checkbox" id="settime"></input>
 				</div>
 				
 				<div align="center">

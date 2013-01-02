@@ -41,6 +41,7 @@ class Crush {
 			//if($a > 0) {
 				$counter='1';
 				
+				//if(mysql_num_rows($query) > 0) {
 				while($data = mysql_fetch_array($query)){
 					$crid = $data['crush'];
 					$sqlcrushes = "SELECT name FROM profile WHERE user_id='$crid'";
@@ -51,6 +52,8 @@ class Crush {
 					
 					$counter++;
 				}
+				//}
+				
 				while($counter < 4) {
 					$this->registry->getObject('template')->getPage()->addTag('crush'.$counter, '<em style="color: #ddd;">nobody</em>');
 					$counter++;

@@ -665,6 +665,7 @@ div.buttoncontainer {
 	-moz-border-radius: 5px;       /* for Firefox */
 	height: 25px;
 	width: 100%;
+color: #74646e;
 	display:inline-block;
 	line-height: 27px;
 }
@@ -697,6 +698,69 @@ table#calendar tr,#calendar td,#calendar th {
 
 .preview {
 	box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;
+}
+
+.styledselect {
+
+	padding: 5px;
+
+	border: none;
+	border-radius: 0;
+	display: inline-block;
+	color: #888;
+	
+}
+
+#infinitesymbol {
+	letter-spacing: -2px;
+	font-size: 15px;
+	cursor: pointer;
+	color: #444444;
+}
+
+#infinitesymbol:hover {
+	color: #333; !important
+	//text-shadow: 1px 1px #ddd;
+}
+
+#infinitesymbol:active {
+	color: #555; !important
+	text-shadow: none;
+}
+
+#setstyle {
+	color: #dddddd;
+	cursor: pointer;
+}
+
+#setstyle:hover {
+	color: #333; !important
+	//text-shadow: 1px 1px #ddd;
+}
+
+#setstyle:active {
+	color: #555; !important
+	text-shadow: none;
+}
+
+#settime {
+	display: inline-block; opacity: 1; margin-left: -99999px; position:absolute;
+}
+
+select#styledselect {
+    display: inline-block;
+    padding: 4px 3px 5px 5px;
+    width: 50px;
+    height: 20px;
+    outline: none;
+    color: #74646e;
+    border: 1px solid #C8BFC4;
+    //border: 1px solid #C8BFC4;
+    //border-radius: 4px;
+    //box-shadow: inset 1px 1px 2px #ddd8dc;
+    background-color: #fff;      
+    position: relative;
+    margin-top: 10px;
 }
 
 a#event {
