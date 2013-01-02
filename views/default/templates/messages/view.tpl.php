@@ -363,11 +363,12 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="4">4</option>
 						</select>
 						<label>Years</label>&nbsp&bull;&nbsp
-					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#777777'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#777777'});" onmouseout="sethover()" id="setstyle">Set</span><div class="test">
-					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div></span>
+					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#777777'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#777777'});" onmouseout="sethover()" id="setstyle">Set</span>&nbsp&bull;</span>
+					
 					<input type="checkbox" id="settime"></input>
 				</div>
-				
+				<div class="test">
+					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png" style="vertical-align: -4px; height: 17px;" />Anonymous</label></div>
 				<div align="center">
 					
 					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})">Share</button>

@@ -254,7 +254,6 @@ div.contain:hover {
 
 img.ivy {
 margin-top: 10px;
-margin-left: 12px;	
 }
 
 input[type="checkbox"]
@@ -275,6 +274,16 @@ input#anonymous:checked
 {
 	width: 20px;
 	margin-top: 18px;
+	display: inline;
+	margin-bottom: -20px;
+	margin-right: -21px;
+	
+}
+
+/*input#anonymous:checked 
+{
+	width: 20px;
+	margin-top: 18px;
 	display: block;
 	margin-bottom: -30px;
 	margin-left: 13px;	
@@ -286,6 +295,15 @@ div.test{
 	width: 20px;
 	position: absolute;
 	margin-left: 140px;
+	text-align: center;
+}*/
+
+div.test{
+	display: inline;
+	font: 9px helvetica, helvetica neue;
+	width: 20px;
+	position: relative;
+
 	text-align: center;
 }
 
