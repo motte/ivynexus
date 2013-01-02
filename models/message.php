@@ -58,7 +58,7 @@ class Message {
 			$this->registry->getObject('template')->getPage()->addTag("tId", $this->threadId);
 			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' AND expirationFuse>NOW() ORDER BY created DESC LIMIT 25";
 			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
-			$sql = "SELECT messageId, senderId, senderName, body, expirationFuse as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent, created FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
+			$sql = "SELECT messageId, senderId, senderName, body, expirationFuse as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent, created FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 50";
 			
 			$query = $this->registry->getObject('db')->executeQuery($sql);
 			
