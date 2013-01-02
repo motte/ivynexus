@@ -715,7 +715,7 @@ table#calendar tr,#calendar td,#calendar th {
 	letter-spacing: -2px;
 	font-size: 15px;
 	cursor: pointer;
-	color: #444444;
+	color: #777777;
 }
 
 #infinitesymbol:hover {
@@ -1083,6 +1083,15 @@ input[type="radio"]
 	z-index: 1000;
 }
 
+#anony {
+	opacity: .7;
+}
+
+#anony:hover {
+	opacity: 1;
+}
+
+
 input#anonymous:checked 
 {
 	width: 20px;
@@ -1092,14 +1101,14 @@ input#anonymous:checked
 	margin-left: 13px;	
 }
 
-div.test{
+/*div.test{
 	display: inline;
 	font: 9px helvetica, helvetica neue;
 	width: 20px;
 	position: absolute;
 	margin-left: 140px;
 	text-align: center;
-}
+}*/
 
 textarea#postbox {
         box-shadow: 0px 0px 8px #ddd;

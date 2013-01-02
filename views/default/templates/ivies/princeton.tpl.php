@@ -830,10 +830,10 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				</center>
 					<div id='eventpreview'></div>
 				</div>
-				
+				<div class="test">
+					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div>
 				<div align="center">
-					<div class="test">
-					<label for="anonymous" value="Anonymous"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div>
+					
 					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})">Share</button>
 				</div>
 				

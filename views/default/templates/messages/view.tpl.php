@@ -155,7 +155,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	    $('#setselects').animate({'opacity':'0'}, 300);
 	    $('#setstyle').css({'text-decoration':'none'});
 	    $('#setstyle').css({'color':'#dddddd'});
-	    $('#infinitesymbol').css({'color':'#444444'});
+	    $('#infinitesymbol').css({'color':'#777777'});
 	    $('#settime').prop('checked', false);	
 	}
 	
@@ -163,7 +163,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		$('#setselects').css({'display':'inline-block'});
 		$('#setselects').animate({'opacity':'1'}, 300);
 		$('#setstyle').css({'text-decoration':'underline'});
-		$('#setstyle').css({'color':'#444444'});
+		$('#setstyle').css({'color':'#777777'});
 		$('#infinitesymbol').css({'color':'#dddddd'});	
 		$('#settime').prop('checked', true);	
 	}
@@ -172,7 +172,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		var check = $("#setselects").css("opacity");
 		switch(check){
 			case "0":
-				$('#infinitesymbol').css({'color':'#333333'});
+				$('#infinitesymbol').css({'color':'#777777'});
 				break;
 			case "1":
 				$('#infinitesymbol').css({'color':'#dddddd'});
@@ -184,7 +184,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		var check = $("#setselects").css("opacity");
 		switch(check){
 			case "1":
-				$('#setstyle').css({'color':'#333333'});
+				$('#setstyle').css({'color':'#777777'});
 				break;
 			case "0":
 				$('#setstyle').css({'color':'#dddddd'});
@@ -363,13 +363,13 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="4">4</option>
 						</select>
 						<label>Years</label>&nbsp&bull;&nbsp
-					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#333333'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#333333'});" onmouseout="sethover()" id="setstyle">Set</span></span>
+					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#777777'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#777777'});" onmouseout="sethover()" id="setstyle">Set</span><div class="test">
+					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div></span>
 					<input type="checkbox" id="settime"></input>
 				</div>
 				
 				<div align="center">
-					<div class="test">
-					<label for="anonymous" value="Anonymous"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div>
+					
 					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})">Share</button>
 				</div>
 				
