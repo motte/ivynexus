@@ -26,20 +26,20 @@ function countDown(startTime, divid, the_event) {
 			$("#eventpreview").html('');
 			$("#eventpreview").html('<img src="views/default/images/load.gif" alt="Uploading...."/>');
 			//Get the data from all the fields
-        		var a = document.getElementById('keepID').value;
-        		var b = document.getElementById('postbox').value;
+        	var a = document.getElementById('keepID').value;
+        	var b = document.getElementById('postbox').value;
 b=b.replace(/\r\n|\r|\n/g, "<br />");
         		var c = 1;
  			var d = document.getElementById('user').value;
  			var e = {tId};
-        		var f = document.getElementById('event_url').value;
+        	var f = document.getElementById('event_url').value;
  			var g = document.getElementById('event_description').value;
-        		var h = document.getElementById('event_start').value;
+        	var h = document.getElementById('event_start').value;
 			var i = document.getElementById('event_starttime').value;
 			var j = document.getElementById('event_end').value;
 			var k = document.getElementById('event_endtime').value;
 		
-        		if(anonymous.checked == false) {
+        	if(anonymous.checked == false) {
  				c = 0;
  			}
  
@@ -51,10 +51,10 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					$('#eventpreview').html('');
 					$('#postbox').val('');
 				}
-			}).submit();
-			
+			}).submit();			
 		});
-                $('#image_file').live('change', function(){ 
+		
+        $('#image_file').live('change', function(){ 
 			$("#preview").html('');
 			$("#preview").html('<img src="views/default/images/load.gif" alt="Uploading...."/>');
 			//Get the data from all the fields
@@ -114,34 +114,74 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		  }
 		}
 		
-		if($('#radio_post').is(':checked')) {
-
-			xmlhttp.open("GET","controllers/messages/postcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h,true);
-		}
-		else if($('#radio_event').is(':checked')) {
-			var g = $('#event_url').val();
-			var h = $('#event_start').val();
-			var i = $('#event_starttime').val();
-			var j = $('#event_end').val();
-			var k = $('#event_endtime').val();
-			var l = $('#event_description').val();
-			xmlhttp.open("GET","controllers/messages/alteventcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h+"&i="+i+"&j="+j+"&k="+k+"&l="+l,true);
-		}
-		else if($('#radio_link').is(':checked')) {
-			var g = $('#linkdescription').val();
-			var h = $('#url').val();
-			xmlhttp.open("GET","controllers/messages/linkcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h,true);
-		}
-		else if($('#radio_photo').is(':checked')) {
-			//xmlhttp.open("POST","controllers/ivies/dc/photocontroller.php?file="+image_file+"&a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+		if($('#settime').is(':checked')) {
+			var mins = $('select#mins').val();
+			var hours = $('select#hours').val();
+			var days = $('select#days').val();
+			var months = $('select#months').val();
+			var years = $('select#years').val();
 			
-		}
-		else if($('#radio_video').is(':checked')) {
-			var regex = /http\:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})/;
-			var url = $('#video_url').val();
-			var vid = url.match(regex)[1];
+			if($('#radio_post').is(':checked')) {
 	
-			xmlhttp.open("GET","controllers/messages/videocontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&j="+vid,true);
+				xmlhttp.open("GET","controllers/messages/posttimecontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h+"&m="+mins+"&n="+hours+"&o="+days+"&p="+months+"&q="+years,true);
+			}
+			else if($('#radio_event').is(':checked')) {
+				var g = $('#event_url').val();
+				var h = $('#event_start').val();
+				var i = $('#event_starttime').val();
+				var j = $('#event_end').val();
+				var k = $('#event_endtime').val();
+				var l = $('#event_description').val();
+				xmlhttp.open("GET","controllers/messages/alteventtimecontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h+"&i="+i+"&j="+j+"&k="+k+"&l="+l+"&m="+mins+"&n="+hours+"&o="+days+"&p="+months+"&q="+years,true);
+			}
+			else if($('#radio_link').is(':checked')) {
+				var g = $('#linkdescription').val();
+				var h = $('#url').val();
+				xmlhttp.open("GET","controllers/messages/linktimecontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h+"&m="+mins+"&n="+hours+"&o="+days+"&p="+months+"&q="+years,true);
+			}
+			else if($('#radio_photo').is(':checked')) {
+				//xmlhttp.open("POST","controllers/ivies/dc/photocontroller.php?file="+image_file+"&a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+				
+			}
+			else if($('#radio_video').is(':checked')) {
+				var regex = /http\:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})/;
+				var url = $('#video_url').val();
+				var vid = url.match(regex)[1];
+		
+				xmlhttp.open("GET","controllers/messages/videotimecontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&j="+vid+"&m="+mins+"&n="+hours+"&o="+days+"&p="+months+"&q="+years,true);
+			}
+		}
+		/* if settime is not checked */
+		else{
+			if($('#radio_post').is(':checked')) {
+	
+				xmlhttp.open("GET","controllers/messages/postcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h,true);
+			}
+			else if($('#radio_event').is(':checked')) {
+				var g = $('#event_url').val();
+				var h = $('#event_start').val();
+				var i = $('#event_starttime').val();
+				var j = $('#event_end').val();
+				var k = $('#event_endtime').val();
+				var l = $('#event_description').val();
+				xmlhttp.open("GET","controllers/messages/alteventcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h+"&i="+i+"&j="+j+"&k="+k+"&l="+l,true);
+			}
+			else if($('#radio_link').is(':checked')) {
+				var g = $('#linkdescription').val();
+				var h = $('#url').val();
+				xmlhttp.open("GET","controllers/messages/linkcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&g="+g+"&h="+h,true);
+			}
+			else if($('#radio_photo').is(':checked')) {
+				//xmlhttp.open("POST","controllers/ivies/dc/photocontroller.php?file="+image_file+"&a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+				
+			}
+			else if($('#radio_video').is(':checked')) {
+				var regex = /http\:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})/;
+				var url = $('#video_url').val();
+				var vid = url.match(regex)[1];
+		
+				xmlhttp.open("GET","controllers/messages/videocontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&j="+vid,true);
+			}
 		}
 		xmlhttp.send();
 	}
@@ -260,12 +300,13 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				
 					<div id='eventpreview'></div>
 				</div>
+				<div class="test">
+					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png" style="vertical-align: -4px; height: 17px;" />Anonymous</label></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<div id="theseselects">
 				
-				<div class="styledselect">
 					<img src="views/default/images/icons/leaf.png" style="opacity: .3;vertical-align: -4px; margin-top: 10px;" /><span>&nbspMessage Decays in 
-					<span id="setselects" style="opacity: 0; display:none;">
-						&nbsp<select id="styledselect">
-							<option value="infinite">-</option>
+					<span id="setselects" style="opacity: 0; display:none;">&nbsp
+						<select id="mins" class="styledselect">
 							<option value="0">0</option>
 							<option value="5">5</option>
 							<option value="10">10</option>
@@ -274,9 +315,8 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="40">40</option>
 							<option value="50">50</option>
 						</select>
-						<label>Minutes</label>
-						&nbsp<select id="styledselect">
-							<option value="infinite">-</option>
+						<label>Minutes</label>&nbsp
+						<select id="hours" class="styledselect">
 							<option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -302,9 +342,8 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="22">22</option>
 							<option value="23">23</option>
 						</select>
-						<label>Hours<option value="0">0</option></label>
-						&nbsp<select id="styledselect">
-							<option value="infinite">-</option>
+						<label>Hours<option value="0">0</option></label>&nbsp
+						<select id="days" class="styledselect">
 							<option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -337,9 +376,8 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="29">29</option>
 							<option value="30">30</option>
 						</select>
-						<label>Days</label>
-						&nbsp<select id="styledselect">
-							<option value="infinite">-</option>
+						<label>Days</label>&nbsp
+						<select id="months" class="styledselect">
 							<option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -353,9 +391,8 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="10">10</option>
 							<option value="11">11</option>
 						</select>
-						<label>Months</label>
-						&nbsp<select id="styledselect">
-							<option value="infinite">-</option>
+						<label>Months</label>&nbsp
+						<select id="years" class="styledselect">
 							<option value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -363,12 +400,11 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 							<option value="4">4</option>
 						</select>
 						<label>Years</label>&nbsp&bull;&nbsp
-					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#777777'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#777777'});" onmouseout="sethover()" id="setstyle">Set</span>&nbsp&bull;</span>
+					</span><span onclick="infiniteset()" onmouseover="$('#infinitesymbol').css({'color':'#777777'});" onmouseout="infhover()" id="infinitesymbol">oo</span>&nbsp&nbsp&bull;&nbsp<span onclick="showset()" onmouseover="$('#setstyle').css({'color':'#777777'});" onmouseout="sethover()" id="setstyle">Set</span></span>
 					
 					<input type="checkbox" id="settime"></input>
 				</div>
-				<div class="test">
-					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png" style="vertical-align: -4px; height: 17px;" />Anonymous</label></div>
+				
 				<div align="center">
 					
 					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})">Share</button>
@@ -401,126 +437,126 @@ $(function() {
 		<div id="wallrefresh"></div>
 		<tr>
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId1}">{senderName1}</a></strong>{message1}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD1}{expH1}{expM1}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp1}{expD1}{expH1}{expM1}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent1}</div>
 		</tr>
 		<tr>
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId2}">{senderName2}</a></strong>{message2}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD2}{expH2}{expM2}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp2}{expD2}{expH2}{expM2}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent2}</div>
 		</tr>
 		<tr>
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId3}">{senderName3}</a></strong>{message3}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD3}{expH3}{expM3}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp3}{expD3}{expH3}{expM3}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent3}</div>
 		</tr>
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId4}">{senderName4}</a></strong>{message4}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD4}{expH4}{expM4}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp4}{expD4}{expH4}{expM4}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent4}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId5}">{senderName5}</a></strong>{message5}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD5}{expH5}{expM5}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp5}{expD5}{expH5}{expM5}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent5}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId6}">{senderName6}</a></strong>{message6}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD6}{expH6}{expM6}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp6}{expD6}{expH6}{expM6}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent6}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId7}">{senderName7}</a></strong>{message7}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD7}{expH7}{expM7}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp7}{expD7}{expH7}{expM7}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent7}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId8}">{senderName8}</a></strong>{message8}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD8}{expH8}{expM8}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp8}{expD8}{expH8}{expM8}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent8}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId9}">{senderName9}</a></strong>{message9}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD9}{expH9}{expM9}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp9}{expD9}{expH9}{expM9}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent9}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId10}">{senderName10}</a></strong>{message10}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD10}{expH10}{expM10}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp10}{expD10}{expH10}{expM10}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent10}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId11}">{senderName11}</a></strong>{message11}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD11}{expH11}{expM11}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp11}{expD11}{expH11}{expM11}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent11}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId12}">{senderName12}</a></strong>{message12}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD12}{expH12}{expM12}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp12}{expD12}{expH12}{expM12}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent12}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId13}">{senderName13}</a></strong>{message13}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD13}{expH13}{expM13}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp13}{expD13}{expH13}{expM13}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent13}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId14}">{senderName14}</a></strong>{message14}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD14}{expH14}{expM14}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp14}{expD14}{expH14}{expM14}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent14}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId15}">{senderName15}</a></strong>{message15}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD15}{expH15}{expM15}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp15}{expD15}{expH15}{expM15}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent15}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId16}">{senderName16}</a></strong>{message16}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD16}{expH16}{expM16}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp16}{expD16}{expH16}{expM16}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent16}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId17}">{senderName17}</a></strong>{message17}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD17}{expH17}{expM17}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp17}{expD17}{expH17}{expM17}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent17}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId18}">{senderName18}</a></strong>{message18}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD18}{expH18}{expM18}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp18}{expD18}{expH18}{expM18}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent18}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId19}">{senderName19}</a></strong>{message19}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD19}{expH19}{expM19}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp19}{expD19}{expH19}{expM19}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent19}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId20}">{senderName20}</a></strong>{message20}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD20}{expH20}{expM20}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp20}{expD20}{expH20}{expM20}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent20}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId21}">{senderName21}</a></strong>{message21}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD21}{expH21}{expM21}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp21}{expD21}{expH21}{expM21}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent21}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId22}">{senderName22}</a></strong>{message22}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD22}{expH22}{expM22}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp22}{expD22}{expH22}{expM22}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent22}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId23}">{senderName23}</a></strong>{message23}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD23}{expH23}{expM23}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp23}{expD23}{expH23}{expM23}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent23}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId24}">{senderName24}</a></strong>{message24}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD24}{expH24}{expM24}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp24}{expD24}{expH24}{expM24}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent24}</div>
 		</tr>
 		<tr>	
 			<p><strong><a class="name" style="color:#000;" href="profile/view/{senderId25}">{senderName25}</a></strong>{message25}<br /></p>
-			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{expD25}{expH25}{expM25}</div>
+			<div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">{exp25}{expD25}{expH25}{expM25}</div>
 			<div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">{whenSent25}</div>
 		</tr>
 			

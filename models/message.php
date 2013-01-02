@@ -57,7 +57,8 @@ class Message {
 		if($this->threadId > 0) {
 			$this->registry->getObject('template')->getPage()->addTag("tId", $this->threadId);
 			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' AND expirationFuse>NOW() ORDER BY created DESC LIMIT 25";
-			$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
+			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
+			$sql = "SELECT messageId, senderId, senderName, body, expirationFuse as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent, created FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
 			
 			$query = $this->registry->getObject('db')->executeQuery($sql);
 			
@@ -71,20 +72,51 @@ class Message {
 				$this->expirationFuse = $data['selfdestruct'];
 				$this->message = $data['body'];	
 				$this->sent = $data['whenSent'];*/
-				
-				$data['days'] = intval((($data['selfdestruct'] / 60) / 60)/24);
-				$data['hours'] = intval((($data['selfdestruct'] / 60) / 60)%24);
-				$data['mins'] = intval(($data['selfdestruct'] / 60) % 60);
-				$data['seconds'] = ($data['selfdestruct'] % 60);
-				//$date = date('Y/n/j G:i:s', $data['expirationFuse']);
-				//$send = '<tr><p><strong><a class="name" style="color:#000;" href="profile/view/'.$data["senderId"].'">'.$data["senderName"].': </a></strong>'.$data["body"].'<br /></p><div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">Self-Destruct in '.$data["days"].' Days '.$data["hours"].' Hours '.$data["mins"].' Minutes '.$data["seconds"].' Seconds </div><div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">Sent on '.$data["whenSent"].'</div><hr style="height: 1px; width: 80%; background: #fff; border: none;" /></tr>';
-				$this->registry->getObject('template')->getPage()->addTag('senderId'.$counter, $data['senderId']);
+		
+				if($data['selfdestruct'] == '0000-00-00 00:00:00'){
+					$whenExpires = '';		
+					$this->registry->getObject('template')->getPage()->addTag('senderId'.$counter, $data['senderId']);
 				$this->registry->getObject('template')->getPage()->addTag('senderName'.$counter, $data['senderName'].': ');
 				$this->registry->getObject('template')->getPage()->addTag('message'.$counter, $data['body']);
+				$this->registry->getObject('template')->getPage()->addTag('exp'.$counter, $whenExpires);
 					$this->registry->getObject('template')->getPage()->addTag('expD'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expH'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expM'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, '');
+					$this->registry->getObject('template')->getPage()->addTag('whenSent'.$counter, 'Sent on '.$data['whenSent'].'<hr style="height: 1px; width: 80%; background: #fff; border: none;" />');
+					$counter++;
+				}
+				
+				else {
+					//$selfdestruct = strtotime($data['selfdestruct']);
+					//$whenSent = strtotime($data['created']);
+					$difference = strtotime($data['created'])-strtotime($data['selfdestruct']);
+					
+					if($difference < 0){
+						$counter;
+					}
+					else {
+						$whenExpires = date('F d, Y h:i:s',strtotime($data['selfdestruct']));
+						$whenExpires = 'Message expires '.$whenExpires;
+						$this->registry->getObject('template')->getPage()->addTag('senderId'.$counter, $data['senderId']);
+				$this->registry->getObject('template')->getPage()->addTag('senderName'.$counter, $data['senderName'].': ');
+				$this->registry->getObject('template')->getPage()->addTag('message'.$counter, $data['body']);
+				$this->registry->getObject('template')->getPage()->addTag('exp'.$counter, $whenExpires);
+					$this->registry->getObject('template')->getPage()->addTag('expD'.$counter, '');
+					$this->registry->getObject('template')->getPage()->addTag('expH'.$counter, '');
+					$this->registry->getObject('template')->getPage()->addTag('expM'.$counter, '');
+					$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, '');
+					$this->registry->getObject('template')->getPage()->addTag('whenSent'.$counter, 'Sent on '.$data['whenSent'].'<hr style="height: 1px; width: 80%; background: #fff; border: none;" />');
+					$counter++;
+					}
+				}
+				//$data['days'] = intval((($data['selfdestruct'] / 60) / 60)/24);
+				//$data['hours'] = intval((($data['selfdestruct'] / 60) / 60)%24);
+				//$data['mins'] = intval(($data['selfdestruct'] / 60) % 60);
+				//$data['seconds'] = ($data['selfdestruct'] % 60);
+				//$date = date('Y/n/j G:i:s', $data['expirationFuse']);
+				//$send = '<tr><p><strong><a class="name" style="color:#000;" href="profile/view/'.$data["senderId"].'">'.$data["senderName"].': </a></strong>'.$data["body"].'<br /></p><div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">Self-Destruct in '.$data["days"].' Days '.$data["hours"].' Hours '.$data["mins"].' Minutes '.$data["seconds"].' Seconds </div><div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">Sent on '.$data["whenSent"].'</div><hr style="height: 1px; width: 80%; background: #fff; border: none;" /></tr>';
+				
 			/*RElease the comment out below for self-destruct messages */
 				/*$this->registry->getObject('template')->getPage()->addTag('expD'.$counter, 'Self-destruct in '.$data['days'].' Days ');
 				$this->registry->getObject('template')->getPage()->addTag('expH'.$counter, $data['hours'].' Hours ');
@@ -92,8 +124,8 @@ class Message {
 				
 				/*$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, '');
 				//$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, 'Sent on '.$data['seconds'].' Seconds');*/
-				$this->registry->getObject('template')->getPage()->addTag('whenSent'.$counter, 'Sent on '.$data['whenSent'].'<hr style="height: 1px; width: 80%; background: #fff; border: none;" />');
-				$counter++;
+				
+				//$counter++;
 			}
 				$this->registry->getObject('template')->getPage()->addTag('mId', $ids[0]);
 				$update = array();
@@ -104,7 +136,7 @@ class Message {
 					$this->registry->getObject('template')->getPage()->addTag('senderId'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('senderName'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('message'.$counter, '');
-					
+					$this->registry->getObject('template')->getPage()->addTag('exp'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expD'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expH'.$counter, '');
 					$this->registry->getObject('template')->getPage()->addTag('expM'.$counter, '');
