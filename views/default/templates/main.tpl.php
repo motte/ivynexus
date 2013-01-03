@@ -68,6 +68,7 @@ function viewed() {
 <div id="slidemain">
 	<div id="gallery">
 		<div id="slides">
+			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/current/simplifyslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/current/crushslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/connectionslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/academics/edit"><img src="views/default/images/announcements/current/jobslide.png" width="820" height="400" alt="side" /></a></div>
@@ -79,6 +80,7 @@ function viewed() {
     		<div id="slidemenu">
 			<ul id="thumbs">
 				<li class="fbar">&nbsp;</li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/starthumb.png" alt="thumbnail" /></a></li>
 				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/crushthumb.png" alt="thumbnail" /></a></li>
 				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/missthumb.png" alt="thumbnail" /></a></li>
 				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/ivythumb.png" alt="thumbnail" /></a></li>
