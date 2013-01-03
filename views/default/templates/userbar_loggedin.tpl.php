@@ -149,7 +149,7 @@
 </td>
 <td style="border-right: 1px solid #ddd; height: 30px;"></td>
 <td class="shadebg" id="this3" onmouseover="hoverdropdown(3)">&nbsp
-		<a class="Logout" title="Extra" style="cursor: pointer;">&nabla;</a>&nbsp&nbsp
+		<a class="Logout" title="Extra" style="cursor: pointer;"><img class="opaquethumb" style="height: 14px; vertical-align: -3px;" src="views/default/images/icons/settings.png"></img></a>&nbsp&nbsp
 </td>
 </tr>
 </table>

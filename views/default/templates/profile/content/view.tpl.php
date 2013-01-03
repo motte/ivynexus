@@ -100,9 +100,15 @@
 
 	<table class="text" min-width="680px">
 		<tr height="1px">
-			<th align="left"  rowspan="10" valign="top">
+			<th align="left" width="90px" rowspan="10" valign="top">
 				<br />
-				
+				<form action="controllers/chat/controller.php" method="post">
+					<input name="1" type="hidden" value="{pID}"></input>
+					<input name="2" type="hidden" value="{p_id}"></input>
+					<input name="3" type="hidden" value="{profile_name}"></input>
+					<input name="4" type="hidden" value="{firstname} {lastname}"></input>
+					<input id="chat" name="Message" onclick="clickchat" type="submit" value=""></input>
+				</form>
 				
 			</th>
 			<th rowspan="9" valign="top"><div id="frame"></div><img class="shadow" src="uploads/profile/{profile_photo}"></img><div style="padding-top: 10px"></div><strong id="chilirefresh">{p_chili}</strong>
