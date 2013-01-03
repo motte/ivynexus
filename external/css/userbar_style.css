@@ -1904,8 +1904,8 @@ height: 100%;
 left: 0px; /* very, very important for all browser compliance */
 margin-top: -20px;
 position: absolute;
-opacity: .15;
-background: url('../../views/default/images/announcements/noise.png') repeat center center;
+opacity: .61;
+background: url('../../views/default/images/noise/mediumnoise.png') repeat center center;
 }
 
 div#mainblack {
@@ -3388,7 +3388,8 @@ overflow: hidden;
 background: #111 url('../../views/default/images/noise.png') repeat center center;
 }
 body#mainpage:before {
-	background:#f2f2f2;
+	//background:#f2f2f2;
+	background: #fff;
 }
 
 input.email {

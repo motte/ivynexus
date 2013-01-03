@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	/* This code is executed after the DOM has been completely loaded */
+	/* This code is executed after the DOM has been completely loaded 
+		This is a slider
+	*/
 	
 	var totWidth=0;
 	var positions = new Array();
