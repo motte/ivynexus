@@ -66,17 +66,85 @@ class Imagemanager {
    	 * @param int $y height
    	 * @return void
    	 */
-   	public function resizeSqr($x) {
-$offsetX = abs(($this->getWidth() - $x) / 2);
-$offsetY = abs(($this->getHeight() - $x) / 2);
-	   	$new = imagecreatetruecolor($x, $x);
-	   	imagecopyresampled($new,
+   	public function resizeSqr() {
+	   	$origX = $this->getWidth();
+	   	$origY = $this->getHeight();
+	   	if($origY > $origX){
+		   	/* Portrait */
+		   	$offsetY = ($origY - $origX)/2;
+		   	$x = $this->getWidth();
+		   	$new = imagecreatetruecolor($x, $x);
+			imagecopyresampled($new,
                    $this->image,
-                   $offsetX, // Center the image horizontally
-                   $offsetY, // Center the image vertically
                    0, 0,
-                   $x, $y,
-                   $this->getWidth(), $this->getHeight());
+                   0, $offsetY,
+                   $x, $x,
+                   $x, $x);
+		}
+		elseif($origY < $origX) {
+			/* Landscape */
+			$offsetX = ($origX - $origY)/2;
+			$x = $origY;
+			$new = imagecreatetruecolor($x, $x);
+			imagecopyresampled($new,
+                   $this->image,
+                   0, 0,
+                   $offsetX, 0,
+                   $x, $x,
+                   $x, $x);
+		}
+		else {
+			//Squares
+			$new = imagecreatetruecolor($origX, $origX);
+			imagecopyresampled($new,
+                   $this->image,
+                   0, 0,
+                   0, 0,
+                   $origX, $origX,
+                   $origX, $origX);
+		}
+
+      	      	$this->image = $new;
+   	}
+   	
+   	public function resizeProfileSqr() {
+	   	$origX = $this->getWidth();
+	   	$origY = $this->getHeight();
+	   	if($origY > $origX){
+		   	/* Portrait */
+		   	
+		   	$x = $this->getWidth();
+		   	$new = imagecreatetruecolor($x, $x);
+			imagecopyresampled($new,
+                   $this->image,
+                   0, 0,
+                   0, 0,
+                   $x, $x,
+                   $x, $x);
+		}
+		elseif($origY < $origX) {
+			/* Landscape */
+			$offsetX = ($origX - $origY)/2;
+			$x = $origY;
+			$new = imagecreatetruecolor($x, $x);
+			imagecopyresampled($new,
+                   $this->image,
+                   0, 0,
+                   $offsetX, 0,
+                   $x, $x,
+                   $x, $x);
+		}
+		else {
+			//Squares
+			$new = imagecreatetruecolor($origX, $origX);
+			imagecopyresampled($new,
+                   $this->image,
+                   0, 0,
+                   0, 0,
+                   $origX, $origX,
+                   $origX, $origX);
+		}
+
       	      	$this->image = $new;
    	}
 
@@ -329,7 +397,7 @@ public function ImageFlip($image, $x = 0, $y = 0, $width = null, $height = null)
 	 * Get the square image name
 	 * @return String
 	 */
-	public function getSquareName() {
+	public function getSqrName() {
 		return 'sqr' . $this->name;
 	}
 	

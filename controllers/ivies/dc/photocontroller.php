@@ -7,7 +7,8 @@ $post = mysql_real_escape_string($_POST["b"]);
 $anonymous = mysql_real_escape_string($_POST["c"]);
 $poster = mysql_real_escape_string($_POST["d"]);
 $school = mysql_real_escape_string($_POST["e"]);
-$path = "/home/ivynex5/public_html/uploads/photos/";
+$path = "/Applications/XAMPP/xamppfiles/htdocs/ivynexus/uploads/photos/";
+//$path = "/home/ivynex5/public_html/uploads/photos/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
@@ -32,9 +33,7 @@ $im->loadFromFile($path.$actual_image_name);
 $im->exifrotation($path.$actual_image_name);
 $im->resizeScaleHeight(230);
 $im->save($path.$actual_image_name);
-//$im->resizeSqr(200);
-//$im->save($path.'sqr'.$actual_image_name);
-$im->resize(200,200);
+$im->resizeSqr();
 $im->save($path.'sqr'.$actual_image_name);
 
 //$post = $post.'<br /><center><img src="uploads/photos/'.$actual_image_name.'" class="preview"style="box-shadow: 0px 1px 3px #888; -moz-box-shadow: 0px 1px 3px #888; -webkit-box-shadow: 0px 1px 3px #888; padding: 7px 7px 7px 7px;"></center>';

@@ -15,7 +15,7 @@ $event_end = mysql_real_escape_string($_POST["j"]);
 $event_endtime = mysql_real_escape_string($_POST["k"]);
 
 //$path = "/home/ivynex5/public_html/uploads/events/";
-$path = "/Applications/XAMPP/xamppfiles/events/uploads/events/";
+$path = "/Applications/XAMPP/xamppfiles/htdocs/ivynexus/uploads/events/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
@@ -40,7 +40,7 @@ $im->loadFromFile($path.$actual_image_name);
 $im->exifrotation($path.$actual_image_name);
 $im->resizeScaleHeight(230);
 $im->save($path.$actual_image_name);
-$im->resize(200,200);
+$im->resizeSqr();
 $im->save($path.'sqr'.$actual_image_name);
 
 $all = $event_name.': '.$event_description.' From '.$event_start.' at '.$event_starttime.' to '.$event_end.' at '.$event_endtime;

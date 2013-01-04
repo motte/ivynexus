@@ -737,7 +737,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		<center>
 			<div style="background: #fff;" class="photoborder">
 	                        <span id="pleft1">
-				        <img id="pleft1" class="pleft" border="1px" src="uploads/profile/{p_photo}"></img>
+				        <img id="pleft1" class="pleft" src="uploads/profile/{p_photo}"></img>
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="load(1)">Switch Limelight</button>
@@ -746,7 +746,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 			
 			<div style="background: #fff;" class="photoborder">
 	                        <span id="phleft2">
-				        <img id="phleft2" class="pleft" border="1px" src="uploads/profile/{p_photo}"></img>
+				        <img id="phleft2" class="pleft" src="uploads/profile/{p_photo}"></img>
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="phload(2)">Random Photo</button>
@@ -755,7 +755,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
                         
                         <div style="background: #fff;" class="photoborder">
 	                        <span id="eveleft3">
-				        <img id="eveleft3" class="pleft" border="1" src="uploads/profile/man.png" />
+				        <img id="eveleft3" class="pleft" src="uploads/profile/man.png" />
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="eveload(3)">Switch Event</button>
@@ -867,7 +867,7 @@ $(function() {
 		<center>
                         <div style="background: #fff;" class="photoborder">
 			        <span id="pright1">
-				        <img id="pright1" class="pright" border="1" src="uploads/profile/man.png" />
+				        <img id="pright1" class="pright" src="uploads/profile/man.png" />
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="sload(1)">Switch Limelight</button>
@@ -877,7 +877,7 @@ $(function() {
                         
                         <div style="background: #fff;" class="photoborder">
 	                        <span id="everight2">
-				        <img id="everight2" class="pright" border="1" src="uploads/profile/man.png" />
+				        <img id="everight2" class="pright" src="uploads/profile/man.png" />
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="seveload(2)">Switch Event</button>
@@ -887,7 +887,7 @@ $(function() {
                         
                         <div style="background: #fff;" class="photoborder">									
 	                        <span id="phright3">
-				        <img id="phright3" class="pright" border="1px" src="uploads/profile/{p_photo}"></img>
+				        <img id="phright3" class="pright" src="uploads/profile/{p_photo}"></img>
 			        </span>
 	                        <div style='height:10px;'></div>
 	                        <button class="engravedbtn" type="button" onclick="sphload(3)">Random Photo</button>

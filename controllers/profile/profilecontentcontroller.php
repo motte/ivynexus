@@ -135,6 +135,9 @@ class Profilecontentcontroller {
                         //$im->save(FRAMEWORK_PATH . 'uploads/profile/' . $im->getName());
                         $im->resizeScaleHeight(50);
                         $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getThumbName());
+                        // square created
+                        $im->resizeProfileSqr();
+                        $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
                         $profile->setPhoto($im->getPhotoName());
                     }
                 }

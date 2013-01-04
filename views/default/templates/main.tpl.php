@@ -26,7 +26,92 @@ function checkFunction(){
 
 $(document).ready(function(){
         checkFunction();
+        setTimeout(function() {
+                iniloadevents();
+        }, 1000);
+        
 });
+
+function iniloadevents() {
+        var a = '{pID}';
+        var b = '{p_school}'.toLowerCase();
+        if(b == 'Welcome') {
+	        b = 'dartmouth';
+        }
+        $("#liveEvents").animate({'opacity':'0'}, 1000);
+        
+        setTimeout(function() {
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			}
+			else {
+				// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				document.getElementById('liveEvents').innerHTML=xmlhttp.responseText;	
+				$("#liveEvents").animate({'opacity':'1'}, 1800);
+			  }
+			}
+			xmlhttp.open("GET","controllers/event/event_load/alleveloadcontroller.php?a="+a+"&b="+b,true);
+			xmlhttp.send();
+		}, 1000)
+}
+
+setInterval(function() {
+		loadevent(5);
+}, 10000);
+
+setInterval(function() {
+		loadevent(2);
+}, 13000);
+
+setInterval(function() {
+		loadevent(4);
+}, 16000);
+setInterval(function() {
+		loadevent(1);
+}, 19000);
+
+setInterval(function() {
+		loadevent(6);
+}, 22000);
+
+setInterval(function() {
+		loadevent(3);
+}, 25000);
+
+function loadevent(a) {
+		var b = '{pID}';
+        var c = '{p_school}'.toLowerCase();
+        if(c == 'Welcome') {
+	        c = 'dartmouth';
+        }
+        
+        var eventId = 'span#event'+a;
+        var e = 'event'+a;
+        $(eventId).animate({'opacity':'0'}, 1000);
+        setTimeout(function() {
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			}
+			else {
+				// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				document.getElementById(e).innerHTML=xmlhttp.responseText;	
+				$(eventId).animate({'opacity':'1'}, 1800);
+			  }
+			}
+			xmlhttp.open("GET","controllers/event/event_load/singeveloadcontroller.php?a="+a+"&b="+b+"&c="+c,true);
+			xmlhttp.send();
+		}, 1000)
+}
 
 function viewed() {
 	var a = "{p_id}";
@@ -80,54 +165,35 @@ function viewed() {
     		<div id="slidemenu">
 			<ul id="thumbs">
 				<li class="fbar">&nbsp;</li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/starthumb.png" alt="thumbnail" /></a></li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/crushthumb.png" alt="thumbnail" /></a></li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/missthumb.png" alt="thumbnail" /></a></li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/ivythumb.png" alt="thumbnail" /></a></li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/securitythumb.png" alt="thumbnail" /></a></li>
-				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/announcements/eventsthumb.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
+				<li class="menuItem" id="slide"><a href=""><img class="thumb" src="views/default/images/cf/ellipse.png" alt="thumbnail" /></a></li>
 				
 				<!--<li class="fbar">&nbsp;</li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_macbook.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_iphone.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_imac.png" alt="thumbnail" /></a></li><li class="menuItem" id="slide"><a href=""><img src="img/sample_slides/thumb_about.png" alt="thumbnail" /></a></li>-->
 			</ul>
     		</div>
 	</div>
 </div>
-<br />
-<table width="100%" align="left">	
-	<tr class="helvfontbig" align="left" valign="top">
-		<td id="halfwidth" width="65%">
-			Updates
-		</td>
-
-		<td id="halfwidth" width="35%">
-			Events
-		</td>
-	</tr>
-	<tr align="center" valign="top" >
-		<td id="halfwidth" width="65%" align="left">
-			<p class="padding"id="shadebg">At least 50% student participation is required for exclusive job and internship notifications.</p>
-			<!--<div id="featureslist">
-			   <ol>
-			      <div class="expand" id="expand1"><li value="6"><p><a href="profile"><em style="" id="6">School Vent</em><img src="views/default/images/profilebutton.png" class="moo"></img> &nbsp post messages, photos, videos...anonymously</a></p></li></div>
-			      <div class="expand" id="expand2"><li value="5"><p><a href="profile"><em style="" id="5">Promote</em><img src="views/default/images/academicbutton.png" class="moo"> &nbsp your school specific events in one place</a></p></li></div>
-			      <div class="expand" id="expand3"><li value="4"><p><a href="profile"><em style="" id="4">Connect</em><img src="views/default/images/profilebutton.png" class="moo"> &nbsp with friends and meet new students</a></p></li></div>
-			      <div class="expand" id="expand4"><li value="3"><p><a href="profile"><em style="" id="3">Crush</em><img src="views/default/images/profilebutton.png" class="moo"> &nbsp see if he/she likes you too</a></p></li></div>
-			      <div class="expand" id="expand5"><li value="2"><p><a href="profile"><em style="" id="2">Recall</em><img src="views/default/images/profilebutton.png" class="moo"> &nbsp for those nights you forget everything.<br /> &nbsp Try typing a letter in search to find that person.</a></p></li></div>
-			      <div class="expand" id="expand6"><li value="1"><p><a href="academics"><em style="" id="1">Match</em><img src="views/default/images/profilebutton.png" class="moo"> &nbsp fill out your information and our algorithm will <br /> &nbsp match you with exclusive internships and jobs.</a></p></li></div>
-			   </ol>
-			</div>-->
-		</td>
-
-		<td id="halfwidth" width="35%" align="left">
-			<p class="padding" id="shadebg">This site is in beta</p>
-			<!--<div><img src="views/default/images/profilebutton.png" class="moo"></img></div>
-			<div id="5"></div>
-			<div id="4"></div>
-			<div id="3"></div>
-			<div id="2"></div>
-			<div id="1"></div>-->
-		</td>
-	</tr>
-</table>
 </center>
+
+<br />
+	<center><table style="font-size: 14px; font-family: helvetica neue; color: #5b5b5b;">
+		<tr><td><div style="text-align: left; font-size: 14px; font-family: helvetica neue; color: #5b5b5b;" ><strong>Updates</strong></div></td></tr>
+		<tr><td><center><div style="text-align: left; font-weight: lighter; padding-left: 3px; padding-top: 5px;">At least 50% student participation is required for exclusive job internship notifications.
+		</div></center></td></tr>
+		<tr><td><div style="margin-top: 20px; font-size: 14px; font-family: helvetica neue; color: #5b5b5b;" >
+		<strong>Events</strong></td></tr>
+		<tr><td><center><div id="liveEvents" style="padding-top: 5px;">
+			<span id="event1"><img class="sqrResize100" src="uploads/events/event1.png" /></span>&nbsp
+			<span id="event2"><img class="sqrResize100" src="uploads/events/event2.png" /></span>&nbsp
+			<span id="event3"><img class="sqrResize100" src="uploads/events/event3.png" /></span>&nbsp
+			<span id="event4"><img class="sqrResize100" src="uploads/events/event4.png" /></span>&nbsp
+			<span id="event5"><img class="sqrResize100" src="uploads/events/event5.png" /></span>&nbsp
+			<span id="event6"><img class="sqrResize100" src="uploads/events/event6.png" /></span>
+		</div></center></td></tr>
+	</table></center>
+
 </p>

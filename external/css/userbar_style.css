@@ -1904,7 +1904,7 @@ height: 100%;
 left: 0px; /* very, very important for all browser compliance */
 margin-top: -20px;
 position: absolute;
-opacity: .61;
+opacity: .4;
 background: url('../../views/default/images/noise/mediumnoise.png') repeat center center;
 }
 
@@ -2710,8 +2710,8 @@ ul.dropdown li ul > li{
 	border:1px solid white;*/
 	
 	/*background:url(../../views/default/images/announcements/panel.jpg) repeat-x bottom center #ffffff;*/
-	
-	border-bottom: 1px #fff solid;
+	padding-bottom: 12px;
+	border-bottom: 1px #959595 solid;
 	/* The width of the gallery */
 	width:820px;
 	overflow:hidden;
@@ -2732,7 +2732,7 @@ ul.dropdown li ul > li{
 
 #slidemenu{
 	/* This is the container for the thumbnails */
-	height:45px;
+	height:15px;
 	text-align: center;
 }
 
@@ -2743,23 +2743,24 @@ ul#thumbs{
 
 li#slide{
 	/* Every thumbnail is a li element */
-	width:60px;
+	width:15px;
 	display:inline-block;
 	list-style:none;
 	height:45px;
 	overflow:hidden;
-		border-top: 1px #eee solid;
+		//border-top: 1px #eee solid;
 }
 
 li.inact:hover{
 	/* The inactive state, highlighted on mouse over */
-	background:url(../../views/default/images/announcements/pic_bg.png) repeat;
+	//background:url(../../views/default/images/announcements/pic_bg.png) repeat;
 
 }
 
 li.act,li.act:hover{
 	/* The active state of the thumb */
-	background:url(../../views/default/images/announcements/active_sqrbg.png) no-repeat 1px 0px;
+	background:url(../../views/default/images/cf/graydot.png) no-repeat 7px 0px;
+	z-index: 100000;
 }
 
 li.act a{
@@ -2769,7 +2770,8 @@ li.act a{
 li.fbar{
 	/* The left-most vertical bar, next to the first thumbnail */
 	width: 1px;
-	top: -30px;	background:url(../../views/default/images/announcements/divider.png) no-repeat right;
+	//top: -30px;	
+	//background:url(../../views/default/images/announcements/divider.png) no-repeat right;
 	height: 45px;
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -2778,18 +2780,15 @@ li.fbar{
 
 li#slide a{
 	display: block;
-	background:url(../../views/default/images/announcements/divider.png) no-repeat right 0px;
-	height:35px;
-	padding-top: 20px;
-	padding-bottom: 10px;
+	//background:url(../../views/default/images/announcements/divider.png) no-repeat right 0px;
+	//height:35px;
+	//padding-top: 20px;
+	//padding-bottom: 10px;
 }
 
 a img.thumb{
 	border:none;
-	margin-top: -21px;
-	margin-left: -5px;
-	height: 45px;
-	width: 60px;
+	
 }
 
 #slidemain{
@@ -2802,98 +2801,6 @@ a img.thumb{
 
 }
 
-
-
-
-/* Features List 
-#featureslist {
- 	min-width: 450px;
-	margin-left: 40px;
-}
-#featureslist ol { 
-	font-style:italic; 
-	font-family: Georgia, Helvetica Grande, serif; 
-	font-size:30px; 
-	color:#3B7AB8;  
-}
-#featureslist ol li { }
-#featureslist ol li p { 
-	padding-bottom:8px; 
-	padding-left:8px; 
-	font-style:normal; 
-	font-family: Georgia; 
-	font-size:17px; 
-	color:#000; 
-	border-left: 1px dashed #d1d1d1; 
-}	
-#featureslist ol li p a { 
-	text-decoration: none;
-	//font-style: italic;
-	color:#9d9da1;
-	font-weight: lighter;
-}
-
-#featureslist ol li p a:hover { 
-	text-decoration: none;
-	color:#585858;
-	font-style: normal;
-	font-weight: lighter;
-	
-}
-#featureslist ol li p em { 
-	display:block; 
-	font-size: 20px;
-	color: #a74241;
-	width: 90%;
-	padding-bottom: 12px;
-	padding-left: 7px;
-	border: 1px solid #e4e4e4;
-	border-bottom: 0;
-	-moz-box-shadow: 1px -2px 3px #888;
-	-webkit-box-shadow: 1px -2px 3px #888;
-	box-shadow: -1px -2px 3px #888;*/
-	/*background: #DD1C1C;
-	background: -moz-linear-gradient(left,  #D0FCD9 0%, #ffffff 25%, #ffffff 75%, #D0FCD9 100%);  FF3.6+ 
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#DD1C1C), color-stop(25%,#ffffff), color-stop(75%,#ffffff), color-stop(100%,#DD1C1C));  Chrome,Safari4+ 
-	background: -webkit-linear-gradient(bottom,  #fff 60%, #FFFFBD 100%);  Chrome10+,Safari5.1+ 
-	background: -o-linear-gradient(left,  #D0FCD9 0%,#ffffff 25%,#ffffff 75%,#D0FCD9 100%);  Opera 11.10+ 
-	background: -ms-linear-gradient(left,  #D0FCD9 0%,#ffffff 25%,#ffffff 75%,#D0FCD9 100%);  IE10+ 
-	background: linear-gradient(left,  #DD1C1C 0%,#ffffff 25%,#ffffff 75%,#DD1C1C 100%);  W3C 
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D0FCD9', endColorstr='#D0FCD9',GradientType=1 );  IE6-9 */
-	
-	/*transition: text-align .5s, width .5s;*/
-
-	/* Firefox 4 
-	-moz-transition-property:width;
-	-moz-transition-duration:1s;
-
-	 Safari and Chrome 
-	-webkit-transition:text-align .5s, width .5s;
-
-	 Opera 
-	-o-transition-property:width;
-	-o-transition-duration:1s;*/
-/*}
-
-
-
-#featureslist ol li p em:hover {
-
-	//text-align: right;
-	//width: 175%;
-	text-decoration: underline;
-	//color: #F81717;
-	//padding-right: 25%;
-	//font-size: 40px;
-}
-#featureslist ol li p em:hover + img.moo {
-	display: block;
-}
-img.moo {
-	position: absolute;
-	left: 60%;
-	display: none;
-}*/
 
 td#clines {
 	//border-bottom: 1px solid #eee;
@@ -3390,6 +3297,13 @@ background: #111 url('../../views/default/images/noise.png') repeat center cente
 body#mainpage:before {
 	//background:#f2f2f2;
 	background: #fff;
+}
+
+.sqrResize100 {
+	width: 100px;
+	height: 100px;
+	box-shadow:1px 1px 3px #999;
+	cursor: pointer;
 }
 
 input.email {
