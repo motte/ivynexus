@@ -1,10 +1,58 @@
 <script language="javascript" type="text/javascript" src="external/cf/contentflow.js" load="slideshow"></script>
 <script language="JavaScript" type="text/javascript" src="external/cf/ContentFlowAddOn_slideshow.js"></script>
-<link rel="stylesheet" type="text/css" href="external/css/ivystyle.css" />
+<script>
+	function onSchool(school) {
+		if(school == 'yale') {$('#ct').animate({'opacity':'1'}),100}
+		else if(school == 'dartmouth') {$('#nh').animate({'opacity':'1'}),100}
+		else if(school == 'upenn') {$('#pa').animate({'opacity':'1'}),100}
+		else if(school == 'princeton') {$('#nj').animate({'opacity':'1'}),100}
+		else if(school == 'cornell') {$('#ny').animate({'opacity':'1'}),100}
+		else if(school == 'columbia') {$('#ny').animate({'opacity':'1'}),100}
+		else if(school == 'harvard') {$('#ma').animate({'opacity':'1'}),100}
+		else if(school == 'brown') {$('#ri').animate({'opacity':'1'}),100}
+		
+		else if(school == 'yaleout') {$('#ct').animate({'opacity':'0'}),100}
+		else if(school == 'dartmouthout') {$('#nh').animate({'opacity':'0'}),100}
+		else if(school == 'upennout') {$('#pa').animate({'opacity':'0'}),100}
+		else if(school == 'princetonout') {$('#nj').animate({'opacity':'0'}),100}
+		else if(school == 'cornellout') {$('#ny').animate({'opacity':'0'}),100}
+		else if(school == 'columbiaout') {$('#ny').animate({'opacity':'0'}),100}
+		else if(school == 'harvardout') {$('#ma').animate({'opacity':'0'}),100}
+		else if(school == 'brownout') {$('#ri').animate({'opacity':'0'}),100}
+	}
+</script>
 
+
+<body>
 <center>
-
-<div class="ContentFlow" style="padding-top: 120px;">
+<div id="main">
+	<div style="margin-top: 40px;margin-bottom: 100px;">
+		<span align="center" id="geomap"></span>
+		<span align="center" id="ny"></span>
+		<span align="center" id="ct"></span>
+		<span align="center" id="nh"></span>
+		<span align="center" id="pa"></span>
+		<span align="center" id="ri"></span>
+		<span align="center" id="ma"></span>
+		<span align="center" id="nj"></span>
+			<table align="center" valign="top">
+				<tr align="center">
+					<td width="50%"><a href="ivies/Yale" onmouseover="onSchool('yale')" onmouseout="onSchool('yaleout')"><span id="yale"></span></a></td><td width="50%"><a href="ivies/Dartmouth" onmouseover="onSchool('dartmouth')" onmouseout="onSchool('dartmouthout')"><span id="dartmouth"></span></a></td>
+				</tr>	
+				<tr align="center">
+					<td width="50%"><a href="ivies/Upenn" onmouseover="onSchool('upenn')" onmouseout="onSchool('upennout')"><span id="upenn"></span></a></td><td width="50%"><a href="ivies/Cornell" onmouseover="onSchool('cornell')" onmouseout="onSchool('cornellout')"><span id="cornell"></span></a></td>
+				</tr>
+				<tr align="center">
+					<td width="50%"><a href="ivies/Princeton" onmouseover="onSchool('princeton')" onmouseout="onSchool('princetonout')"><span id="princeton"></span></a></td><td width="50%"><a href="ivies/Columbia" onmouseover="onSchool('columbia')" onmouseout="onSchool('columbiaout')"><span id="columbia"></span></a></td>
+				</tr>
+				<tr align="center">
+					<td width="50%"><a href="ivies/Harvard" onmouseover="onSchool('harvard')" onmouseout="onSchool('harvardout')"><span id="harvard"></span></a></td><td width="50%"><a href="ivies/Brown" onmouseover="onSchool('brown')" onmouseout="onSchool('brownout')"><span id="brown"></span></a></td>
+				</tr>
+			</table>
+		
+	</div>
+	<div style="width: 70%; border-top: 1px solid #eee; margin-bottom: 12px;"></div>
+<div class="ContentFlow" style="margin-top: '150px;">
             <div class="loadIndicator"><div class="indicator"></div></div>
             <div class="flow">
                 <img href="ivies/Yale" class="item" src="external/schools/yale.svg.png" title="Yale University"/>
@@ -22,7 +70,7 @@
 
 </div>
 
-	<div style="width: 70%; border-top: 1px solid #fff; margin-bottom: 12px;"></div>
+	<div style="width: 70%; border-top: 1px solid #eee; margin-bottom: 12px;"></div>
 
 <div class="helvfourteen">
 	&nbsp &bull; &nbsp<a href="ivies/Harvard" id="helvfourteen">Harvard University</a>&nbsp &bull;&nbsp
@@ -39,4 +87,6 @@
 </div><br />
 
 
+</div>
 </center>
+</body>

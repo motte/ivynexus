@@ -16,15 +16,15 @@
 		    	if($row['name'] == '') {
 		    		echo nl2br("<p>".$row['post']."</p>");
 		    		//echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form></center>";
-		    		echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></center>";
-		    		echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
+		    		echo "<div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa; display:inline;'>".$row['time']."</div><div align='right' style='margin-top: -20px;'><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></div>";
+		    		//echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
 				echo "<hr color='#fff' size='1' />";
 			}
 			else {
-				echo nl2br("<p><strong><a class='name' style='color: #000;' href='profile/view/".$row['poster_id']."'>".$row['name']."</a></strong>: ". $row['post']."</p>");
-				echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></center>";
+				echo nl2br("<p><strong><a class='name' style='color: #3bb000;' href='profile/view/".$row['poster_id']."'>".$row['name']."</a></strong>&nbsp&nbsp". $row['post']."</p>");
+				echo "<div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa; display:inline;'>".$row['time']."</div><div align='right' style='margin-top: -20px;'><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></div>";
 				//echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form></center>";
-				echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
+				//echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
 				echo "<hr color='#fff' size='1' />";
 			}
 			$min[] = $row['id'];
@@ -42,18 +42,18 @@
 			// if no name = anonymous
 		    	if($row['name'] == '') {
 		    		echo nl2br("<p>".$row['post']."</p>");
-				echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></center>";
+				echo "<div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa; display:inline;'>".$row['time']."</div><div align='right' style='margin-top:-20px;'><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></div>";
 				//echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form></center>";
-				echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
-				echo "<hr color='#fff' size='1' />";
+				//echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
+				echo "<hr color='#eee' size='1' />";
 			}
 			// not anonymous post
 			else {
-				echo nl2br("<p><strong><a class='name' style='color: #000;' href='profile/view/".$row['poster_id']."'>&nbsp".$row['name']."</a></strong>: ". $row['post']."</p>");
-				echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></center>";
+				echo nl2br("<p><strong><a class='name' style='color: #3bb000;' href='profile/view/".$row['poster_id']."'>&nbsp".$row['name']."</a></strong>&nbsp&nbsp ". $row['post']."</p>");
+				echo "<div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa; display:inline;'>".$row['time']."</div><div align='right' style='margin-top: -20px;'><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form><button class='comment' id='comment".$row['id']."' onclick='toggleComment(".$row['id'].",0)'>Comment</button></div>";
 				//echo "<center><strong id='chilirefresh".$row['id']."'>".$row['chili']."</strong>&nbsp<form id='ivychili' name='form' method='post'><input id='ivychili' title='Hotness Factor: ".$row['chili']." Chilis' type='button' onclick='addChili(".$user_id.", ".$row['id'].")' /></form></center>";
-				echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
-				echo "<hr color='#fff' size='1' />";
+				//echo "<p><div class='unformattedtime' style='padding-left: 10px; font-size: 11px; font-style: italic; color: #aaa;'>".$row['time']."</div></p>";
+				echo "<hr color='#eee' size='1' />";
 			}
 			$min[] = $row['id'];
 		}

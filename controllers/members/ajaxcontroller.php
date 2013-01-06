@@ -22,12 +22,13 @@
 	$randomchili = mysql_result($chiliquerydo,0);
 
 	if($randomphoto != ''){
-		if($a == 1) {
-			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pleft".$row."' width='99%' height='auto' src='uploads/profile/sqr".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshleft'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliLeft(".$b.", ".$random.")' /></form></center>";
+		if($a % 2) {
+			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pleft".$row."' class='info".$row."' onmouseover='flipEvent(".$row.")' onmouseout='revert(".$row.")' width='99%' height='auto' src='uploads/profile/sqr".$randomphoto."'></img></a><center id='loadChili'><strong id='chilirefreshleft'>".$randomchili."</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliRight(".$b.", ".$random.")' /></form></center>";
 	
 		}
 		else {
-			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pright".$row."' width='99%' height='auto' src='uploads/profile/sqr".$randomphoto."'></img><div style='height:10px;'></div></a><center><strong id='chilirefreshright'>".$randomchili."</strong>&nbsp<form id='profilechili' name='form' method='post'><input id='profilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliRight(".$b.", ".$random.")' /></form></center>";
+			echo "<a href='http://www.ivynexus.com/profile/view/".$random."'><img style='display:none;' id='pright".$row."' class='info".$row."' onmouseover='flipEvent(".$row.")' onmouseout='revert(".$row.")' width='99%' height='auto' src='uploads/profile/sqr".$randomphoto."'></img></a><center id='loadChili'><strong id='chilirefreshright'>".$randomchili."</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: ".$randomchili." Chilis' type='button' onclick='getChiliLeft(".$b.", ".$random.")' /></form></center>";
+			
 		}
 	}
 	else {

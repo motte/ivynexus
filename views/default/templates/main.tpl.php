@@ -35,7 +35,7 @@ $(document).ready(function(){
 function iniloadevents() {
         var a = '{pID}';
         var b = '{p_school}'.toLowerCase();
-        if(b == 'Welcome') {
+        if(b == 'welcome') {
 	        b = 'dartmouth';
         }
         $("#liveEvents").animate({'opacity':'0'}, 1000);
@@ -86,7 +86,7 @@ setInterval(function() {
 function loadevent(a) {
 		var b = '{pID}';
         var c = '{p_school}'.toLowerCase();
-        if(c == 'Welcome') {
+        if(c == 'welcome') {
 	        c = 'dartmouth';
         }
         

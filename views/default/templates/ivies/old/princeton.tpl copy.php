@@ -14,20 +14,19 @@
                         load(1);
                 }, 2000);
                 setTimeout(function() {
-                		sload(2);
+                        sload(1);
                 }, 4000);
                 setTimeout(function() {
-                		eveload(3);
+                        phload(2);
                 }, 8000);
                 setTimeout(function() {
-                		sphload(4);
-
+                        seveload(2);
                 }, 6000);
                 setTimeout(function() {
-                        seveload(6);
+                        eveload(3);
                 }, 10000);
                 setTimeout(function() {
-                        phload(5);
+                        sphload(3);
                 }, 12000);
                 $('#event_file').live('change', function(){ 
 			$("#eventpreview").html('');
@@ -105,7 +104,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
         });
 
 	function loadposts(counter,c) {
-		var s = 'dartmouth';
+		var s = 'princeton';
 		var u = '{pID}';
 		$('<img src="views/default/images/tiny_loader.gif" id="temp" alt="Loading..."/>').replaceAll('button#count');
 	 	//$('button#count').remove();
@@ -132,7 +131,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	function loadnewposts(c) {
 		$('<img src="views/default/images/tiny_loader.gif" id="temp" alt="Loading..."/>').replaceAll('button.count');
 		var counter = '';
-		var s = 'dartmouth';
+		var s = 'princeton';
 		if(c == '0') {
 	 		counter = $('input#firstreference').val();
 	 	}
@@ -172,27 +171,27 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	}
 	
 	setInterval(function() {
-		sload(2);
+		load(1);
 	}, 61700);
 	setInterval(function() {
-		eveload(3);
+		sload(1);
 	}, 63500);
 	setInterval(function() {
-		seveload(6);
+		phload(2);
 	}, 69700);
 	setInterval(function() {
-		load(1);
+		seveload(2);
 	}, 66700);
 	setInterval(function() {
-		sphload(4);
+		eveload(3);
 	}, 71200);
 	setInterval(function() {
-		phload(5);
+		sphload(3);
 	}, 73100);
    
 
 	function load(c) {
-                var a = c;
+                var a = "1";
                 var b = document.getElementById('keepID').value;
                 var f = "pleft" + c;
                 var g = "img#pleft" + c;
@@ -219,7 +218,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
                 /*if (c == '0') {
                         c = Math.floor(Math.random()*4);
                 }*/
-                var a = c;
+                var a = "2";
                 var b = document.getElementById('keepID').value;
                 var f = "pright" + c;
                 var g = "img#pright" + c;
@@ -243,7 +242,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	}
 	
 	function phload(c) {
-                var a = c;
+                var a = "1";
                 var b = document.getElementById('keepID').value;
                 var d = document.getElementById('school').value.toLowerCase();
                 var f = "phleft" + c;
@@ -271,7 +270,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
                 /*if (c == '0') {
                         c = Math.floor(Math.random()*4);
                 }*/
-                var a = c;
+                var a = "2";
                 var b = document.getElementById('keepID').value;
                 var d = document.getElementById('school').value.toLowerCase();
                 var f = "phright" + c;
@@ -296,7 +295,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	}
 	
 	function eveload(c) {
-                var a = c;
+                var a = "1";
                 var b = document.getElementById('keepID').value;
                 var d = document.getElementById('school').value.toLowerCase();
                 var f = "eveleft" + c;
@@ -321,7 +320,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	}
 	
 	function seveload(c) {
-                var a = c;
+                var a = "2";
                 var b = document.getElementById('keepID').value;
                 var d = document.getElementById('school').value.toLowerCase();
                 var f = "everight" + c;
@@ -607,7 +606,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		var c = '{pID}';
 		var d = document.getElementById('user').value;
 		var e = document.getElementById('school').value.toLowerCase();
-		var f = "\"<div align='right' name='loadedcomments"+a+"' style='background: #eee; margin-top:-22px;'><hr color='#fff' size='1' style='margin-top:25px; margin-bottom:3px;' /><div style='padding-right:10px;'><strong><a class='name' style='color: #000;' href='profile/view/"+c+"'>"+d+"</a></strong><span style='font-size:12px;'>: "+b+"</span></div><div align='right' class='unformattedtime' style='padding-right: 10px; font-size: 11px; padding-top: 5px; padding-bottom: 7px; margin-bottom: 16px; font-style: italic; color: #aaa;'>Commented just now</div></div>\"";
+		var f = "\"<div align='right' name='loadedcomments"+a+"' style='background: #E2FFDF; margin-top:-22px;'><hr color='#fff' size='1' style='margin-top:0px; margin-bottom:3px;' /><div style='padding-right:10px;'><strong><a class='name' style='color: #000;' href='profile/view/"+c+"'>"+d+"</a></strong><span style='font-size:12px;'>: "+b+"</span></div><div align='right' class='unformattedtime' style='padding-right: 10px; font-size: 11px; padding-top: 5px; padding-bottom: 7px; margin-bottom: 16px; font-style: italic; color: #aaa;'>Commented just now</div></div>\"";
 		$('#commentInsert'+a).animate({'width':'95%'},0);
 		$('<img id="remove" src="views/default/images/tiny_loader.gif" style="vertical-align:middle; padding-left:3px;" />').insertAfter('input[name="comm'+a+'"]');
 		
@@ -653,23 +652,18 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 	}
 	//'onmouseover='flipEvent(1)' onmouseout='revert(1)'
 	
-	function flipEvent(number) {
-		var a = '.info'+number;
-		$('#refresh'+number).animate({opacity: '.7'});
-		$(a).animate({'opacity': '.5'},300);
-		
+	function flipEvent(side) {
+		$('.info'+side).css({opacity: '1',
+		WebkitTransition: 'opacity .2s ease-in-out',
+        MozTransition: 'opacity .2s ease-in-out',
+        MsTransition: 'opacity .2s ease-in-out',
+        OTransition: 'opacity .2s ease-in-out',
+        transition: 'opacity .2s ease-in-out'});
 	}
 	
-	function revert(number) {
-		$('.info'+number).css({opacity: '1'});
-		setTimeout(function(){
-			$('#refresh'+number).animate({opacity: '0'});
-		}, 5000)
-		
+	function revert(side) {
+		$('.info'+side).css({opacity: '0'});
 	}
-	
-	
-	
 	// Courtesy of tinywall.info
 	function getValidDate(ivDate){
 		var arrDateTime = ivDate.split("T");
@@ -720,113 +714,83 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 		}
 		return date;
 	}
-	
-	function focusPostbox() {
-		$('textarea#postbox').animate({'height':'76px'});
-		$('#anony').css({'display':'inline'});
-		$('#shareButtons').css({'display':'inline-block'});
-	}
-	
-	
-	function initializePostbox() {
-		var post = $('textarea#postbox').val();
-		if(post == 'Shout Out To Dartmouth!' || ' Shout Out To Dartmouth' || '') {
-			$('textarea#postbox').css({'height':'35px'});
-		}
-	}
-	
-	function showShare(a) {
-		$('#post').css({'opacity':'.5'});
-		$('#event').css({'opacity':'.5'});
-		$('#link').css({'opacity':'.5'});
-		$('#photo').css({'opacity':'.5'});
-		$('#video').css({'opacity':'.5'});
-		if($('#radio_event').is(':checked') || $('#radio_video').is(':checked') || $('#radio_link').is(':checked')) {
-			
-			var id = 'div#'+a;
-			$(id).css({'opacity':'1'});
-			$('#anony').css({'display':'inline'});
-			$('#shareButtons').css({'display':'inline-block'});
-		}
-		else if($('#radio_event').not(':checked') || $('#radio_video').not(':checked') || $('#radio_link').not(':checked')){
-			var post =$('textarea#postbox').val();
-			switch(post){
-				case 'Shout Out To Dartmouth!':
-					$('#shareButtons').css({'display':'none'});
-					$('#anony').css({'display':'none'});
-					break;
-				case ' Shout Out To Dartmouth!':
-					$('#shareButtons').css({'display':'none'});
-					$('#anony').css({'display':'none'});
-					break;
-				case '':
-					$('#shareButtons').css({'display':'none'});
-					$('#anony').css({'display':'none'});
-					break;
-			}
-			
-			switch(a){
-				case 'post':
-					var id = 'div#'+a;
-					$(id).css({'opacity':'1'});
-					break;
-				case 'photo':
-					var id = 'div#'+a;
-					$(id).css({'opacity':'1'});
-					break;
-			}
-		}
-
-	}
-	
-	
 </script>
 
-
+<link rel="stylesheet" type="text/css" href="external/css/ivystyle.css" />
 </head>
 
 <center>
 <div id="main">
-<body>
-
+<body id="princeton">
+	<div id="dartmouth"></div>
+	<div id="dart"></div>
+	<center><h1 id="dartmouth"><div id="transbar">Princeton University</div></h1></center>
 	
-	
+	<!--<p class="fifty">
+        <center class="engraved2">| Princeton, New Jersey | Founded 1746 | Tiger |</center>
+	</p>-->
 	
 <!-- begin wall -->
 
 <table border="0px" align="center" width="100%" height="auto">
-<tr>
-	<td width="30%"><span id="dartmouthcollege"></span></td>
+	<td width="20%" valign="top" class="borderright">
+		<center>
+			<div style="background: #fff;" class="photoborder">
+	                        <span id="pleft1">
+				        <img id="pleft1" class="pleft" src="uploads/profile/{p_photo}"></img>
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="load(1)">Switch Limelight</button>
+	            	</div>
+			<br />
+			
+			<div style="background: #fff;" class="photoborder">
+	                        <span id="phleft2">
+				        <img id="phleft2" class="pleft" src="uploads/profile/{p_photo}"></img>
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="phload(2)">Random Photo</button>
+                        </div>
+                        <br />
+                        
+                        <div style="background: #fff;" class="photoborder">
+	                        <span id="eveleft3">
+				        <img id="eveleft3" class="pleft" src="uploads/profile/man.png" />
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="eveload(3)">Switch Event</button>
+                        </div>
+                </center>
+	</td>
 	
-	<td width="60%">
-
-		<div id="adjustpostbox">
+	<td width="60%" valign="top" class="leftright">
+		<div id="center">
+		        
+			<div id="adjustpostbox">
+                        <hr color="#fff" size="1" style="margin-top: -1px;" />
+			<!-- This is where you adjust the textarea shout out area width:98%; -->
+				<textarea id="postbox" name="postbox" class="input" placeholder=" Shout Out To Princeton!" wrap="hard"></textarea>
 				
-					<div style="padding-bottom: 5px;">
-						<span style="margin-left: 4%;"></span><label><input type="radio" value="Post" id="radio_post" name="status_type" onclick="showShare('post')" checked></input><div id="post" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 5px; background-size: 18px auto; width: 46px; opacity: 1;">Post</div></label>
-					<label><input type="radio" value="Event" id="radio_event" name="status_type" onclick="showShare('event')"></input><div id="event" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 53px;">Event</div></label>
-					<label><input type="radio" value="Link" id="radio_link" name="status_type" onclick="showShare('link')"></input><div id="link" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 45px;"> Link</div></label>
-					<label><input type="radio" value="Photo" id="radio_photo" name="status_type"  onclick="showShare('photo')"></input><div id="photo" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 54px;"> Photo</div></label>
-					<label><input type="radio" value="Video" id="radio_video" name="status_type" onclick="showShare('video')"></input><div id="video" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 6px; background-size: 18px auto; width: 53px;"> Video</div></label>
-					</div>
+				
+				<input type="hidden" name="school" id="school" value="princeton" />
+				<input type="hidden" name="user" id="user" value="{firstname} {lastname}" />
+				<!-- this is to load more posts -->
+				<input type="hidden" name="keepID" id="keepID" value="{pID}" />
+				
+				<div class="buttoncontainer">
+					<label><input type="radio" value="Post" id="radio_post" name="status_type" checked></input><div class="contain" id="post"> Post</div></label>
+					<label><input type="radio" value="Event" id="radio_event" name="status_type"></input><div class="contain" id="event"> Event</div></label>
+					<label><input type="radio" value="Link" id="radio_link" name="status_type"></input><div class="contain" id="link"> Link</div></label>
+					<label><input type="radio" value="Photo" id="radio_photo" name="status_type"></input><div class="contain" id="photo"> Photo</div></label>
+					<label><input type="radio" value="Video" id="radio_video" name="status_type"></input><div class="contain" id="video" style="border-right: 0px;"> Video</div></label>
+					
 					
 					<!--<input type="button" class="colbtn" value="video" name="status_type"><img src="views/default/images/media.ico" width="20" alt="" id="uploadMediaToggle" style="cursor:pointer" onclick="mediaToggle" /></input>&nbsp
 					<input type="button" class="colbtn" value="link" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
 					<input type="button" class="colbtn" value="photo" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
 					<input type="button" class="colbtn" value="event" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp-->
 					
-				
-                 
-			<!-- This is where you adjust the textarea shout out area width:98%; -->
-				<center><textarea id="postbox" name="postbox" class="input" placeholder=" Shout Out To Dartmouth!" wrap="hard" onfocus="focusPostbox()" onblur="initializePostbox()"></textarea></center>
-				
-				
-				<input type="hidden" name="school" id="school" value="dartmouth" />
-				<input type="hidden" name="user" id="user" value="{firstname} {lastname}" />
-				<!-- this is to load more posts -->
-				<input type="hidden" name="keepID" id="keepID" value="{pID}" />
-				
-			<div align="right" style="padding-right: 20px;">
+				</div>
 				<div id="align" class="video_input  extra_field">
 					<label for="video_url">YouTube URL</label>
 					<input type="text" id="video_url" class="extra" name="video_url" size="70%" /><br />
@@ -846,132 +810,47 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<input type="text" id="linkdescription" class="extra" name="link_description" size="62%" /><br />
 				</div>
 				<div id="align" class="event_input  extra_field">
-				
+				<center>
 				<form id="eventform" method="post" enctype="multipart/form-data" action="controllers/ivies/dc/eventcontroller.php">
-					<label class="event_url">Event&nbsp&nbsp</label>
-					<input type="text" id="event_url" class="extra" name="event_url" size="75%" /><br /><br />
-					<span style="display:inline-block;"><label for="event_start">Start Date</label>
-					<input type="date" class="extra" id="event_start" name="event_start" size="34%" placeholder="e.g. 2012-05-08   Y-M-D" /></span>
-					<span style="display:inline-block;"><label for="event_starttime">&nbsp&nbsp&nbspTime</label>
-					<input type="time" class="extra" id="event_starttime" name="event_starttime" size="21%" placeholder="e.g. 7:05 PM" /></span><br /><br />
-					<span style="display:inline-block;"><label class="event_end">End Date&nbsp</label>
-					<input type="date" id="event_end" class="extra" name="event_end" size="34%" placeholder="e.g. 2012-05-29   Y-M-D" /></span>
-					<span style="display:inline-block;"><label for="event_endtime">&nbsp&nbsp&nbspTime</label>
-					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="21%" placeholder="e.g. 12:00 AM" /></span><br /><br />
-					<label for="event_description">Description&nbsp&nbsp</label>
-					<input type="text" class="extra" id="event_description" name="event_description" size="68%" /><br /><br />
+					<label class="event_url">Event</label>
+					<input type="text" id="event_url" class="extra" name="event_url" size="65%" /><br /><br />
+					<label for="event_start">Start Date</label>
+					<input type="date" class="extra" id="event_start" name="event_start" size="22%" style="padding-right: 5%;" placeholder="e.g. 2012-05-08   Y-M-D" />
+					<label for="event_starttime">Time</label>
+					<input type="time" class="extra" id="event_starttime" name="event_starttime" size="10%" style="padding-right: 11%;" placeholder="e.g. 7:05 PM" /><br /><br />
+					<label class="event_end">End Date</label>
+					<input type="date" id="event_end" class="extra" name="event_end" size="23%" style="padding-right: 5%;" placeholder="e.g. 2012-05-29   Y-M-D" />
+					<label for="event_endtime">Time</label>
+					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="10%" style="padding-right: 11%;" placeholder="e.g. 12:00 AM" /><br /><br />
+					<label for="event_description">Description</label>
+					<input type="text" class="extra" id="event_description" name="event_description" size="60%" /><br /><br />
 					<label class="event_file">Upload Image</label>
 					<input type="file" class="extra" id="event_file" name="event_file" /><br />
 				</form>
-			</div>
+				</center>
 					<div id='eventpreview'></div>
 				</div>
 				<div class="test">
 					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png"/>Anonymous</label></div>
-				<div align="center" style="padding-left: 23%; display:inline-block;">
+				<div align="center">
 					
-					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})" style="display:none;">Share</button>
+					<button type="submit" class="pbutton"  id="shareButtons" onclick="shareThis({pID})">Share</button>
 				</div>
 				
 			</div>
-			<br />
 				
-			<script type="text/javascript"> 
-			$(function() {
-				$('.extra_field').hide();
-				$("input[name='status_type']").change(function(){
-					$('.extra_field').hide();
-					$('.extra').val('');
-					$('.'+ $(this).val() + '_input').show();
-				});
-			});
-			</script>
-		</td>
-	</tr>
-</table>
-
-<table border="0px" align="center" width="100%" height="auto">
-<tr>
-<td width="13%" valign="top">
-	<center>
-		<div>
-			<button class="refresh" id="refresh1" type="button" onclick="load(1)"></button>
-			<span id="pleft1">
-				<img id="pleft1" class="pleft" src="uploads/profile/sqr{p_photo}" />
-				<center id="loadChili"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-			</span>
-	        <div style='height:10px;'></div>
-	        
-	    </div>
-        <br />
-                        
-        <div>
-            <button class="refresh" id="refresh3" type="button" onclick="eveload(3)"></button>
-	        <span id="eveleft3">
-				<img id="eveleft3" class="pleft" src="uploads/events/sqr1348031218376678_10151032813188321_1707717410_n.jpg.jpg" />
-				<center id="loadChili2"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-			</span>
-	        <div style='height:10px;'></div>
-	    
-	    </div>
-        <br />
-                        
-        <div>	
-            <button class="refresh" id="refresh5" type="button" onclick="phload(5)"></button>
-		    <span id="phleft5">
-				<img id="phright5" class="pleft" src="uploads/photos/sqr1356565120crop380w_copy_of_party.jpg.jpg"></img>
-				<center id="loadChili2"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-			</span>
-	        <div style='height:10px;'></div>
-	    
-	    </div>
-                        
-	</center>
-</td>
-<td width="13%" valign="top" >
-	<center>
-		<div>
-		<button class="refresh" id="refresh2" type="button" onclick="sload(2)"></button>
-	      <span id="pright2">
-			<img id="pright2" class="pright" src="uploads/profile/sqr13560622606560_1024040459092_7922173_n.jpg"></img>
-			<center id="loadChili"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-	      </span>
-	      <div style='height:10px;'></div>
-	    
-	    </div>
-		<br />
-			
-		<div>
-		    <button class="refresh" id="refresh4" type="button" onclick="sphload(4)"></button>
-	    	<span id="phright4">
-				<img id="phright4" class="pright" src="uploads/photos/sqr1356565120crop380w_copy_of_party.jpg.jpg"></img>
-				<center id="loadChili2"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-			</span>
-	        <div style='height:10px;'></div>
-	    
-        </div>
-        <br />
-                        
-        <div>
-            <button class="refresh" id="refresh6" type="button" onclick="eveload(6)"></button>
-	        <span id="everight6">
-				<img id="everight6" class="pright" src="uploads/profile/sqrman.png" />
-				<center id="loadChili2"><strong id='chiliphotorefreshleft'>0</strong>&nbsp<form id='whiteprofilechili' name='form' method='post'><input id='whiteprofilechili' title='Hotness Factor: 0 Chilis' type='button' /></form></center>
-			</span>
-	        <div style='height:10px;'></div>
-	    
-        </div>
-    </center>
-                
-	</td>
-	<td width="1%" class="schooldivider">
-		
-	</td>
-	<td width="70%" valign="top" style="padding-left: 21px;">
-		<div id="center">
-		        
-			
-			<div align="left" style="text-align:left; ">
+<script type="text/javascript"> 
+$(function() {
+	$('.extra_field').hide();
+	$("input[name='status_type']").change(function(){
+		$('.extra_field').hide();
+		$('.extra').val('');
+		$('.'+ $(this).val() + '_input').show();
+	});
+});
+</script>
+			<div align="left" style="text-align:left; margin-top:10px;">
+				<br />
 				<center><button class="count" type="button" onclick="loadnewposts(0)">Load New Posts</button></center>
                                 <hr color="#fff" size="1" />
 				<div id="wallrefreshnew"></div>
@@ -983,7 +862,40 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 			</div>
 		</div>
 	</td>
-</tr>	
+
+	<td width="20%" valign="top" class="borderleft">
+		<center>
+                        <div style="background: #fff;" class="photoborder">
+			        <span id="pright1">
+				        <img id="pright1" class="pright" src="uploads/profile/man.png" />
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="sload(1)">Switch Limelight</button>
+
+	                </div>
+                        <br />
+                        
+                        <div style="background: #fff;" class="photoborder">
+	                        <span id="everight2">
+				        <img id="everight2" class="pright" src="uploads/profile/man.png" />
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="seveload(2)">Switch Event</button>
+
+	                </div>
+                        <br />
+                        
+                        <div style="background: #fff;" class="photoborder">									
+	                        <span id="phright3">
+				        <img id="phright3" class="pright" src="uploads/profile/{p_photo}"></img>
+			        </span>
+	                        <div style='height:10px;'></div>
+	                        <button class="engravedbtn" type="button" onclick="sphload(3)">Random Photo</button>
+
+	                </div>
+                        
+                </center>
+	</td>
 </table>	
 	
 	<br clear="all"><br clear="all">

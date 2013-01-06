@@ -239,7 +239,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
                         <hr color="#eee" size="1" style="margin-top: -1px;" />
 			<!-- This is where you adjust the textarea shout out area width:98%; -->
 				<div align="left">
-					<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard"></textarea>		
+					<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard" style="width: 100%; margin-bottom: 5px;"></textarea>		
 				</div>
 				
 				

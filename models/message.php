@@ -95,8 +95,8 @@ class Message {
 					
 					$difference = strtotime($data['created'])-strtotime($data['selfdestruct']);
 					
-					if($difference < 0){
-						$sqlupdate="UPDATE thread_messages SET deleted='1' WHERE messageId='$data['messageId']'";
+					if($difference < 0) {
+						$sqlupdate = "UPDATE thread_messages SET deleted='1' WHERE messageId='$data['messageId']'";
 						$queryupdate = $this->registry->getObject('db')->executeQuery($sqlupdate);
 						$counter;
 					}
