@@ -28,15 +28,15 @@ function hide() {
 
 //centering popup
 function centerWindow() {
-	var windowWidth = document.documentElement.clientWidth;
-	var windowHeight = document.documentElement.clientHeight;
+	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
 	var popupHeight = $("#rfcWindow").height();
 	var popupWidth = $("#rfcWindow").width();
 
 	$("#rfcWindow").css({
 		"position": "absolute",
-		"top": "-10%",
-		"left": "-30%",
+		"top": "15%",
+		"left": "15%",
 		/*"top": windowHeight/2-popupHeight/2,
 		"left": windowWidth/2-popupWidth/2,*/
 	});

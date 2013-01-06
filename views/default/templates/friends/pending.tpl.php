@@ -2,7 +2,7 @@
 </div>
 
 <center>
-<div id="mainblack">
+<div id="main">
 	<h2 style="color: #444; padding-bottom: 10px;">Pending Connections</h2>
 	<!-- START pending -->
 	<p><strong><a href="profile/views/{ID}">{usera_name}</a></strong> wants to be your <strong>{type_name}</strong></p>

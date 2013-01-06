@@ -1,11 +1,12 @@
 <head>
 	<title>IvyNexus - The Social Network For Students By Students</title>
 	<meta name="viewport" content="width=600;">
-	<script type="text/javascript" src="external/jquery-1.7.2.min.js"></script><!-- need this and this script order -->
+	<link rel="stylesheet" type="text/css" href="external/css/userbar_style.css" />
+
+	<!--<script type="text/javascript" src="external/jquery-1.7.2.min.js"></script> need this and this script order -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="external/jquery.tabSlideOut.v1.3.js"></script>
 	<!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
-	<link rel="stylesheet" type="text/css" href="external/css/userbar_style.css" />
-	<link rel="stylesheet" type="text/css" href="external/css/userbar.css" />
 	<script>
 	 $(function(){
 	 	$('.slide-out-div').css('opacity', '1');

@@ -3,9 +3,10 @@
 <base href="{siteurl}" />
 <head>
 	<link rel="stylesheet" type="text/css" href="external/css/userbar_style.css" />
-	<script src="external/jquery-1.2.6.min.js" type="text/javascript"></script> 
-	<script src="external/rfc/rfc2.js" type="text/javascript"></script>
+	<!--<script src="external/jquery-1.2.6.min.js" type="text/javascript"></script>-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<!--<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>-->
+<script src="external/rfc/rfc2.js" type="text/javascript"></script>
 </head>
 <meta name="viewport" content="width=505; height=645;" initial-scale= 2.0;/>
 
@@ -87,7 +88,7 @@
 			<span id="nudge5"><select id="register_birth_year" name="register_birth_year" class="dropdownyear"></span>
 			<option value="">Year</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option>
 			</select><br /><br />
- 			<font size="2px" color="#555" style="">By clicking "Create Account" you are agreeing to the <span id="rfcbutton"><a id="rfc2" type="submit" style="z-index:1000;">terms and conditions</a></span></font><br /><br />
+ 			<font size="2px" color="#555" style="">By clicking "Create Account" you are agreeing to the <span id="rfcbutton"><a id="rfc2" type="submit" style="cursor: pointer; z-index:1000;">terms and conditions</a></span></font><br /><br />
  			<input type="submit" id="process_registration" name="process_registration" value="Create Account" class="btn" /> <br /><br />
  		</td>
  		
@@ -100,83 +101,21 @@
 	</center>
 
 	<div style="margin-top: 0px">
-      	<div id="rfcWindow">
-      		<a id="rfcWindowX">x</a>
+      	<div id="rfcWindow" style="height: 250px;">
+      		<a id="rfcWindowX"></a>
       		
-      		<center><span class="ivyicon"></span><h2 style="color: #888; font-family: lucida grande; padding-bottom: 10px;">Why join iN?</h2></center>
+      		<center><h2 style="color: #888; font-family: lucida grande; padding-bottom: 10px;"><img valign="bottom" src="favicon.png" height="26px" />&nbsp Terms and Conditions</h2></center>
       		<p style="font: 14px helvetica; line-height: 20px; font-weight: lighter; text-align: left;">
 			<center><span id="divide"><i>Click outside this window or press the "x" in the upper right to exit.</i></span></center><br />
-			<table style="font: 14px helvetica; line-height: 20px; font-weight: lighter; text-align: left;">
-				<tr>
-					<td>
-						<div valign="top" class="greenivyicon"></div>
-					</td>
-					
-					<td>
-						&bull; IvyNexus provides an online space to socialize, share, collaborate, and form relationships and connections with students across the Ivy League, while maintaining personal privacy (sorry parents and employers).  Welcome to the democratic social network.<br /><br />
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<div valign="top" class="usersicon"></div>
-					</td>
-					<td>
-						&bull; Our goal is to reduce student stress through our content and services, so you can focus on enjoying your actual college experience!  We are not here to compete with Facebook.<br /><br />  
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div valign="top" class="lockicon"></div>
-					</td>
-					<td>
-						&bull; Easily meet other students from your school and other Ivy League colleges,<br />while keeping your college experience private, even from us!  Everything is password protected with redundancies.  Make sure to choose a password that is not in the dictionary.<br /><br />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div valign="top" class="pencilicon"></div>
-					</td>
-					<td>
-						&bull; This is an internal social network, meaning all the features are controlled by you, the students! Want a feature removed or added? Fellow students will shape your experience on the site.<br /><br />  
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div valign="top" class="bellicon"></div>
-					</td>
-					<td>
-						&bull; We are currently controlling membership, but please apply by exiting out of this window and clicking "Apply for Membership".  We will get back to you as soon as possible!
-				<br/><br />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div valign="top" class="lightningicon"></div>
-					</td>
-					<td>
-						&bull; You must be a full-time student of one of the eight featured institutions.  Registration by professors, staff, administrative employees, or any other non-students is illegal and will be liable for unauthorized registration and use.  This is an exclusive student network.
-				<br/><br />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div valign="top" class="staricon"></div>
-					</td>
-					<td>
-						&bull; Not a student of Harvard, Yale, Princeton, Cornell, Penn, Columbia, Dartmouth, or Brown?  There are specialized services for every school, so each institution receives individual and unique benefits in the Nexus.  This takes time.  Check back with us soon.  
-				<br/><br />
-					</td>
-				</tr>
+			<div style="font: 14px helvetica; line-height: 20px; font-weight: lighter; ">
 				
-				<tr>
-					<td>
-						
-					</td>
-					<td><div style="text-align: right;"> - Brought to you by Michael, a fellow student of the Ivy League.</div>
-				<br/><br /></td>
-				</tr>
-			</table>
+						<center><br /><hr width="80%" style="height: 1px; border: none; background: #eee;" /><br /><img src="views/default/images/ivy.png" />
+					
+						&nbsp You must be a current college student.<br /><br /><hr width="80%" style="height: 1px; border: none; background: #eee;" /></center>
+				
+
+				
+			</div>
 		</p>
       	</div>
       	<div id="backdrop"></div>

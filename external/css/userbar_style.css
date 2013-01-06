@@ -1,5 +1,17 @@
 /* General tags */
 
+a:link {
+	color: #196543;
+}
+                
+a:visited {
+	color: #196543;
+}
+                
+a:hover {
+	color: #991122;
+}
+
 hr {
 	color: #eee;
 }
@@ -2079,7 +2091,17 @@ a.stream:hover {
         background: url('../../views/default/images/members.png') no-repeat scroll;
 }*/
 
+.greenlinks a{
+	color: #195432;
+}
 
+.greenlinks a:hover {
+	color: #58A076;
+}
+
+.greenlinks a:visited {
+	color: #195432;
+}
 
 #profilebutton {
 	height: 250px;
@@ -4166,7 +4188,7 @@ span#n {
 }
 
 /* These are small icons */
-div.greenivyicon {
+.greenivyicon {
 	background: url('../../views/default/images/ivy.png') no-repeat;
 	height: 50px;
 	width: 20px;

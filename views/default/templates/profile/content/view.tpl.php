@@ -164,7 +164,7 @@
                 <tr>
                 	<th width="5px"></th>
                         <th id="lines" align="left">Born On</th>
-                        <td id="lines">{birth_month} {birth_day}</td>
+                        <td id="lines">{p_birth_month} {p_birth_day}</td>
                 </tr>
                         
                 <tr>

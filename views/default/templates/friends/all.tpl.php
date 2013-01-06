@@ -27,7 +27,7 @@
 		}	
 </script>
 <center>
-<div id="mainblack">
+<div id="main">
 	<h2 style="color: #444; padding-bottom: 10px;">{connecting_name}'s Connections</h2>
 	<div id="myFantasticFlow" class="ContentFlow">
             <div class="loadIndicator"><div class="indicator"></div></div>

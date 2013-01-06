@@ -26,7 +26,7 @@
 		}
 	</script>
 <center>
-<div id="mainblack">
+<div id="main">
 
     <!--<h1>IvyNexus Members List</h1>-->
     <p>Search results for "{public_name}"</p><br />
@@ -65,8 +65,8 @@
 	
 	<p>{first} &bullet; {previous} &bullet; Viewing page {page_number} of {num_pages} &bullet; {next} &bullet; {last}</p>
 
-        <form action="members/search" method="post">
-            <h2>&nbsp Search for Another Member?</h2>
+        <form action="members/search" method="post"><br />
+            <h4>&nbsp Search for Another Member?</h4>
             <div style="padding-left:20px;">
             <input type="text" id="name" name="name" value="By Name" onFocus="if(this.value=='By Name') {this.value=''; this.style.color='#888';}" onBlur="if(this.value=='') {this.value='By Name'; this.style.color='#888';}" size="37" />&nbsp
             <button type="submit" id="search" name="search" value="Search"></button>

@@ -7,10 +7,12 @@
 	<meta name="description" content="The Social Network for Exceptional Students" /> 
 	<meta name="keywords" content="student, social, network, ivy, nexus" />
 	 <!--<meta name="viewport" content="width=device-width, initial-scale=.66">-->
-<link rel="stylesheet" href="external/iphoneadd/add2home.css">
-<script type="application/javascript" src="external/iphoneadd/add2home.js"></script>
-	<script src="external/jquery-1.2.6.min.js" type="text/javascript"></script> 
+	<!--<link rel="stylesheet" href="external/iphoneadd/add2home.css">-->
 	<link rel="stylesheet" type="text/css" href="external/css/userbar_style.css" />
+	<!--<script type="application/javascript" src="external/iphoneadd/add2home.js"></script>-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="external/jquery-1.7.2.min.js"></script>-->
+
 	<script src="external/rfc/rfc.js" type="text/javascript"></script>
 <!--<link rel="stylesheet" href="external/css/iphone.css" type="text/css" media="handheld" />-->
 <!--<link media="handheld, screen and (max-device-width: 480px)" href="iPhone.css" type="text/css" rel="stylesheet" />-->
@@ -115,7 +117,7 @@
 					<td>
 						
 					</td>
-					<td><div style="text-align: right;"> - Brought to you by Michael, a fellow student of the Ivy League.</div>
+					<td><div style="text-align: right;"> - Fellow student of the Ivy League.</div>
 				<br/><br /></td>
 				</tr>
 			</table>

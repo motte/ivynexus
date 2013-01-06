@@ -1,4 +1,4 @@
-<div id="mainblack">
+<div id="main">
 	<div id="content">
 		<!--<h1>IvyNexus - Membership List</h1>-->
 		<center>
@@ -14,6 +14,7 @@
 			</form>
 		
 			<label>Sort By Last Name &nbsp</label>
+			<span class="greenlinks">
 			<a href="members/letter/A/">A</a>&nbsp&nbsp
 			<a href="members/letter/B/">B</a>&nbsp&nbsp
 			<a href="members/letter/C/">C</a>&nbsp&nbsp
@@ -40,6 +41,7 @@
 			<a href="members/letter/X/">X</a>&nbsp&nbsp
 			<a href="members/letter/Y/">Y</a>&nbsp&nbsp
 			<a href="members/letter/Z/">Z</a>
+			</span>
 		
 		</p>
 		

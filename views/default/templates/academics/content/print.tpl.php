@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="external/css/userbar_style.css" />
+<link rel="stylesheet" type="text/css" href="external/css/userbar.css" />
 <div id="mainprint">
 	<center>
 	
