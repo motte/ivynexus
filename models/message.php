@@ -92,11 +92,12 @@ class Message {
 					//$whenSent = strtotime($data['created']);
 					// This takes the difference in seconds from a unix timestamp for both when created and the selfdestruct timer to determine expiration
 					// For some reason the difference is backward on the internal server
-					
-					$difference = strtotime($data['created'])-strtotime($data['selfdestruct']);
+					$difference = strtotime($data['selfdestruct'])-strtotime($data['created']);
+					//$difference = strtotime($data['created'])-strtotime($data['selfdestruct']);
 					
 					if($difference < 0) {
-						$sqlupdate = "UPDATE thread_messages SET deleted='1' WHERE messageId='$data['messageId']'";
+						$mId = $data['messageId'];
+						$sqlupdate = "UPDATE thread_messages SET deleted='1' WHERE messageId='$mId'";
 						$queryupdate = $this->registry->getObject('db')->executeQuery($sqlupdate);
 						$counter;
 					}
