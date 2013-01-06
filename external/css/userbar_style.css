@@ -1376,13 +1376,91 @@ div#adjustpostbox {
 #dartmouthcollege {
 	background: url('../../views/default/images/schools/dartmouth.png') no-repeat;
 	background-size: 80% auto;
-	height: 100%;
+	height: 70px;
 	width: 100%;
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 15px;
 	margin-left: 10px;
 }
+
+#brownuniversity {
+	background: url('../../views/default/images/schools/brown.png') no-repeat;
+	background-size: 80% auto;
+	min-height: 100px;
+	height: 70px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+#columbiauniversity {
+	background: url('../../views/default/images/schools/columbia.png') no-repeat;
+	background-size: 80% auto;
+	height: 70px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	
+	margin-left: 10px;
+}
+
+#cornelluniversity {
+	background: url('../../views/default/images/schools/cornell.png') no-repeat;
+	background-size: 80% auto;
+	height: 75px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	
+	margin-left: 10px;
+}
+
+#harvarduniversity {
+	background: url('../../views/default/images/schools/harvard.png') no-repeat;
+	background-size: 80% auto;
+	height: 75px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	
+	margin-left: 10px;
+}
+
+#princetonuniversity {
+	background: url('../../views/default/images/schools/princeton.png') no-repeat;
+	background-size: 80% auto;
+	height: 70px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	
+	margin-left: 10px;
+}
+
+#uofpenn {
+	background: url('../../views/default/images/schools/upenn.png') no-repeat 0 15px;
+	background-size: 100% auto;
+	height: 100px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	
+	margin-left: 10px;
+}
+
+#yaleuniversity {
+	background: url('../../views/default/images/schools/yale.png') no-repeat;
+	background-size: 80% auto;
+	height: 70px;
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 100px;
+	margin-left: 10px;
+}
+
+
 
 .UIComposer_Box {
 	position: absolute;

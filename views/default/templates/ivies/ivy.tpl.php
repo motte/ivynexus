@@ -40,7 +40,7 @@
 					<td width="50%"><a href="ivies/Yale" onmouseover="onSchool('yale')" onmouseout="onSchool('yaleout')"><span id="yale"></span></a></td><td width="50%"><a href="ivies/Dartmouth" onmouseover="onSchool('dartmouth')" onmouseout="onSchool('dartmouthout')"><span id="dartmouth"></span></a></td>
 				</tr>	
 				<tr align="center">
-					<td width="50%"><a href="ivies/Upenn" onmouseover="onSchool('upenn')" onmouseout="onSchool('upennout')"><span id="upenn"></span></a></td><td width="50%"><a href="ivies/Cornell" onmouseover="onSchool('cornell')" onmouseout="onSchool('cornellout')"><span id="cornell"></span></a></td>
+					<td width="50%"><a href="ivies/Penn" onmouseover="onSchool('upenn')" onmouseout="onSchool('upennout')"><span id="upenn"></span></a></td><td width="50%"><a href="ivies/Cornell" onmouseover="onSchool('cornell')" onmouseout="onSchool('cornellout')"><span id="cornell"></span></a></td>
 				</tr>
 				<tr align="center">
 					<td width="50%"><a href="ivies/Princeton" onmouseover="onSchool('princeton')" onmouseout="onSchool('princetonout')"><span id="princeton"></span></a></td><td width="50%"><a href="ivies/Columbia" onmouseover="onSchool('columbia')" onmouseout="onSchool('columbiaout')"><span id="columbia"></span></a></td>
