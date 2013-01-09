@@ -5,6 +5,10 @@
 	$receivername = mysql_real_escape_string($_GET["c"]);
 	$givername = mysql_real_escape_string($_GET["d"]);
 
+	date_default_timezone_set('America/New_York');
+	$identifier = date("M d, Y @ h:i:s - \a l");
+	$unique_id = date("dmyHis");
+	$unique_id = $unique_id.$giverid.$receiverid;
 	$giver_query = "SELECT * FROM profile WHERE user_id='$giverid'";
 	//$giver_result = mysql_query($giver_query);
 	$giver_row = mysql_fetch_array(mysql_query($giver_query));
@@ -16,6 +20,7 @@
 	        // This limits the number of crushes to three total
         	$totalquery = "SELECT * FROM crushes WHERE c_id='$giverid' LIMIT 3";
 	        //$totalresult = mysql_query($totalquery);
+
 	        //remove a crush
 	        if(mysql_num_rows(mysql_query($query)) > 0) {
 	   
@@ -39,25 +44,28 @@
 			mysql_query("UPDATE profile SET totalcrushes = totalcrushes+1 WHERE user_id = '$receiverid'");
 			mysql_query("UPDATE users SET crush_counter=crush_counter+1 WHERE ID='$receiverid'");
 			if($giverid != $receiverid) {
-				$mutualquery="SELECT COUNT(*) as $count FROM crushes WHERE c_id = '$receiverid' AND crush = '$giverid'";
-				$ifmutual = mysql_query($mutualquery);
+				//$mutualquery="SELECT COUNT(*) as $count FROM crushes WHERE c_id = '$receiverid' AND crush = '$giverid'";
+				$mutualquery="SELECT * FROM crushes WHERE c_id = '$receiverid' AND crush = '$giverid'";
+				$ifmutual = mysql_num_rows(mysql_query($mutualquery));
 				if ($ifmutual > 0) {
-					$receivername .= ' (Mutual Crush)';
-					$givername .=  ' (Mutual Crush)';
-					mysql_query("INSERT INTO thread_participants (viewerId, participantIds) VALUES ('$giverid', '$receiverid')");
-					$t_id=mysql_insert_id();
+					$receivername .= ' (Mutual Crush - '.$identifier.')';
+					$givername .=  ' (Mutual Crush - '.$identifier.')';
+					//mysql_query("INSERT INTO thread_participants (viewerId, participantIds) VALUES ('$giverid', '$receiverid')");
+					//$t_id=mysql_insert_id();
+					$t_id = $unique_id;
 					mysql_query("DELETE FROM thread_participants WHERE threadId='$t_id'");
 					mysql_query("INSERT INTO thread_participants (threadId, viewerId, participantIds, viewerName, participantNames) VALUES ('$t_id', '$giverid', '$receiverid', '$givername', '$receivername'), ('$t_id', '$receiverid', '$giverid', '$receivername', '$givername')");
 					
 				}
 			
 				else{
+					$label = 'A Crush! From '.$identifier;
 					$receivername .= ' (Crush)';
 					$givername .= ' (Crush)';
-					mysql_query("INSERT INTO thread_participants (viewerId, participantIds) VALUES ('$giverid', '$receiverid')");
-						$t_id=mysql_insert_id();
+					//mysql_query("INSERT INTO thread_participants (viewerId, participantIds) VALUES ('$giverid', '$receiverid')");
+						$t_id=$unique_id;
 						mysql_query("DELETE FROM thread_participants WHERE threadId='$t_id'");
-						mysql_query("INSERT INTO thread_participants (threadId, viewerId, participantIds, viewerName, participantNames) VALUES ('$t_id', '$giverid', '$receiverid', '$givername', '$receivername'), ('$t_id', '$receiverid', '$giverid', '$receivername', 'A Crush!')");
+						mysql_query("INSERT INTO thread_participants (threadId, viewerId, participantIds, viewerName, participantNames) VALUES ('$t_id', '$giverid', '$receiverid', '$givername', '$receivername'), ('$t_id', '$receiverid', '$giverid', '$receivername', '$label')");
 				}
 			}
 			//mysql_query("UPDATE profile SET can_crush = can_crush-1 WHERE user_id = '$giverid'");

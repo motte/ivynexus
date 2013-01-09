@@ -171,6 +171,14 @@ border-radius:3px;
 	text-shadow: 1px 1px #fff;
 }
 
+#contacttab {
+	font: 14px helvetica neue;
+font-weight: 500;
+margin-top: 0px;
+color: #444;
+margin-left: 18px;
+}
+
 /* Start Ideas Pages */
 #plus_sign {
 	background: #ddd url('../../views/default/images/plushover.png') no-repeat 5px 4px;
@@ -1884,6 +1892,16 @@ button#connect:hover {
 }
 
 /* crush page */
+.xOut {
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.xOut:hover {
+	text-decoration: underline;
+	
+}
+
 #crushlabel {
 	font-size: 27px;
 	display: inline-block;
@@ -3742,7 +3760,7 @@ input.btn:hover {
 
 .refresh {
 	background: url('../../views/default/images/icons/refresh.png') no-repeat 0 0;
-vertical-align: 20px;
+	vertical-align: 20px;
 	position: absolute;
 	height: 22px;
 	width: 22px;
@@ -3752,6 +3770,7 @@ vertical-align: 20px;
 	border: none;
 	z-index: 10000;
 	opacity: 0;
+	cursor: pointer;
 }
 
 .refresh:hover {background-color: #fff;

@@ -9,11 +9,11 @@
 	<!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
 	<script>
 	 $(function(){
-	 	$('.slide-out-div').css('opacity', '1');
+	 	$('.slide-out-div').css({'opacity':'1','background-color':'rgba(223,223,223,.9)'});
 
 	        $('.slide-out-div').tabSlideOut({
 	            tabHandle: '.contacttab',                     
-	            pathToTabImage: 'views/default/images/contact.png', 
+	            pathToTabImage: 'views/default/images/contactgray.png', 
 	            imageHeight: '120px',                     
 	            imageWidth: '40px',                       
 	            tabLocation: 'left',                      
@@ -164,11 +164,10 @@
 
 </body>
 <div onmouseover="hoverdropup()">
-<div class="slide-out-div">
-            <a class="contacttab" href=""></a>
-            <h3>Contact me</h3>
-            <p>Suggestions, comments, questions, requests?  Send them right over!</p>
-            <p>We are here to help!</p>
-            <p><a href="javascript:location.href = '%62eta%63o%6dme%6e%74' + '%73%40%69v' + '%79%6e%65xu' + 's.c' + 'om'">Send an email (or a blitz)</a></p>
+<div class="slide-out-div" style="height: 33px; width: 193px;">
+            <span class="contacttab"></span>
+            <p align="left" id="contacttab" >Suggestions, comments, questions, requests?</p>
+            
+            <p><a href="javascript:location.href = '%62eta%63o%6dme%6e%74' + '%73%40%69v' + '%79%6e%65xu' + 's.c' + 'om'"><img src="views/default/images/emailIn.png" style="margin-top: 8px; margin-right: 150px;" /></a></p>
 </div>
 <div>

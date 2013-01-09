@@ -47,7 +47,7 @@ class Crush {
 					$sqlcrushes = "SELECT name FROM profile WHERE user_id='$crid'";
 					$result = mysql_query($sqlcrushes);
 					$temp = mysql_result($result, 0);
-					$temp = '<a href="profile/view/'.$crid.'" id="event">'.$temp.'</a>';
+					$temp = '<a href="profile/view/'.$crid.'" id="event">'.$temp.'</a>&nbsp<a class="xOut" onclick="removeCrush('.$ID.','.$crid.','.$counter.')" title="End Crush">Remove</a>';
 					$this->registry->getObject('template')->getPage()->addTag('crush'.$counter, $temp);
 					
 					$counter++;

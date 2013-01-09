@@ -1,3 +1,26 @@
+<script>
+	function removeCrush(a,b,c){
+		
+		if(window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}
+		else {
+			xmlhttp = ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if(xmlhttp.readyState==4 && xmlhttp.status == 200) {
+
+				if(xmlhttp.responseText=='moo'){
+
+					$("div."+c).replaceWith('<div id="crushlabel" class="'+c+'"><em style="color: #ddd;">nobody</em></div>');
+				}
+			}
+		}
+		xmlhttp.open("GET", "controllers/crush/crushpage.php?a="+a+"&b="+b,true);
+		xmlhttp.send();
+	}
+</script>
+
 <body>
 <center>
 <div id="main">
@@ -11,17 +34,17 @@
 			<table>
 			<tr>
 				<td width="150px"><label id="heart" align="left">Crush #1 </label></td>
-				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="one">{crush1}</div></td>
+				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="1">{crush1}</div></td>
 			</tr>
 			<tr height="10px"></tr>
 			<tr>
 				<td width="150px"><label id="heart">Crush #2 </label></td>
-				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="two">{crush2}</div></td>
+				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="2">{crush2}</div></td>
 			</tr>
 			<tr height="10px"></tr>
 			<tr>
 				<td width="150px"><label id="heart">Crush #3 </label></td>
-				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="three">{crush3}</div></td>	
+				<td id="crushlabel">&nbsp &nbsp<div id="crushlabel" class="3">{crush3}</div></td>	
 			</tr>
 			<tr height="15px"></tr>
 			</table>
