@@ -22,13 +22,14 @@ function countDown(startTime, divid, the_event) {
 </script>-->
 <script>
 	$(document).ready(function(){
+		$("#anonymous").selected(true);
 		$('#event_file').live('change', function(){ 
 			$("#eventpreview").html('');
 			$("#eventpreview").html('<img src="views/default/images/load.gif" alt="Uploading...."/>');
 			//Get the data from all the fields
         	var a = document.getElementById('keepID').value;
         	var b = document.getElementById('postbox').value;
-b=b.replace(/\r\n|\r|\n/g, "<br />");
+        	b=b.replace(/\r\n|\r|\n/g, "<br />");
         		var c = 1;
  			var d = document.getElementById('user').value;
  			var e = {tId};
@@ -231,6 +232,24 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				break;
 		}
 	}
+
+	function focusPostbox() {
+		$('textarea#postbox').animate({'height':'76px'});
+		
+		$('#shareButtons').css({'display':'inline-block'});
+	}
+	
+	
+	function initializePostbox() {
+		var post = $('textarea#postbox').val();
+		if(post == 'Shout Out To Dartmouth!' || ' Shout Out To Dartmouth' || '') {
+			$('textarea#postbox').css({'height':'35px'});
+		}
+	}
+	
+	
+
+	
 </script>
 <center>
 <div id="main">
@@ -239,7 +258,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
                         <hr color="#eee" size="1" style="margin-top: -1px;" />
 			<!-- This is where you adjust the textarea shout out area width:98%; -->
 				<div align="left">
-					<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard" style="width: 100%; margin-bottom: 5px;"></textarea>		
+					<textarea id="postbox" name="postbox" class="input" placeholder=" Leave a reply" wrap="hard" style="width: 100%; margin-bottom: 5px;"  onfocus="focusPostbox()" onblur="initializePostbox()"></textarea>		
 				</div>
 				
 				
@@ -256,10 +275,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<label><input type="radio" value="Video" id="radio_video" name="status_type"></input><div class="contain" id="video" style="border-right: 0px;"> Video</div></label>
 					
 					
-					<!--<input type="button" class="colbtn" value="video" name="status_type"><img src="views/default/images/media.ico" width="20" alt="" id="uploadMediaToggle" style="cursor:pointer" onclick="mediaToggle" /></input>&nbsp
-					<input type="button" class="colbtn" value="link" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
-					<input type="button" class="colbtn" value="photo" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
-					<input type="button" class="colbtn" value="event" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp-->
+				
 					
 				</div>
 				<div id="align" class="video_input  extra_field">
@@ -301,7 +317,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<div id='eventpreview'></div>
 				</div>
 				<div class="test">
-					<label for="anonymous" value="Anonymous" id="anony"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png" style="vertical-align: -4px; height: 17px;" />Anonymous</label></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<label for="anonymous" value="Anonymous" id="anony"  style="display: inline;"><input type="checkbox" name="anonymous" id="anonymous" class="test" value="1"></input><img class="ivy" src="views/default/images/ivyblack.png" style="vertical-align: -4px; height: 17px;" />Anonymous</label></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				<div id="theseselects">
 				
 					<img src="views/default/images/icons/leaf.png" style="opacity: .3;vertical-align: -4px; margin-top: 10px;" /><span>&nbspMessage Decays in 

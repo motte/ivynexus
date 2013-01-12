@@ -61,12 +61,24 @@ while($cttrlr = $registry->getObject('db')->getRows()) {
 }
 
 /**
- If logged in then do thisÉif not, do that
+ If logged in then do this, if not, do that
  */
 if($registry->getObject('authenticate')->isLoggedIn() && $controller !== 'api') {
+	
+					
+					$user = $registry->getObject('authenticate')->getUser()->getUserID();
+                // show the edit form
+            
+                // get the profile information to pre-populate the form fields
+                require_once(FRAMEWORK_PATH . 'models/personalprofile.php');
+                $profile = new Personalprofile($registry, $user);
+                $profile->toTags('p_');
+                require_once(FRAMEWORK_PATH.'models/crushreturn.php');
+                $crush = new Crush($registry);
 	$registry->getObject('template')->addTemplateBit('userbar', 'userbar_loggedin.tpl.php');
 	$registry->getObject('template')->getPage()->addTag('firstname', $registry->getObject('authenticate')->getUser()->getFirstName());
 	$registry->getObject('template')->getPage()->addTag('lastname', $registry->getObject('authenticate')->getUser()->getLastName());
+	$registry->getObject('template')->getPage()->addTag('pEmail', $registry->getObject('authenticate')->getUser()->getEmail());
 	
 	$registry->getObject('template')->getPage()->addTag('birth_month', $registry->getObject('authenticate')->getUser()->getBirthMonth());
 	$registry->getObject('template')->getPage()->addTag('birth_day', $registry->getObject('authenticate')->getUser()->getBirthDay());

@@ -88,6 +88,8 @@ class Academiccontentcontroller {
                 // edit form submitted
                 $academics = new Academics($this->registry, $user);
                 $academics->setMajor($this->registry->getObject('db')->sanitizeData($_POST['major']));
+                $academics->setHomephone($this->registry->getObject('db')->sanitizeData($_POST['homephone']));
+                $academics->setCell($this->registry->getObject('db')->sanitizeData($_POST['cell']));
                 $academics->setInterests($this->registry->getObject('db')->sanitizeData($_POST['interests']));
                 $academics->setAwards($this->registry->getObject('db')->sanitizeData($_POST['awards']));
                 $academics->setClubs($this->registry->getObject('db')->sanitizeData($_POST['clubs']));

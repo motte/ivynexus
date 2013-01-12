@@ -44,10 +44,11 @@ class Crush {
 				//if(mysql_num_rows($query) > 0) {
 				while($data = mysql_fetch_array($query)){
 					$crid = $data['crush'];
-					$sqlcrushes = "SELECT name FROM profile WHERE user_id='$crid'";
+					$sqlcrushes = "SELECT name, photo FROM profile WHERE user_id='$crid'";
 					$result = mysql_query($sqlcrushes);
-					$temp = mysql_result($result, 0);
-					$temp = '<a href="profile/view/'.$crid.'" id="event">'.$temp.'</a>&nbsp<a class="xOut" onclick="removeCrush('.$ID.','.$crid.','.$counter.')" title="End Crush">Remove</a>';
+					//$temp = mysql_result($result, 0);
+					$temp = mysql_fetch_array($result);
+					$temp = '<a href="profile/view/'.$crid.'" id="event"><img width="25px" src="uploads/profile/sqr'.$temp['photo'].'" />&nbsp'.$temp['name'].'</a>&nbsp<a class="xOut" onclick="removeCrush('.$ID.','.$crid.','.$counter.')" title="End Crush">Remove</a>';
 					$this->registry->getObject('template')->getPage()->addTag('crush'.$counter, $temp);
 					
 					$counter++;

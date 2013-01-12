@@ -1,123 +1,95 @@
 <center>
 <div id="main">
-	
-		<div>This page is NOT visible to other IvyNexus members but helps you match with jobs, internships, and interviews!</div>
-	
-		<span style="color: #bbb; font-size: 13px;">The objective is to match you with a profession you will enjoy, so be yourself.</span>
-	<div style="width: 70%; border-top: 1px solid #fff; margin-top: 10px; margin-bottom: 12px;"></div>
-	
-    <!--<table class="text">-->
-<table align="center">
-    	
-    	<!--<tr width="100%" valign="top" align="left">-->
-    	<tr valign="top" align="center">
-    		<td colspan="3">
-    			<div>
-    			<div id="content"><a href="profile/view/{p_user_id}" id="profilename">{p_name}</a>
-    			<span style="font-size: 12px;">&nbsp<a href="academics/edit">Edit</a> <!--&nbsp<a href="academics/print">Print</a>&nbsp | &nbsp</div>--></span>
-    		</td>
-    	</tr>
-    	<tr align="center">
-		<td>
- 			<div style="font-size: 13px;">
-    				<h4>| <a href="ivies/{p_school}">{p_school}</a> | Class of {p_class} |</h4>
-    			</div>
-
-
-    		</td>
-	</tr>
-    	
-</table>
-
-	<table class="text">
-
+	<center style="color: #ccc; font-size: 12px;">Employers only see below the line</center><hr style="width: 70%;border-top: 1px solid #eee; background: none; border-bottom: none; border-left: none;" />
+ 	<table>
 		<tr>
-
-			<th rowspan="13"></th>
-			<th rowspan="13"></th>
+			<th rowspan="12" valign="top"><div id="frame" style="padding-top: 10px;"></div><img class="shadow" src="uploads/academicportraits/{p_portrait}"></img>
+           		
+			</th>
+			<th width="5px" rowspan="12"></th>
 			
-	</tr>
-    	<tr>
-    		<th rowspan="13" valign="top">
-    			<div id="frame"></div>
-    				<img class="shadow" src="uploads/academicportraits/{a_portrait}" />      	
-    		</th>
-    		<th width="5px" rowspan="13"></th>
-    		<th rowspan="13" align="left" width="1px" bgcolor="#fff"></th>
-    	</tr>
-   
-           		<tr>
-                               <th width="5px"></th>
-                                <th id="clines" title="{p_chili} people think you are hot"><strong>{p_chili}</strong> &nbsp<img src="/views/default/images/chili.png" height="20px" width="40px" style="display: inline-block; margin-bottom: -2px;" /></th>
-           			<th id="clines" align="left" title="{p_totalcrushes} Crushes" >&nbsp</th>
-           		</tr>
-           		<tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Born on</th>
-                                <td id="lines">{birth_month} {birth_day}, {birth_year}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Major</th>
-                                <td id="lines">{a_major}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Experiences</th>
-                                <td id="lines">{a_experiences}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Interests</th>
-                                <td id="lines">{a_interests}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Awards</th>
-                                <td id="lines">{a_awards}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Clubs<div style="color: #bbb; font-size: 12px; font-weight: normal;">Most committed and enjoyable</div></th>
-                                <td id="lines">{a_clubs}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" valign="top" id="lines">Classes<br /><div style="color: #bbb; font-size: 12px; font-weight: normal;">Most important, valuable, & interesting</div></th>
-                                <td id="lines">{a_classes}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Internship</th>
-                                <td id="lines">{p_internship}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">Home</th>
-                                <td id="lines">{p_home}</td>
-                        </tr>
-                        <tr>
-                               <th width="5px"></th>
-                                <th align="left" valign="top" id="lines">GPA<div style="color: #bbb; font-size: 12px; font-weight: normal;">They only say so much</div></th>
-                                
-                            <td id="lines2">{a_gpa} <i>/4.00</i><br />
-                            	<span id="glines">F:{a_fgpa} S:{a_sgpa} J:{a_jgpa} S:{a_segpa} SS:{a_ssgpa}</span>
-                            </td>
-                        </tr>
-                        
-            		
 
-    		
- 		</table>
- 		
- 		<table>
- 		<tr height="5px"></tr>
+		</tr>	
  		<tr>
- 			<td class="biolines" width="560" style="line-height: 150%;"><div id="lines">Personal Statement</div>
-<div style="color: #bbb; font-size: 12px; margin-top: -5px; margin-bottom: 5px;">Suggestions: What makes you unique?  What can you contribute?  Who are you?</div>
- 				<span>{a_autobio}</span>
- 			</td>
- 		</tr>
+ 		
+			<th align="left"  rowspan="12" valign="top">
+			<th id="clines" align="left"><a href="profile/view/{profile_user_id}" id="profilename">{p_name}</a>&nbsp<a href="academics/edit" style="font-size: 12px; font-weight: lighter;">edit</a></th>
+			
+                        
+		</tr>
+ 		
+ 		<tr>
+                	
+                        <th id="plines" align="left" style="border-right: none;">CONTACT INFORMATION
+                        	<div id="plines" style="padding-left: 22px; ">Address:&nbsp&nbsp&nbsp{p_home}</div>
+                        	<div id="splines" style="padding-left: 35px; ">Home:&nbsp&nbsp&nbsp{p_homephone}</div>
+                        	<div id="splines" style="padding-left: 48px; ">Cell:&nbsp&nbsp&nbsp{p_cell}</div>
+                        	<div id="splines" style="padding-left: 39px; ">Email:&nbsp&nbsp&nbsp{pEmail}</div>
+                        </th>
+                        
+                </tr>
+                
+                <tr>
+                	
+                        <th id="plines" align="left" style="border-right: none;">EDUCATION
+                        	<div id="plines" style="padding-left: 32px;">School:&nbsp&nbsp&nbsp{p_school}, Class of {p_class}</div>
+                        	<div id="splines" style="padding-left: 6px; ">Graduation:&nbsp&nbsp&nbsp{p_graduation}</div>
+	                        <div id="splines" style="padding-left: 37px; ">Major:&nbsp&nbsp&nbsp{p_major}</div>
+	                        <div id="splines" style="padding-left: 47px; ">GPA:&nbsp&nbsp&nbsp{p_gpa}</div>
+	                        <div id="splines" style="padding-left: 24px; ">Courses:&nbsp&nbsp&nbsp{p_classes}</div>
+	                    </th>
+                        
+                </tr>
+                        
+                <tr>
+                	
+                        <th id="plines" align="left" style="border-right: none;">PROFESSIONAL EXPERIENCE
+	                        <div id="plines" style="padding-left: 16px; ">Company:&nbsp&nbsp&nbsp<strong>{p_company1}</strong>, {p_companylocation1}</div>
+	                        <div id="splines" style="padding-left: 24px; ">Position:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;"<em>{p_internship1}</em></p></div>
+	                        <div id="splines" style="padding-left:5px;">Description:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;">{p_internshipdescription1}</p></div>
+	                        <br />
+	                        <div id="splines" style="padding-left: 16px; ">Company:&nbsp&nbsp&nbsp<strong>{p_company2}</strong>, {p_companylocation2}</div>
+	                        <div id="splines" style="padding-left: 24px; ">Position:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;"<em>{p_internship2}</em></p></div>
+	                        <div id="splines" style="padding-left:5px;">Description:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;">{p_internshipdescription2}</p></div>
+	                        <br />
+	                        <div id="splines" style="padding-left: 16px; ">Company:&nbsp&nbsp&nbsp<strong>{p_company3}</strong>, {p_companylocation3}</div>
+	                        <div id="splines" style="padding-left: 24px; ">Position:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;"<em>{p_internship3}</em></p></div>
+	                        <div id="splines" style="padding-left:5px;">Description:&nbsp&nbsp&nbsp<p style="display: inline-block; margin: 0px;">{p_internshipdescription3}</p></div>
+	                        
+	                        
+                        </th>
+                        
+                </tr>
+                        
+                <tr>
+                	
+                        <th id="plines" align="left" style="border-right: none;">SKILLS
+	                        <div id="plines">{p_autobio}</div>
+                        </th>
+                        
+                </tr>
+                
+                
+                
+                
+                
+                </tr>
+                
+                <tr>
+                	
+                	<th id="plines" align="left" style="border-right: none;">Awards & Leadership
+	                	<div id="plines">{p_awards}</div>
+                	</th>
+                        
+                </tr>
+                        
+                <tr>
+                	
+                        <th id="plines" align="left" style="border-right: none;">Clubs
+                        	<div id="plines">{p_clubs}</div>
+                        </th>
+                        
+                </tr>
     </table>
 		
 </div>

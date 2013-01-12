@@ -74,7 +74,7 @@ class Relationships {
      */
     public function getByUser($user, $obr=false, $limit=0) {
         // the standard get by user query
-        $sql = "SELECT t.plural_name, p.name as users_name, p.photo as photo, p.chili as chili, p.class as class, p.internship as internship, u.ID FROM users u, profile p, relationships r, relationship_types t WHERE t.ID=r.type AND r.accepted=1 AND (r.usera={$user} OR r.userb={$user}) AND IF(r.usera={$user}, u.ID=r.userb, u.ID=r.usera) AND p.user_id=u.ID";
+        $sql = "SELECT t.plural_name, p.name as users_name, p.photo as photo, p.chili as chili, p.class as class, p.internship1 as internship, u.ID FROM users u, profile p, relationships r, relationship_types t WHERE t.ID=r.type AND r.accepted=1 AND (r.usera={$user} OR r.userb={$user}) AND IF(r.usera={$user}, u.ID=r.userb, u.ID=r.usera) AND p.user_id=u.ID";
         // if we are ordering the results randomly
         if($obr == true) {
             $sql .= " ORDER BY RAND() ";

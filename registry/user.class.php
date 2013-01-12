@@ -39,7 +39,7 @@ class User {
 				
 				$this->id = $data['ID'];
 				$this->firstname = $data['firstname'];
-                		$this->lastname = $data['lastname'];
+                $this->lastname = $data['lastname'];
 				$this->active = $data['active'];
 				$this->banned = $data['banned'];
 				$this->admin = $data['admin'];
@@ -63,7 +63,7 @@ class User {
 				$data = $this->registry->getObject('db')->getRows();
 				$this->id = $data['ID'];
 				$this->firstname = $data['firstname'];
-                		$this->lastname = $data['lastname'];
+                $this->lastname = $data['lastname'];
 				$this->active = $data['active'];
 				$this->banned = $data['banned'];
 				$this->admin = $data['admin'];

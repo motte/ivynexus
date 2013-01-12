@@ -50,28 +50,24 @@ class Message {
 	 * @param int $id the ID of the message
 	 * @return void
 	 */
-	/*public function __construct(Registry $registry, $id=0) {*/
+
 	public function __construct(Registry $registry, $threadId) {
 		$this->registry = $registry;
 		$this->threadId = $threadId; /* this is the threadID that is passed to this model from the controller */
 		if($this->threadId > 0) {
 			$this->registry->getObject('template')->getPage()->addTag("tId", $this->threadId);
-			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' AND expirationFuse>NOW() ORDER BY created DESC LIMIT 25";
-			//$sql = "SELECT messageId, senderId, senderName, body, TIMESTAMPDIFF(SECOND,NOW(),expirationFuse) as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 25";
+		
 			$sql = "SELECT messageId, senderId, senderName, body, expirationFuse as selfdestruct, DATE_FORMAT(created, '%M %D %Y') as whenSent, created FROM thread_messages WHERE messageThreadId='$this->threadId' AND deleted='0' ORDER BY created DESC LIMIT 50";
 			
 			$query = $this->registry->getObject('db')->executeQuery($sql);
 			
-			/*if($this->registry->getObject('db')->numRows() > 0) {*/
+
 			$counter = "1";
 			$ids = array();	
+			
 			while($data = $this->registry->getObject('db')->getRows()) {
 				$ids[] = $data['messageId'];
-				/*$this->senderId = $data['senderId'];
-				$this->senderName = $data['senderName'];
-				$this->expirationFuse = $data['selfdestruct'];
-				$this->message = $data['body'];	
-				$this->sent = $data['whenSent'];*/
+
 		
 				if($data['selfdestruct'] == '0000-00-00 00:00:00'){
 					$whenExpires = '';		
@@ -88,8 +84,7 @@ class Message {
 				}
 				
 				else {
-					//$selfdestruct = strtotime($data['selfdestruct']);
-					//$whenSent = strtotime($data['created']);
+
 					// This takes the difference in seconds from a unix timestamp for both when created and the selfdestruct timer to determine expiration
 					// For some reason the difference is backward on the internal server
 					$difference = strtotime($data['selfdestruct'])-strtotime($data['created']);
@@ -116,26 +111,11 @@ class Message {
 					$counter++;
 					}
 				}
-				//$data['days'] = intval((($data['selfdestruct'] / 60) / 60)/24);
-				//$data['hours'] = intval((($data['selfdestruct'] / 60) / 60)%24);
-				//$data['mins'] = intval(($data['selfdestruct'] / 60) % 60);
-				//$data['seconds'] = ($data['selfdestruct'] % 60);
-				//$date = date('Y/n/j G:i:s', $data['expirationFuse']);
-				//$send = '<tr><p><strong><a class="name" style="color:#000;" href="profile/view/'.$data["senderId"].'">'.$data["senderName"].': </a></strong>'.$data["body"].'<br /></p><div class="unformattedtime" style="padding-top:10px; font-size:12px; color:#333;">Self-Destruct in '.$data["days"].' Days '.$data["hours"].' Hours '.$data["mins"].' Minutes '.$data["seconds"].' Seconds </div><div class="unformattedtime" style="padding-top:10px; font-size:12px; font-style:italic; color:#aaa;">Sent on '.$data["whenSent"].'</div><hr style="height: 1px; width: 80%; background: #fff; border: none;" /></tr>';
 				
-			/*RElease the comment out below for self-destruct messages */
-				/*$this->registry->getObject('template')->getPage()->addTag('expD'.$counter, 'Self-destruct in '.$data['days'].' Days ');
-				$this->registry->getObject('template')->getPage()->addTag('expH'.$counter, $data['hours'].' Hours ');
-				$this->registry->getObject('template')->getPage()->addTag('expM'.$counter, $data['mins'].' Minutes ');*/
-				
-				/*$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, '');
-				//$this->registry->getObject('template')->getPage()->addTag('expS'.$counter, 'Sent on '.$data['seconds'].' Seconds');*/
-				
-				//$counter++;
 			}
 				$this->registry->getObject('template')->getPage()->addTag('mId', $ids[0]);
 				$update = array();
-				$update['read_status'] = "1";
+				$update['read_status'] = 1;
 				$p_id = $this->registry->getObject('authenticate')->getUser()->getUserID();
 				$this->registry->getObject('db')->updateRecords('thread_participants', $update, 'threadId='.$this->threadId.' AND viewerId='.$p_id);
 			while($counter < "26") {

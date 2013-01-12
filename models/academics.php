@@ -18,7 +18,7 @@ class Academics {
     /*
      * Fields that can be saved by the save() method
      */
-    private $saveable_academics_fields = array('major', 'interests', 'awards', 'clubs', 'classes', 'experiences', 'gpa', 'fgpa', 'sgpa', 'jgpa', 'segpa', 'ssgpa', 'portrait', 'autobio');
+    private $saveable_academics_fields = array('major', 'interests', 'awards', 'clubs', 'classes', 'experiences', 'homephone', 'cell', 'gpa', 'fgpa', 'sgpa', 'jgpa', 'segpa', 'ssgpa', 'portrait', 'autobio');
 	
     /*
      * Users major
@@ -29,6 +29,10 @@ class Academics {
      * Users interests
      */
     private $interets;
+	
+	private $homephone;
+	
+	private $cell;
 	
     /*
      * awards
@@ -130,7 +134,24 @@ class Academics {
     public function setInterests($interests) {
         $this->interests = $interests;
     }
+    
+    /*
+     * Sets the users home phone
+     * @param String $homephone
+     * @return void
+     */
+    public function setHomephone($homephone) {
+        $this->homephone = $homephone;
+    }
 	
+	/*
+     * Sets the users cell
+     * @param String $cell
+     * @return void
+     */
+    public function setCell($cell) {
+        $this->cell = $cell;
+    }
 
     /*
      * Sets the users awards
@@ -275,6 +296,25 @@ class Academics {
     public function getMajor() {
         return $this->major;
     }
+    
+    /*
+     * Get the users home phone
+     * @param String $homephone
+     * @return void
+     */
+    public function getHomephone() {
+        $this->homephone;
+    }
+	
+	/*
+     * Get the users cell
+     * @param String $cell
+     * @return void
+     */
+    public function getCell() {
+        $this->cell;
+    }
+    
     
     /*
      * Get users interests

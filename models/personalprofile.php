@@ -3,7 +3,7 @@
 /*
  * Profile model
  */
-class Profile {
+class Personalprofile {
     
     /*
      * The registry
@@ -18,7 +18,7 @@ class Profile {
     /*
      * Fields that can be saved by the save() method
      */
-    private $saveable_profile_fields = array('name', 'gender', 'relationship', 'school', 'class', 'graduation', 'company1', 'companylocation1', 'internship1', 'internshipdescription1', 'company2', 'companylocation2', 'internship2', 'internshipdescription2', 'company3', 'companylocation3', 'internship3', 'internshipdescription3', 'home', 'photo', 'bio', 'interest', 'hall', 'chili', 'totalcrushes', 'can_crush');
+    private $saveable_profile_fields = array('name', 'gender', 'relationship', 'school', 'class', 'internship', 'home', 'photo', 'bio', 'interest', 'hall', 'chili', 'totalcrushes', 'can_crush');
 
     /*
      * Users ID
@@ -41,32 +41,11 @@ class Profile {
     private $school;
     
     private $class;
-    
-    private $graduation;
 	
     /*
-     * Internship1
+     * Internship
      */
-    private $company1;
-    private $companylocation1;
-    private $internship1;
-    private $internshipdescription1;
-    
-    /*
-     * Internship2
-     */
-    private $company2;
-    private $companylocation2;
-    private $internship2;
-    private $internshipdescription2;
-    
-    /*
-     * Internship3
-     */
-    private $company3;
-    private $companylocation3;
-    private $internship3;
-    private $internshipdescription3;
+    private $internship;
 	
     /*
      * Relationship Status
@@ -130,6 +109,37 @@ class Profile {
             else {
                 $this->valid = false;
             }
+            // with a passed ID, crushes are populated
+            /*$crush_sql = "SELECT * FROM crushes WHERE c_id=" . $this->id;
+            $this->registry->getObject('db')->executeQuery($crush_sql);
+            if($this->registry->getObject('db')->numRows() == 1) {
+                $this->valid = true;
+                
+                $data_crush = $this->registry->getObject('db')->getRows();*/
+                // populate our fields
+               /* foreach($data_crush as $key => $value) {
+                    $this->$key = $value;
+                }
+            }
+            else {
+                $this->valid = false;
+            }*/
+            // with a passed ID, academics are populated
+            $acad_sql = "SELECT * FROM academics WHERE idacad=" . $this->id;
+            $this->registry->getObject('db')->executeQuery($acad_sql);
+            if($this->registry->getObject('db')->numRows() == 1) {
+                $this->valid = true;
+                
+                $data_acad = $this->registry->getObject('db')->getRows();
+                // populate our fields
+                foreach($data_acad as $key => $value) {
+                    $this->$key = $value;
+                }
+            }
+            else {
+                $this->valid = false;
+            }
+            
         }
         else {
             $this->valid = false;
@@ -199,15 +209,6 @@ class Profile {
     }
     
     /*
-     * Set Graduation
-     * @param String $graduation the graduation month and year
-     * @return void
-     */
-    public function setGraduation($graduation) {
-        $this->graduation = $graduation;
-    }
-    
-    /*
      * Set dob
      * @param String $dob the date of birth
      * @param boolean $formatted - indicates if the controller has formatted the dob, or if we need to do it here
@@ -223,47 +224,12 @@ class Profile {
     }
     
     /*
-     * Set internships
+     * Set internship
      * @param String $internship the internship
      * @return void
      */
-    public function setCompany1($company1) {
-        $this->company1 = $company1;
-    }
-    public function setCompanyLocation1($companylocation1) {
-        $this->companylocation1 = $companylocation1;
-    }
-    public function setInternship1($internship1) {
-        $this->internship1 = $internship1;
-    }
-    public function setInternshipDescription1($internshipdescription1) {
-        $this->internshipdescription1 = $internshipdescription1;
-    }
-    
-    public function setCompany2($company2) {
-        $this->company2 = $company2;
-    }
-    public function setCompanyLocation2($companylocation2) {
-        $this->companylocation2 = $companylocation2;
-    }
-    public function setInternship2($internship2) {
-        $this->internship2 = $internship2;
-    }
-    public function setInternshipDescription2($internshipdescription2) {
-        $this->internshipdescription2 = $internshipdescription2;
-    }
-    
-    public function setCompany3($company3) {
-        $this->company3 = $company3;
-    }
-    public function setCompanylocation3($companylocation3) {
-        $this->companylocation3 = $companylocation3;
-    }
-    public function setInternship3($internship3) {
-        $this->internship3 = $internship3;
-    }
-    public function setInternshipDescription3($internshipdescription3) {
-        $this->internshipdescription3 = $internshipdescription3;
+    public function setInternship($internship) {
+        $this->internship = $internship;
     }
     
     /*
@@ -358,6 +324,19 @@ class Profile {
         }
     }
     
+     /*
+     * Convert the users academic data to template tags
+     * @param String $prefix prefix for the template tags
+     * @return void
+     */
+    public function toAcadTags($prefix='') {
+        foreach($this as $field => $data) {
+            if(! is_object($data) && ! is_array($data)) {
+                $this->registry->getObject('template')->getPage()->addTag($prefix.$field, $data);
+            }
+        }
+    }
+    
     /*
      * Return the users data - getter method from model
      * @return array
@@ -438,58 +417,6 @@ class Profile {
     }
     
     /*
-     * Get users graduation
-     * @return String
-     */
-    public function getGraduation() {
-        return $this->graduation;
-    }
-    
-    /*
-     * Set internships
-     * @param String $internship the internship
-     * @return void
-     */
-    public function getCompany1($company1) {
-        return $this->company1;
-    }
-    public function getCompanyLocation1($companylocation1) {
-        return $this->companylocation1;
-    }
-    public function getInternship1($internship1) {
-        return $this->internship1;
-    }
-    public function getInternshipDescription1($internshipdescription1) {
-        return $this->internshipdescription1;
-    }
-    
-    public function getCompany2($company2) {
-        return $this->company2;
-    }
-    public function getCompanyLocation2($companylocation2) {
-        return $this->companylocation2;
-    }
-    public function getInternship2($internship2) {
-        return $this->internship2;
-    }
-    public function getInternshipDescription2($internshipdescription2) {
-        return $this->internshipdescription2;
-    }
-    
-    public function getCompany3($company3) {
-        return $this->company3;
-    }
-    public function getCompanylocation3($companylocation3) {
-        return $this->companylocation3;
-    }
-    public function getInternship3($internship3) {
-        return $this->internship3;
-    }
-    public function getInternshipDescription3($internshipdescription3) {
-        return $this->internshipdescription3;
-    }
-    
-    /*
      * Get Hall
      * @return String
      */
@@ -503,6 +430,88 @@ class Profile {
      */
     public function getID() {
         return $this->user_id;
+    }
+    
+    
+    // All the other populating fields
+    /*
+     * Get academic portrait
+     * @return String
+     */
+    public function getSchoolPortrait() {
+        return $this->schoolportrait;
+    }
+    
+    /*
+     * Get major major
+     * @return String
+     */
+    public function getMajor() {
+    	return $this->major;
+    }
+    
+    /*
+     * Get users interests
+     * @return String
+     */
+    public function getInterests() {
+        return $this->interests;
+    }
+    
+    /*
+     * Get awards
+     * @return String
+     */
+    public function getAwards() {
+    	return $this->awards;
+    }
+    
+    /*
+     * Get acad clubs
+     * @return String
+     */
+    public function getClubs() {
+    	return $this->clubs;
+    }
+    
+    /*
+     * Get users classes
+     * @return String
+     */
+    public function getClasses() {
+        return $this->classes;
+    }
+    
+    /*
+     * Get autobio
+     * @return String
+     */
+    public function getAutobio() {
+    	return $this->autobio;
+    }
+    
+    /*
+     * Get gpa
+     * @return String
+     */
+    public function getGpa() {
+    	return $this->gpa;
+    }
+    
+    /*
+     * Get experiences
+     * @return String
+     */
+    public function getExperiences() {
+    	return $this->experiences;
+    }
+    
+    /*
+     * Get chili ids
+     * @return String
+     */
+    public function getChiliId() {
+    	return $this->chiliid;
     }
     
 }

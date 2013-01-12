@@ -86,9 +86,11 @@ class Profilecontentcontroller {
                 $this->registry->getObject('template')->buildFromTemplates('header.tpl.php', 'profile/content/privateview.tpl.php', 'footer.tpl.php');
                 $this->registry->getObject('template')->addTemplateBit('userbar', 'userbar_loggedin.tpl.php');
                 // get the profile information to pre-populate the form fields
-                require_once(FRAMEWORK_PATH . 'models/profile.php');
-                $profile = new Profile($this->registry, $user);
+                require_once(FRAMEWORK_PATH . 'models/personalprofile.php');
+                $profile = new Personalprofile($this->registry, $user);
                 $profile->toTags('p_');
+                require_once(FRAMEWORK_PATH.'models/crushreturn.php');
+                $crush = new Crush($this->registry);
         }
 	else {
             $this->registry->errorPage('Please login', 'You need to be logged in to edit your profile');
@@ -111,7 +113,19 @@ class Profilecontentcontroller {
                 $profile->setInterest($this->registry->getObject('db')->sanitizeData($_POST['interest']));
                 $profile->setSchool($this->registry->getObject('db')->sanitizeData($_POST['school']));
                 $profile->setClass($this->registry->getObject('db')->sanitizeData($_POST['class']));
-                $profile->setInternship($this->registry->getObject('db')->sanitizeData($_POST['internship']));
+                $profile->setGraduation($this->registry->getObject('db')->sanitizeData($_POST['graduation']));
+                $profile->setCompany1($this->registry->getObject('db')->sanitizeData($_POST['company1']));
+                $profile->setCompanyLocation1($this->registry->getObject('db')->sanitizeData($_POST['companylocation1']));
+                $profile->setInternship1($this->registry->getObject('db')->sanitizeData($_POST['internship1']));
+                $profile->setInternshipDescription1($this->registry->getObject('db')->sanitizeData($_POST['internshipdescription1']));
+                $profile->setCompany2($this->registry->getObject('db')->sanitizeData($_POST['company2']));
+                $profile->setCompanyLocation2($this->registry->getObject('db')->sanitizeData($_POST['companylocation2']));
+                $profile->setInternship2($this->registry->getObject('db')->sanitizeData($_POST['internship2']));
+                $profile->setInternshipDescription2($this->registry->getObject('db')->sanitizeData($_POST['internshipdescription2']));
+                $profile->setCompany3($this->registry->getObject('db')->sanitizeData($_POST['company3']));
+                $profile->setCompanyLocation3($this->registry->getObject('db')->sanitizeData($_POST['companylocation3']));
+                $profile->setInternship3($this->registry->getObject('db')->sanitizeData($_POST['internship3']));
+                $profile->setInternshipDescription3($this->registry->getObject('db')->sanitizeData($_POST['internshipdescription3']));
                 $profile->setHome($this->registry->getObject('db')->sanitizeData($_POST['home']));
                 $profile->setHall($this->registry->getObject('db')->sanitizeData($_POST['hall']));
                 /*$profile->setCollege($this->registry->getObject('db')->sanitizeData($_POST['college']));

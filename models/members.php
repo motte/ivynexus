@@ -20,7 +20,7 @@ class Members {
             // This sets the number of members paginated on members list
             $paginatedMembers->setLimit(12);
             $paginatedMembers->setOffset($offset);
-            $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship, p.chili, p. home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 AND u.banned=0 AND u.deleted=0";
+            $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship1, p.chili, p. home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 AND u.banned=0 AND u.deleted=0";
             $paginatedMembers->setQuery($query);
             $paginatedMembers->setMethod('cache');
             $paginatedMembers->generateList();
@@ -40,7 +40,7 @@ class Members {
         // This sets the number of members paginated on members list
         $paginatedMembers->setLimit(12);
         $paginatedMembers->setOffset($offset);
-        $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship, p.chili, p.home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 and u.banned=0 AND u.deleted=0 AND SUBSTRING_INDEX(p.name,' ', -1) LIKE'" . $alpha . "%' ORDER BY SUBSTRING_INDEX (p.name, ' ', -1) ASC";
+        $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship1, p.chili, p.home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 and u.banned=0 AND u.deleted=0 AND SUBSTRING_INDEX(p.name,' ', -1) LIKE'" . $alpha . "%' ORDER BY SUBSTRING_INDEX (p.name, ' ', -1) ASC";
         $paginatedMembers->setQuery($query);
         $paginatedMembers->setMethod('cache');
         $paginatedMembers->generateList();
@@ -60,7 +60,7 @@ class Members {
         // This sets the number of members paginated on search members list
         $paginatedMembers->setLimit(7);
         $paginatedMembers->setOffset($offset);
-        $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship, p.chili, p.home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 AND u.banned=0 AND u.deleted=0 AND p.name LIKE'%" . $filter . "%' ORDER BY p.name ASC";
+        $query = "SELECT u.ID, p.photo, p.name, p.school, p.class, p.internship1, p.chili, p.home FROM users u, profile p WHERE p.user_id=u.ID AND u.active=1 AND u.banned=0 AND u.deleted=0 AND p.name LIKE'%" . $filter . "%' ORDER BY p.name ASC";
         $paginatedMembers->setQuery($query);
         $paginatedMembers->setMethod('cache');
         $paginatedMembers->generateList();
