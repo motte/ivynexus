@@ -238,7 +238,7 @@ function loadevent(a) {
         <tr>
 			
 			<th id="clines" align="left" width="500px"><a href="profile/view/{profile_user_id}" id="profilename">{profile_name}</a></th>
-                        <td id="clines" width="30%" align="center" style="display: block;">
+                        <td id="clines" width="30%" align="left" style="display: block;">
                         	<a href="ivies/{p_school}"><img style="float: center; position: absolute; width: 200px; margin-left: 15px;" src="views/default/images/schools/{p_school}.png" /></a>
                         </td>
 		</tr>

@@ -3313,7 +3313,7 @@ font-weight: bold;
 
 th div#plines {
 	
-	padding: 5px 5px 0px 25px;
+	padding: 5px 5px 10px 25px;
 	vertical-align: top;
 	color: #333;
 font: 12px lucida grande;
@@ -3324,7 +3324,7 @@ font-weight: lighter;
 
 th div#splines {
 	
-	padding: 0px 5px 0px 0px;
+	padding: 0px 5px 10px 0px;
 	vertical-align: top;
 	color: #333;
 font: 12px lucida grande;

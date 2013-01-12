@@ -283,7 +283,7 @@ function getChili(int, gint) {
         <tr>
 			
 			<th id="clines" align="left" width="500px"><a id="profilename">{firstname} {lastname}</a></th>
-                        <td id="clines" width="30%" align="center" style="display: block;">
+                        <td id="clines" width="30%" align="left" style="display: block;">
                         	<a href="ivies/{p_school}"><img style="float: center; position: absolute; width: 200px; margin-left: 15px;" src="views/default/images/schools/{p_school}.png" /></a>
                         </td>
 		</tr>
@@ -295,9 +295,9 @@ function getChili(int, gint) {
 					</th>
                     <td id="plines" valign="top" rowspan="12"><span style="color: #999; margin-top: 6px;float: left; margin-left: 110px; white-space: nowrap;">Class of {p_class}</span><br /><br />
                     	
-                    		<a href="calendar" style="margin-left: 7%;" class="sidebarlinks">Events
+                    		<a href="calendar" style="margin-left: 7%; text-decoration: none;" class="sidebarlinks">Events
                     			<center>
-                    				<div id="liveEvents" style="padding-top: 5px;">
+                    				<div id="liveEvents" style="margin-left: 7%; padding-top: 5px;">
                     					<span id="event1"><img src="uploads/events/event4.png" class="sqrResize100" /></span>&nbsp
                     					<span id="event2"><img src="uploads/events/event5.png" class="sqrResize100" /></span>
                     					</div>
@@ -305,18 +305,18 @@ function getChili(int, gint) {
                     		</a>
                     		<br /><br />
                     		
-                    		<a href="courses" style="margin-left: 7%;" class="sidebarlinks">Courses
+                    		<a href="courses" style="margin-left: 7%; text-decoration: none;" class="sidebarlinks">Courses
                     			<center>
-                    				<div id="liveEvents" style="padding-top: 5px;">
+                    				<div id="liveEvents" style="margin-left: 7%; padding-top: 5px;">
                     					<span id="event3"><img src="uploads/events/event3.png" class="sqrResize100" /></span>&nbsp
                     					<span id="event4"><img src="uploads/events/event6.png" class="sqrResize100" /></span>
                     					</div>
                     			</center>
                     		</a>
                     		<br /><br />
-                    		<a href="ideas" style="margin-left: 7%;" class="sidebarlinks">Ideas
+                    		<a href="ideas" style="margin-left: 7%; text-decoration: none;" class="sidebarlinks">Ideas
                     			<center>
-                    				<div id="liveEvents" style="padding-top: 5px;">
+                    				<div id="liveEvents" style="margin-left: 7%; padding-top: 5px;">
                     					<span id="event5"><img src="uploads/events/event2.png" class="sqrResize100" /></span>&nbsp
                     					<span id="event6"><img src="uploads/events/event1.png" class="sqrResize100" /></span>
                     					</div>
