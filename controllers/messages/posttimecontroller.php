@@ -10,6 +10,7 @@
 	$days = mysql_real_escape_string($_GET["o"]);
 	$months = mysql_real_escape_string($_GET["p"]);
 	$years = mysql_real_escape_string($_GET["q"]);
+	$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 	$ny = date_default_timezone_set('America/New_York');
 	$decaytemp = mktime(date("H")+$hours, date("i")+$mins, 0, date("m")+$months, date("d")+$days, date("Y")+$years);
 	$decay = date('Y-m-d H:i:s', $decaytemp);

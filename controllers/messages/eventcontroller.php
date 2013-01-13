@@ -13,7 +13,7 @@ $event_start = mysql_real_escape_string($_POST["h"]);
 $event_starttime = mysql_real_escape_string($_POST["i"]);
 $event_end = mysql_real_escape_string($_POST["j"]);
 $event_endtime = mysql_real_escape_string($_POST["k"]);
-
+$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 $path = "/home/ivynex5/public_html/uploads/messages/events";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");

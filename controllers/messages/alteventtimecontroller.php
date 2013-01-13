@@ -8,6 +8,7 @@
 	$event_endtime = mysql_real_escape_string($_GET["k"]);
 	$event_description = mysql_real_escape_string($_GET["l"]);
 	$post = mysql_real_escape_string($_GET["b"]);
+	$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 	$post = $post.'<br /><center><a href="'.$event_name.'" style="font-size: 20px;">'.$event_name.'</a><br />From '.$event_start.' at '.$event_starttime.' to '.$event_end.' at '.$event_endtime.'<br /><div style="color:#555;">'.$event_description.'</div></center>';
 	$anonymous = mysql_real_escape_string($_GET["c"]);
 	$poster = mysql_real_escape_string($_GET["d"]);

@@ -7,6 +7,7 @@ $post = mysql_real_escape_string($_POST["b"]);
 $anonymous = mysql_real_escape_string($_POST["c"]);
 $poster = mysql_real_escape_string($_POST["d"]);
 $thread_id = mysql_real_escape_string($_GET["e"]);
+$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 $path = "/home/ivynex5/public_html/uploads/messages/photos/";
 
 $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");

@@ -5,7 +5,7 @@
 	$anonymous = mysql_real_escape_string($_GET["c"]);
 	$poster = mysql_real_escape_string($_GET["d"]);
 	$thread_id = mysql_real_escape_string($_GET["e"]);
-
+	$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 	if($anonymous == 1) {
         mysql_query("INSERT INTO thread_messages(messageThreadId, senderId, body, type, anonymous, senderName) VALUES('$thread_id', '$id', '$post', '1', '1', '')");
         mysql_query("UPDATE read_status as '0' FROM thread_participants WHERE threadId='$thread_id'");
