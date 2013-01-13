@@ -270,7 +270,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				<div class="buttoncontainer">
 					<label><input type="radio" value="Post" id="radio_post" name="status_type" checked></input><div class="contain" id="post"> Post</div></label>
 					<label><input type="radio" value="Event" id="radio_event" name="status_type"></input><div class="contain" id="event"> Event</div></label>
-					<label><input type="radio" value="Link" id="radio_link" name="status_type"></input><div class="contain" id="link"> Link</div></label>
+					
 					<label><input type="radio" value="Photo" id="radio_photo" name="status_type"></input><div class="contain" id="photo"> Photo</div></label>
 					<label><input type="radio" value="Video" id="radio_video" name="status_type"></input><div class="contain" id="video" style="border-right: 0px;"> Video</div></label>
 					
@@ -290,12 +290,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				</form>					
 					<div id='preview'></div>				
 				</div>
-				<div id="align" class="link_input  extra_field">
-					<label class="link_url">Link</label>
-					<input type="text" id="url" class="extra" name="link_url" size="83%" /><br /><br />
-					<label for="link_description">Description</label>
-					<input type="text" id="linkdescription" class="extra" name="link_description" size="74%" /><br />
-				</div>
+				
 				<div id="align" class="event_input  extra_field">
 				<form id="eventform" method="post" enctype="multipart/form-data" action="controllers/messages/eventcontroller.php">
 					<label class="event_url">Event</label>

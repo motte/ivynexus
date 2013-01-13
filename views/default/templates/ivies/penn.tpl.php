@@ -805,18 +805,11 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 					<div style="padding-bottom: 5px;">
 						<span style="margin-left: 4%;"></span><label><input type="radio" value="Post" id="radio_post" name="status_type" onclick="showShare('post')" checked></input><div id="post" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 5px; background-size: 18px auto; width: 46px; opacity: 1;">Post</div></label>
 					<label><input type="radio" value="Event" id="radio_event" name="status_type" onclick="showShare('event')"></input><div id="event" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 53px;">Event</div></label>
-					<label><input type="radio" value="Link" id="radio_link" name="status_type" onclick="showShare('link')"></input><div id="link" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 45px;"> Link</div></label>
+
 					<label><input type="radio" value="Photo" id="radio_photo" name="status_type"  onclick="showShare('photo')"></input><div id="photo" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 4px; background-size: 18px auto; width: 54px;"> Photo</div></label>
 					<label><input type="radio" value="Video" id="radio_video" name="status_type" onclick="showShare('video')"></input><div id="video" class="toggleButtons" align="right" style="background-color: #99D372; background-position: 5px 6px; background-size: 18px auto; width: 53px;"> Video</div></label>
 					</div>
-					
-					<!--<input type="button" class="colbtn" value="video" name="status_type"><img src="views/default/images/media.ico" width="20" alt="" id="uploadMediaToggle" style="cursor:pointer" onclick="mediaToggle" /></input>&nbsp
-					<input type="button" class="colbtn" value="link" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
-					<input type="button" class="colbtn" value="photo" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp
-					<input type="button" class="colbtn" value="event" name="status_type"><img src="views/default/images/link.png" width="20" alt="" onclick="toggle" style="cursor:pointer" /></input>&nbsp-->
-					
-				
-                 
+
 			<!-- This is where you adjust the textarea shout out area width:98%; -->
 				<center><textarea id="postbox" name="postbox" class="input" placeholder=" Shout Out To UPenn!" wrap="hard" onfocus="focusPostbox()" onblur="initializePostbox()"></textarea></center>
 				
@@ -839,12 +832,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				</form>					
 					<div id='preview'></div>				
 				</div>
-				<div id="align" class="link_input  extra_field">
-					<label class="link_url">Link</label>
-					<input type="text" id="url" class="extra" name="link_url" size="70%" /><br /><br />
-					<label for="link_description">Description</label>
-					<input type="text" id="linkdescription" class="extra" name="link_description" size="62%" /><br />
-				</div>
+
 				<div id="align" class="event_input  extra_field">
 				
 				<form id="eventform" method="post" enctype="multipart/form-data" action="controllers/ivies/dc/eventcontroller.php">
