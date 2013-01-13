@@ -686,7 +686,7 @@ div.buttoncontainer {
 	height: 25px;
 	width: 100%;
 color: #74646e;
-	display:inline-block;
+	display:block;
 	line-height: 27px;
 }
 
@@ -1092,7 +1092,7 @@ span.right {
 }
 
 div.contain {
-	width: 19%;
+	width: 24%;
 	display: inline-block;
 	height: 25px;
 	margin: 0px;
