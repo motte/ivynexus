@@ -145,13 +145,14 @@ class Profilecontentcontroller {
                     if($im == true) {
                         $im->resizeScaleHeight(230);
                         $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getPhotoName());
+                        // square created
+                        $im->resizeProfileSqr();
+                        $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
                         //$im->save('http://localhost/ivy_nexus/uploads/profile' . $im->getName());
                         //$im->save(FRAMEWORK_PATH . 'uploads/profile/' . $im->getName());
                         $im->resizeScaleHeight(50);
                         $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getThumbName());
-                        // square created
-                        $im->resizeProfileSqr();
-                        $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
+                        
                         $profile->setPhoto($im->getPhotoName());
                     }
                 }

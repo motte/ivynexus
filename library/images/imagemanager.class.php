@@ -72,7 +72,8 @@ class Imagemanager {
 	   	if($origY > $origX){
 		   	/* Portrait */
 		   	$offsetY = ($origY - $origX)/2;
-		   	$x = $this->getWidth();
+		   	//$x = 150;
+		   	$x = $origX;
 		   	$new = imagecreatetruecolor($x, $x);
 			imagecopyresampled($new,
                    $this->image,
@@ -84,6 +85,7 @@ class Imagemanager {
 		elseif($origY < $origX) {
 			/* Landscape */
 			$offsetX = ($origX - $origY)/2;
+			//$x = 150;
 			$x = $origY;
 			$new = imagecreatetruecolor($x, $x);
 			imagecopyresampled($new,
@@ -113,7 +115,7 @@ class Imagemanager {
 	   	if($origY > $origX){
 		   	/* Portrait */
 		   	
-		   	$x = $this->getWidth();
+		   	$x = $origX;
 		   	$new = imagecreatetruecolor($x, $x);
 			imagecopyresampled($new,
                    $this->image,

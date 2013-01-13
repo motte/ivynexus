@@ -89,12 +89,13 @@ class Registrationcontrollerextention {
                     				if($im == true) {
                         				$im->resizeScaleHeight(230);
                         				$im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getPhotoName());
+                        				// square created - this order is impt because scale resize
+                        				$im->resizeProfileSqr();
+                        				$im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
                         				// thumbnail created
                         				$im->resizeScaleHeight(50);
                         				$im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getThumbName());
-                        				// square created
-                        				$im->resizeProfileSqr();
-                        				$im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
+                        				
                         	
                    				}
                    				
