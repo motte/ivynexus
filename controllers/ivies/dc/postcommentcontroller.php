@@ -6,7 +6,7 @@
 	$poster_name = mysql_real_escape_string($_GET["d"]);
 	$school = mysql_real_escape_string($_GET["e"]);
 	$table = $school.'_comments';
-
+	$comment = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 		$result = mysql_query("INSERT INTO $table (ventpost_id, poster_id, poster, comment) VALUES('$post_id', '$poster_id', '$poster_name', '$comment')") or die(mysql_error());
 		/*if($result == false) {
 			die(mysql_error());

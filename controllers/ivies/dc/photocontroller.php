@@ -7,6 +7,7 @@ $post = mysql_real_escape_string($_POST["b"]);
 $anonymous = mysql_real_escape_string($_POST["c"]);
 $poster = mysql_real_escape_string($_POST["d"]);
 $school = mysql_real_escape_string($_POST["e"]);
+$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 $path = "/Applications/XAMPP/xamppfiles/htdocs/ivynexus/uploads/photos/";
 //$path = "/home/ivynex5/public_html/uploads/photos/";
 

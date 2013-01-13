@@ -5,7 +5,7 @@
 	$anonymous = mysql_real_escape_string($_GET["c"]);
 	$poster = mysql_real_escape_string($_GET["d"]);
 	$school = mysql_real_escape_string($_GET["e"]);
-
+	$post = preg_replace('#\b(([\w-]+://)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#', '<a href="$1">$1</a>', $post);
 	if($anonymous == 1) {
         mysql_query("INSERT INTO $school (poster_id, post, type, anonymous, name) VALUES('$id', '$post', '1', '1', '')");
         echo '<p>'.$post.'</p>
