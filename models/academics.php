@@ -79,7 +79,7 @@ class Academics {
     private $valid;
     
     /*
-     * Profile constructor
+     * Academics constructor
      * @param Registry $registry the registry
      * @param int $id the profile ID
      * @return void
@@ -241,7 +241,7 @@ class Academics {
      * @return bool
      */
     public function save() {
-        // handle the updating of a profile
+        // handle the updating of academics
         // should it be $this->registry->getObject or $registry->getObject
         if($this->registry->getObject('authenticate')->isLoggedIn() && ($this->registry->getObject('authenticate')->getUser()->getUserID() == $this->id || $this->registry->getObject('authenticate')->getUser()->isAdmin() == true)) {
             // we are either the user of this profile or we are the admin

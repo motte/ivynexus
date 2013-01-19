@@ -242,6 +242,19 @@ class Mysqldb {
 	 public function lastInsertID() {
 	    return $this->connections[$this->activeConnection]->insert_id;
     }
+    
+    /**
+	 Insert records into the sandrm database
+	 @param nil the academics database table
+	 @return bool
+	 */
+	public function createSandRM($uid, $school) {
+		//$insert = "INSERT INTO $table ({$column}) VALUES({$input})";		
+		$insert = "INSERT INTO sandrm_users (id, team) VALUES($uid, $school)";
+		//echo $insert;
+		$this->executeQuery($insert);
+		return true;
+	}
 
 	
 	/**

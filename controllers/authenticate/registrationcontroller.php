@@ -77,6 +77,41 @@ class Registrationcontroller{
 		$uid = $this->registry->getObject('db')->lastInsertID();
 		// send to mysqldb.class.php to create academics id for user
 		$this->registry->getObject('db')->createAcademics('academics', 'idacad', $uid);
+		// send to mysqldb.class.php to create SandRM id for user
+		$email = strtolower($this->sanitizedValues['email']);
+		
+		//if(preg_match( "^[A-Za-z0-9._%+-]+@[A-Za-z0-9-.]+(\.[cornell|dartmouth|upenn|harvard|yale|princeton|columbia|brown]+)*(\.edu)^", $_POST['register_email']))
+		
+		// This sets the school team in the sandrm_users by appropriate email extension
+		if(preg_match("/^([a-zA-Z0-9_-]+)(@brown.edu)$/i", $email)){
+			$school = '1';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@columbia.edu)$/i", $email)) {
+			$school = '2';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@cornell.edu)$/i", $email)) {
+			$school = '3';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@dartmouth.edu)$/i", $email)) {
+			$school = '4';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@harvard.edu)$/i", $email)) {
+			$school = '5';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@princeton.edu)$/i", $email)) {
+			$school = '6';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@upenn.edu)$/i", $email)) {
+			$school = '7';
+		}
+		elseif(preg_match("/^([a-zA-Z0-9_-]+)(@yale.edu)$/i", $email)) {
+			$school = '8';
+		}
+		else {
+			$school = '10';
+		}
+		//$this->registry->getObject('db')->createSandRM('sandrm_users', 'id', $uid);
+		$this->registry->getObject('db')->createSandRM($uid, $school);
 		// call extention to insert the profile
 		$this->registrationExtention->processRegistration($uid);
 		// return the ID for the frameworks reference - autologin?
@@ -115,7 +150,13 @@ class Registrationcontroller{
 		// email valid
 		//if(! preg_match( "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.['a-z']{2,4})^", $_POST['register_email'])) {
 		//if(! preg_match( "^[A-Za-z0-9._%+-]+@[A-Za-z0-9-.]+(\.[cornell|dartmouth|upenn|harvard|yale|princeton|columbia|brown|Cornell|Dartmouth|Upenn|Harvard|Yale|Princeton|Columbia|Brown|CORNELL|DARTMOUTH|UPENN|HARVARD|YALE|PRINCETON|COLUMBIA|BROWN]+)*(\.edu|.EDU)^", $_POST['register_email'])) {
-		if(! preg_match( "^[A-Za-z0-9._%+-]+@[A-Za-z0-9-.]+(\.[cornell|dartmouth|upenn|harvard|yale|princeton|columbia|brown]+)*(\.edu)^", $_POST['register_email'])) {
+		//if(! preg_match( "^[A-Za-z0-9._%+-]+@[A-Za-z0-9-.]+(\.[cornell|dartmouth|upenn|harvard|yale|princeton|columbia|brown]+)*(\.edu)^", $_POST['register_email'])) {
+		
+		
+		//if($eduCheck[1] !== 'dartmouth.edu'||'brown.edu'||'columbia.edu'||'cornell.edu'||'harvard.edu'||'princeton.edu'||'upenn.edu'||'yale.edu' && !filter_var($_POST['register_email'], FILTER_VALIDATE_EMAIL)) {
+		
+		$email_temp = strtolower($_POST['register_email']);
+		if(! preg_match( "/^([a-zA-Z0-9_-]+)(@brown.edu|@columbia.edu|@cornell.edu|@dartmouth.edu|@harvard.edu|@upenn.edu|@princeton.edu|@yale.edu)$/i", $email_temp)) {
 			$allFine = false;
 			$this->registrationErrors[] = 'You must enter a valid email address <br />';
 			$this->registrationErrorLabels['register_email_label'] = 'error';

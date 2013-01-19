@@ -5,6 +5,7 @@
 
 	<!--<script type="text/javascript" src="external/jquery-1.7.2.min.js"></script> need this and this script order -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="external/raphael/raphael-min.js"></script>
 	<script src="external/jquery.tabSlideOut.v1.3.js"></script>
 	<!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
 	<script>
