@@ -1017,27 +1017,83 @@ for (var i = 0, len = rsrGroups.length; i <= len; i++) {
 }//]]>  
 
 function scaleit(a) {
-	var b = a*150;
+	var b = (a-1)*450;
+	/*if(b < 0) {
+		b = (a-1)*(450);
+	}*/
 	var c = 3000+b;
-	$('#rsr').css({'-webkit-transform':'scale('+a+')', '-moz-transform':'scale('+a+')', 'margin-top':b+'px'});
-
+	$('#rsr').css({'-webkit-transform':'scale('+a+')', '-moz-transform':'scale('+a+')', '-transform':'scale('+a+')', '-o-transform':'scale('+a+')', 'margin-top':b+'px'});
+//, 'margin-top':b+'px'
 }
+
+function plusit() {
+	var value = $('#rsr').css('-webkit-transform');
+
+	value = value.substr(7, 3).replace(/,/g, '');
+	value = parseFloat(value)+0.1;
+	if(value >= 1.8) {
+		end();
+	}
 	
+	var topvalue = (value-1)*450;
+	/*if(topvalue < 0) {
+		topvalue = (value-1)*(450);
+	}*/
+	
+	var valueb = $('#rsr').css('-moz-transform');
+	$('#rsr').css({'transform':'scale('+value+')', '-webkit-transform':'scale('+value+')', '-o-transform':'scale('+value+')', '-moz-transform':'scale('+valueb+')', 'margin-top':topvalue+'px'});
+//, 'margin-top':b+'px'
+}
+
+function minusit() {
+	var value = $('#rsr').css('-webkit-transform');
+
+	value = value.substr(7, 3).replace(/,/g, '');
+	value = parseFloat(value)-.1;
+	if(value < .8) {
+		end();
+	}
+	
+	var topvalue = (value-1)*450;
+	/*if(topvalue < 0) {
+		topvalue = (value-1)*(450);
+	}*/
+	
+	var valueb = $('#rsr').css('-moz-transform');
+	$('#rsr').css({'transform':'scale('+value+')', '-webkit-transform':'scale('+value+')', '-moz-transform':'scale('+valueb+')', '-o-transform':'scale('+value+')', 'margin-top':topvalue+'px'});
+//, 'margin-top':b+'px'
+}	
 </script>
 
 
 </head>
 <body>
-<div align="center">
-	
-	<div id="main" align="left" style="overflow: scroll;direction:rtl; height: 500px; width: 80%;">
-		<div id="rsr"valign="top" style="position: relative;"></div>
+
+<div align="center" valign="middle">
+	<div id="zoomer" style="">
+		<div style="" onclick="plusit()" id="zoomin"></div>
+		<div id="1.8" class="zoomlevel" onclick="scaleit('1.8')" style="margin-top: 40px;">1.8</div>
+		<div id="1.7" class="zoomlevel" onclick="scaleit('1.7')" style="margin-top: 60px;">1.7</div>
+		<div id="1.6" class="zoomlevel" onclick="scaleit('1.6')" style="margin-top: 80px;">1.6</div>
+		<div id="1.5" class="zoomlevel" onclick="scaleit('1.5')" style="margin-top: 100px;">1.5</div>
+		<div id="1.4" class="zoomlevel" onclick="scaleit('1.4')" style="margin-top: 120px;">1.4</div>
+		<div id="1.3" class="zoomlevel" onclick="scaleit('1.3')" style="margin-top: 140px;">1.3</div>
+		<div id="1.2" class="zoomlevel" onclick="scaleit('1.2')" style="margin-top: 160px;">1.2</div>
+		<div id="1.1" class="zoomlevel" onclick="scaleit('1.1')" style="margin-top: 180px;">1.1</div>
+		<div id="1.0" class="zoomlevel" onclick="scaleit('1.0')" style="margin-top: 200px; background: #ccc; padding-left: 2px; padding-right: 3px;">1.0</div>
+		<div id=".9" class="zoomlevel" onclick="scaleit('0.9')" style="margin-top: 220px;">0.9</div>
+		<div id-".8" class="zoomlevel" onclick="scaleit('0.8')" style="margin-top: 240px; height: 15px;">0.8</div>
+		<div style="" onclick="minusit()" id="zoomout"></div>
 	</div>
-	<div id="moo" onclick="scaleit('1.8')" style=" cursor: pointer;">1.8</div>
-	<div id="moo" onclick="scaleit('1.6')" style="cursor: pointer;">1.6</div>
-	<div id="moo" onclick="scaleit('1.4')" style=" cursor: pointer;">1.4</div>
-	<div id="moo" onclick="scaleit('1.2')" style="cursor: pointer;">1.2</div>
-	<div id="moo" onclick="scaleit('1')" style="cursor: pointer;">1.0</div><div id="moo" onclick="scaleit('.8')" style=" cursor: pointer;">0.8</div><div id="moo" 
+	<div id="main" align="left" style="resize: both; float: left; left: 80px;overflow: scroll;direction:rtl; height: 500px; width: 50%;">
+		<div id="rsr" style="position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);"></div>
+	</div>
+	
+	
+	<div id="main" style="resize: both; float: right; min-height: 248px; width: 30%; max-width: 40%; overflow: auto; cursor: se-resize; padding: 10px;text-align: left; color: #888;"><img src="views/default/images/icons/leaf.png" style="height: 15px; vertical-align: -2px;" />&nbspLog<hr style="border: none; background: #ccc; height:1px;" /></div>
+	<div id="main" style="margin-top: 10px; resize: both; float: right; min-height: 240px; width: 30%; max-width: 40%; overflow: auto; cursor: se-resize; padding: 10px; text-align: left; color: #888;"><img src="views/default/images/icons/chat.png" style="opacity: .8; height: 15px; vertical-align: -2px;" />&nbspChat<hr style="border: none; background: #ccc; height: 1px;" /></div>
+	<div style="height: 630px; position:relative;"></div>
+
 </div>
 </body>
 
