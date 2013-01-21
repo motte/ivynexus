@@ -1107,7 +1107,7 @@ function minusit() {
 		<div style="" onclick="minusit()" id="zoomout"></div>
 	</div>
 	
-	<div id="main" align="left" style="resize: both; float: left; left: 80px;overflow: scroll;direction:rtl; height: 500px; width: 50%; margin-top: 10px;">
+	<div id="main" align="left" style="resize: both; float: left; left: 80px;overflow: scroll; height: 500px; width: 50%; margin-top: 10px;">
 		<div id="rsr" style="position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);"></div>
 	</div>
 	
