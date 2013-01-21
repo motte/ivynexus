@@ -45,7 +45,7 @@
                     <div class="caption">
 			<p><strong><a href="profile/view/{ID}">{name}</a></strong></p>
 			<p class="fontcolor">Class of <strong>{class}</strong></p>
-			<p><strong>&nbsp&nbsp{internship}</strong></p>
+			<!--<p><strong>&nbsp&nbsp{internship}</strong></p>-->
 			<p><strong>&nbsp&nbsp{school}</strong></p>
                     </div>
                     

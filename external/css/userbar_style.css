@@ -4349,7 +4349,8 @@ a.subtlelink {
 }
 
 #zoomer {
-	position: relative;z-index: 10000;
+	position: relative;
+	z-index: 100;
 	font-size: 10px;
 	//top: 80px;
 	
