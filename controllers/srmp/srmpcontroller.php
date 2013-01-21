@@ -47,8 +47,8 @@ class Srmpcontentcontroller {
         // load the template
         
         // get all the profile information/content and send it to the template
-        require_once(FRAMEWORK_PATH . 'models/srmplog.php');
-        $srmp = new Srmplog($this->registry, $user, $specific_game);
+        //require_once(FRAMEWORK_PATH . 'models/srmplog.php');
+        //$srmp = new Srmplog($this->registry, $user, $specific_game);
         require_once(FRAMEWORK_PATH . 'models/srmpgame.php');
         $srmpgame = new Srmpgame($this->registry, $user, $specific_game);
         $this->registry->getObject('template')->buildFromTemplates('header.tpl.php', 'strategy_rmp/main.tpl.php', 'footer.tpl.php');

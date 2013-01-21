@@ -37,7 +37,7 @@ class Srmplog {
         $this->registry = $registry;
         if($id != 0) {
             $this->id = $id;
-            $table = 'srmp_'.$specific_game;
+            $table = 'srmp_'.$specific_game.'_log';
             // if an ID is passed, populate based off that
             $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT 1";
             $this->registry->getObject('db')->executeQuery($sql);
