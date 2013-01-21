@@ -3,7 +3,7 @@
 /*
  * Profile model
  */
-class Profile {
+class Srmpgame {
     
     /*
      * The registry
@@ -102,8 +102,6 @@ class Profile {
      * Chili
      */
     private $chili;
-    
-    private $team_id;
 	
     private $valid;
     
@@ -113,14 +111,65 @@ class Profile {
      * @param int $id the profile ID
      * @return void
      */
-    public function __construct(Registry $registry, $id=0) {
+    public function __construct(Registry $registry, $id=0, $specific_game) {
         $this->registry = $registry;
         if($id != 0) {
             $this->id = $id;
+            $this->registry->getObject('template')->getPage()->addTag('game_name', 'The Ivy League Championship');
+            $this->registry->getObject('template')->getPage()->addTag('player1_color', '321414');
+            $this->registry->getObject('template')->getPage()->addTag('player1_name', '<a href="ivies/Brown" class="subtlelink">Brown</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player2_color', '9bddff');
+            $this->registry->getObject('template')->getPage()->addTag('player2_name', '<a href="ivies/Columbia" class="subtlelink">Columbia</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player3_color', 'b31b1b');
+            $this->registry->getObject('template')->getPage()->addTag('player3_name', '<a href="ivies/Cornell" class="subtlelink">Cornell</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player4_color', '00693e');
+            $this->registry->getObject('template')->getPage()->addTag('player4_name', '<a href="ivies/Dartmouth" class="subtlelink">Dartmouth</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player5_color', '991122');
+            $this->registry->getObject('template')->getPage()->addTag('player5_name', '<a href="ivies/Harvard" class="subtlelink">Harvard</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player6_color', 'ff6600');
+            $this->registry->getObject('template')->getPage()->addTag('player6_name', '<a href="ivies/Princeton" class="subtlelink">Princeton</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player7_color', 'fff');
+            $this->registry->getObject('template')->getPage()->addTag('player7_name', '<a href="ivies/Penn" class="subtlelink">UPenn</a>');
+            $this->registry->getObject('template')->getPage()->addTag('player8_color', '0f4d92');
+            $this->registry->getObject('template')->getPage()->addTag('player8_name', '<a href="ivies/Yale" class="subtlelink">Yale</a>');
+            //$table = 'srmp_game_'.$specific_game;
             // if an ID is passed, populate based off that
-            $sql = "SELECT * FROM profile WHERE user_id=" . $this->id;
+            $sql = "SELECT * FROM sandrm_partials ORDER BY partial_id ASC LIMIT 64";
             $this->registry->getObject('db')->executeQuery($sql);
-            if($this->registry->getObject('db')->numRows() == 1) {
+            $counter = 1;
+            while($data = $this->registry->getObject('db')->getRows()) {
+            	switch($data['owner_id']){
+	            	case 1:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '321414');
+	            		break;
+	            	case 2:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '9bddff');
+	            		break;
+	            	case 3:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'b31b1b');
+	            		break;
+	            	case 4:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '00693e');
+	            		break;
+	            	case 5:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '991122');
+	            		break;
+	            	case 6:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'ff6600');
+	            		break;
+	            	case 7:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'fff');
+	            		break;
+	            	case 8:
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '0f4d92');
+	            		break;
+	            	
+            	}
+            	
+            	
+            	$counter++;
+            }
+            /*if($this->registry->getObject('db')->numRows() == 1) {
                 $this->valid = true;
                 
                 $data = $this->registry->getObject('db')->getRows();
@@ -131,7 +180,7 @@ class Profile {
             }
             else {
                 $this->valid = false;
-            }
+            }*/
         }
         else {
             $this->valid = false;
@@ -321,31 +370,7 @@ class Profile {
         $this->photo = $photo;
     }
     
-    /*
-     * Save the user profile
-     * @return bool
-     */
-    public function save() {
-        // handle the updating of a profile
-        // should it be $this->registry->getObject or $registry->getObject
-        if($this->registry->getObject('authenticate')->isLoggedIn() && ($this->registry->getObject('authenticate')->getUser()->getUserID() == $this->id || $this->registry->getObject('authenticate')->getUser()->isAdmin() == true)) {
-            // we are either the user of this profile or we are the admin
-            $changes = array();
-            foreach($this->saveable_profile_fields as $field) {
-                $changes[$field] = $this->$field;
-            }
-            $this->registry->getObject('db')->updateRecords('profile', $changes, 'user_id=' . $this->id);
-            if($this->registry->getObject('db')->affectedRows() == 1) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            return false;
-        }
-    }
+  
     
     /*
      * Convert the users profile data to template tags
@@ -505,14 +530,6 @@ class Profile {
      */
     public function getID() {
         return $this->user_id;
-    }
-    
-    /*
-     * get users team_ID
-     * @return int
-     */
-    public function getTeamID() {
-        return $this->team_id;
     }
     
 }

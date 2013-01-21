@@ -113,7 +113,11 @@ class Registrationcontroller{
 		//$this->registry->getObject('db')->createSandRM('sandrm_users', 'id', $uid);
 		$this->registry->getObject('db')->createSandRM($uid, $school);
 		// call extention to insert the profile
-		$this->registrationExtention->processRegistration($uid);
+		$this->registrationExtention->processRegistration($uid, $school);
+		// do another independent query to add team_id
+		$update = array();
+		$update['team_id'] = $school;
+		$this->registry->getObject('db')->updateRecords('profile', $update, 'user_id='.$uid);
 		// return the ID for the frameworks reference - autologin?
 		return $uid;
 	}

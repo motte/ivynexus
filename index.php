@@ -86,6 +86,7 @@ if($registry->getObject('authenticate')->isLoggedIn() && $controller !== 'api') 
 	$registry->getObject('template')->getPage()->addTag('pID', $registry->getObject('authenticate')->getUser()->getUserID());
 	$registry->getObject('template')->getPage()->addTag('pSchool', $registry->getObject('authenticate')->getProfile()->getSchool());
         $registry->getObject('template')->getPage()->addTag('pPhoto', $registry->getObject('authenticate')->getProfile()->getPhoto());
+       
 	
 	date_default_timezone_set('America/New_York');
 	$registry->getObject('template')->getPage()->addTag('dat', date('d'));

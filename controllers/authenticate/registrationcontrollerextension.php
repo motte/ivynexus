@@ -201,7 +201,7 @@ class Registrationcontrollerextention {
 	 @param int $uid the user ID
 	 @return bool
 	 */
-	public function processRegistration($uid) {
+	public function processRegistration($uid, $school) {
 		$tables = array();
 		$tableData = array();
 		
@@ -217,6 +217,7 @@ class Registrationcontrollerextention {
 		}
 		foreach($tableData as $table => $data) {
 			$this->registry->getObject('db')->insertRecords($table, $data);
+
 			// I want to set the default photo dependent on gender
 			/*if(in_array('Female', $data)) {
 				$photo = array('visiblelabel' => 'Photo', 'table' => 'profile', 'field' => 'photo', 'type' => 'text', 'required' => true);
@@ -224,6 +225,7 @@ class Registrationcontrollerextention {
 				//$this->registry->getObject('db')->updateRecords('profile', 'photo', 'user_id='.);
 			//}
 		}
+		
 		return true;
 	}
 	

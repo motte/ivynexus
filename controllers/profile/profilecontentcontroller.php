@@ -150,6 +150,7 @@ class Profilecontentcontroller {
                         $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getSqrName());
                         //$im->save('http://localhost/ivy_nexus/uploads/profile' . $im->getName());
                         //$im->save(FRAMEWORK_PATH . 'uploads/profile/' . $im->getName());
+                        // Thumbnail
                         $im->resizeScaleHeight(50);
                         $im->save($this->registry->getSetting('upload_path') . 'profile/' . $im->getThumbName());
                         
