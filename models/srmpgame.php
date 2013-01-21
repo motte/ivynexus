@@ -115,7 +115,7 @@ class Srmpgame {
         $this->registry = $registry;
         if($id != 0) {
             $this->id = $id;
-            $this->registry->getObject('template')->getPage()->addTag('game_name', 'The Ivy League Championship');
+            $this->registry->getObject('template')->getPage()->addTag('game_name', 'Ivy League Championship');
             $this->registry->getObject('template')->getPage()->addTag('player1_color', '321414');
             $this->registry->getObject('template')->getPage()->addTag('player1_name', '<a href="ivies/Brown" class="subtlelink">Brown</a>');
             $this->registry->getObject('template')->getPage()->addTag('player2_color', '9bddff');

@@ -55,9 +55,9 @@ class Srmplog {
 	            $counter = 1;
             	while($data = $this->registry->getObject('db')->getRows()) {
             		$this->registry->getObject('template')->getPage()->addTag('srmp_chat'.$counter, $data['message']);
-            		$couter++;
+            		$counter++;
             	}
-            	$counter ++;
+            	
 	            while($counter < 13) {
 		            $this->registry->getObject('template')->getPage()->addTag('srmp_chat'.$counter, $data['message']);
             		$counter++;

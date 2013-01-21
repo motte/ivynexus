@@ -1072,9 +1072,13 @@ function minusit() {
 
 </head>
 <body>
-	<div align="right" style="overflow: hidden;">
-		<div id="main" style="width:91%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
-			<span><a class="subtlelink" href="ivies/list"><img style="vertical-align: -4px;" src="views/default/images/ivy.png" />&nbsp{game_name}:&nbsp</a></span>
+	<div align="right">
+	<div id="main" style="padding: 10px; width:91%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
+		<div align="left" style="display:inline;">
+			<!--<span><a class="subtlelink" href="ivies/list"><img style="vertical-align: -4px;" src="views/default/images/ivy.png" />&nbsp{game_name}:&nbsp</a></span>-->
+		</div>
+		<div align="right" style=" display:inline;">
+			
 			<span style="background: #{player1_color}; background-size: 10px 10px; height: 10px; width:10px;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player1_name}&nbsp&bullet;&nbsp&nbsp
 			<span style="background: #{player2_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player2_name}&nbsp&bullet;&nbsp&nbsp
 			<span style="background: #{player3_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player3_name}&nbsp&bullet;&nbsp&nbsp
@@ -1082,7 +1086,9 @@ function minusit() {
 			<span style="background: #{player5_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player5_name}&nbsp&bullet;&nbsp&nbsp
 			<span style="background: #{player6_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player6_name}&nbsp&bullet;&nbsp&nbsp
 			<span style="background: #{player7_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player7_name}&nbsp&bullet;&nbsp&nbsp
-			<span style="background: #{player8_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player8_name}</div>
+			<span style="background: #{player8_color}; background-size: 10px 10px; height: 10px; width:10px; border: 1px #d3d3d3 solid;">&nbsp&nbsp&nbsp&nbsp</span>&nbsp{player8_name}
+		</div>
+	</div>
 	</div>
 <div align="center" valign="middle">
 	<div id="zoomer" style="">
@@ -1109,7 +1115,7 @@ function minusit() {
 	<div id="main" style="resize: both; float: right; min-height: 248px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/leaf.png" style="height: 15px; vertical-align: -2px;" />&nbspLog&nbsp&nbsp|&nbsp&nbspTurn {srmp_turn_number}&nbsp&nbsp|&nbsp&nbspDay {srmp_turn_number}
 		<hr style="border: none; background: #ccc; height:1px;" />
-		<div style="overflow: scroll; resize: none;">
+		<div style=" resize: none;">
 			&nbsp{srmp_log}
 		</div>
 	</div>
@@ -1117,7 +1123,7 @@ function minusit() {
 	<div id="main" style="margin-top: 10px; resize: both; float: right; min-height: 240px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px; text-align: left; color: #888;">
 		<img src="views/default/images/icons/chat.png" style="opacity: .8; height: 15px; vertical-align: -2px;" />&nbspChat
 		<hr style="border: none; background: #ccc; height: 1px;" />
-		<div style="overflow: scroll; resize:none;">
+		<div style=" resize:none;">
 		
 			<div>&nbsp{srmp_chat12}</div>
 			<div>&nbsp{srmp_chat11}</div>
