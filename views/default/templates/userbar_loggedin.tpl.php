@@ -5,7 +5,7 @@
 
 	<!--<script type="text/javascript" src="external/jquery-1.7.2.min.js"></script> need this and this script order -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="external/raphael/raphael-min.js"></script>
+	
 	<script src="external/jquery.tabSlideOut.v1.3.js"></script>
 	<!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
 	<script>
@@ -169,6 +169,6 @@
             <span class="contacttab"></span>
             <p align="left" id="contacttab" >Suggestions, comments, questions, requests?</p>
             
-            <p><a href="javascript:location.href = '%62eta%63o%6dme%6e%74' + '%73%40%69v' + '%79%6e%65xu' + 's.c' + 'om'"><img src="views/default/images/emailIn.png" style="margin-top: 8px; margin-right: 150px;" /></a></p>
+            <p><a href="javascript:location.href = 'mailto:%62eta%63o%6dme%6e%74' + '%73%40%69v' + '%79%6e%65xu' + 's.c' + 'om'"><img src="views/default/images/emailIn.png"  /></a></p>
 </div>
 <div>

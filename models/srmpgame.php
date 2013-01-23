@@ -40,11 +40,27 @@ class Srmpgame {
         $this->registry = $registry;
         if($id != 0) {
             $this->id = $id;
+            $sql = "SELECT * FROM sandrm_users WHERE id='$id'";
+            $this->registry->getObject('db')->executeQuery($sql);
+            $user = $this->registry->getObject('db')->getRows();
+            $states_owned = explode(',',$user['states']);
+            $search = array('ct', 'ma', 'nh', 'nj', 'ny1', 'ny2', 'ny3', 'ny4', 'ny7', 'ny8', 'ny5', 'ny6', 'ny9', 'ny10', 'ny11', 'pa', 'ri');
+            $replace = array('Yale State ', 'Harvard Sector ', 'Dartmouth Sector ', 'Princeton Sector ', 'Cornell State 1', 'Cornell State 2', 'Cornell State 3', 'Cornell State 4', 'Cornell State 5', 'Cornell State 6', 'Columbia State 1', 'Columbia State 2', 'Columbia State 3', 'Columbia State 4', 'Columbia State 5', 'UPenn State ', 'Brown Sector ');
+            foreach($states_owned as $states_owned) {
+            	$each = str_replace($search, $replace, $states_owned);
+	            //$insert .= "<option>".$states_owned."</option>";
+	            $insert .= '<option value="'.$states_owned.'">'.$each.'</option>';
+            }
+            
+            $this->registry->getObject('template')->getPage()->addTag('srmp_options', $insert);
+            $this->registry->getObject('template')->getPage()->addTag('srmp_team', $user['team']);
+            $this->registry->getObject('template')->getPage()->addTag('srmp_new_troops',$user['new_troops']);
+            $this->registry->getObject('template')->getPage()->addTag('srmp_total_troops',$user['total_troops']);
             // This injects info into the log and chat section windows
             $table = 'srmp_'.$specific_game.'_log';
             // if an ID is passed, populate based off that
-            $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT 1";
-            $this->registry->getObject('db')->executeQuery($sql);
+            $sqlone = "SELECT * FROM $table ORDER BY id DESC LIMIT 1";
+            $this->registry->getObject('db')->executeQuery($sqlone);
             if($this->registry->getObject('db')->numRows() == 1) {
                 $this->valid = true;
                 
@@ -124,7 +140,7 @@ class Srmpgame {
 	            	
             	}
             	
-            	
+            	$this->registry->getObject('template')->getPage()->addTag('state_count'.$counter, $data['troops']);
             	$counter++;
             }
             /*if($this->registry->getObject('db')->numRows() == 1) {

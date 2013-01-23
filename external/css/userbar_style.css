@@ -105,6 +105,16 @@ box-shadow:0px 0px 5px #00ad00;
  border: 1px solid #00ad00;
 }
 
+select {
+	
+
+}
+
+select:focus {
+	//box-shadow:0px 0px 5px #00ad00;
+
+}
+
 body {
 	color: #444;
  	/*background: #dadada;*/
@@ -269,7 +279,7 @@ text-decoration: underline;
 }
 
 #alertmessage {
-	color: 00ad00;
+	color: #00ad00;
 	font-size: 16px;
 	opacity: 0;
 }
@@ -1625,6 +1635,10 @@ img.pright {
 	color: #329950;
 }
 
+.pbutton:active {
+	box-shadow: inset -1px -1px 5px 1px #D3E9D3;
+}
+
 .form .input {
 	border: 1px solid #A5C2C8;
 	color: #000;
@@ -2317,20 +2331,6 @@ div#mainblack {
 
 #mainblack:before {
 
-#main:before {
-
-content: "";
-z-index: -1;
-width: 100%;
-height: 100%;
-left: 0px; /* very, very important for all browser compliance */
-margin-top: -15px;
-position: absolute;
-opacity: .45;
-background: url('../../views/default/images/announcements/noise.png') repeat center center;
-
-
-}
 
 content: "";
 z-index: -1;
@@ -4406,147 +4406,87 @@ a.subtlelink {
 	opacity: .65;
 }
 
-/*li#ny1 {
-	background: url('../../views/default/images/ivymap/ny/ny1blue.png') no-repeat;
-	position: absolute;
-	height: 102px;
-	width: 99px;
-	background-size: 102px 99px;
-}
-
-li#ny1:hover {
+.partialstates {
 	opacity: .7;
+	
 }
+.partialstates:before {
 
-li#ny2 {
-	background: url('../../views/default/images/ivymap/ny/ny2blue.png') no-repeat;
+content: "";
 	position: absolute;
-	height: 165px;
-	width: 184px;
-	background-size: 165px 184px;
-	margin-left: 200px;
+z-index: -1;
+width: 100%;
+height: 100%;
+background: #8AB9FF url('../../views/default/images/noise/darkernoise.png') repeat center center;
 }
 
-li#ny2:hover {
-	opacity: .7;
+.partialstates:hover {
+	opacity: .9;
 }
 
-li#ny3 {
-	background: url('../../views/default/images/ivymap/ny/ny3blue.png') no-repeat; 
-	position: absolute;
-	height: 123px;
-	width: 211px;
-	background-size: 123px 211px;
-	margin-left: 200px;
+div#main3 {
+    margin-top: 80px;
+
+    padding: 20px;
+	background: #fff;	
+	width: 90%;
+	border: 1px solid #eee;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	z-index: 2;
+	position: relative;	
+	/*box-shadow: 5px 5px 20px -5px #555;*/
+	box-shadow: 2px 2px 5px -2px #999;
+	-webkit-box-shadow: 2px 2px 5px -2px #999;
+	/*-webkit-box-shadow: inset 5px 5px 3px -5px #888;*/
+	-moz-box-shadow: 2px 2px 10px -2px #555;
+	font: 12px lucida grande;	
 }
 
-li#ny3:hover {
-	opacity: .7;
+#main3:before {
+
+content: "";
+z-index: -1;
+width: 1250px;
+height: 1000px;
+left: 0px; /* very, very important for all browser compliance */
+margin-top: -20px;
+position: absolute;
+opacity: .65;
+background: #8AB9FF url('../../views/default/images/noise/darkernoise.png') repeat center center;
 }
 
-li#ny4 {
-	background: url('../../views/default/images/ivymap/ny/ny4blue.png') no-repeat; 
-	position: absolute;
-	height: 187px;
-	width: 240px;
-	background-size: 187px 240px;
-	margin-left: 200px;
-}
+.grnbutton {
+	border-top:1px solid #eee;
+    border-left:1px solid #eee;
+	border-right: solid 1px #dedede;
+	border-bottom: solid 1px #dedede;
+	font-weight: bold;
+	display: inline-block;
+	font-size: 12px;
+	font-family: Lucida Grande, helvetica, Tahoma, Arial, Verdana, sans-serif;
 
-li#ny4:hover {
-	opacity: .7;
-}
+	color: #565656;
+	width: 60%;
+	height: 30px;
+	cursor: pointer;
+	background-color: #DFFFDE;
+	
+	/* Rounded corner stuff starts here */
+	border-radius: 5px;       /* for Firefox */
+	-webkit-border-radius: 5px;    /* for Safari */
+	-moz-border-radius: 5px;       /* for Firefox */
 
-li#ny5 {
-	background: url('../../views/default/images/ivymap/ny/ny5blue.png') no-repeat; 
-	position: absolute;
-	height: 173px;
-	width: 180px;
-	background-size: 173px 180px;
-	margin-left: 200px;
-}
-
-li#ny5:hover {
-	opacity: .7;
-}
-
-li#ny6 {
-	background: url('../../views/default/images/ivymap/ny/ny6blue.png') no-repeat; 
-	position: absolute;
-	height: 78px;
-	width: 161px;
-	background-size: 161px 78px;
-	margin-left: 200px;
-}
-
-li#ny6:hover {
-	opacity: .7;
-}
-
-li#ny7 {
-	background: url('../../views/default/images/ivymap/ny/ny7blue.png') no-repeat; 
-	position: absolute;
-	height: 155px;
-	width: 92px;
-	background-size: 155px 92px;
-	margin-left: 200px;
-}
-
-li#ny7:hover {
-	opacity: .7;
-}
-
-li#ny8 {
-	background: url('../../views/default/images/ivymap/ny/ny8blue.png') no-repeat; 
-	position: absolute;
-	height: 119px;
-	width: 254px;
-	background-size: 254px 119px;
-	margin-left: 200px;
-}
-
-li#ny8:hover {
-	opacity: .7;
-}
-
-li#ny9 {
-	background: url('../../views/default/images/ivymap/ny/ny9blue.png') no-repeat; 
-	position: absolute;
-	height: 109px;
-	width: 123px;
-	background-size: 109px 123px;
-	margin-left: 200px;
-}
-
-li#ny9:hover {
-	opacity: .7;
-}
-
-li#ny10 {
-	background: url('../../views/default/images/ivymap/ny/ny10blue.png') no-repeat; 
-	position: absolute;
-	height: 72px;
-	width: 62px;
-	background-size: 62px 72px;
-	margin-left: 200px;
-}
-
-li#ny10:hover {
-	opacity: .7;
-}
-
-li#ny11 {
-	background: url('../../views/default/images/ivymap/ny/ny11blue.png') no-repeat; 
-	position: absolute;
-	height: 105px;
-	width: 206px;
-	background-size: 206px 105px;
-	margin-left: 200px;
+	padding: 6px 4px 6px 4px;
 	
 }
 
-li#ny11:hover {
-	opacity: .7;
-}*/
+.grnbutton:hover {
+	background-color: #DFFFDE;
+	border: 1px solid #C2F0CB;
+	color: #329950;
+}
 
-
+.grnbutton:active {
+	box-shadow: inset -1px -1px 5px 1px #D3E9D3;
+}
