@@ -272,7 +272,7 @@ $(document).ready(function(){
 				<text x="635" y="235" fill="black">{state_count46}</text>
 				<text x="800" y="200" fill="black">{state_count48}</text>
 				<text x="830" y="165" fill="black">{state_count49}</text>
-				<text x="795" y="700" fill="black">{state_count50}</text>
+				
 				<text x="690" y="240" fill="black">{state_count51}</text>
 				<text x="690" y="210" fill="black">{state_count52}</text>
 				<text x="690" y="275" fill="black">{state_count53}</text>
@@ -282,14 +282,14 @@ $(document).ready(function(){
 				<text x="790" y="245" fill="black">{state_count57}</text>
 				<text x="850" y="235" fill="black">{state_count58}</text>
 				<text x="835" y="265" fill="black">{state_count59}</text>
-				<text x="885" y="275" fill="black">{state_count60}</text>
+				<text x="885" y="275" fill="black">{state_count50}</text>
 				
 				<!--ri-->
 				<text x="895" y="435" fill="black">{state_count61}</text>
 				<text x="900" y="375" fill="black">{state_count62}</text>
 				<text x="850" y="380" fill="black">{state_count63}</text>
 				<text x="895" y="530" fill="black">{state_count64}</text>
-				<text x="900" y="490" fill="black">{state_count64}</text>
+				<text x="900" y="490" fill="black">{state_count60}</text>
 				
 				<!--ct-->
 				<text x="580" y="425" fill="black">{state_count1}</text>
