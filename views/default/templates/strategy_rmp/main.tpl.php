@@ -321,30 +321,54 @@ $(document).ready(function(){
 	<div id="main" style="resize: both; float: right; min-height: 240px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/flash.png" style="height: 17px; vertical-align: -4px; opacity: .7;" />&nbsp&nbspCommand&nbsp&nbsp|&nbsp&nbspTurn {srmp_turn_number}
 		<hr style="border: none; background: #ccc; height:1px;" />
+		
 		<center>
-		<div id="placecommand" style=" resize: none;">
+		<div id="placecommand" style=" resize: none; display: block;">
+			<br /><br />
 			<div align="center" style="font-weight: bold; font-size: 14px;">
 				Place <input type="text" style="width: 25px;"></input> Troops
 			</div>
 			<div style="color:#ccc; padding-bottom:5px;">
 				You have {srmp_new_troops} new troops this turn.
 			</div>
-			<div style="padding-top: 10px;">In&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<div style="padding-top: 10px;">In&nbsp&nbsp
 				<select class="dropdown">
 					{srmp_options}
 				</select>
 			</div>
 			
-			<button class="grnbutton" style="margin-top: 24px; width:60%; background: #CCFFCC;">Deploy</button><br />
+			<button class="grnbutton" style="margin-top: 24px; width:60%; background: #CCFFCC;">Deploy Troops</button><br />
 		</div>
-		<div id="attackcommand" style=" resize: none;display:none;">
+		
+		<br />
+		<div id="attackcommand" style=" resize: none; display:none;">
 			<div align="center" style="font-weight: bold; font-size: 14px;">
 				Send <input type="text" style="width: 25px;"></input> Troops
 			</div>
-			<div style="color:#ccc; padding-bottom:5px;">
-				You have <span id="">{srmp_total_troops}</span> troops this turn.
-				<input type="hidden" value="{srmp_total_troops}" />
+			
+			<div style="padding-top: 10px;">From&nbsp
+				<select class="dropdown">
+					{srmp_options}
+				</select>
 			</div>
+			
+			<div style="padding-top: 10px;">
+				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select class="dropdown">
+				{srmp_periphery_options}
+			</select>
+			</div>
+			
+			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Attack</button>
+			
+			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Attack</button>
+		</div>
+		
+		
+		<div id="attackcommand" style=" resize: none; display:none;">
+			<div align="center" style="font-weight: bold; font-size: 14px;">
+				Send <input type="text" style="width: 25px;"></input> Troops
+			</div>
+		
 			<div style="padding-top: 10px;">From&nbsp
 				<select class="dropdown">
 					{srmp_options}
@@ -357,10 +381,14 @@ $(document).ready(function(){
 			</select>
 			</div>
 			
-			<button class="grnbutton" style="margin-top: 24px; width:60%; background: #CCFFCC;">Deploy</button><br />
+			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Fortify</button>
+			
+			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Fortify</button>
 		</div>
 		</center>
 	</div>
+	
+	
 	
 	<div id="main" style="resize: both; float: right; min-height: 248px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/leaf.png" style="height: 15px; vertical-align: -2px;" />&nbspLog&nbsp&nbsp|&nbsp&nbspDay {srmp_turn_number}

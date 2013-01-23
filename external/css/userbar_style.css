@@ -4466,7 +4466,7 @@ background: #8AB9FF url('../../views/default/images/noise/darkernoise.png') repe
 	font-size: 12px;
 	font-family: Lucida Grande, helvetica, Tahoma, Arial, Verdana, sans-serif;
 
-	color: #565656;
+	color: #329950;
 	width: 60%;
 	height: 30px;
 	cursor: pointer;
@@ -4484,7 +4484,7 @@ background: #8AB9FF url('../../views/default/images/noise/darkernoise.png') repe
 .grnbutton:hover {
 	background-color: #DFFFDE;
 	border: 1px solid #C2F0CB;
-	color: #329950;
+	color: #565656;
 }
 
 .grnbutton:active {
