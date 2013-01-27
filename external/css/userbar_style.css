@@ -4490,3 +4490,9 @@ background: #8AB9FF url('../../views/default/images/noise/darkernoise.png') repe
 .grnbutton:active {
 	box-shadow: inset -1px -1px 5px 1px #D3E9D3;
 }
+
+#rsr {}
+#rsr:active {
+	cursor: -moz-grabbing;
+  cursor:-webkit-grabbing;
+}

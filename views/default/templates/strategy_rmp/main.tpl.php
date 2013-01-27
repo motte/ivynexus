@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+ <script src="external/jquery.tools.min.js"></script>
+ 
 <script type='text/javascript'>//<![CDATA[ 
-
+	
 function scaleit(a) {
 	var b = (a-1)*450;
 	/*if(b < 0) {
@@ -12,6 +14,11 @@ function scaleit(a) {
 	var c = 3000+b;
 	$('#rsr').css({'-webkit-transform':'scale('+a+')', '-moz-transform':'scale('+a+')', '-transform':'scale('+a+')', '-o-transform':'scale('+a+')', 'margin-top':b+'px'});
 //, 'margin-top':b+'px'
+	$('.zoomlevel').css({'background': '#eee', 'padding-left': '0px', 'padding-right': '0px'});
+	var idIt = a*10;
+	idIt = 'zoom'+idIt;
+	var specific = "#"+idIt+".zoomlevel";
+	$(specific).css({'background': '#ccc', 'padding-left': '2px', 'padding-right': '3px'});
 }
 
 function plusit() {
@@ -19,7 +26,7 @@ function plusit() {
 
 	value = value.substr(7, 3).replace(/,/g, '');
 	value = parseFloat(value)+0.1;
-	if(value >= 1.8) {
+	if(value > 1.8) {
 		end();
 	}
 	
@@ -29,15 +36,20 @@ function plusit() {
 	}*/
 	
 	var valueb = $('#rsr').css('-moz-transform');
-	$('#rsr').css({'transform':'scale('+value+')', '-webkit-transform':'scale('+value+')', '-o-transform':'scale('+value+')', '-moz-transform':'scale('+valueb+')', 'margin-top':topvalue+'px'});
+	$('#rsr').css({'transform':'scale('+value+')', '-webkit-transform':'scale('+value+')', '-o-transform':'scale('+value+')', '-moz-transform':'scale('+value+')', 'margin-top':topvalue+'px'});
 //, 'margin-top':b+'px'
+	$('.zoomlevel').css({'background': '#eee', 'padding-left': '0px', 'padding-right': '0px'});
+	var idIt = Math.round(value*10);
+	idIt = 'zoom'+idIt;
+	var specific = "#"+idIt+".zoomlevel";
+	$(specific).css({'background': '#ccc', 'padding-left': '2px', 'padding-right': '3px'});
 }
 
 function minusit() {
 	var value = $('#rsr').css('-webkit-transform');
 
 	value = value.substr(7, 3).replace(/,/g, '');
-	value = parseFloat(value)-.1;
+	value = parseFloat(value)-0.1;
 	if(value < .8) {
 		end();
 	}
@@ -50,6 +62,11 @@ function minusit() {
 	var valueb = $('#rsr').css('-moz-transform');
 	$('#rsr').css({'transform':'scale('+value+')', '-webkit-transform':'scale('+value+')', '-moz-transform':'scale('+valueb+')', '-o-transform':'scale('+value+')', 'margin-top':topvalue+'px'});
 //, 'margin-top':b+'px'
+	$('.zoomlevel').css({'background': '#eee', 'padding-left': '0px', 'padding-right': '0px'});
+	var idIt = Math.round(value*10);
+	idIt = 'zoom'+idIt;
+	var specific = "#"+idIt+".zoomlevel";
+	$(specific).css({'background': '#ccc', 'padding-left': '2px', 'padding-right': '3px'});
 }
 function deploy(a) {
 	alert(a);
@@ -59,18 +76,412 @@ function hoverinfo(a) {
 	//alert(a);
 	return;
 }
-$(document).ready(function(){
 
-		$('#rsr').animate({'opacity':'1'},1000);
+function passCommand(x) {
+		switch(x){
+			case '1':
+				placeCommand();
+				break;	
+			case '2':
+				//var attackreturn = markTurn('2');
+				//if(attackreturn == 'true'){
+					$('#attackcommand').animate({'opacity':'0'}, 500);
+					setTimeout(
+						function(){
+							$('#attackcommand').css({'display':'none'});
+							$('#fortifycommand').css({'display':'block'});
+							$('#fortifycommand').animate({'opacity':'1'}, 500);
+						},500
+					)
+				//}
+				break;
+			case '3':
+				markTurn('3');
+				//var fortifyreturn = markTurn('3');
+				//if(fortifyreturn == 'true'){
+					$('#fortifycommand').animate({'opacity':'0'}, 500);
+					setTimeout(
+						function(){
+							$('#fortifycommand').css({'display':'none'});
+							$('#donecommand').css({'display':'block'});
+							$('#donecommand').animate({'opacity':'1'}, 500);
+						},500
+					)
+				//}
+				break;
+		}
+}
+
+function placeCommand() {
+	var a = $('#newtroops').text();
+	var b = document.getElementById('placetroops').value;
+	var c = a-b;
+	var d = '{pID}';
+	var e = $('#placestate :selected').val();
+	var f = '{srmp_turn_number}';
+	
+	if(b=='0' || b=='') {
+		return;
+	}
+	if(c < 0) {
+		document.getElementById('alertplace').innerHTML='You only have '+a+' troops';
+		$('#alertplace').animate({'opacity':'1'});
+		return c;
+	}
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		
+			placeCheck(xmlhttp.responseText);
+		}
+	}
+	
+	xmlhttp.open("GET","controllers/srmp/turn/placecontroller.php?a="+a+"&b="+b+"&d="+d+"&e="+e+"&f="+f,true);
+	xmlhttp.send();
+}
+
+function placeCheck(placereturn){
+
+	if(placereturn == 0){
+		$('#placecommand').animate({'opacity':'0'}, 500);
+		setTimeout(
+			function(){
+				$('#placecommand').css({'display':'none'});
+				$('#attackcommand').css({'display':'block'});
+				$('#attackcommand').animate({'opacity':'1'}, 500);
+			},500
+		)
+	}
+	else if(placereturn > 0) {
+		$('#newtroops').css({'color':'#329950','opacity':'0'});		
+		document.getElementById('newtroops').innerHTML = placereturn;
+		$('#newtroops').animate({'opacity':'1'},100);
+		setTimeout(function(){$('#newtroops').animate({'color':'#ccc'},800);},100)
+		
+	}
+}
+
+function attackCommand() {
+	var a = '{pID}';
+	var b = $('#attackstateone :selected').val();
+	var c = $('#attackstatetwo :selected').val();
+	var d = $('#attackingtroops').val();
+	var e = '{srmp_turn_number}';
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			switch(xmlhttp.responseText){
+				case 'true':
+					document.getElementById('alertattack').innerHTML='Attack order delivered';
+					break;
+				case 'false':
+					//document.getElementById('alertattack').innerHTML='Attack order intercepted';
+					break;
+			}
+		}
+	}
+	xmlhttp.open("GET","controllers/srmp/turn/attackcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+	xmlhttp.send();
+}
+
+function fortifyCommand() {
+	var a = '{pID}';
+	var b = $('#fortifystateone :selected').val();
+	var c = $('#fortifystatetwo :selected').val();
+	var d = $('#fortifyingtroops').val();
+	var e = '{srmp_turn_number}';
+	if (window.XMLHttpRequest) {
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else {
+			// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				switch(xmlhttp.responseText){
+					case 'true':
+					document.getElementById('alertfortify').innerHTML='Fortify order delivered';
+					break;
+				case 'false':
+					//document.getElementById('alertfortify').innerHTML='Attack order intercepted';
+					break;
+		  }
+		}
+		xmlhttp.open("GET","controllers/srmp/turn/fortifycontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+		xmlhttp.send();
+}
+}
+
+function markTurn(b) {
+	var a = "{pID}";
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			return xmlhttp.responseText;
+				
+		}
+	}
+	xmlhttp.open("GET","controllers/srmp/turn/markturncontroller.php?a="+a+"&b="+b,true);
+	xmlhttp.send();
+}
+
+function setAttackOptions() {
+	
+}
+
+function setFortifyOptions() {
+	
+}
+
+$(document).ready(function(){
+	//$(".partialstates").tooltip();
+    $('#rsr').draggable();
+    $('#rsr').on("dragstop", function( event, ui ) {});
+	$('#rsr').animate({'opacity':'1'},1000);	
+
+	$("#attackstateone").change(function() {
+        var val = $(this).val();
+        val = val.substr(-4);
+        val = val.replace(" ", "");
+        if (val == "ct1") {
+            $("#attackstatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ny11'>({state_count11}) Columbia State Eleven</option>");
+        }
+        else if (val == "ct2") {
+            $("#attackstatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ct3'>({state_count3}) Yale State Three</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct6'>({state_count6}) Yale State Six</option>");
+        }
+        else if (val == "ct3") {
+            $("#attackstatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct6'>({state_count6}) Yale State Six</option><option value='ct7'>({state_count7}) Yale State Seven</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ct4") {
+            $("#attackstatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ct2'>({state_count2}) Yale State Two</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct8'>({state_count8}) Yale State Eight</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "ct5") {
+            $("#attackstatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ct6'>({state_count6}) Yale State Six</option><option value='ct7'>({state_count7}) Yale State Seven</option>");
+        }
+        else if (val == "ct6") {
+            $("#attackstatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct3'>({state_count3}) Yale State Three</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct7'>({state_count7}) Yale State Seven</option>");
+        }
+        else if (val == "ct7") {
+            $("#attackstatetwo").html("<option value='ct3'>({state_count3}) Yale State Three</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct6'>({state_count6}) Yale State Six</option>");
+        }
+        else if (val == "ct8") {
+            $("#attackstatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='ri5'>({state_count64}) Brown State Five</option>");
+        }
+        else if (val == "ma1") {
+            $("#attackstatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ma2") {
+            $("#attackstatetwo").html("<option value='ma1'>({state_count9}) Harvard State One</option><option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma3") {
+            $("#attackstatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma6'>({state_count14}) Harvard State Six</option>");
+        }
+        else if (val == "ma4") {
+            $("#attackstatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma5") {
+            $("#attackstatetwo").html("<option value='ma1'>({state_count9}) Harvard State One</option><option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma6") {
+            $("#attackstatetwo").html("<option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma7'>({state_count15}) Harvard State Seven</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma10'>({state_count18}) Harvard State Ten</option>");
+        }
+        else if (val == "ma7") {
+            $("#attackstatetwo").html("<option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma6'>({state_count15}) Harvard State Six</option><option value='ma10'>({state_count18}) Harvard State Ten</option>");
+        }
+        else if (val == "ma8") {
+            $("#attackstatetwo").html("<option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma9") {
+            $("#attackstatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma8'>({state_count16}) Harvard State Eight</option><option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma10") {
+            $("#attackstatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma7'>({state_count15}) Harvard State Seven</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma11") {
+            $("#attackstatetwo").html("<option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma12'>({state_count20}) Harvard State Twelve</option><option value='ma13'>({state_count21}) Harvard State Thirteen</option>");
+        }
+        else if (val == "ma12") {
+            $("#attackstatetwo").html("<option value='ma8'>({state_count16}) Harvard State Eight</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma13'>({state_count21}) Harvard State Thirteen</option>");
+        }
+        else if (val == "ma13") {
+            $("#attackstatetwo").html("<option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma12'>({state_count20}) Harvard State Twelve</option><option value='ri2'>({state_count61}) Brown State Two</option>");
+        }
+        else if (val == "nh1") {
+            $("#attackstatetwo").html("<option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='ny7'>({state_count45}) Cornell State Seven</option>");
+        }
+        else if (val == "nh2") {
+            $("#attackstatetwo").html("<option value='nh1'>({state_count22}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='nh4'>({state_count25}) Dartmouth State Four</option>");
+        }
+        else if (val == "nh3") {
+            $("#attackstatetwo").html("<option value='nh1'>({state_count22}) Dartmouth State One</option><option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh4'>({state_count25}) Dartmouth State Four</option>");
+        }
+        else if (val == "nh4") {
+            $("#attackstatetwo").html("<option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh6'>({state_count27}) Dartmouth State Six</option>");
+        }
+        else if (val == "nh5") {
+            $("#attackstatetwo").html("<option value='nh4'>({state_count25}) Dartmouth State Four</option><option value='nh6'>({state_count27}) Dartmouth State Six</option><option value='nh7'>({state_count28}) Dartmouth State Seven</option>");
+        }
+        else if (val == "nh6") {
+            $("#attackstatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='nh4'>({state_count25}) Dartmouth State Four</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh7'>({state_count28}) Dartmouth State Seven</option>");
+        }
+        else if (val == "nh7") {
+            $("#attackstatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh6'>({state_count27}) Dartmouth State Six</option>");
+        }
+        else if (val == "nj1") {
+            $("#attackstatetwo").html("<option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "nj2") {
+            $("#attackstatetwo").html("<option value='nj1'>({state_count29}) Princeton State One</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj5'>({state_count33}) Princeton State Five</option>");
+        }
+        else if (val == "nj3") {
+            $("#attackstatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='nj1'>({state_count29}) Princeton State One</option><option value='nj2'>({state_count30}) Princeton State Two</option>");
+        }
+        else if (val == "nj4") {
+            $("#attackstatetwo").html("<option value='nj1'>({state_count29}) Princeton State One</option><option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj7'>({state_count35}) Princeton State Seven</option>");
+        }
+        else if (val == "nj5") {
+            $("#attackstatetwo").html("<option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj7'>({state_count35}) Princeton State Seven</option>");
+        }
+        else if (val == "nj6") {
+            $("#attackstatetwo").html("<option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj7") {
+            $("#attackstatetwo").html("<option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj8") {
+            $("#attackstatetwo").html("<option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj9'>({state_count37}) Princeton State Nine</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj9") {
+            $("#attackstatetwo").html("<option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj10'>({state_count38}) Princeton State Ten</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "nj10") {
+            $("#attackstatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj9'>({state_count37}) Princeton State Nine</option>");
+        }
+        else if (val == "ny1") {
+            $("#attackstatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option>");
+        }
+        else if (val == "ny2") {
+            $("#attackstatetwo").html("<option value='ny1'>({state_count39}) Cornell State One</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='pa2'>({state_count51}) UPenn State Two</option>");
+        }
+        else if (val == "ny3") {
+            $("#attackstatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny7'>({state_count45}) Cornell State Seven</option><option value='ny8'>({state_count46}) Cornell State Eight</option>");
+        }
+        else if (val == "ny4") {
+            $("#attackstatetwo").html("<option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny8'>({state_count46}) Cornell State Eight</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny5") {
+            $("#attackstatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny6") {
+            $("#attackstatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='ny11'>({state_count49}) Columbia State Eleven</option>");
+        }
+        else if (val == "ny7") {
+            $("#attackstatetwo").html("<option value='ny1'>({state_count39}) Cornell State One</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny8'>({state_count46}) Cornell State Eight</option>");
+        }
+        else if (val == "ny8") {
+            $("#attackstatetwo").html("<option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny7'>({state_count45}) Cornell State Seven</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny9") {
+            $("#attackstatetwo").html("<option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny8'>({state_count46}) Cornell State Eight</option><option value='ny10'>({state_count48}) Columbia State Ten</option>");
+        }
+        else if (val == "ny10") {
+            $("#attackstatetwo").html("<option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='ny11'>({state_count49}) Columbia State Eleven</option>");
+        }
+        else if (val == "ny11") {
+            $("#attackstatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='pa3'>({state_count52}) UPenn State Three</option>");
+        }
+        else if (val == "pa1") {
+            $("#attackstatetwo").html("<option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa5'>({state_count54}) UPenn State Five</option>");
+        }
+        else if (val == "pa2") {
+            $("#attackstatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='pa1'>({state_count50}) UPenn State One</option><option value='pa3'>({state_count52}) UPenn State Three</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "pa3") {
+            $("#attackstatetwo").html("<option value='ny11'>({state_count49}) Columbia State Eleven</option><option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "pa4") {
+            $("#attackstatetwo").html("<option value='pa1'>({state_count50}) UPenn State One</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa7'>({state_count56}) UPenn State Seven</option>");
+        }
+        else if (val == "pa5") {
+            $("#attackstatetwo").html("<option value='pa1'>({state_count50}) UPenn State One</option><option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa8'>({state_count57}) UPenn State Eight</option>");
+        }
+        else if (val == "pa6") {
+            $("#attackstatetwo").html("<option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa3'>({state_count52}) UPenn State Three</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa7") {
+            $("#attackstatetwo").html("<option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "pa8") {
+            $("#attackstatetwo").html("<option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa9'>({state_count58}) UPenn State Nine</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa9") {
+            $("#attackstatetwo").html("<option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa10") {
+            $("#attackstatetwo").html("<option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "ri1") {
+            $("#attackstatetwo").html("<option value='ri2'>({state_count61}) Brown State Two</option><option value='ri3'>({state_count62}) Brown State Three</option><option value='ri4'>({state_count63}) Brown State Four</option>");
+        }
+        else if (val == "ri2") {
+            $("#attackstatetwo").html("<option value='ma13'>({state_count21}) Harvard State Thirteen</option><option value='ri1'>({state_count60}) Brown State One</option><option value='ri4'>({state_count63}) Brown State Four</option>");
+        }
+        else if (val == "ri3") {
+            $("#attackstatetwo").html("<option value='ri1'>({state_count60}) Brown State One</option><option value='ri4'>({state_count63}) Brown State Four</option><option value='nh5'>({state_count64}) Brown State Five</option>");
+        }
+        else if (val == "ri4") {
+            $("#attackstatetwo").html("<option value='ri1'>({state_count60}) Brown State One</option><option value='ri2'>({state_count61}) Brown State Two</option><option value='ri3'>({state_count62}) Brown State Three</option>");
+        }
+        else if (val == "ri5") {
+            $("#attackstatetwo").html("<option value='ct8'>({state_count8}) Yale State Eight</option><option value='ri3'>({state_count62}) Brown State Three</option>");
+        }
+    });
+    
+    $("#fortifystateone").change(function() {
+        var val = $(this).val();
+        if (val == "item1") {
+            $("#attackstatetwo").html("item1</option><option value='test2'>item1: test 2</option>");
+        }
+        else if (val == "item2") {
+            $("#attackstatetwo").html("item2</option><option value='test2'>item</option>");
+        }
+        else if (val == "item3") {
+            $("#attackstatetwo").html("item3</option><option value='test2'>item</option>");
+        }
+    });
 
 });
+
 </script>
 
 
 </head>
 <body>
 	<div align="right">
-	<div id="main" style="padding: 10px; width:91%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
+	<div id="main" style="opacity: .7; padding: 10px; width:91%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
 		<div align="left" style="display:inline;">
 			<!--<span><a class="subtlelink" href="ivies/list"><img style="vertical-align: -4px;" src="views/default/images/ivy.png" />&nbsp{game_name}:&nbsp</a></span>-->
 		</div>
@@ -90,24 +501,25 @@ $(document).ready(function(){
 <div align="center" valign="middle">
 	<div id="zoomer" style="">
 		<div style="" onclick="plusit()" id="zoomin"></div>
-		<div id="1.8" class="zoomlevel" onclick="scaleit('1.8')" style="margin-top: 40px;">1.8</div>
-		<div id="1.7" class="zoomlevel" onclick="scaleit('1.7')" style="margin-top: 60px;">1.7</div>
-		<div id="1.6" class="zoomlevel" onclick="scaleit('1.6')" style="margin-top: 80px;">1.6</div>
-		<div id="1.5" class="zoomlevel" onclick="scaleit('1.5')" style="margin-top: 100px;">1.5</div>
-		<div id="1.4" class="zoomlevel" onclick="scaleit('1.4')" style="margin-top: 120px;">1.4</div>
-		<div id="1.3" class="zoomlevel" onclick="scaleit('1.3')" style="margin-top: 140px;">1.3</div>
-		<div id="1.2" class="zoomlevel" onclick="scaleit('1.2')" style="margin-top: 160px;">1.2</div>
-		<div id="1.1" class="zoomlevel" onclick="scaleit('1.1')" style="margin-top: 180px;">1.1</div>
-		<div id="1.0" class="zoomlevel" onclick="scaleit('1.0')" style="margin-top: 200px; background: #ccc; padding-left: 2px; padding-right: 3px;">1.0</div>
-		<div id=".9" class="zoomlevel" onclick="scaleit('0.9')" style="margin-top: 220px;">0.9</div>
-		<div id-".8" class="zoomlevel" onclick="scaleit('0.8')" style="margin-top: 240px; height: 15px;">0.8</div>
+		<div id="zoom18" class="zoomlevel" onclick="scaleit('1.8')" style="margin-top: 40px;">1.8</div>
+		<div id="zoom17" class="zoomlevel" onclick="scaleit('1.7')" style="margin-top: 60px;">1.7</div>
+		<div id="zoom16" class="zoomlevel" onclick="scaleit('1.6')" style="margin-top: 80px;">1.6</div>
+		<div id="zoom15" class="zoomlevel" onclick="scaleit('1.5')" style="margin-top: 100px;">1.5</div>
+		<div id="zoom14" class="zoomlevel" onclick="scaleit('1.4')" style="margin-top: 120px;">1.4</div>
+		<div id="zoom13" class="zoomlevel" onclick="scaleit('1.3')" style="margin-top: 140px;">1.3</div>
+		<div id="zoom12" class="zoomlevel" onclick="scaleit('1.2')" style="margin-top: 160px;">1.2</div>
+		<div id="zoom11" class="zoomlevel" onclick="scaleit('1.1')" style="margin-top: 180px;">1.1</div>
+		<div id="zoom10" class="zoomlevel" onclick="scaleit('1.0')" style="margin-top: 200px; background: #ccc; padding-left: 2px; padding-right: 3px;">1.0</div>
+		<div id="zoom9" class="zoomlevel" onclick="scaleit('0.9')" style="margin-top: 220px;">0.9</div>
+		<div id="zoom8" class="zoomlevel" onclick="scaleit('0.8')" style="margin-top: 240px; height: 15px;">0.8</div>
 		<div style="" onclick="minusit()" id="zoomout"></div>
 	</div>
 	
 	
-	<div id="main3" align="left" style="resize: both; float: left; left: 80px;overflow: scroll;height: 500px; width: 50%; margin-top: 10px;">
+	<div id="main3" align="left" style="resize: both; float: left; overflow:hidden; left: 80px; height: 500px; width: 50%; margin-top: 10px;">
 		<div id="rsr" style=" opacity: 0; position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);">
-			<svg height="700px" version="1.1" width="1200px" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+			
+			<svg height="600px" version="1.1" width="1000px" xmlns="http://www.w3.org/2000/svg" style="position: relative;">
 				<defs></defs>
 				<path style="stroke-opacity: 1; opacity: .5;" fill="#010101" stroke="#000000" d="M617.82,262.6L617.11,264.47L305.17,145.74L304.84,143.93L304.71,143.43Z" stroke-width="0" stroke-opacity="1"></path>
 				<path style="stroke-opacity: 1; opacity: .5;" fill="#010101" stroke="#000000" d="M601,394.25L600.03,396L369.18,268.84L369.83,268.54L370.78,267.43Z" stroke-width="0" stroke-opacity="1"></path>
@@ -233,162 +645,240 @@ $(document).ready(function(){
 				<path id="ny2" style="stroke-opacity: 1; cursor: pointer;" class="partialstates" onmouseover="hoverinfo(this.id)" onclick="deploy(this.id)" fill="#{srmp_team_color40}" stroke="#6e6f72" d="M131.28,231.21L139.4,242.85L109.64,248.72L104.2,249.56L103.19,249.71L84.49,253.4L79.16,254.26L71.45,230.41L63.84,221.13L47.07,209.75L48.46,207.89L50.14,204.05L50.14,200.9L49.39,199.4L48.1,198.76L46.71,198.45L45.64,198.02L44.51,197.34L43.94,196.96L43.67,196.55L43.5,195.74L43.79,194.61L43.01,193.05L42.13,192.47L41.08,191.42L41.01,191.28L41.01,190.28L41.26,189.78L41.26,187.33L40,181.68L39.4,180.42L37.18,176.48L32.56,170.3L35.69,168.14L41.09,163.97L49.18,158.09L51.69,156.72L61.9,155.02L92.4,149.21L110.95,170.43L131.28,186.7Z" stroke-width="0" stroke-opacity="1" opacity="1"></path>
 				
 				<path id="pa2" style="stroke-opacity: 1; cursor: pointer;" class="partialstates" onmouseover="hoverinfo(this.id)" onclick="deploy(this.id)" fill="#{srmp_team_color51}" stroke="#6e6f72" d="M187.1,367.14L195.56,378.17L191.97,390.71L191.71,391.62L184.96,411.21L187.51,423.2L165.22,428.92L133.49,428.92L108.46,422.53L103.57,412.75L96.01,400.33L96.01,384.02L101.92,382.88L108.45,381.84L115.17,380.54L121.7,379.5L134.92,376.9L141.45,375.86L148.21,374.56L161.16,371.97L167.96,370.92L181.21,368.32Z" stroke-width="0" stroke-opacity="1" opacity="1"></path>
-				<!--ny-->
-				<text x="155" y="135" fill="black">{state_count19}</text>
-				<text x="225" y="65" fill="black">{state_count20}</text>
-				<text x="250" y="115" fill="black">{state_count21}</text>
-				<text x="165" y="200" fill="black">{state_count22}</text>
-				<text x="215" y="160" fill="black">{state_count23}</text>
-				<text x="75" y="190" fill="black">{state_count24}</text>
-				<text x="35" y="245" fill="black">{state_count25}</text>
-				<text x="200" y="230" fill="black">{state_count26}</text>
-				<text x="270" y="210" fill="black">{state_count27}</text>
-				<text x="270" y="170" fill="black">{state_count28}</text>
-				<text x="295" y="260" fill="black">{state_count29}</text>
 				
-				<!--pa-->
-				<text x="140" y="455" fill="black">{state_count30}</text>
-				<text x="245" y="375" fill="black">{state_count31}</text>
-				<text x="255" y="420" fill="black">{state_count32}</text>
-				<text x="170" y="500" fill="black">{state_count33}</text>
-				<text x="225" y="460" fill="black">{state_count34}</text>
-				<text x="80" y="500" fill="black">{state_count35}</text>
-				<text x="60" y="415" fill="black">{state_count36}</text>
-				<text x="145" y="400" fill="black">{state_count37}</text>
-				<text x="260" y="500" fill="black">{state_count38}</text>
-				<text x="295" y="463" fill="black">{state_count39}</text>
-				
-				<!--nh-->
-				<text x="565" y="85" fill="black">{state_count40}</text>
-				<text x="565" y="35" fill="black">{state_count41}</text>
-				<text x="590" y="85" fill="black">{state_count42}</text>
-				<text x="575" y="120" fill="black">{state_count43}</text>
-				<text x="565" y="150" fill="black">{state_count44}</text>
-				<text x="565" y="185" fill="black">{state_count45}</text>
-				<text x="635" y="235" fill="black">{state_count46}</text>
-				<text x="615" y="170" fill="black">{state_count47}</text>
-				
-				<!--ma-->
-				<text x="635" y="235" fill="black">{state_count46}</text>
-				<text x="800" y="200" fill="black">{state_count48}</text>
-				<text x="830" y="165" fill="black">{state_count49}</text>
-				
-				<text x="690" y="240" fill="black">{state_count51}</text>
-				<text x="690" y="210" fill="black">{state_count52}</text>
-				<text x="690" y="275" fill="black">{state_count53}</text>
-				<text x="630" y="280" fill="black">{state_count54}</text>
-				<text x="745" y="260" fill="black">{state_count55}</text>
-				<text x="745" y="210" fill="black">{state_count56}</text>
-				<text x="790" y="245" fill="black">{state_count57}</text>
-				<text x="850" y="235" fill="black">{state_count58}</text>
-				<text x="835" y="265" fill="black">{state_count59}</text>
-				<text x="885" y="275" fill="black">{state_count50}</text>
-				
-				<!--ri-->
-				<text x="895" y="435" fill="black">{state_count61}</text>
-				<text x="900" y="375" fill="black">{state_count62}</text>
-				<text x="850" y="380" fill="black">{state_count63}</text>
-				<text x="895" y="530" fill="black">{state_count64}</text>
-				<text x="900" y="490" fill="black">{state_count60}</text>
-				
+								
 				<!--ct-->
 				<text x="580" y="425" fill="black">{state_count1}</text>
 				<text x="650" y="425" fill="black">{state_count2}</text>
-				<text x="710" y="435" fill="black">{state_count3}</text>
-				<text x="725" y="395" fill="black">{state_count4}</text>
-				<text x="735" y="465" fill="black">{state_count5}</text>
-				<text x="680" y="475" fill="black">{state_count6}</text>
-				<text x="590" y="480" fill="black">{state_count7}</text>
+				<text x="725" y="395" fill="black">{state_count3}</text>
+				<text x="590" y="480" fill="black">{state_count4}</text>
+				<text x="680" y="475" fill="black">{state_count5}</text>
+				<text x="710" y="435" fill="black">{state_count6}</text>
+				<text x="735" y="465" fill="black">{state_count7}</text>
 				<text x="590" y="535" fill="black">{state_count8}</text>
 				
+				<!--ma-->
+				<text x="630" y="280" fill="black">{state_count9}</text>
+				<text x="635" y="235" fill="black">{state_count10}</text>
+				<text x="690" y="210" fill="black">{state_count11}</text>
+				<text x="690" y="240" fill="black">{state_count12}</text>
+				<text x="690" y="275" fill="black">{state_count13}</text>
+				<text x="745" y="210" fill="black">{state_count14}</text>
+				<text x="745" y="260" fill="black">{state_count15}</text>
+				<text x="830" y="165" fill="black">{state_count16}</text>
+				<text x="800" y="200" fill="black">{state_count17}</text>
+				<text x="790" y="245" fill="black">{state_count18}</text>
+				<text x="835" y="265" fill="black">{state_count19}</text>
+				<text x="850" y="235" fill="black">{state_count20}</text>
+				<text x="885" y="275" fill="black">{state_count21}</text>
+				
+				<!--nh-->
+				<text x="565" y="35" fill="black">{state_count22}</text>
+				<text x="565" y="85" fill="black">{state_count23}</text>
+				<text x="590" y="85" fill="black">{state_count24}</text>
+				<text x="575" y="120" fill="black">{state_count25}</text>
+				<text x="565" y="150" fill="black">{state_count26}</text>
+				<text x="615" y="170" fill="black">{state_count27}</text>
+				<text x="565" y="185" fill="black">{state_count28}</text>
+				
 				<!--nj-->
-				<text x="475" y="435" fill="black">{state_count9}</text>
-				<text x="455" y="355" fill="black">{state_count10}</text>
-				<text x="400" y="355" fill="black">{state_count11}</text>
-				<text x="405" y="410" fill="black">{state_count12}</text>
-				<text x="425" y="380" fill="black">{state_count13}</text>
-				<text x="450" y="420" fill="black">{state_count14}</text>
-				<text x="440" y="455" fill="black">{state_count15}</text>
-				<text x="415" y="485" fill="black">{state_count16}</text>
-				<text x="400" y="525" fill="black">{state_count17}</text>
-				<text x="445" y="515" fill="black">{state_count18}</text>
+				<text x="400" y="355" fill="black">{state_count29}</text>
+				<text x="425" y="380" fill="black">{state_count30}</text>
+				<text x="455" y="355" fill="black">{state_count31}</text>
+				<text x="405" y="410" fill="black">{state_count32}</text>
+				<text x="450" y="420" fill="black">{state_count33}</text>
+				<text x="475" y="435" fill="black">{state_count34}</text>
+				<text x="440" y="455" fill="black">{state_count35}</text>
+				<text x="415" y="485" fill="black">{state_count36}</text>
+				<text x="400" y="525" fill="black">{state_count37}</text>
+				<text x="445" y="515" fill="black">{state_count38}</text>
+				
+				<!--ny-->
+				<text x="35" y="245" fill="black">{state_count39}</text>
+				<text x="75" y="190" fill="black">{state_count40}</text>
+				<text x="155" y="135" fill="black">{state_count41}</text>
+				<text x="215" y="160" fill="black">{state_count42}</text>
+				<text x="165" y="200" fill="black">{state_count43}</text>
+				<text x="200" y="225" fill="black">{state_count44}</text>
+				<text x="225" y="65" fill="black">{state_count45}</text>
+				<text x="250" y="115" fill="black">{state_count46}</text>
+				<text x="270" y="170" fill="black">{state_count47}</text>
+				<text x="270" y="210" fill="black">{state_count48}</text>
+				<text x="295" y="255" fill="black">{state_count49}</text>
+				
+				<!--pa-->
+				<text x="60" y="415" fill="black">{state_count50}</text>
+				<text x="145" y="400" fill="black">{state_count51}</text>
+				<text x="245" y="375" fill="black">{state_count52}</text>
+				<text x="80" y="500" fill="black">{state_count53}</text>
+				<text x="140" y="455" fill="black">{state_count54}</text>
+				<text x="255" y="420" fill="black">{state_count55}</text>
+				<text x="170" y="500" fill="black">{state_count56}</text>
+				<text x="225" y="460" fill="black">{state_count57}</text>
+				<text x="295" y="463" fill="black">{state_count58}</text>
+				<text x="260" y="500" fill="black">{state_count59}</text>
+				
+				<!--ri-->
+				<text x="850" y="380" fill="black">{state_count60}</text>
+				<text x="900" y="375" fill="black">{state_count61}</text>
+				<text x="900" y="490" fill="black">{state_count62}</text>
+				<text x="895" y="435" fill="black">{state_count63}</text>
+				<text x="895" y="530" fill="black">{state_count64}</text>
 		
 				
 			</svg>
 		</div>
 	</div>
+	<div class="tooltip" style="display:none;">MOo</div>
+	<div class="tooltip" style="display:none;">{state_count2}</div>
+	<div class="tooltip" style="display:none;">{state_count3}</div>
+	<div class="tooltip" style="display:none;">{state_count4}</div>
+	<div class="tooltip" style="display:none;">{state_count5}</div>
+	<div class="tooltip" style="display:none;">{state_count6}</div>
+	<div class="tooltip" style="display:none;">{state_count7}</div>
+	<div class="tooltip" style="display:none;">{state_count8}</div>
+	<div class="tooltip" style="display:none;">{state_count9}</div>
+	<div class="tooltip" style="display:none;">{state_count10}</div>
+	<div class="tooltip" style="display:none;">{state_count11}</div>
+	<div class="tooltip" style="display:none;">{state_count12}</div>
+	<div class="tooltip" style="display:none;">{state_count13}</div>
+	<div class="tooltip" style="display:none;">{state_count14}</div>
+	<div class="tooltip" style="display:none;">{state_count15}</div>
+	<div class="tooltip" style="display:none;">{state_count16}</div>
+	<div class="tooltip" style="display:none;">{state_count17}</div>
+	<div class="tooltip" style="display:none;">{state_count18}</div>
+	<div class="tooltip" style="display:none;">{state_count19}</div>
+	<div class="tooltip" style="display:none;">{state_count20}</div>
+	<div class="tooltip" style="display:none;">{state_count21}</div>
+	<div class="tooltip" style="display:none;">{state_count22}</div>
+	<div class="tooltip" style="display:none;">{state_count23}</div>
+	<div class="tooltip" style="display:none;">{state_count24}</div>
+	<div class="tooltip" style="display:none;">{state_count25}</div>
+	<div class="tooltip" style="display:none;">{state_count26}</div>
+	<div class="tooltip" style="display:none;">{state_count27}</div>
+	<div class="tooltip" style="display:none;">{state_count28}</div>
+	<div class="tooltip" style="display:none;">{state_count29}</div>
+	<div class="tooltip" style="display:none;">{state_count30}</div>
+	<div class="tooltip" style="display:none;">{state_count31}</div>
+	<div class="tooltip" style="display:none;">{state_count32}</div>
+	<div class="tooltip" style="display:none;">{state_count33}</div>
+	<div class="tooltip" style="display:none;">{state_count34}</div>
+	<div class="tooltip" style="display:none;">{state_count35}</div>
+	<div class="tooltip" style="display:none;">{state_count36}</div>
+	<div class="tooltip" style="display:none;">{state_count37}</div>
+	<div class="tooltip" style="display:none;">{state_count38}</div>
+	<div class="tooltip" style="display:none;">{state_count39}</div>
+	<div class="tooltip" style="display:none;">{state_count40}</div>
+	<div class="tooltip" style="display:none;">{state_count41}</div>
+	<div class="tooltip" style="display:none;">{state_count42}</div>
+	<div class="tooltip" style="display:none;">{state_count43}</div>
+	<div class="tooltip" style="display:none;">{state_count44}</div>
+	<div class="tooltip" style="display:none;">{state_count45}</div>
+	<div class="tooltip" style="display:none;">{state_count46}</div>
+	<div class="tooltip" style="display:none;">{state_count47}</div>
+	<div class="tooltip" style="display:none;">{state_count48}</div>
+	<div class="tooltip" style="display:none;">{state_count49}</div>
+	<div class="tooltip" style="display:none;">{state_count50}</div>
+	<div class="tooltip" style="display:none;">{state_count51}</div>
+	<div class="tooltip" style="display:none;">{state_count52}</div>
+	<div class="tooltip" style="display:none;">{state_count53}</div>
+	<div class="tooltip" style="display:none;">{state_count54}</div>
+	<div class="tooltip" style="display:none;">{state_count55}</div>
+	<div class="tooltip" style="display:none;">{state_count56}</div>
+	<div class="tooltip" style="display:none;">{state_count57}</div>
+	<div class="tooltip" style="display:none;">{state_count58}</div>
+	<div class="tooltip" style="display:none;">{state_count59}</div>
+	<div class="tooltip" style="display:none;">{state_count60}</div>
+	<div class="tooltip" style="display:none;">{state_count61}</div>
+	<div class="tooltip" style="display:none;">{state_count62}</div>
+	<div class="tooltip" style="display:none;">{state_count63}</div>
+	<div class="tooltip" style="display:none;">{state_count64}</div>
 	
 	<div id="main" style="resize: both; float: right; min-height: 240px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/flash.png" style="height: 17px; vertical-align: -4px; opacity: .7;" />&nbsp&nbspCommand&nbsp&nbsp|&nbsp&nbspTurn {srmp_turn_number}
 		<hr style="border: none; background: #ccc; height:1px;" />
 		
 		<center>
-		<div id="placecommand" style=" resize: none; display: block;">
-			<br /><br />
+		<div id="placecommand" style=" resize: none; display: {place_display};">
+			<div id="alertplace" style="opacity: 0; color: #CF3A3A; padding-top:10px; padding-bottom: 10px;">a</div>
 			<div align="center" style="font-weight: bold; font-size: 14px;">
-				Place <input type="text" style="width: 25px;"></input> Troops
+				Place <input id="placetroops" type="text" style="width: 25px;"></input> Troops
 			</div>
 			<div style="color:#ccc; padding-bottom:5px;">
-				You have {srmp_new_troops} new troops this turn.
+				You have <span id="newtroops">{srmp_new_troops}</span> new troops this turn.
 			</div>
 			<div style="padding-top: 10px;">In&nbsp&nbsp
-				<select class="dropdown">
+				<select id="placestate" class="dropdown">
 					{srmp_options}
 				</select>
 			</div>
-			
-			<button class="grnbutton" style="margin-top: 24px; width:60%; background: #CCFFCC;">Deploy Troops</button><br />
+			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
+			<button onclick="passCommand('1')" class="grnbutton" style="margin-top: 10px; width:60%; background: #CCFFCC;">Deploy Troops</button><br />
 		</div>
 		
 		<br />
-		<div id="attackcommand" style=" resize: none; display:none;">
+		
+		<div id="attackcommand" style=" resize: none; display: {attack_display}; opacity: {attack_opacity};">
+			<div id="alertattack" style="opacity: 0; color: #CF3A3A;">a</div>
 			<div align="center" style="font-weight: bold; font-size: 14px;">
-				Send <input type="text" style="width: 25px;"></input> Troops
+				Send <input id="attackingtroops" type="text" style="width: 25px;"></input> Troops
 			</div>
 			
 			<div style="padding-top: 10px;">From&nbsp
-				<select class="dropdown">
+				<select id="attackstateone" class="dropdown" onchange="setAttackOptions()">
+					<option selected="selected">Your State</option>
 					{srmp_options}
 				</select>
 			</div>
 			
 			<div style="padding-top: 10px;">
-				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select class="dropdown">
+				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select id="attackstatetwo" class="dropdown">
+				<option selected="selected">Enemy State</option>
 				{srmp_periphery_options}
 			</select>
 			</div>
+			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
+			<button onclick="attackCommand()" class="grnbutton" style="margin-top: 10px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Attack</button>
 			
-			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Attack</button>
-			
-			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Attack</button>
+			<button onclick="passCommand('2')" class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Attack</button>
 		</div>
 		
 		
-		<div id="attackcommand" style=" resize: none; display:none;">
+		<div id="fortifycommand" style=" resize: none; display:{fortify_display}; opacity: {fortify_opacity};">
+			<div id="alertfortify" style="opacity: 0; color: #CF3A3A;">a</div>
 			<div align="center" style="font-weight: bold; font-size: 14px;">
-				Send <input type="text" style="width: 25px;"></input> Troops
+				Send <input id="fortifyingtroops" type="text" style="width: 25px;"></input> Troops
 			</div>
 		
 			<div style="padding-top: 10px;">From&nbsp
-				<select class="dropdown">
+				<select id="fortifystateone" class="dropdown" onchange="setFortifyOptions()">
+					<option selected="selected">Your State</option>
 					{srmp_options}
 				</select>
 			</div>
 			
 			<div style="padding-top: 10px;">
-				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select class="dropdown">
+				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select id="fortifystatetwo" class="dropdown">
+				<option selected="selected">Your Other State</option>
 				{srmp_options}
 			</select>
 			</div>
+			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
+			<button onclick="fortifyCommand()" class="grnbutton" style="margin-top: 10px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Fortify</button>
 			
-			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Fortify</button>
+			<button onclick="passCommand('3')" class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspEnd Fortify</button>
+		</div>
+	
+	
+	<div id="donecommand" style=" resize: none; display:{done_display}; opacity: {done_opacity};">
+			<div align="center" style="font-weight: bold; font-size: 14px;">
+				Turn Complete!!
+			</div>
+		
 			
-			<button class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Fortify</button>
 		</div>
 		</center>
 	</div>
-	
-	
 	
 	<div id="main" style="resize: both; float: right; min-height: 248px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/leaf.png" style="height: 15px; vertical-align: -2px;" />&nbspLog&nbsp&nbsp|&nbsp&nbspDay {srmp_turn_number}

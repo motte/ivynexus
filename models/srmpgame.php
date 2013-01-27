@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Profile model
  */
@@ -44,11 +43,66 @@ class Srmpgame {
             $this->registry->getObject('db')->executeQuery($sql);
             $user = $this->registry->getObject('db')->getRows();
             $states_owned = explode(',',$user['states']);
-            $search = array('ct', 'ma', 'nh', 'nj', 'ny1', 'ny2', 'ny3', 'ny4', 'ny7', 'ny8', 'ny5', 'ny6', 'ny9', 'ny10', 'ny11', 'pa', 'ri');
-            $replace = array('Yale State ', 'Harvard Sector ', 'Dartmouth Sector ', 'Princeton Sector ', 'Cornell State 1', 'Cornell State 2', 'Cornell State 3', 'Cornell State 4', 'Cornell State 5', 'Cornell State 6', 'Columbia State 1', 'Columbia State 2', 'Columbia State 3', 'Columbia State 4', 'Columbia State 5', 'UPenn State ', 'Brown Sector ');
+            $search = array('ct1', 'ct2', 'ct3', 'ct4', 'ct5', 'ct6', 'ct7', 'ct8', 'ma1', 'ma2', 'ma3', 'ma4', 'ma5', 'ma6', 'ma7', 'ma8', 'ma9', 'ma10', 'ma11', 'ma12', 'ma13', 'nh1', 'nh2', 'nh3', 'nh4', 'nh5', 'nh6', 'nh7', 'nj1', 'nj2', 'nj3', 'nj4', 'nj5', 'nj6', 'nj7', 'nj8', 'nj9', 'nj10', 'ny1', 'ny2', 'ny3', 'ny4', 'ny7', 'ny8', 'ny5', 'ny6', 'ny9', 'ny10', 'ny11', 'pa1', 'pa2', 'pa3', 'pa4', 'pa5', 'pa6', 'pa7', 'pa8', 'pa9', 'pa10', 'ri1', 'ri2', 'ri3', 'ri4', 'ri5');
+            $replace = array('Yale State One', 'Yale State Two', 'Yale State Three', 'Yale State Four', 'Yale State Five', 'Yale State Six', 'Yale State Seven', 'Yale State Eight', 'Harvard Sector One', 'Harvard Sector Two', 'Harvard Sector Three', 'Harvard Sector Four', 'Harvard Sector Five', 'Harvard Sector Six', 'Harvard Sector Seven', 'Harvard Sector Eight', 'Harvard Sector Nine', 'Harvard Sector Ten', 'Harvard Sector Elven', 'Harvard Sector Twelve', 'Harvard Sector Thirteen', 'Dartmouth Sector One', 'Dartmouth Sector Two', 'Dartmouth Sector Three', 'Dartmouth Sector Four', 'Dartmouth Sector Five', 'Dartmouth Sector Six', 'Dartmouth Sector Seven', 'Princeton Sector One', 'Princeton Sector Two', 'Princeton Sector Three', 'Princeton Sector Four', 'Princeton Sector Five', 'Princeton Sector Six', 'Princeton Sector Seven', 'Princeton Sector Eight', 'Princeton Sector Nine', 'Princeton Sector Ten', 'Cornell State One', 'Cornell State Two', 'Cornell State Three', 'Cornell State Four', 'Cornell State Five', 'Cornell State Six', 'Columbia State One', 'Columbia State Two', 'Columbia State Three', 'Columbia State Four', 'Columbia State Five', 'UPenn State One', 'UPenn State Two', 'UPenn State Three', 'UPenn State Four', 'UPenn State Five', 'UPenn State Six', 'UPenn State Seven', 'UPenn State Eight', 'UPenn State Nine', 'UPenn State Ten', 'Brown Sector One', 'Brown Sector Two', 'Brown Sector Three', 'Brown Sector Four', 'Brown Sector Five');
+            $nums = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+            // new turn without any commands submitted
+            if($user['committed'] == 0){
+	            $this->registry->getObject('template')->getPage()->addTag('place_url', $insert);
+	            $this->registry->getObject('template')->getPage()->addTag('attack_url', $insert);
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_url', $insert);
+	            $this->registry->getObject('template')->getPage()->addTag('place_display', 'block');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('done_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('done_opacity', '0');
+            }
+            // placed troops so show attack div
+            elseif($user['committed'] == 1){
+	            $this->registry->getObject('template')->getPage()->addTag('place_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('place_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_display', 'block');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_opacity', '1');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('done_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('done_opacity', '0');
+            }
+            // already submitted attack command so show fortify div
+            elseif($user['committed'] == 2){
+	            $this->registry->getObject('template')->getPage()->addTag('place_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('place_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_display', 'block');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_opacity', '1');
+	            $this->registry->getObject('template')->getPage()->addTag('done_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('done_opacity', '0');
+            }
+            // already submitted fortify command so show done div
+            elseif($user['committed'] >= 3){
+	            $this->registry->getObject('template')->getPage()->addTag('place_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_url', '');
+	            $this->registry->getObject('template')->getPage()->addTag('place_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('attack_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_display', 'none');
+	            $this->registry->getObject('template')->getPage()->addTag('fortify_opacity', '0');
+	            $this->registry->getObject('template')->getPage()->addTag('done_display', 'block');
+	            $this->registry->getObject('template')->getPage()->addTag('done_opacity', '1');
+            }
+            
             foreach($states_owned as $states_owned) {
             	$each = str_replace($search, $replace, $states_owned);
 	            //$insert .= "<option>".$states_owned."</option>";
+	            //$each = str_replace($nums, '', $each);
 	            $insert .= '<option value="'.$states_owned.'">'.$each.'</option>';
             }
             
