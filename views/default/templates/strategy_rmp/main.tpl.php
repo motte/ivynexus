@@ -97,6 +97,7 @@ function passCommand(x) {
 				break;
 			case '3':
 				markTurn('3');
+				
 				//var fortifyreturn = markTurn('3');
 				//if(fortifyreturn == 'true'){
 					$('#fortifycommand').animate({'opacity':'0'}, 500);
