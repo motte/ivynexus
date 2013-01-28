@@ -3,7 +3,6 @@
 <head>
   <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
  
- 
 <script type='text/javascript'>//<![CDATA[ 
 	
 function scaleit(a) {
@@ -325,7 +324,7 @@ $(document).ready(function(){
     });
 
 	//$(".partialstates").tip();
-    $('#rsr').draggable();
+    $('#rsr').draggable({scroll: false});
     $('#rsr').on("dragstop", function( event, ui ) {});
 	$('#rsr').animate({'opacity':'1'},1000);	
 
@@ -586,8 +585,8 @@ $(document).ready(function(){
 	</div>
 	
 	
-	<div id="main3" align="left" style="resize: both; float: left; overflow:hidden; left: 80px; height: 500px; width: 50%; margin-top: 10px;">
-		<div id="rsr" style=" opacity: 0; position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);">
+	<div id="main3" align="left" style="background: #4569A7; resize: both; float: left; overflow:hidden; left: 80px; height: 500px; width: 50%; margin-top: 10px;">
+		<div id="rsr" style="opacity: 0; position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);">
 			
 			<svg height="600px" version="1.1" width="1000px" xmlns="http://www.w3.org/2000/svg" style="position: relative;">
 				<defs></defs>
