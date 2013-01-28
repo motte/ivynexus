@@ -258,6 +258,41 @@ function setFortifyOptions() {
 	
 }
 
+function teamCommunicate() {
+		event.preventDefault();
+		var a = '{pID}';
+		var e = '{firstname}';
+		e = e.charAt(0);
+		var f = '{lastname}';
+		f = f.charAt(0);
+		var b = e+f;
+		var c = $('#posttoteam').val();
+		$('#posttoteam').val('');
+		var d = '{p_school}';
+		$('<img id="remove" src="views/default/images/tiny_loader.gif" style="vertical-align:middle; padding-left:3px;" />').insertBefore('#chatAdded');
+		var returnit = "<div>&nbsp<strong>"+b+"</strong>&nbsp&nbsp&nbsp"+c+"</div><hr style='border: none; background: #ccc; height:1px;' />";
+		if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			}
+			else {
+				// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function() {
+				if (xmlhttp.readyState==4 && xmlhttp.status==200) {	
+						
+						$(returnit).insertBefore('#chatAdded');		
+						$('img').remove('#remove');
+				}
+			}
+
+			xmlhttp.open("GET","controllers/srmp/turn/teampostcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d,true);
+			xmlhttp.send();
+
+	}
+
+
 $(document).ready(function(){
 
 	//Tooltips
@@ -940,10 +975,14 @@ $(document).ready(function(){
 			<div>&nbsp{srmp_chat3}</div>
 			<div>&nbsp{srmp_chat2}</div>
 			<div>&nbsp{srmp_chat1}</div>
-		</div>
-		<div style="height: 9px;"></div>
-			<input type="text" placeholder="Send a message to your team" style="width:100%; resize: none;"></input>
 		
+		<div id="chatAdded" style="height: 9px;"></div>
+			
+			<form id="postform" name="{p_school}" align="left" onsubmit="javascript:return teamCommunicate()" style="margin:0;margin-bottom:-2px;">
+				<input type="text" id="posttoteam" placeholder="Send a message to your team" style="width:100%; resize: none;"></input>
+				<input type="submit" value="" style="visibility:hidden; position:absolute; height:0px;" >
+			</form>
+		</div>
 	</div>
 	
 	<div style="height: 850px; position:relative;"></div>

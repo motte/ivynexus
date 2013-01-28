@@ -128,7 +128,7 @@ class Srmpgame {
 	            $query = $this->registry->getObject('db')->executeQuery($psql);
 	            $counter = 1;
             	while($data = $this->registry->getObject('db')->getRows()) {
-            		$this->registry->getObject('template')->getPage()->addTag('srmp_chat'.$counter, $data['message']);
+            		$this->registry->getObject('template')->getPage()->addTag('srmp_chat'.$counter, '<strong>'.$data['username'].'</strong>&nbsp&nbsp&nbsp'.$data['message'].'<hr style="border: none; background: #eee; height:1px;" />');
             		$counter++;
             	}
             	
