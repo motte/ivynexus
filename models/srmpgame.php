@@ -156,7 +156,7 @@ class Srmpgame {
             $this->registry->getObject('template')->getPage()->addTag('player5_name', '<a href="ivies/Harvard" class="subtlelink">Harvard</a>');
             $this->registry->getObject('template')->getPage()->addTag('player6_color', 'ff6600');
             $this->registry->getObject('template')->getPage()->addTag('player6_name', '<a href="ivies/Princeton" class="subtlelink">Princeton</a>');
-            $this->registry->getObject('template')->getPage()->addTag('player7_color', 'fff');
+            $this->registry->getObject('template')->getPage()->addTag('player7_color', 'FFFF00');
             $this->registry->getObject('template')->getPage()->addTag('player7_name', '<a href="ivies/Penn" class="subtlelink">UPenn</a>');
             $this->registry->getObject('template')->getPage()->addTag('player8_color', '0f4d92');
             $this->registry->getObject('template')->getPage()->addTag('player8_name', '<a href="ivies/Yale" class="subtlelink">Yale</a>');
@@ -169,27 +169,35 @@ class Srmpgame {
             	switch($data['owner_id']){
 	            	case 1:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '321414');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Brown');
 	            		break;
 	            	case 2:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '9bddff');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Columbia');
 	            		break;
 	            	case 3:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'b31b1b');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Cornell');
 	            		break;
 	            	case 4:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '00693e');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Dartmouth');
 	            		break;
 	            	case 5:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '991122');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Harvard');
 	            		break;
 	            	case 6:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'ff6600');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Princeton');
 	            		break;
 	            	case 7:
-	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'fff');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, 'EEEE00');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'UPenn');
 	            		break;
 	            	case 8:
 	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_color'.$counter, '0f4d92');
+	            		$this->registry->getObject('template')->getPage()->addTag('srmp_team_name'.$counter, 'Yale');
 	            		break;
 	            	
             	}

@@ -2,7 +2,7 @@
 <html>
 <head>
   <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
- <script src="external/jquery.tools.min.js"></script>
+ 
  
 <script type='text/javascript'>//<![CDATA[ 
 	
@@ -69,13 +69,13 @@ function minusit() {
 	$(specific).css({'background': '#ccc', 'padding-left': '2px', 'padding-right': '3px'});
 }
 function deploy(a) {
-	alert(a);
+	//alert(a);
 }
 	
-function hoverinfo(a) {
+//function hoverinfo(a) {
 	//alert(a);
-	return;
-}
+//	return;
+//}
 
 function passCommand(x) {
 		switch(x){
@@ -83,6 +83,7 @@ function passCommand(x) {
 				placeCommand();
 				break;	
 			case '2':
+				markTurn('2');
 				//var attackreturn = markTurn('2');
 				//if(attackreturn == 'true'){
 					$('#attackcommand').animate({'opacity':'0'}, 500);
@@ -258,7 +259,37 @@ function setFortifyOptions() {
 }
 
 $(document).ready(function(){
-	//$(".partialstates").tooltip();
+
+	//Tooltips
+    $(".partialstates").hover(function(){
+    	var specific = this.id;
+    	
+        tip = $('#'+specific+'.tip');
+        tip.show(); //Show tooltip
+        
+    }, function() {
+        tip.hide(); //Hide tooltip
+    }).mousemove(function(e) {
+        //Change these numbers to move the tooltip offset
+        var mousex = e.pageX + 20; //Get X coodrinates
+        var mousey = e.pageY + 20; //Get Y coordinates. 
+        var tipWidth = tip.width(); //Find width of tooltip
+        var tipHeight = tip.height(); //Find height of tooltip
+        
+        //Distance of element from the right edge of viewport
+        var tipVisX = $(window).width() - (mousex + tipWidth);
+        //Distance of element from the bottom of viewport
+        var tipVisY = $(window).height() - (mousey + tipHeight);
+        if (tipVisX < 20) { //If tooltip exceeds the X coordinate of viewport
+            mousex = e.pageX - tipWidth - 20;
+        } if (tipVisY < 20) { //If tooltip exceeds the Y coordinate of viewport
+            mousey = e.pageY - tipHeight - 20;
+        }
+        //Absolute position the tooltip according to mouse position
+        tip.css({  top: mousey, left: mousex });
+    });
+
+	//$(".partialstates").tip();
     $('#rsr').draggable();
     $('#rsr').on("dragstop", function( event, ui ) {});
 	$('#rsr').animate({'opacity':'1'},1000);	
@@ -473,8 +504,11 @@ $(document).ready(function(){
             $("#attackstatetwo").html("item3</option><option value='test2'>item</option>");
         }
     });
+  
+    
 
 });
+
 
 </script>
 
@@ -730,70 +764,70 @@ $(document).ready(function(){
 			</svg>
 		</div>
 	</div>
-	<div class="tooltip" style="display:none;">MOo</div>
-	<div class="tooltip" style="display:none;">{state_count2}</div>
-	<div class="tooltip" style="display:none;">{state_count3}</div>
-	<div class="tooltip" style="display:none;">{state_count4}</div>
-	<div class="tooltip" style="display:none;">{state_count5}</div>
-	<div class="tooltip" style="display:none;">{state_count6}</div>
-	<div class="tooltip" style="display:none;">{state_count7}</div>
-	<div class="tooltip" style="display:none;">{state_count8}</div>
-	<div class="tooltip" style="display:none;">{state_count9}</div>
-	<div class="tooltip" style="display:none;">{state_count10}</div>
-	<div class="tooltip" style="display:none;">{state_count11}</div>
-	<div class="tooltip" style="display:none;">{state_count12}</div>
-	<div class="tooltip" style="display:none;">{state_count13}</div>
-	<div class="tooltip" style="display:none;">{state_count14}</div>
-	<div class="tooltip" style="display:none;">{state_count15}</div>
-	<div class="tooltip" style="display:none;">{state_count16}</div>
-	<div class="tooltip" style="display:none;">{state_count17}</div>
-	<div class="tooltip" style="display:none;">{state_count18}</div>
-	<div class="tooltip" style="display:none;">{state_count19}</div>
-	<div class="tooltip" style="display:none;">{state_count20}</div>
-	<div class="tooltip" style="display:none;">{state_count21}</div>
-	<div class="tooltip" style="display:none;">{state_count22}</div>
-	<div class="tooltip" style="display:none;">{state_count23}</div>
-	<div class="tooltip" style="display:none;">{state_count24}</div>
-	<div class="tooltip" style="display:none;">{state_count25}</div>
-	<div class="tooltip" style="display:none;">{state_count26}</div>
-	<div class="tooltip" style="display:none;">{state_count27}</div>
-	<div class="tooltip" style="display:none;">{state_count28}</div>
-	<div class="tooltip" style="display:none;">{state_count29}</div>
-	<div class="tooltip" style="display:none;">{state_count30}</div>
-	<div class="tooltip" style="display:none;">{state_count31}</div>
-	<div class="tooltip" style="display:none;">{state_count32}</div>
-	<div class="tooltip" style="display:none;">{state_count33}</div>
-	<div class="tooltip" style="display:none;">{state_count34}</div>
-	<div class="tooltip" style="display:none;">{state_count35}</div>
-	<div class="tooltip" style="display:none;">{state_count36}</div>
-	<div class="tooltip" style="display:none;">{state_count37}</div>
-	<div class="tooltip" style="display:none;">{state_count38}</div>
-	<div class="tooltip" style="display:none;">{state_count39}</div>
-	<div class="tooltip" style="display:none;">{state_count40}</div>
-	<div class="tooltip" style="display:none;">{state_count41}</div>
-	<div class="tooltip" style="display:none;">{state_count42}</div>
-	<div class="tooltip" style="display:none;">{state_count43}</div>
-	<div class="tooltip" style="display:none;">{state_count44}</div>
-	<div class="tooltip" style="display:none;">{state_count45}</div>
-	<div class="tooltip" style="display:none;">{state_count46}</div>
-	<div class="tooltip" style="display:none;">{state_count47}</div>
-	<div class="tooltip" style="display:none;">{state_count48}</div>
-	<div class="tooltip" style="display:none;">{state_count49}</div>
-	<div class="tooltip" style="display:none;">{state_count50}</div>
-	<div class="tooltip" style="display:none;">{state_count51}</div>
-	<div class="tooltip" style="display:none;">{state_count52}</div>
-	<div class="tooltip" style="display:none;">{state_count53}</div>
-	<div class="tooltip" style="display:none;">{state_count54}</div>
-	<div class="tooltip" style="display:none;">{state_count55}</div>
-	<div class="tooltip" style="display:none;">{state_count56}</div>
-	<div class="tooltip" style="display:none;">{state_count57}</div>
-	<div class="tooltip" style="display:none;">{state_count58}</div>
-	<div class="tooltip" style="display:none;">{state_count59}</div>
-	<div class="tooltip" style="display:none;">{state_count60}</div>
-	<div class="tooltip" style="display:none;">{state_count61}</div>
-	<div class="tooltip" style="display:none;">{state_count62}</div>
-	<div class="tooltip" style="display:none;">{state_count63}</div>
-	<div class="tooltip" style="display:none;">{state_count64}</div>
+	<div class="tip" id="ct1"><strong>Yale State One<div style="color: #{srmp_team_color1};margin-bottom: 5px;">Owned By {srmp_team_name1}</div></strong>Fortified By {state_count1} Troops</div>
+	<div class="tip" id="ct2"><strong>Yale State Two<div style="color: #{srmp_team_color2};margin-bottom: 5px;">Owned By {srmp_team_name2}</div></strong>Fortified By {state_count2} Troops</div>
+	<div class="tip" id="ct3"><strong>Yale State Three<div style="color: #{srmp_team_color3};margin-bottom: 5px;">Owned By {srmp_team_name3}</div></strong>Fortified By {state_count3} Troops</div>
+	<div class="tip" id="ct4"><strong>Yale State Four<div style="color: #{srmp_team_color4};margin-bottom: 5px;">Owned By {srmp_team_name4}</div></strong>Fortified By {state_count4} Troops</div>
+	<div class="tip" id="ct5"><strong>Yale State Five<div style="color: #{srmp_team_color5};margin-bottom: 5px;">Owned By {srmp_team_name5}</div></strong>Fortified By {state_count5} Troops</div>
+	<div class="tip" id="ct6"><strong>Yale State Six<div style="color: #{srmp_team_color6};margin-bottom: 5px;">Owned By {srmp_team_name6}</div></strong>Fortified By {state_count6} Troops</div>
+	<div class="tip" id="ct7"><strong>Yale State Seven<div style="color: #{srmp_team_color7};margin-bottom: 5px;">Owned By {srmp_team_name7}</div></strong>Fortified By {state_count7} Troops</div>
+	<div class="tip" id="ct8"><strong>Yale State Eight<div style="color: #{srmp_team_color8};margin-bottom: 5px;">Owned By {srmp_team_name8}</div></strong>Fortified By {state_count8} Troops</div>
+	<div class="tip" id="ma1"><strong>Harvard State One<div style="color: #{srmp_team_color9};margin-bottom: 5px;">Owned By {srmp_team_name9}</div></strong>Fortified By {state_count9} Troops</div>
+	<div class="tip" id="ma2"><strong>Harvard State Two<div style="color: #{srmp_team_color10};margin-bottom: 5px;">Owned By {srmp_team_name10}</div></strong>Fortified By {state_count10} Troops</div>
+	<div class="tip" id="ma3"><strong>Harvard State Three<div style="color: #{srmp_team_color11};margin-bottom: 5px;">Owned By {srmp_team_name11}</div></strong>Fortified By {state_count11} Troops</div>
+	<div class="tip" id="ma4"><strong>Harvard State Four<div style="color: #{srmp_team_color12};margin-bottom: 5px;">Owned By {srmp_team_name12}</div></strong>Fortified By {state_count12} Troops</div>
+	<div class="tip" id="ma5"><strong>Harvard State Five<div style="color: #{srmp_team_color13};margin-bottom: 5px;">Owned By {srmp_team_name13}</div></strong>Fortified By {state_count13} Troops</div>
+	<div class="tip" id="ma6"><strong>Harvard State Six<div style="color: #{srmp_team_color14};margin-bottom: 5px;">Owned By {srmp_team_name14}</div></strong>Fortified By {state_count14} Troops</div>
+	<div class="tip" id="ma7"><strong>Harvard State Seven<div style="color: #{srmp_team_color15};margin-bottom: 5px;">Owned By {srmp_team_name15}</div></strong>Fortified By {state_count15} Troops</div>
+	<div class="tip" id="ma8"><strong>Harvard State Eight<div style="color: #{srmp_team_color16};margin-bottom: 5px;">Owned By {srmp_team_name16}</div></strong>Fortified By {state_count16} Troops</div>
+	<div class="tip" id="ma9"><strong>Harvard State Nine<div style="color: #{srmp_team_color17};margin-bottom: 5px;">Owned By {srmp_team_name17}</div></strong>Fortified By {state_count17} Troops</div>
+	<div class="tip" id="ma10"><strong>Harvard State Ten<div style="color: #{srmp_team_color18};margin-bottom: 5px;">Owned By {srmp_team_name18}</div></strong>Fortified By {state_count18} Troops</div>
+	<div class="tip" id="ma11"><strong>Harvard State Eleven<div style="color: #{srmp_team_color19};margin-bottom: 5px;">Owned By {srmp_team_name19}</div></strong>Fortified By {state_count19} Troops</div>
+	<div class="tip" id="ma12"><strong>Harvard State Twelve<div style="color: #{srmp_team_color20};margin-bottom: 5px;">Owned By {srmp_team_name20}</div></strong>Fortified By {state_count20} Troops</div>
+	<div class="tip" id="ma13"><strong>Harvard State Thirteen<div style="color: #{srmp_team_color21};margin-bottom: 5px;">Owned By {srmp_team_name21}</div></strong>Fortified By {state_count21} Troops</div>
+	<div class="tip" id="nh1"><strong>Dartmouth State One<div style="color: #{srmp_team_color22};margin-bottom: 5px;">Owned By {srmp_team_name22}</div></strong>Fortified By {state_count22} Troops</div>
+	<div class="tip" id="nh2"><strong>Dartmouth State Two<div style="color: #{srmp_team_color23};margin-bottom: 5px;">Owned By {srmp_team_name23}</div></strong>Fortified By {state_count23} Troops</div>
+	<div class="tip" id="nh3"><strong>Dartmouth State Three<div style="color: #{srmp_team_color24};margin-bottom: 5px;">Owned By {srmp_team_name24}</div></strong>Fortified By {state_count24} Troops</div>
+	<div class="tip" id="nh4"><strong>Dartmouth State Four<div style="color: #{srmp_team_color25};margin-bottom: 5px;">Owned By {srmp_team_name25}</div></strong>Fortified By {state_count25} Troops</div>
+	<div class="tip" id="nh5"><strong>Dartmouth State Five<div style="color: #{srmp_team_color26};margin-bottom: 5px;">Owned By {srmp_team_name26}</div></strong>Fortified By {state_count26} Troops</div>
+	<div class="tip" id="nh6"><strong>Dartmouth State Six<div style="color: #{srmp_team_color27};margin-bottom: 5px;">Owned By {srmp_team_name27}</div></strong>Fortified By {state_count27} Troops</div>
+	<div class="tip" id="nh7"><strong>Dartmouth State Seven<div style="color: #{srmp_team_color28};margin-bottom: 5px;">Owned By {srmp_team_name28}</div></strong>Fortified By {state_count28} Troops</div>
+	<div class="tip" id="nj1"><strong>Princeton State One<div style="color: #{srmp_team_color29};margin-bottom: 5px;">Owned By {srmp_team_name29}</div></strong>Fortified By {state_count29} Troops</div>
+	<div class="tip" id="nj2"><strong>Princeton State Two<div style="color: #{srmp_team_color30};margin-bottom: 5px;">Owned By {srmp_team_name30}</div></strong>Fortified By {state_count30} Troops</div>
+	<div class="tip" id="nj3"><strong>Princeton State Three<div style="color: #{srmp_team_color31};margin-bottom: 5px;">Owned By {srmp_team_name31}</div></strong>Fortified By {state_count31} Troops</div>
+	<div class="tip" id="nj4"><strong>Princeton State Four<div style="color: #{srmp_team_color32};margin-bottom: 5px;">Owned By {srmp_team_name32}</div></strong>Fortified By {state_count32} Troops</div>
+	<div class="tip" id="nj5"><strong>Princeton State Five<div style="color: #{srmp_team_color33};margin-bottom: 5px;">Owned By {srmp_team_name33}</div></strong>Fortified By {state_count33} Troops</div>
+	<div class="tip" id="nj6"><strong>Princeton State Six<div style="color: #{srmp_team_color34};margin-bottom: 5px;">Owned By {srmp_team_name34}</div></strong>Fortified By {state_count34} Troops</div>
+	<div class="tip" id="nj7"><strong>Princeton State Seven<div style="color: #{srmp_team_color35};margin-bottom: 5px;">Owned By {srmp_team_name35}</div></strong>Fortified By {state_count35} Troops</div>
+	<div class="tip" id="nj8"><strong>Princeton State Eight<div style="color: #{srmp_team_color36};margin-bottom: 5px;">Owned By {srmp_team_name36}</div></strong>Fortified By {state_count36} Troops</div>
+	<div class="tip" id="nj9"><strong>Princeton State Nine<div style="color: #{srmp_team_color37};margin-bottom: 5px;">Owned By {srmp_team_name37}</div></strong>Fortified By {state_count37} Troops</div>
+	<div class="tip" id="nj10"><strong>Princeton State Ten<div style="color: #{srmp_team_color38};margin-bottom: 5px;">Owned By {srmp_team_name38}</div></strong>Fortified By {state_count38} Troops</div>
+	<div class="tip" id="ny1"><strong>Cornell State One<div style="color: #{srmp_team_color39};margin-bottom: 5px;">Owned By {srmp_team_name39}</div></strong>Fortified By {state_count39} Troops</div>
+	<div class="tip" id="ny2"><strong>Cornell State Two<div style="color: #{srmp_team_color40};margin-bottom: 5px;">Owned By {srmp_team_name40}</div></strong>Fortified By {state_count40} Troops</div>
+	<div class="tip" id="ny3"><strong>Cornell State Three<div style="color: #{srmp_team_color41};margin-bottom: 5px;">Owned By {srmp_team_name41}</div></strong>Fortified By {state_count41} Troops</div>
+	<div class="tip" id="ny4"><strong>Cornell State Four<div style="color: #{srmp_team_color42};margin-bottom: 5px;">Owned By {srmp_team_name42}</div></strong>Fortified By {state_count42} Troops</div>
+	<div class="tip" id="ny5"><strong>Columbia State Five<div style="color: #{srmp_team_color43};margin-bottom: 5px;">Owned By {srmp_team_name43}</div></strong>Fortified By {state_count43} Troops</div>
+	<div class="tip" id="ny6"><strong>Columbia State Six<div style="color: #{srmp_team_color44};margin-bottom: 5px;">Owned By {srmp_team_name44}</div></strong>Fortified By {state_count44} Troops</div>
+	<div class="tip" id="ny7"><strong>Cornell State Seven<div style="color: #{srmp_team_color45};margin-bottom: 5px;">Owned By {srmp_team_name45}</div></strong>Fortified By {state_count45} Troops</div>
+	<div class="tip" id="ny8"><strong>Cornell State Eight<div style="color: #{srmp_team_color46};margin-bottom: 5px;">Owned By {srmp_team_name46}</div></strong>Fortified By {state_count46} Troops</div>
+	<div class="tip" id="ny9"><strong>Columbia State Nine<div style="color: #{srmp_team_color47};margin-bottom: 5px;">Owned By {srmp_team_name47}</div></strong>Fortified By {state_count47} Troops</div>
+	<div class="tip" id="ny10"><strong>Columbia State Ten<div style="color: #{srmp_team_color48};margin-bottom: 5px;">Owned By {srmp_team_name48}</div></strong>Fortified By {state_count48} Troops</div>
+	<div class="tip" id="ny11"><strong>Columbia State Eleven<div style="color: #{srmp_team_color49};margin-bottom: 5px;">Owned By {srmp_team_name49}</div></strong>Fortified By {state_count49} Troops</div>
+	<div class="tip" id="pa1"><strong>University of Pennsylvania State One<div style="color: #{srmp_team_color50};margin-bottom: 5px;">Owned By {srmp_team_name50}</div></strong>Fortified By {state_count50} Troops</div>
+	<div class="tip" id="pa2"><strong>University of Pennsylvania State Two<div style="color: #{srmp_team_color51};margin-bottom: 5px;">Owned By {srmp_team_name51}</div></strong>Fortified By {state_count51} Troops</div>
+	<div class="tip" id="pa3"><strong>University of Pennsylvania State Three<div style="color: #{srmp_team_color52};margin-bottom: 5px;">Owned By {srmp_team_name52}</div></strong>Fortified By {state_count52} Troops</div>
+	<div class="tip" id="pa4"><strong>University of Pennsylvania State Four<div style="color: #{srmp_team_color53};margin-bottom: 5px;">Owned By {srmp_team_name53}</div></strong>Fortified By {state_count53} Troops</div>
+	<div class="tip" id="pa5"><strong>University of Pennsylvania State Five<div style="color: #{srmp_team_color54};margin-bottom: 5px;">Owned By {srmp_team_name54}</div></strong>Fortified By {state_count54} Troops</div>
+	<div class="tip" id="pa6"><strong>University of Pennsylvania State Six<div style="color: #{srmp_team_color55};margin-bottom: 5px;">Owned By {srmp_team_name55}</div></strong>Fortified By {state_count55} Troops</div>
+	<div class="tip" id="pa7"><strong>University of Pennsylvania State Seven<div style="color: #{srmp_team_color56};margin-bottom: 5px;">Owned By {srmp_team_name56}</div></strong>Fortified By {state_count56} Troops</div>
+	<div class="tip" id="pa8"><strong>University of Pennsylvania State Eight<div style="color: #{srmp_team_color57};margin-bottom: 5px;">Owned By {srmp_team_name57}</div></strong>Fortified By {state_count57} Troops</div>
+	<div class="tip" id="pa9"><strong>University of Pennsylvania State Nine<div style="color: #{srmp_team_color58};margin-bottom: 5px;">Owned By {srmp_team_name58}</div></strong>Fortified By {state_count58} Troops</div>
+	<div class="tip" id="pa10"><strong>University of Pennsylvania State Ten<div style="color: #{srmp_team_color59};margin-bottom: 5px;">Owned By {srmp_team_name59}</div></strong>Fortified By {state_count59} Troops</div>
+	<div class="tip" id="ri1"><strong>Brown State One<div style="color: #{srmp_team_color60};margin-bottom: 5px;">Owned By {srmp_team_name60}</div></strong>Fortified By {state_count60} Troops</div>
+	<div class="tip" id="ri2"><strong>Brown State Two<div style="color: #{srmp_team_color61};margin-bottom: 5px;">Owned By {srmp_team_name61}</div></strong>Fortified By {state_count61} Troops</div>
+	<div class="tip" id="ri3"><strong>Brown State Three<div style="color: #{srmp_team_color62};margin-bottom: 5px;">Owned By {srmp_team_name62}</div></strong>Fortified By {state_count62} Troops</div>
+	<div class="tip" id="ri4"><strong>Brown State Four<div style="color: #{srmp_team_color63};margin-bottom: 5px;">Owned By {srmp_team_name63}</div></strong>Fortified By {state_count63} Troops</div>
+	<div class="tip" id="ri5"><strong>Brown State Five<div style="color: #{srmp_team_color64};margin-bottom: 5px;">Owned By {srmp_team_name64}</div></strong>Fortified By {state_count64} Troops</div>
 	
 	<div id="main" style="resize: both; float: right; min-height: 240px; height: 240px; width: 30%; max-width: 40%; overflow: scroll; cursor: se-resize; padding: 10px;text-align: left; color: #888; margin-top: 10px;">
 		<img src="views/default/images/icons/flash.png" style="height: 17px; vertical-align: -4px; opacity: .7;" />&nbsp&nbspCommand&nbsp&nbsp|&nbsp&nbspTurn {srmp_turn_number}
@@ -839,9 +873,9 @@ $(document).ready(function(){
 			</select>
 			</div>
 			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
-			<button onclick="attackCommand()" class="grnbutton" style="margin-top: 10px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Attack</button>
+			<button onclick="attackCommand()" class="grnbutton" style="margin-top: 10px; width:45%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="margin-top: -1px; width: 18px; opacity:.7;  margin-left: 7px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Attack</button>
 			
-			<button onclick="passCommand('2')" class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Attack</button>
+			<button onclick="passCommand('2')" class="grnbutton" style="margin-top: 14px; width:45%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7; margin-top: 1px; margin-left: 10px; position: absolute;" />&nbsp&nbsp&nbsp&nbspPass Attack</button>
 		</div>
 		
 		
@@ -865,9 +899,9 @@ $(document).ready(function(){
 			</select>
 			</div>
 			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
-			<button onclick="fortifyCommand()" class="grnbutton" style="margin-top: 10px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 20px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Fortify</button>
+			<button onclick="fortifyCommand()" class="grnbutton" style="margin-top: 10px; width:45%; background: #CCFFCC;"><img src="views/default/images/icons/refresh.png" alt="refresh" style="margin-top: -1px; width: 18px; opacity:.7;  margin-left: 7px; position: absolute;" />&nbsp&nbsp&nbsp&nbspOrder Fortify</button>
 			
-			<button onclick="passCommand('3')" class="grnbutton" style="margin-top: 14px; width:60%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7;  margin-left: 23px; position: absolute;" />&nbsp&nbsp&nbsp&nbspEnd Fortify</button>
+			<button onclick="passCommand('3')" class="grnbutton" style="margin-top: 14px; width:45%; background: #CCFFCC;"><img src="views/default/images/icons/next.png" alt="refresh" style="width: 18px; opacity:.7; margin-top: 1px; margin-left: 10px; position: absolute;" />&nbsp&nbsp&nbsp&nbspEnd Fortify</button>
 		</div>
 	
 	
