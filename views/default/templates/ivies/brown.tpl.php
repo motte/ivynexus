@@ -823,7 +823,7 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 			<div align="right" style="padding-right: 20px;">
 				<div id="align" class="video_input  extra_field">
 					<label for="video_url">YouTube URL</label>
-					<input type="text" id="video_url" class="extra" name="video_url" size="70%" /><br />
+					<input type="text" id="video_url" class="extra" name="video_url" size="54%" /><br />
 				</div>
 				<div id="align" class="photo_input  extra_field">
 				<form id="imageform" method="post" enctype="multipart/form-data" action="controllers/ivies/dc/photocontroller.php">
@@ -838,17 +838,17 @@ b=b.replace(/\r\n|\r|\n/g, "<br />");
 				
 				<form id="eventform" method="post" enctype="multipart/form-data" action="controllers/ivies/dc/eventcontroller.php">
 					<label class="event_url">Event&nbsp&nbsp</label>
-					<input type="text" id="event_url" class="extra" name="event_url" size="75%" /><br /><br />
+					<input type="text" id="event_url" class="extra" name="event_url" size="60%" /><br /><br />
 					<span style="display:inline-block;"><label for="event_start">Start Date</label>
-					<input type="date" class="extra" id="event_start" name="event_start" size="34%" placeholder="e.g. 2012-05-08   Y-M-D" /></span>
+					<input type="date" class="extra" id="event_start" name="event_start" size="31%" placeholder="e.g. 2012-05-08   Y-M-D" /></span>
 					<span style="display:inline-block;"><label for="event_starttime">&nbsp&nbsp&nbspTime</label>
-					<input type="time" class="extra" id="event_starttime" name="event_starttime" size="21%" placeholder="e.g. 7:05 PM" /></span><br /><br />
+					<input type="time" class="extra" id="event_starttime" name="event_starttime" size="16%" placeholder="e.g. 7:05 PM" /></span><br /><br />
 					<span style="display:inline-block;"><label class="event_end">End Date&nbsp</label>
-					<input type="date" id="event_end" class="extra" name="event_end" size="34%" placeholder="e.g. 2012-05-29   Y-M-D" /></span>
+					<input type="date" id="event_end" class="extra" name="event_end" size="31%" placeholder="e.g. 2012-05-29   Y-M-D" /></span>
 					<span style="display:inline-block;"><label for="event_endtime">&nbsp&nbsp&nbspTime</label>
-					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="21%" placeholder="e.g. 12:00 AM" /></span><br /><br />
+					<input type="time" class="extra" id="event_endtime" name="event_endtime" size="16%" placeholder="e.g. 12:00 AM" /></span><br /><br />
 					<label for="event_description">Description&nbsp&nbsp</label>
-					<input type="text" class="extra" id="event_description" name="event_description" size="68%" /><br /><br />
+					<input type="text" class="extra" id="event_description" name="event_description" size="55%" /><br /><br />
 					<label class="event_file">Upload Image</label>
 					<input type="file" class="extra" id="event_file" name="event_file" /><br />
 				</form>

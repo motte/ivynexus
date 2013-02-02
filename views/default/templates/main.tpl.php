@@ -153,11 +153,11 @@ function viewed() {
 <div id="slidemain">
 	<div id="gallery">
 		<div id="slides">
-			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/current/simplifyslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/srmp"><img src="views/default/images/announcements/current/simplifyslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/crush"><img src="views/default/images/announcements/current/crushslide.png" width="820" height="400" alt="side" /></a></div>
-			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/missedslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/members"><img src="views/default/images/announcements/current/missedslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/academics/edit"><img src="views/default/images/announcements/current/jobslide.png" width="820" height="400" alt="side" /></a></div>
-			<div class="slide"><a href="/security_terms.php"><img src="views/default/images/announcements/current/intelligentslide.png" width="820" height="400" alt="side" /></a></div>
+			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/intelligentslide.png" width="820" height="400" alt="side" /></a></div>
 			<div class="slide"><a href="/ivies/Dartmouth"><img src="views/default/images/announcements/current/ventslide.png" width="820" height="400" alt="side" /></a></div>
 			
 		</div>

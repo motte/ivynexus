@@ -29,6 +29,26 @@ class Srmpgame {
 	
     private $valid;
     
+ function(){   
+    while($result_array = mysql_fetch_array sandrm_partials WHERE owner_id='$team_id' ASC by id){
+	   $borders_array = explode(',',  $result_array[borders]);
+	   foreach ($borders_array as each_border){
+		   if(in_array(each_border, $borders_array)){
+			   
+		   }
+	   }
+	    
+    }
+    	
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     /*
      * Profile constructor
      * @param Registry $registry the registry
@@ -43,8 +63,8 @@ class Srmpgame {
             $this->registry->getObject('db')->executeQuery($sql);
             $user = $this->registry->getObject('db')->getRows();
             $states_owned = explode(',',$user['states']);
-            $search = array('ct1', 'ct2', 'ct3', 'ct4', 'ct5', 'ct6', 'ct7', 'ct8', 'ma10', 'ma11', 'ma12', 'ma13', 'ma1', 'ma2', 'ma3', 'ma4', 'ma5', 'ma6', 'ma7', 'ma8', 'ma9', 'nh1', 'nh2', 'nh3', 'nh4', 'nh5', 'nh6', 'nh7', 'nj10', 'nj1', 'nj2', 'nj3', 'nj4', 'nj5', 'nj6', 'nj7', 'nj8', 'nj9', 'ny10', 'ny11', 'ny1', 'ny2', 'ny3', 'ny4', 'ny7', 'ny8', 'ny5', 'ny6', 'ny9', 'pa10', 'pa1', 'pa2', 'pa3', 'pa4', 'pa5', 'pa6', 'pa7', 'pa8', 'pa9', 'ri1', 'ri2', 'ri3', 'ri4', 'ri5');
-            $replace = array('Yale State One', 'Yale State Two', 'Yale State Three', 'Yale State Four', 'Yale State Five', 'Yale State Six', 'Yale State Seven', 'Yale State Eight', 'Harvard Sector Ten', 'Harvard Sector Elven', 'Harvard Sector Twelve', 'Harvard Sector Thirteen', 'Harvard Sector One', 'Harvard Sector Two', 'Harvard Sector Three', 'Harvard Sector Four', 'Harvard Sector Five', 'Harvard Sector Six', 'Harvard Sector Seven', 'Harvard Sector Eight', 'Harvard Sector Nine', 'Dartmouth Sector One', 'Dartmouth Sector Two', 'Dartmouth Sector Three', 'Dartmouth Sector Four', 'Dartmouth Sector Five', 'Dartmouth Sector Six', 'Dartmouth Sector Seven', 'Princeton Sector One', 'Princeton Sector Two', 'Princeton Sector Three', 'Princeton Sector Four', 'Princeton Sector Five', 'Princeton Sector Six', 'Princeton Sector Seven', 'Princeton Sector Eight', 'Princeton Sector Nine', 'Princeton Sector Ten', 'Columbia State Four', 'Columbia State Five', 'Cornell State One', 'Cornell State Two', 'Cornell State Three', 'Cornell State Four', 'Cornell State Five', 'Cornell State Six', 'Columbia State One', 'Columbia State Two', 'Columbia State Three', 'UPenn State Ten', 'UPenn State One', 'UPenn State Two', 'UPenn State Three', 'UPenn State Four', 'UPenn State Five', 'UPenn State Six', 'UPenn State Seven', 'UPenn State Eight', 'UPenn State Nine', 'Brown Sector One', 'Brown Sector Two', 'Brown Sector Three', 'Brown Sector Four', 'Brown Sector Five');
+            $search = array('ct1', 'ct2', 'ct3', 'ct4', 'ct5', 'ct6', 'ct7', 'ct8', 'ma1', 'ma2', 'ma3', 'ma4', 'ma5', 'ma6', 'ma7', 'ma8', 'ma9', 'ma10', 'ma11', 'ma12', 'ma13', 'nh1', 'nh2', 'nh3', 'nh4', 'nh5', 'nh6', 'nh7', 'nj1', 'nj2', 'nj3', 'nj4', 'nj5', 'nj6', 'nj7', 'nj8', 'nj9', 'nj10', 'ny1', 'ny2', 'ny3', 'ny4', 'ny7', 'ny8', 'ny5', 'ny6', 'ny9', 'ny10', 'ny11', 'pa1', 'pa2', 'pa3', 'pa4', 'pa5', 'pa6', 'pa7', 'pa8', 'pa9', 'pa10', 'ri1', 'ri2', 'ri3', 'ri4', 'ri5');
+            $replace = array('Yale State One', 'Yale State Two', 'Yale State Three', 'Yale State Four', 'Yale State Five', 'Yale State Six', 'Yale State Seven', 'Yale State Eight', 'Harvard Sector One', 'Harvard Sector Two', 'Harvard Sector Three', 'Harvard Sector Four', 'Harvard Sector Five', 'Harvard Sector Six', 'Harvard Sector Seven', 'Harvard Sector Eight', 'Harvard Sector Nine', 'Harvard Sector Ten', 'Harvard Sector Elven', 'Harvard Sector Twelve', 'Harvard Sector Thirteen', 'Dartmouth Sector One', 'Dartmouth Sector Two', 'Dartmouth Sector Three', 'Dartmouth Sector Four', 'Dartmouth Sector Five', 'Dartmouth Sector Six', 'Dartmouth Sector Seven', 'Princeton Sector One', 'Princeton Sector Two', 'Princeton Sector Three', 'Princeton Sector Four', 'Princeton Sector Five', 'Princeton Sector Six', 'Princeton Sector Seven', 'Princeton Sector Eight', 'Princeton Sector Nine', 'Princeton Sector Ten', 'Cornell State One', 'Cornell State Two', 'Cornell State Three', 'Cornell State Four', 'Cornell State Five', 'Cornell State Six', 'Columbia State One', 'Columbia State Two', 'Columbia State Three', 'Columbia State Four', 'Columbia State Five', 'UPenn State One', 'UPenn State Two', 'UPenn State Three', 'UPenn State Four', 'UPenn State Five', 'UPenn State Six', 'UPenn State Seven', 'UPenn State Eight', 'UPenn State Nine', 'UPenn State Ten', 'Brown Sector One', 'Brown Sector Two', 'Brown Sector Three', 'Brown Sector Four', 'Brown Sector Five');
             $nums = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
             // new turn without any commands submitted
             if($user['committed'] == 0){
@@ -217,94 +237,11 @@ class Srmpgame {
             else {
                 $this->valid = false;
             }*/
-            //$this->fortifyChoices($profile_team_id, $search, $replace);
-            
-            
-            // if an ID is passed, populate based off that
-            $sqlfour = "SELECT * FROM sandrm_partials WHERE owner_id='$profile_team_id'";
-            $this->registry->getObject('db')->executeQuery($sqlfour);
-            
-           	while($team=$this->registry->getObject('db')->getRows()) {
-           		
-           		$each_state = $team['partial_name'];
-           		
-            	$each_state_name = str_replace($search, $replace, $team['partial_name']);
-            	
-	            //$insert .= "<option>".$states_owned."</option>";
-	            //$each = str_replace($nums, '', $each);
-	            //$team_stte = $team_stte.'<option value="'.$team['partial_name'].'">'.$team['partial_name'].'</option>';
-	            $team_state .= '<option value="'.$each_state.'">'.'('.$team['troops'].')'.' '.$each_state_name.'</option>';
-	            
-            }
-       		$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices', $team_state);
-            	
         }
         else {
             $this->valid = false;
         }
     }
-    
-    /**/
-    public function fortifyChoices($team_id, $search, $replace){ 
-    	
-    	include_once('dbconnecti.php');
-    	/*get all the user's team's partials/states */
-    	$query = mysqli_query($link, "SELECT * FROM sandrm_partials WHERE owner_id='$team_id' ORDER BY partial_id ASC");
-    	/* pull borders and states owned info */
-    	//$connected_states = array();
-    	$counterfort = 1;
-    	$uery = mysqli_query($link, "SELECT partial_name FROM sandrm_partials WHERE owner_id='$team_id' ORDER BY partial_id ASC");
-    	while($result_array = mysqli_fetch_array($uery)){
-    		$states_owned_array[] = '('.$result_array['partial_name'].') '.$result_array['partial_name'];
-    	}
-    	while($result_array = mysqli_fetch_array($query)){
-    		$connected_states_array = array();
-    		$connected_states_string = '';
-    		//$states_owned_array[] = $result_array['partial_name'];
-    		$borders_array = explode(",",  $result_array['borders']);
-    		//$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, $borders_array);
-    		
-    		//the problem is that all the inarrays are returning false
-    		
-    		/* foreach of team owned states see if each surrounding state is connected */
-    		foreach($borders_array as $each_border){
-    		
-		    	if(in_array($each_border, $states_owned_array) && in_array($each_border, $connected_states_array)){
-		    			$ready_state_choices = str_replace($search, $replace, $connected_states_string);
-$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'd');
-		    	}
-		    	
-		    	elseif(in_array($each_border, $states_owned_array) && ! in_array($each_border, $connected_states_array)){
-			    	$connected_states_string .= '<option value="'.$each_border.'">'.$each_border.'</option>';
-			    	$connected_states_array[] = $each_border;
-			    	//$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'b');
-		    	}
-		    	/*if(! in_array($each_border, $states_owned_array) && ! in_array($each_border, $connected_states_array)){
-			    	
-			    	$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'c');
-		    	}*/
-		    	
-		    	/*elseif(in_array($each_border, $states_owned_array)){
-		    	$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'c');
-		    	}
-		    	else{
-			    	$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'e');
-		    	}*/
-		    }
-		   
-		   $counterfort++;
- 
-		}
-		while($counterfort < 65){
-			$this->registry->getObject('template')->getPage()->addTag('srmp_state_choices'.$counterfort, 'a');
-			$counterfort++;
-		}
-		
-		
-    }
-    
-    
-    
     
     /*
      * Is the profile valid

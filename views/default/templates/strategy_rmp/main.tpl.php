@@ -528,14 +528,199 @@ $(document).ready(function(){
     
     $("#fortifystateone").change(function() {
         var val = $(this).val();
-        if (val == "item1") {
-            $("#attackstatetwo").html("item1</option><option value='test2'>item1: test 2</option>");
+        val = val.substr(-4);
+        val = val.replace(" ", "");
+        if (val == "ct1") {
+            $("#fortifystatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ny11'>({state_count11}) Columbia State Eleven</option>");
         }
-        else if (val == "item2") {
-            $("#attackstatetwo").html("item2</option><option value='test2'>item</option>");
+        else if (val == "ct2") {
+            $("#fortifystatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ct3'>({state_count3}) Yale State Three</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct6'>({state_count6}) Yale State Six</option>");
         }
-        else if (val == "item3") {
-            $("#attackstatetwo").html("item3</option><option value='test2'>item</option>");
+        else if (val == "ct3") {
+            $("#fortifystatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct6'>({state_count6}) Yale State Six</option><option value='ct7'>({state_count7}) Yale State Seven</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ct4") {
+            $("#fortifystatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ct2'>({state_count2}) Yale State Two</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct8'>({state_count8}) Yale State Eight</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "ct5") {
+            $("#fortifystatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct4'>({state_count4}) Yale State Four</option><option value='ct6'>({state_count6}) Yale State Six</option><option value='ct7'>({state_count7}) Yale State Seven</option>");
+        }
+        else if (val == "ct6") {
+            $("#fortifystatetwo").html("<option value='ct2'>({state_count2}) Yale State Two</option><option value='ct3'>({state_count3}) Yale State Three</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct7'>({state_count7}) Yale State Seven</option>");
+        }
+        else if (val == "ct7") {
+            $("#fortifystatetwo").html("<option value='ct3'>({state_count3}) Yale State Three</option><option value='ct5'>({state_count5}) Yale State Five</option><option value='ct6'>({state_count6}) Yale State Six</option>");
+        }
+        else if (val == "ct8") {
+            $("#fortifystatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='ri5'>({state_count64}) Brown State Five</option>");
+        }
+        else if (val == "ma1") {
+            $("#fortifystatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ma2") {
+            $("#fortifystatetwo").html("<option value='ma1'>({state_count9}) Harvard State One</option><option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma3") {
+            $("#fortifystatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma6'>({state_count14}) Harvard State Six</option>");
+        }
+        else if (val == "ma4") {
+            $("#fortifystatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma5") {
+            $("#fortifystatetwo").html("<option value='ma1'>({state_count9}) Harvard State One</option><option value='ma2'>({state_count10}) Harvard State Two</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma7'>({state_count15}) Harvard State Seven</option>");
+        }
+        else if (val == "ma6") {
+            $("#fortifystatetwo").html("<option value='ma3'>({state_count11}) Harvard State Three</option><option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma7'>({state_count15}) Harvard State Seven</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma10'>({state_count18}) Harvard State Ten</option>");
+        }
+        else if (val == "ma7") {
+            $("#fortifystatetwo").html("<option value='ma4'>({state_count12}) Harvard State Four</option><option value='ma5'>({state_count13}) Harvard State Five</option><option value='ma6'>({state_count15}) Harvard State Six</option><option value='ma10'>({state_count18}) Harvard State Ten</option>");
+        }
+        else if (val == "ma8") {
+            $("#fortifystatetwo").html("<option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma9") {
+            $("#fortifystatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma8'>({state_count16}) Harvard State Eight</option><option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma10") {
+            $("#fortifystatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='ma7'>({state_count15}) Harvard State Seven</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma12'>({state_count20}) Harvard State Twelve</option>");
+        }
+        else if (val == "ma11") {
+            $("#fortifystatetwo").html("<option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma12'>({state_count20}) Harvard State Twelve</option><option value='ma13'>({state_count21}) Harvard State Thirteen</option>");
+        }
+        else if (val == "ma12") {
+            $("#fortifystatetwo").html("<option value='ma8'>({state_count16}) Harvard State Eight</option><option value='ma9'>({state_count17}) Harvard State Nine</option><option value='ma10'>({state_count18}) Harvard State Ten</option><option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma13'>({state_count21}) Harvard State Thirteen</option>");
+        }
+        else if (val == "ma13") {
+            $("#fortifystatetwo").html("<option value='ma11'>({state_count19}) Harvard State Eleven</option><option value='ma12'>({state_count20}) Harvard State Twelve</option><option value='ri2'>({state_count61}) Brown State Two</option>");
+        }
+        else if (val == "nh1") {
+            $("#fortifystatetwo").html("<option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='ny7'>({state_count45}) Cornell State Seven</option>");
+        }
+        else if (val == "nh2") {
+            $("#fortifystatetwo").html("<option value='nh1'>({state_count22}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='nh4'>({state_count25}) Dartmouth State Four</option>");
+        }
+        else if (val == "nh3") {
+            $("#fortifystatetwo").html("<option value='nh1'>({state_count22}) Dartmouth State One</option><option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh4'>({state_count25}) Dartmouth State Four</option>");
+        }
+        else if (val == "nh4") {
+            $("#fortifystatetwo").html("<option value='nh2'>({state_count23}) Dartmouth State Two</option><option value='nh3'>({state_count24}) Dartmouth State Three</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh6'>({state_count27}) Dartmouth State Six</option>");
+        }
+        else if (val == "nh5") {
+            $("#fortifystatetwo").html("<option value='nh4'>({state_count25}) Dartmouth State Four</option><option value='nh6'>({state_count27}) Dartmouth State Six</option><option value='nh7'>({state_count28}) Dartmouth State Seven</option>");
+        }
+        else if (val == "nh6") {
+            $("#fortifystatetwo").html("<option value='ma6'>({state_count14}) Harvard State Six</option><option value='nh4'>({state_count25}) Dartmouth State Four</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh7'>({state_count28}) Dartmouth State Seven</option>");
+        }
+        else if (val == "nh7") {
+            $("#fortifystatetwo").html("<option value='ma2'>({state_count10}) Harvard State Two</option><option value='nh5'>({state_count26}) Dartmouth State Five</option><option value='nh6'>({state_count27}) Dartmouth State Six</option>");
+        }
+        else if (val == "nj1") {
+            $("#fortifystatetwo").html("<option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "nj2") {
+            $("#fortifystatetwo").html("<option value='nj1'>({state_count29}) Princeton State One</option><option value='nj3'>({state_count31}) Princeton State Three</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj5'>({state_count33}) Princeton State Five</option>");
+        }
+        else if (val == "nj3") {
+            $("#fortifystatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='nj1'>({state_count29}) Princeton State One</option><option value='nj2'>({state_count30}) Princeton State Two</option>");
+        }
+        else if (val == "nj4") {
+            $("#fortifystatetwo").html("<option value='nj1'>({state_count29}) Princeton State One</option><option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj7'>({state_count35}) Princeton State Seven</option>");
+        }
+        else if (val == "nj5") {
+            $("#fortifystatetwo").html("<option value='nj2'>({state_count30}) Princeton State Two</option><option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj7'>({state_count35}) Princeton State Seven</option>");
+        }
+        else if (val == "nj6") {
+            $("#fortifystatetwo").html("<option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj7") {
+            $("#fortifystatetwo").html("<option value='nj4'>({state_count32}) Princeton State Four</option><option value='nj5'>({state_count33}) Princeton State Five</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj8") {
+            $("#fortifystatetwo").html("<option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj9'>({state_count37}) Princeton State Nine</option><option value='nj10'>({state_count38}) Princeton State Ten</option>");
+        }
+        else if (val == "nj9") {
+            $("#fortifystatetwo").html("<option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj10'>({state_count38}) Princeton State Ten</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "nj10") {
+            $("#fortifystatetwo").html("<option value='ct4'>({state_count4}) Yale State Four</option><option value='nj6'>({state_count34}) Princeton State Six</option><option value='nj7'>({state_count35}) Princeton State Seven</option><option value='nj8'>({state_count36}) Princeton State Eight</option><option value='nj9'>({state_count37}) Princeton State Nine</option>");
+        }
+        else if (val == "ny1") {
+            $("#fortifystatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option>");
+        }
+        else if (val == "ny2") {
+            $("#fortifystatetwo").html("<option value='ny1'>({state_count39}) Cornell State One</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='pa2'>({state_count51}) UPenn State Two</option>");
+        }
+        else if (val == "ny3") {
+            $("#fortifystatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny7'>({state_count45}) Cornell State Seven</option><option value='ny8'>({state_count46}) Cornell State Eight</option>");
+        }
+        else if (val == "ny4") {
+            $("#fortifystatetwo").html("<option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny8'>({state_count46}) Cornell State Eight</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny5") {
+            $("#fortifystatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny6") {
+            $("#fortifystatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='ny11'>({state_count49}) Columbia State Eleven</option>");
+        }
+        else if (val == "ny7") {
+            $("#fortifystatetwo").html("<option value='ny1'>({state_count39}) Cornell State One</option><option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny8'>({state_count46}) Cornell State Eight</option>");
+        }
+        else if (val == "ny8") {
+            $("#fortifystatetwo").html("<option value='ny3'>({state_count41}) Cornell State Three</option><option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny7'>({state_count45}) Cornell State Seven</option><option value='ny9'>({state_count47}) Columbia State Nine</option>");
+        }
+        else if (val == "ny9") {
+            $("#fortifystatetwo").html("<option value='ny4'>({state_count42}) Cornell State Four</option><option value='ny5'>({state_count43}) Columbia State Five</option><option value='ny8'>({state_count46}) Cornell State Eight</option><option value='ny10'>({state_count48}) Columbia State Ten</option>");
+        }
+        else if (val == "ny10") {
+            $("#fortifystatetwo").html("<option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='ny11'>({state_count49}) Columbia State Eleven</option>");
+        }
+        else if (val == "ny11") {
+            $("#fortifystatetwo").html("<option value='ct1'>({state_count1}) Yale State One</option><option value='ny6'>({state_count44}) Columbia State Six</option><option value='ny10'>({state_count48}) Columbia State Ten</option><option value='pa3'>({state_count52}) UPenn State Three</option>");
+        }
+        else if (val == "pa1") {
+            $("#fortifystatetwo").html("<option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa5'>({state_count54}) UPenn State Five</option>");
+        }
+        else if (val == "pa2") {
+            $("#fortifystatetwo").html("<option value='ny2'>({state_count40}) Cornell State Two</option><option value='pa1'>({state_count50}) UPenn State One</option><option value='pa3'>({state_count52}) UPenn State Three</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "pa3") {
+            $("#fortifystatetwo").html("<option value='ny11'>({state_count49}) Columbia State Eleven</option><option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa6'>({state_count55}) UPenn State Six</option>");
+        }
+        else if (val == "pa4") {
+            $("#fortifystatetwo").html("<option value='pa1'>({state_count50}) UPenn State One</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa7'>({state_count56}) UPenn State Seven</option>");
+        }
+        else if (val == "pa5") {
+            $("#fortifystatetwo").html("<option value='pa1'>({state_count50}) UPenn State One</option><option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa8'>({state_count57}) UPenn State Eight</option>");
+        }
+        else if (val == "pa6") {
+            $("#fortifystatetwo").html("<option value='pa2'>({state_count51}) UPenn State Two</option><option value='pa3'>({state_count52}) UPenn State Three</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa7") {
+            $("#fortifystatetwo").html("<option value='pa4'>({state_count53}) UPenn State Four</option><option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "pa8") {
+            $("#fortifystatetwo").html("<option value='pa5'>({state_count54}) UPenn State Five</option><option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa9'>({state_count58}) UPenn State Nine</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa9") {
+            $("#fortifystatetwo").html("<option value='pa7'>({state_count56}) UPenn State Seven</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa10'>({state_count59}) UPenn State Ten</option>");
+        }
+        else if (val == "pa10") {
+            $("#fortifystatetwo").html("<option value='pa6'>({state_count55}) UPenn State Six</option><option value='pa8'>({state_count57}) UPenn State Eight</option><option value='pa9'>({state_count58}) UPenn State Nine</option>");
+        }
+        else if (val == "ri1") {
+            $("#fortifystatetwo").html("<option value='ri2'>({state_count61}) Brown State Two</option><option value='ri3'>({state_count62}) Brown State Three</option><option value='ri4'>({state_count63}) Brown State Four</option>");
+        }
+        else if (val == "ri2") {
+            $("#fortifystatetwo").html("<option value='ma13'>({state_count21}) Harvard State Thirteen</option><option value='ri1'>({state_count60}) Brown State One</option><option value='ri4'>({state_count63}) Brown State Four</option>");
+        }
+        else if (val == "ri3") {
+            $("#fortifystatetwo").html("<option value='ri1'>({state_count60}) Brown State One</option><option value='ri4'>({state_count63}) Brown State Four</option><option value='nh5'>({state_count64}) Brown State Five</option>");
+        }
+        else if (val == "ri4") {
+            $("#fortifystatetwo").html("<option value='ri1'>({state_count60}) Brown State One</option><option value='ri2'>({state_count61}) Brown State Two</option><option value='ri3'>({state_count62}) Brown State Three</option>");
+        }
+        else if (val == "ri5") {
+            $("#fortifystatetwo").html("<option value='ct8'>({state_count8}) Yale State Eight</option><option value='ri3'>({state_count62}) Brown State Three</option>");
         }
     });
   
@@ -550,7 +735,7 @@ $(document).ready(function(){
 </head>
 <body>
 	<div align="right">
-	<div id="main" style="opacity: .7; padding: 10px; width:91%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
+	<div id="main" style="opacity: .7; padding: 10px; width:93%; margin-bottom: 0; color: #888; border: 1px #d3d3d3 solid;">
 		<div align="left" style="display:inline;">
 			<!--<span><a class="subtlelink" href="ivies/list"><img style="vertical-align: -4px;" src="views/default/images/ivy.png" />&nbsp{game_name}:&nbsp</a></span>-->
 		</div>
@@ -585,7 +770,7 @@ $(document).ready(function(){
 	</div>
 	
 	
-	<div id="main3" align="left" style="background: #4569A7; resize: both; float: left; overflow:hidden; left: 80px; height: 500px; width: 50%; margin-top: 10px;">
+	<div id="main3" align="left" style="background: #4569A7; resize: both; float: left; overflow:hidden; left: 40px; height: 500px; width: 56%; margin-top: 10px;">
 		<div id="rsr" style="opacity: 0; position: relative; -webkit-transform: matrix(1,0,0,1,0,0); -moz-transform: matrix(1.0,0,0,1.0,0,0); -o-transform: matrix(1.0,0,0,1.0,0,0); transform: matrix(1,0,0,1,0,0);">
 			
 			<svg height="600px" version="1.1" width="1000px" xmlns="http://www.w3.org/2000/svg" style="position: relative;">
@@ -920,7 +1105,7 @@ $(document).ready(function(){
 			</div>
 		
 			<div style="padding-top: 10px;">From&nbsp
-				<select id="fortifystateone" class="dropdown" onchange="setFortifyOptions()">
+				<select id="fortifystateone" class="dropdown" >
 					<option selected="selected">Your State</option>
 					{srmp_options}
 				</select>
@@ -929,7 +1114,7 @@ $(document).ready(function(){
 			<div style="padding-top: 10px;">
 				To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select id="fortifystatetwo" class="dropdown">
 				<option selected="selected">Your Other State</option>
-				{srmp_options}
+				{srmp_state_choices}
 			</select>
 			</div>
 			<hr style="border: none; background: #eee; height:1px; margin: 0; margin-top: 10px; padding:0; width:80%;" />
@@ -957,7 +1142,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	
-	<div id="main" style="margin-top: 10px; resize: both; float: right; min-height: 250px; height: 250px; overflow: scroll; cursor: se-resize; padding: 10px; text-align: left; color: #888;">
+	<div id="main" style="width: 93%;margin-top: 10px; resize: both; float: right; min-height: 250px; height: 250px; overflow: scroll; cursor: se-resize; padding: 10px; text-align: left; color: #888;">
 		<img src="views/default/images/icons/chat.png" style="opacity: .8; height: 15px; vertical-align: -2px;" />&nbspChat
 		<hr style="border: none; background: #ccc; height: 1px;" />
 		<div style=" resize:none;">
@@ -974,6 +1159,8 @@ $(document).ready(function(){
 			<div>&nbsp{srmp_chat3}</div>
 			<div>&nbsp{srmp_chat2}</div>
 			<div>&nbsp{srmp_chat1}</div>
+
+
 		
 		<div id="chatAdded" style="height: 9px;"></div>
 			
