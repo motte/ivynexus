@@ -2,7 +2,7 @@
 /*
  * Profile model
  */
-class Srmpgame {
+class Srmpgameadmin {
     
     /*
      * The registry
@@ -28,25 +28,6 @@ class Srmpgame {
   
 	
     private $valid;
-    
- function(){   
-    while($result_array = mysql_fetch_array sandrm_partials WHERE owner_id='$team_id' ASC by id){
-	   $borders_array = explode(',',  $result_array[borders]);
-	   foreach ($borders_array as each_border){
-		   if(in_array(each_border, $borders_array)){
-			   
-		   }
-	   }
-	    
-    }
-    	
-    }
-    
-    
-    
-    
-    
-    
     
     
     /*

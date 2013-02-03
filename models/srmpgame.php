@@ -123,6 +123,7 @@ class Srmpgame {
                 $this->registry->getObject('template')->getPage()->addTag('srmp_log', $data['log']);
                 $this->registry->getObject('template')->getPage()->addTag('srmp_turn_number', $data['turn_number']);
                 $profile_team_id = $this->registry->getObject('authenticate')->getProfile()->getTeamID();
+                $this->registry->getObject('template')->getPage()->addTag('team_id', $profile_team_id);
 	            $tabletwo = 'srmp_'.$specific_game.'_chat';
 	            $psql = "SELECT * FROM $tabletwo WHERE team_id='$profile_team_id' ORDER BY id DESC LIMIT 12";
 	            $query = $this->registry->getObject('db')->executeQuery($psql);

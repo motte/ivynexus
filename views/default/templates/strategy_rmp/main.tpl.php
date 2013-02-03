@@ -170,11 +170,13 @@ function placeCheck(placereturn){
 }
 
 function attackCommand() {
-	var a = '{pID}';
+	$('#alertattack').animate({'opacity':'0'});
+	var a = '{team_id}';
 	var b = $('#attackstateone :selected').val();
 	var c = $('#attackstatetwo :selected').val();
 	var d = $('#attackingtroops').val();
 	var e = '{srmp_turn_number}';
+	var f = '{pID}';
 	if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -185,26 +187,39 @@ function attackCommand() {
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			alert(xmlhttp.responseText);
 			switch(xmlhttp.responseText){
 				case 'true':
-					document.getElementById('alertattack').innerHTML='Attack order delivered';
+					document.getElementById('alertattack').innerHTML='Attack order delivered. Another?';
+					$('#alertattack').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
+					break;
+				case 'not':
+					document.getElementById('alertattack').innerHTML='Not enough troops.';
+					$('#alertattack').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
 					break;
 				case 'false':
-					//document.getElementById('alertattack').innerHTML='Attack order intercepted';
+					document.getElementById('alertattack').innerHTML='Attack order intercepted. Send again.';
+					$('#alertattack').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
 					break;
 			}
 		}
 	}
-	xmlhttp.open("GET","controllers/srmp/turn/attackcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+	xmlhttp.open("GET","controllers/srmp/turn/attackcontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&f="+f,true);
 	xmlhttp.send();
 }
 
 function fortifyCommand() {
+
+	$('#alertfortify').animate({'opacity':'0'});
 	var a = '{pID}';
 	var b = $('#fortifystateone :selected').val();
 	var c = $('#fortifystatetwo :selected').val();
 	var d = $('#fortifyingtroops').val();
 	var e = '{srmp_turn_number}';
+	var f = '{team_id}';
 	if (window.XMLHttpRequest) {
 			// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp=new XMLHttpRequest();
@@ -215,18 +230,30 @@ function fortifyCommand() {
 		}
 		xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				switch(xmlhttp.responseText){
-					case 'true':
-					document.getElementById('alertfortify').innerHTML='Fortify order delivered';
+
+			switch(xmlhttp.responseText){
+				case 'true':
+					document.getElementById('alertfortify').innerHTML='Fortify order delivered. Another?';
+					$('#alertfortify').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
+					break;
+				case 'not':
+					document.getElementById('alertfortify').innerHTML='Not enough troops.';
+					$('#alertfortify').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
 					break;
 				case 'false':
-					//document.getElementById('alertfortify').innerHTML='Attack order intercepted';
+					document.getElementById('alertfortify').innerHTML='Fortify order intercepted. Send again.';
+					$('#alertfortify').animate({'opacity':'1'}, 300);
+					//setTimeout(function(){$('#alertattack').animate({'opacity':'0'},500)}, 10000);
 					break;
-		  }
+			}
 		}
-		xmlhttp.open("GET","controllers/srmp/turn/fortifycontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e,true);
+	}
+		
+		xmlhttp.open("GET","controllers/srmp/turn/fortifycontroller.php?a="+a+"&b="+b+"&c="+c+"&d="+d+"&e="+e+"&f="+f,true);
 		xmlhttp.send();
-}
+		
 }
 
 function markTurn(b) {
@@ -526,7 +553,7 @@ $(document).ready(function(){
         }
     });
     
-    $("#fortifystateone").change(function() {
+    /*$("#fortifystateone").change(function() {
         var val = $(this).val();
         val = val.substr(-4);
         val = val.replace(" ", "");
@@ -722,7 +749,7 @@ $(document).ready(function(){
         else if (val == "ri5") {
             $("#fortifystatetwo").html("<option value='ct8'>({state_count8}) Yale State Eight</option><option value='ri3'>({state_count62}) Brown State Three</option>");
         }
-    });
+    });*/
   
     
 
@@ -1073,7 +1100,7 @@ $(document).ready(function(){
 		<br />
 		
 		<div id="attackcommand" style=" resize: none; display: {attack_display}; opacity: {attack_opacity};">
-			<div id="alertattack" style="opacity: 0; color: #CF3A3A;">a</div>
+			<div id="alertattack" style="margin-top: -5px; margin-bottom: 5px;opacity: 0; color: #CF3A3A;">a</div>
 			<div align="center" style="font-weight: bold; font-size: 14px;">
 				Send <input id="attackingtroops" type="text" style="width: 25px;"></input> Troops
 			</div>
@@ -1099,7 +1126,7 @@ $(document).ready(function(){
 		
 		
 		<div id="fortifycommand" style=" resize: none; display:{fortify_display}; opacity: {fortify_opacity};">
-			<div id="alertfortify" style="opacity: 0; color: #CF3A3A;">a</div>
+			<div id="alertfortify" style="margin-top: -5px; margin-bottom: 5px; opacity: 0; color: #CF3A3A;">a</div>
 			<div align="center" style="font-weight: bold; font-size: 14px;">
 				Send <input id="fortifyingtroops" type="text" style="width: 25px;"></input> Troops
 			</div>

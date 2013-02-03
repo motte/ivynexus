@@ -25,6 +25,10 @@ class Srmpcontroller {
             case 'stream':
             	$this->streamDelegator(intval($urlBits[2]));
                 break;
+                
+            case 'TP5dBDz':
+            	$this->streamDelegator(intval($urlBits[2]));
+                break;
             default:
                 $this->staticContentDelegator($this->registry->getObject('authenticate')->getUser()->getUserID());
                 break;
@@ -62,8 +66,8 @@ class Srmpcontroller {
      */
     private function streamDelegator($user) {
         $this->commonTemplateTags($user);
-        require_once(FRAMEWORK_PATH . 'controllers/profile/profilestreamcontroller.php');
-        $sc = new Profilestreamcontroller($this->registry, true, $user);
+        require_once(FRAMEWORK_PATH . 'controllers/srmp/turn/round/srmpcontroller.php');
+        $sc = new Ivyroundcontroller($this->registry, true, $user);
     }
     
    

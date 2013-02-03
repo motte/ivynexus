@@ -19,13 +19,14 @@
     //$whereplacing = ;do strpos for ( then strpos for ) then remove the substr and preg_replace
     $state = substr($whereplacing, -4); 
     $state = preg_replace('/\s+/', '', $state);
+
     
     if($new_troops_left == '0') {
     	$new_total_troops = $result['total_troops']+$placingtroops;
     	mysqli_query($link,"UPDATE sandrm_users SET total_troops='$new_total_troops', new_troops='$new_troops_left', committed='1' WHERE id=$id") or die('error');
     	mysqli_query($link,"UPDATE sandrm_partials SET troops=troops + $placingtroops WHERE partial_name='$state'") or die('error');
     	$command = $whereplacing.' + '.$placingtroops;
-    	mysqli_query($link,"INSERT INTO srmp_ivy_commits (turn, team_id, user_id, commands) VALUES ('$turn', '$team', '$id', '$command')") or die('error');
+    	//mysqli_query($link,"INSERT INTO srmp_ivy_commits (turn, team_id, user_id, commands) VALUES ('$turn', '$team', '$id', '$command')") or die('error');
         echo $new_troops_left;
         mysqli_free_result($query);
     } 
@@ -34,7 +35,7 @@
     	mysqli_query($link,"UPDATE sandrm_users SET total_troops='$new_total_troops', new_troops='$new_troops_left' WHERE id='$id'") or die('error');
     	mysqli_query($link,"UPDATE sandrm_partials SET troops=troops + $placingtroops WHERE partial_name='$state'") or die('error');
     	$command = $whereplacing.' + '.$placingtroops;
-    	mysqli_query($link,"INSERT INTO srmp_ivy_commits (turn, team_id, user_id, commands) VALUES ('$turn', '$team', '$id', '$command')") or die('error');
+    	//mysqli_query($link,"INSERT INTO srmp_ivy_commits (turn, team_id, user_id, commands) VALUES ('$turn', '$team', '$id', '$command')") or die('error');
 	    echo $new_troops_left;
         mysqli_free_result($query);
     }  
